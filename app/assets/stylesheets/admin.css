@@ -9,5 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- * require_tree .
+ *= vendor/bootstrap.min
+ *= plugins/hint
+ *= icons/elusive-webfont
+ *= icons/font-awesome
+ *= plugins/hint.min
+ *= layout/admin
+ *= skin/admin
  */

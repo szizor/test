@@ -1,0 +1,29 @@
+div.dataTables_filter {
+	top: 5px;
+	right: 50px;
+}
+div.dataTables_filter input {
+	margin-left: 10px;
+}
+.btn-add-polygon {
+	margin-top: 5px;
+}
+#map-canvas {
+	height: 350px;
+}
+.toolbar {
+	margin-bottom: 15px;
+}
+.color-button {
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  margin: 2px;
+  display: inline-block;
+  cursor: pointer;
+}
+#color-palette {
+	line-height: 1;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
