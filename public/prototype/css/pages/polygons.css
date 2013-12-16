@@ -15,8 +15,8 @@ div.dataTables_filter input {
 	margin-bottom: 15px;
 }
 .color-button {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   font-size: 0;
   margin: 2px;
   display: inline-block;
@@ -26,4 +26,7 @@ div.dataTables_filter input {
 	line-height: 1;
 	padding-top: 5px;
 	padding-bottom: 5px;
+}
+.btn-nuevo-marcador {
+	margin-right: 20px;
 }

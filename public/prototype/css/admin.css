@@ -10,6 +10,10 @@ html, body {
 	left: 0;
 	background:#474F57;
 }
+.logo {
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
 body{
 	font-size: 13px;
 	line-height: 22px;

@@ -33,8 +33,6 @@
     <!-- Uniform -->
     <link rel="stylesheet" href="css/vendor/daterangepicker-bs3.css" />
     <!-- Bootstrap toggle -->
-    <link rel="stylesheet" href="css/vendor/dataTables.bootstrap.css" />
-    <!-- Bootstrap toggle -->
     <link rel="stylesheet" href="css/vendor/bootstrap-switch.css">
 
     <!-- Widgets stylesheet -->
@@ -49,7 +47,6 @@
     <![endif]-->
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="css/pages/polygons.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -74,14 +71,14 @@
         <ul id="nav">
           <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
           <li class="has_sub">
-            <a href="#" class="open"><i class="fa fa-map-marker"></i> <span>Polygon</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+            <a href="#"><i class="fa fa-map-marker"></i> <span>Polygon</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
             <ul>
               <li><a href="polygon.html">Listados de Polígonos</a></li>
               <li><a href="add-polygon.html">Crear Nuevo Polígono</a></li>
               <li><a href="widgets3.html">Widgets #3</a></li>
             </ul>
           </li>
-          <li class="has_sub"><a href="#"><i class="fa fa-users"></i> <span>Usarios</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+          <li class="has_sub"><a href="#" class="open"><i class="fa fa-users"></i> <span>Usarios</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
             <ul>
               <li><a href="users.html">Listados de Usarios</a></li>
               <li><a href="add-users.html">Crear Nuevo Usario</a></li>
@@ -130,13 +127,12 @@
         </ul>
       </div>
     </div>
-
     <div class="mainbar">
       <div class="page-head">
 
-        <h2 class="pull-left">Polígonos</h2>
+        <h2 class="pull-left">Usarios</h2>
         <div class="pull-right">
-          <a class="btn btn-primary btn-add-polygon" href="add-polygon.html">Crear Nuevo Polígono</a>
+          <a class="btn btn-primary btn-add-polygon" href="add-users.html">Crear Nuevo Usario</a>
         </div>
         <div class="clearfix"></div>
         <!-- Breadcrumb -->
@@ -144,7 +140,7 @@
           <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
           <!-- Divider -->
           <span class="divider">/</span>
-          <a href="#" class="bread-current">Polígonos</a>
+          <a href="#" class="bread-current">Usarios</a>
         </div>
 
         <div class="clearfix"></div>
@@ -155,7 +151,7 @@
             <div class="col-md-12">
               <div class="widget">
                 <div class="widget-head">
-                  <div class="pull-left">Polígonos</div>
+                  <div class="pull-left">Usarios</div>
                   <div class="widget-icons pull-right">
                     <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                   </div>
@@ -167,85 +163,39 @@
                       <tr>
                         <th>#</th>
                         <th>Nombre</th>
-                        <th>Ciudad</th>
-                        <th>Estado</th>
-                        <th>Colonia</th>
+                        <th>Correo</th>
+                        <th>Tipo</th>
+                        <th>Facebook</th>
+                        <th>Twitter</th>
                         <th class="text-center">Control</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>JAL_ZPN_VDC</td>
-                        <td>Zapopan</td>
-                        <td>Jalisco</td>
-                        <td>Villas del Centinela</td>
+                        <td>Heberto Morales</td>
+                        <td>hmorales@global-objective.com</td>
+                        <td>Admin</td>
+                        <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
+                        <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
                         <td class="text-center">
                           <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
                           <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
                         </td>
                       </tr>
                       <tr>
-                        <td>2</td>
-                        <td>COA_TOR_SR</td>
-                        <td>Coahuila</td>
-                        <td>Torreon</td>
-                        <td>Santiago Ramírez</td>
+                        <td>1</td>
+                        <td>Miguel Hidalgo</td>
+                        <td>miguel@global-objective.com</td>
+                        <td>Capacitador</td>
+                        <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
+                        <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
                         <td class="text-center">
                           <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
                           <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
                         </td>
                       </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Yoshi Morimoto</td>
-                        <td>Japan</td>
-                        <td>12/03/2012</td>
-                        <td><span class="label label-success">Active</span></td>
-                        <td class="text-center">
-                          <div class="btn-group">
-                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Chuck Bartowski</td>
-                        <td>Bangkok</td>
-                        <td>03/11/2012</td>
-                        <td><span class="label label-success">Active</span></td>
-                        <td class="text-center">
-                          <div class="btn-group">
-                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Cody Federer</td>
-                        <td>Singapore</td>
-                        <td>13/32/2012</td>
-                        <td><span class="label label-danger">Banned</span></td>
-                        <td class="text-center">
-                          <div class="btn-group">
-                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>Alves Buraya</td>
-                        <td>Norway</td>
-                        <td>17/12/2011</td>
-                        <td><span class="label label-success">Active</span></td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
+
                     </tbody>
                   </table>
                   <div class="widget-foot">
@@ -288,8 +238,6 @@
     <script src="javascripts/plugins/top.js"></script> <!-- jQuery Notify -->
     <!-- jQuery Notification ends -->
 
-    <script src="javascripts/plugins/jquery.dataTables.js"></script>
-
     <!-- Daterangepicker -->
     <script src="javascripts/plugins/moment.min.js"></script>
     <script src="javascripts/plugins/daterangepicker.js"></script>
@@ -302,11 +250,9 @@
     <script src="javascripts/plugins/jquery.slimscroll.min.js"></script> <!-- jQuery SlimScroll -->
     <script src="javascripts/plugins/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
     <script src="javascripts/plugins/filter.js"></script> <!-- Filter for support page -->
-    <script src="javascripts/admin.js"></script>
     <script src="javascripts/plugins/charts.js"></script> <!-- Charts & Graphs -->
 
-
-    <script src="javascripts/pages/polygon.js"></script>
+    <script src="javascripts/admin.js"></script>
 
   </body>
 </html>

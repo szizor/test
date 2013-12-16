@@ -145,11 +145,28 @@ $('.wminimize').click(function(e){
     var m = date.getMonth();
     var y = date.getFullYear();
     
-    $('#calendar').fullCalendar({
+    var calendar = $('#calendar').fullCalendar({
       header: {
         left: 'prev',
         center: 'title',
         right: 'month,agendaWeek,agendaDay,next'
+      },
+      selectable: true,
+      selectHelper: true,
+      select: function(start, end, allDay) {
+        var title = prompt('Nombre del Evento:');
+        if (title) {
+          calendar.fullCalendar('renderEvent',
+            {
+              title: title,
+              start: start,
+              end: end,
+              allDay: allDay
+            },
+            true // make the event "stick"
+          );
+        }
+        calendar.fullCalendar('unselect');
       },
       editable: true,
       events: [
