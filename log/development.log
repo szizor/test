@@ -11,3 +11,2779 @@ Connecting to database specified by database.yml
 Started GET "/assets/rails.png" for 127.0.0.1 at 2013-12-13 19:51:32 -0600
 Served asset /rails.png - 304 Not Modified (1ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (13.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (4.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20140114040707)
+  [1m[35m (3.5ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255), `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140114040707')[0m
+  [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2014-01-13 22:25:08 -0600
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.4ms)
+Compiled application.css  (0ms)  (pid 25117)
+Compiled jquery.js  (1ms)  (pid 25117)
+Compiled jquery_ujs.js  (0ms)  (pid 25117)
+Compiled home.js  (70ms)  (pid 25117)
+Compiled sessions.js  (1ms)  (pid 25117)
+Compiled users.js  (0ms)  (pid 25117)
+Compiled vendor/bootstrap.min.js  (0ms)  (pid 25117)
+Compiled application.js  (154ms)  (pid 25117)
+Completed 200 OK in 207ms (Views: 206.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /sessions.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /users.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /jquery.js - 304 Not Modified (29ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /vendor/bootstrap.min.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /home.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:25:21 -0600
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:25:26 -0600
+
+Gem::LoadError (can't activate bcrypt-ruby (~> 3.0.0), already activated bcrypt-ruby-3.1.2. Make sure all dependencies are added to Gemfile.):
+  app/models/user.rb:2:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:26:19 -0600
+Connecting to database specified by database.yml
+
+Gem::LoadError (can't activate bcrypt-ruby (~> 3.0.0), already activated bcrypt-ruby-3.1.2. Make sure all dependencies are added to Gemfile.):
+  app/models/user.rb:2:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:27:49 -0600
+Connecting to database specified by database.yml
+
+Gem::LoadError (can't activate bcrypt-ruby (~> 3.0.0), already activated bcrypt-ruby-3.1.2. Make sure all dependencies are added to Gemfile.):
+  app/models/user.rb:2:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:29:46 -0600
+Connecting to database specified by database.yml
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+Compiled jquery.js  (1ms)  (pid 25371)
+Compiled jquery_ujs.js  (0ms)  (pid 25371)
+Compiled application.js  (39ms)  (pid 25371)
+Completed 200 OK in 86ms (Views: 85.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /jquery.js - 200 OK (7ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /users.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:47 -0600
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 9ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:29:50 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:51 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Served asset /application.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:29:52 -0600
+Served asset /application.js - 304 Not Modified (26ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 20ms (Views: 11.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:30:07 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20140114040707)
+Migrating to CreateSurveys (20140114043826)
+  [1m[35m (5.3ms)[0m  CREATE TABLE `surveys` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20140114043826')[0m
+  [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 22:42:14 -0600
+Connecting to database specified by database.yml
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Compiled surveys.js  (74ms)  (pid 25860)
+Compiled application.js  (103ms)  (pid 25860)
+Completed 200 OK in 160ms (Views: 159.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /surveys.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /sessions.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /users.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:30 -0600
+Served asset /application.js - 304 Not Modified (8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:32 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 22ms (Views: 12.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:42:34 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "user"=>{"email"=>"szizor@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'szizor@gmail.com' LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO `users` (`created_at`, `email`, `password_digest`, `updated_at`) VALUES ('2014-01-14 04:43:19', 'szizor@gmail.com', '$2a$10$W9H6t6S15PaiMfDNbeoO6ew/RN2k.niuF73ObK9Krn92F3NBpaao.', '2014-01-14 04:43:19')[0m
+  [1m[35m (2.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 129ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:19 -0600
+Served asset /application.js - 304 Not Modified (25ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:26 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:27 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "email"=>"szizor@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'szizor@gmail.com' LIMIT 1
+Redirected to http://localhost:3000/surveys
+Completed 302 Found in 89ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.4ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 35ms (Views: 30.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:43:34 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 22:50:13 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.2ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 74650ms (Views: 74639.4ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /sessions.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:28 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 22:51:31 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.2ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 18457ms (Views: 18448.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:51:50 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 22:52:12 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.2ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 5731ms (Views: 5728.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:52:18 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.3ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:13 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (7.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /application.css - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /surveys.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:15 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /jquery.js - 304 Not Modified (17ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:53:46 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 22:54:06 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:07 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (6.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:54:10 -0600
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 34ms (Views: 19.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 22:55:39 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:11:25 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:11:27 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` 
+Completed 500 Internal Server Error in 36ms
+
+ActionView::MissingTemplate (Missing template users/index, application/index with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/home/alejandro/rails/imjuve/app/views"
+):
+  app/controllers/users_controller.rb:7:in `index'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:12:09 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered users/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (undefined method `name' for #<User:0x007f2578e3f040>):
+    11: 
+    12: <% @users.each do |user| %>
+    13:   <tr>
+    14:     <td><%= user.name %></td>
+    15:     <td><%= user.email %></td>
+    16:     <td><%= link_to 'Show', user %></td>
+    17:     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+  app/views/users/index.html.erb:14:in `block in _app_views_users_index_html_erb__529423866348100997_69899459646280'
+  app/views/users/index.html.erb:12:in `each'
+  app/views/users/index.html.erb:12:in `_app_views_users_index_html_erb__529423866348100997_69899459646280'
+  app/controllers/users_controller.rb:7:in `index'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered users/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:12:18 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered users/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:02 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:06 -0600
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (8.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /jquery.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:13:50 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-13 23:18:49 -0600
+Connecting to database specified by database.yml
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "user"=>{"username"=>"test", "email"=>"szizor@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+Completed 500 Internal Server Error in 4ms
+
+ActiveModel::MassAssignmentSecurity::Error (Can't mass-assign protected attributes: username):
+  app/controllers/users_controller.rb:18:in `new'
+  app/controllers/users_controller.rb:18:in `create'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-13 23:19:15 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "user"=>{"username"=>"test", "email"=>"szizor@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'szizor@hotmail.com' LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO `users` (`created_at`, `email`, `is_admin`, `password_digest`, `updated_at`, `username`) VALUES ('2014-01-14 05:19:16', 'szizor@hotmail.com', NULL, '$2a$10$PXPVJ/uJJ788bnKtxp.MReVcYL5cg6Y953sXwuXDvvOT25rzsfh5C', '2014-01-14 05:19:16', 'test')[0m
+  [1m[35m (3.7ms)[0m  COMMIT
+  Rendered user_mailer/registration_confirmation.html.erb (5.4ms)
+Completed 500 Internal Server Error in 210ms
+
+ActionView::Template::Error (undefined method `name' for #<User:0x007f3b1c1f8db8>):
+    1: <p><%= @user.name %>,</p>
+    2: 
+    3: <p>Thank you for registering!</p>
+    4: 
+  app/views/user_mailer/registration_confirmation.html.erb:1:in `_app_views_user_mailer_registration_confirmation_html_erb___3163768541595767257_45551480'
+  app/mailers/user_mailer.rb:6:in `registration_confirmation'
+  app/controllers/users_controller.rb:21:in `create'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "user"=>{"username"=>"test", "email"=>"szizor@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'szizor@hotmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered users/new.html.erb within layouts/application (3.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 137ms (Views: 53.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /surveys.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /sessions.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /users.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:48 -0600
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered users/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:19:55 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/users/2" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[35m (3.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 42ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` 
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:02 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (4.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:03 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-13 23:20:18 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "user"=>{"username"=>"test", "email"=>"szizor@hotmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'szizor@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`created_at`, `email`, `is_admin`, `password_digest`, `updated_at`, `username`) VALUES ('2014-01-14 05:20:19', 'szizor@hotmail.com', NULL, '$2a$10$Jvh8X9dT6APXWeFN5pQT8Ow0wbcNZR4vt2IeQAT/GwyaC..y2modK', '2014-01-14 05:20:19', 'test')
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/registration_confirmation.html.erb (0.9ms)
+  Rendered user_mailer/registration_confirmation.text.erb (0.6ms)
+
+Sent mail to szizor@hotmail.com (80ms)
+Date: Mon, 13 Jan 2014 23:20:19 -0600
+From: test@imjuve.com
+To: test <szizor@hotmail.com>
+Message-ID: <52d4c9131a978_694c3f9d8e74fed05797@alejandro-G73Jh.mail>
+Subject: Datos de Usuario
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_52d4c913e05a_694c3f9d8e74fed05788c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_52d4c913e05a_694c3f9d8e74fed05788c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+test,
+
+Thank you for registering!
+
+Edit profile: http://localhost:3000/users/3/edit
+----==_mimepart_52d4c913e05a_694c3f9d8e74fed05788c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>test,</p>
+
+<p>Thank you for registering!</p>
+
+<p><a href="http://localhost:3000/users/3/edit">Edit profile</a></p>
+----==_mimepart_52d4c913e05a_694c3f9d8e74fed05788c--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 185ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /home.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:20:19 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:20:27 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template users/edit, application/edit with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/home/alejandro/rails/imjuve/app/views"
+):
+  actionpack (3.2.14) lib/action_view/path_set.rb:58:in `find'
+  actionpack (3.2.14) lib/action_view/lookup_context.rb:115:in `find'
+  actionpack (3.2.14) lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  actionpack (3.2.14) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (3.2.14) lib/action_view/renderer/template_renderer.rb:10:in `render'
+  actionpack (3.2.14) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.14) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.14) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.14) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.14) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.14) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.14) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.14) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.14) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.14) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.14) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:414:in `_run__2865828569047286511__process_action__941574271447319657__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.14) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.14) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.14) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.14) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `_run__3560313053213505209__call__2103011729497461887__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  Rendered users/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:22:27 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:22:29 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template users/edit, application/edit with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/home/alejandro/rails/imjuve/app/views"
+):
+  actionpack (3.2.14) lib/action_view/path_set.rb:58:in `find'
+  actionpack (3.2.14) lib/action_view/lookup_context.rb:115:in `find'
+  actionpack (3.2.14) lib/action_view/renderer/abstract_renderer.rb:3:in `find_template'
+  actionpack (3.2.14) lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  actionpack (3.2.14) lib/action_view/renderer/template_renderer.rb:10:in `render'
+  actionpack (3.2.14) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.14) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.14) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.14) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.14) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.14) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.14) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.14) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.14) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.14) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.14) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:414:in `_run__2865828569047286511__process_action__941574271447319657__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.14) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.14) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.14) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.14) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `_run__3560313053213505209__call__2103011729497461887__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/alejandro/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/edit.html.erb within layouts/application (6.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:14 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:32 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 23:23:34 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:23:34 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:34 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:34 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:34 -0600
+Served asset /sessions.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:35 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:35 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:35 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:35 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:35 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-01-13 23:23:45 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "email"=>"szizor@hotmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'szizor@hotmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/surveys
+Completed 302 Found in 118ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 23:23:45 -0600
+Processing by SurveysController#index as HTML
+  [1m[35mSurvey Load (0.2ms)[0m  SELECT `surveys`.* FROM `surveys` 
+  Rendered surveys/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:23:45 -0600
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:45 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /home.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:23:46 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:25:41 -0600
+Served asset /application.js - 304 Not Modified (35ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 23:26:11 -0600
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:26:12 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 7ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:28:52 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-01-13 23:29:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QiAmsSGFZmBoR0JUSgmdVPyHJ+Um0geCCmFH55lB7U4=", "email"=>"szizor@hotmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'szizor@hotmail.com' LIMIT 1
+Redirected to http://localhost:3000/surveys
+Completed 302 Found in 88ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.3ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 11ms (Views: 6.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:07 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 23:29:15 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.3ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:29:16 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.1ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:45 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered users/_form.html.erb (33.7ms)
+  Rendered users/edit.html.erb within layouts/application (34.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:30:48 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Processing by SurveysController#index as HTML
+  [1m[36mSurvey Load (0.2ms)[0m  [1mSELECT `surveys`.* FROM `surveys` [0m
+  Rendered surveys/index.html.erb within layouts/application (0.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:23 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered users/_form.html.erb (4.9ms)
+  Rendered users/edit.html.erb within layouts/application (6.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:26 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/edit.html.erb within layouts/application (3.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /home.js - 304 Not Modified (35ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:29 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendered users/_form.html.erb (2.9ms)
+  Rendered users/edit.html.erb within layouts/application (3.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:31:38 -0600
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:02 -0600
+Served asset /application.js - 304 Not Modified (36ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Processing by SurveysController#index as HTML
+  [1m[35mSurvey Load (0.2ms)[0m  SELECT `surveys`.* FROM `surveys` 
+  Rendered surveys/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:35:09 -0600
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 24ms (Views: 9.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:02 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/4/edit" for 127.0.0.1 at 2014-01-13 23:37:05 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=4):
+  app/controllers/users_controller.rb:58:in `can_edit'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2014-01-13 23:37:13 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Redirected to http://localhost:3000/
+Filter chain halted as :can_edit rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-13 23:37:13 -0600
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-13 23:37:13 -0600
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/surveys.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /surveys.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/vendor/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /vendor/bootstrap.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-13 23:37:14 -0600
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/users/4/edit" for 127.0.0.1 at 2014-01-13 23:37:42 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `4' for #<Class:0x007f3b0417cac8>):
+  app/controllers/users_controller.rb:58:in `can_edit'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/users/4/edit" for 127.0.0.1 at 2014-01-13 23:38:01 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 404 Not Found in 5ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=4):
+  app/controllers/users_controller.rb:58:in `can_edit'
+
+
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/alejandro/.rvm/gems/ruby-1.9.3-p448@imjuve/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
