@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
-gem 'mysql2', '0.3.13' 
+gem 'mysql2', '0.3.13'
 #gem "cancan", '1.6.10'
 gem "jquery-rails"
 gem 'will_paginate', '> 3.0'
@@ -11,6 +11,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 #gem "rmagick", "2.13.2"
 #gem 'omniauth-twitter', '1.0.1'
 #gem 'omniauth-facebook', '1.4.1'
+gem 'capistrano', '~> 2.9.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -20,16 +21,20 @@ group :assets do
 end
 
 group :development do
-  gem "nifty-generators", '0.4.6' 
+  gem "nifty-generators", '0.4.6'
   gem 'debugger', '1.6.1'
   gem 'letter_opener'
 end
+
+# group :production do
+
+# end
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
