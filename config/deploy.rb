@@ -1,68 +1,51 @@
 require "bundler/capistrano"
 
+server "66.228.51.135", :web, :app, :db, primary: true
+
 set :application, "imjuve"
-set :repository,  "git@github.com:MohamedAlaa/imjuve.git"
-
-set :scm, 'git'
-
-set :deploy_to, '/data/imjuve'
-
-set :keep_releases, 2
-
-set :user, 'deploy'
+set :user, "deploy"
+set :deploy_to, "/data/#{application}"
+set :deploy_via, :remote_cache
 set :use_sudo, false
 
-# set :symlinks, {
-#   "tmp" => "tmp",
-#   "log" => "log",
-#   "Gemfile.lock" => "Gemfile.lock",
-#   "node_modules" => "node_modules",
-#   "foreman-env" => ".env"
-# }
+set :scm, "git"
+set :repository,  "git@github.com:MohamedAlaa/imjuve.git"
+set :branch, "master"
 
-stage :production do
-  set :app_env, 'production'
-  set :branch, 'master'
-  set :host, '66.228.51.135'
-  server "66.228.51.135", :app
-end
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 
-stage :staging do
-  set :app_env, 'staging'
-  set :branch, 'staging'
-  set :host, '66.228.51.135'
-  server "66.228.51.135", :app
-end
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
-namespace :unicorn do
-  desc "Make the unicorn reload our code"
-  task :reload do
-    run "/etc/init.d/unicorn_imjuve upgrade"
+namespace :deploy do
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn server"
+    task command, roles: :app, except: {no_release: true} do
+      run "/etc/init.d/unicorn_#{application} #{command}"
+    end
   end
-end
 
-# namespace :airbrake do
-#   desc "Manually notify airbrake of the deploy"
-#   task :deploy do
-#   run "curl --silent -d 'api_key=b035cd29bf7e435c1fb6453f4d6bc39e&deploy[rails_env]=#{app_env}&deploy[local_username]=#{ENV['USER']}&deploy[scm_revision]=#{real_revision}&deploy[scm_repository]=https://github.com/freshout-dev/mideastunes' http://airbrake.io/deploys"
-#   end
-# end
-
-# namespace :jammit do
-#   desc "Generate all the jammit files"
-#   task :compile do
-#     run "cd /data/mdet/current && bundle exec jammit -c app/assets.yml -u http://#{host}"
-#   end
-# end
-
-namespace :bundle do
-  desc "Install bundle dependencies"
-  task :install do
-    run "cd /data/imjuve/current && bundle install --without development"
+  task :setup_config, roles: :app do
+    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    run "mkdir -p #{shared_path}/config"
+    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    puts "Now edit the config files in #{shared_path}."
   end
-end
+  after "deploy:setup", "deploy:setup_config"
 
-after :deploy, "unicorn:reload"
-before "deploy:restart", "bundle:install"
-# cleanup after every release.
-after "deploy:restart", "deploy:cleanup"
+  task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+  after "deploy:finalize_update", "deploy:symlink_config"
+
+  desc "Make sure local git is in sync with remote."
+  task :check_revision, roles: :web do
+    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+      puts "WARNING: HEAD is not the same as origin/master"
+      puts "Run `git push` to sync changes."
+      exit
+    end
+  end
+  before "deploy", "deploy:check_revision"
+end
