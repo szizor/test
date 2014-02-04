@@ -1,2 +1,817 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="hide">
+  <h1>Home#index</h1>
+  <p>Find me in app/views/home/index.html.erb</p>
+</div>
+<div class="page-header">
+  <h1>IMJUVE</h1>
+  <small>En este momento se pregunta al encuestado</small>
+</div>
+<form role="form">
+  <fieldset>
+    <div class="form-group">
+      <label>¿Conoces al Instituto Mexicano de la Juventud (IMJUVE)?</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field1" id="Field1_1" value="Si" onclick="document.getElementById('Field2').disabled = false;"> Si
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field1" id="Field1_2" value="No" onclick="document.getElementById('Field2').disabled = true;"> No
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Field2">¿qué conoces de él?</label>
+      <p class="help-block">Responder esta pregunta en caso de que la pregunta 1 haya sido afirmativa.</p>
+      <textarea class="form-control" rows="3" id="Field2" name="Field2" value="null"></textarea>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Datos de identificación de la zona de intervención</legend>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Municipio</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field3" id="Field3_1" value="Zapopan" checked> Zapopan
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field3" id="Field3_2" value="Torreón"> Torreón
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field3" id="Field3_3" value="Lerdo"> Lerdo
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Colonia</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field4" id="Field4_1" value="Prados de Santa Lucía" checked> Prados de Santa Lucía
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field4" id="Field4_2" value="Villas del Centinela"> Villas del Centinela
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field4" id="Field4_3" value="Santiago Ramírez"> Santiago Ramírez
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field4" id="Field4_4" value="San Isidro"> San Isidro
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Field5">Calle, Manzana o Coto</label>
+      <p class="help-block">Escribir la calle, manzana o coto en el que viva el encuestado</p>
+      <textarea class="form-control" rows="3" id="Field5" name="Field5"></textarea>
+    </div>
+    <legend>Datos del encuestado</legend>
+    <div class="form-group">
+      <label>Género del encuestado</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field6" id="Field6_1" value="Hombre"> Hombre
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field6" id="Field6_2" value="Mujer"> Mujer
+        </label>
+      </div>
+    </div>
+    <div class="form-group" id="youthControl">
+      <label>¿Cuál es su/tu edad?</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field7" id="Field7_1" value="12-14 años"> 12-14 años
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field7" id="Field7_2" value="15-19 años"> 15-19 años
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field7" id="Field7_3" value="20-24 años"> 20-24 años
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field7" id="Field7_4" value="25-29 años"> 25-29 años
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field7" id="Field7_5" value="30-59 años"> 30-59 años
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field7" id="Field7_6" value="mayor de 60 años"> mayor de 60 años
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>¿Vive(s) solo?</label>
+      <div class="radio"><label><input type="radio" name="Field8" id="Field8_1" value="Si" onclick="document.getElementById('Field9_8').checked = 'checked';"> Si</label></div>
+      <div class="radio"><label><input type="radio" name="Field8" id="Field8_2" value="No"> No</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Con quien vive(s)?</label>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_1" value="Vivo con amigos o amigas"> Vivo con amigos o amigas
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_2" value="Vivo con mi madre"> Vivo con mi madre
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_3" value="Vivo con mi padre"> Vivo con mi padre
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_4" value="Vivo con mis suegros"> Vivo con mis suegros
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_5" value="Vivo con mis hermanos o hermanas"> Vivo con mis hermanos o hermanas
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_6" value="Vivo con mi pareja"> Vivo con mi pareja
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_7" value="Vivo con mi(s) hijo(s)"> Vivo con mi(s) hijo(s)
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="Field9" id="Field9_8" value="Vivo solo o sola"> Vivo solo o sola
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>¿Cuántos hij@s tiene(s)?</label>
+      <div class="radio"><label><input type="radio" name="Field10" id="Field10" value="0" onclick=""> No tengo hijos</label></div>
+      <div class="radio"><label><input type="radio" name="Field10" id="Field10" value="1"> 1</label></div>
+      <div class="radio"><label><input type="radio" name="Field10" id="Field10" value="2"> 2</label></div>
+      <div class="radio"><label><input type="radio" name="Field10" id="Field10" value="3"> 3</label></div>
+      <div class="radio"><label><input type="radio" name="Field10" id="Field10" value="3+"> Más de 3</label></div>
+    </div>
+    <div class="form-group">
+      <label>Actualmente, ¿a que se/te dedica(s) prioritariamente?</label>
+      <p class="help-block">la mayoría de tu/su tiempo</p>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_1" value="Estudiante"> Estudiante
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_2" value="Empleada(o) de tiempo completo"> Empleada(o) de tiempo completo
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_3" value="Empleada(o) por horas"> Empleada(o) por horas
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_4" value="Tengo un negocio propio"> Tengo un negocio propio
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_5" value="Al hogar y/o cuidado de los niños en casa"> Al hogar y/o cuidado de los niños en casa
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_6" value="Ayudo en los quehaceres de mi casa"> Ayudo en los quehaceres de mi casa
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_7" value="Realizo actividades como robo, venta de drogas etc. para obtener dinero"> Realizo actividades como robo, venta de drogas etc. para obtener dinero
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_8" value="En este momento no tengo empleo ni estudio"> En este momento no tengo empleo ni estudio
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field11" id="Field11_9" value="3" onmouseup="document.getElementById('Field11_others').focus();"> Otro
+        </label>
+        <div class="form-other">
+          <input type="text" class="form-control" id="Field11_others" name="Field11_others" placeholder="Su Respuesta" onclick="document.getElementById('Field11_9').checked = 'checked';">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>¿Qué estás estudiando?</label>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_1" value="Primaria">Primaria</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_2" value="Secundaria">Secundaria</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_3" value="Preparatoria">Preparatoria</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_4" value="Carrera técnica">Carrera técnica</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_5" value="Oficio">Oficio</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_6" value="Carrera Universitaria">Carrera Universitaria</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_7" value="Maestría">Maestría</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_8" value="Doctorado">Doctorado</label></div>
+      <div class="radio"><label><input type="radio" name="Field12" id="Field12_9" value="No aplica">No aplica</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Cuál es tu nivel de estudios?</label>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_1" value="Primaria">Primaria</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_2" value="Secundaria">Secundaria</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_3" value="Preparatoria">Preparatoria</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_4" value="Carrera Técnica">Carrera Técnica</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_5" value="Universidad">Universidad</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_6" value="Maestría">Maestría</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_7" value="Doctorado">Doctorado</label></div>
+      <div class="radio"><label><input type="radio" name="Field13" id="Field13_8" value="No tengo estudios">No tengo estudios</label></div>
+    </div>
+    <div class="form-group">
+      <label for="Field14">¿Hasta qué grado estudiaste?</label>
+      <input type="text" class="form-control" name="Field14" id="Field14" placeholder="ej.: 5o de Primaria">
+    </div>
+    <div class="form-group">
+      <label>¿Tuvo/tuviste que dejar de estudiar?</label>
+      <div class="radio"><label><input type="radio" name="Field15" id="Field15_1" value="Si" onclick="document.getElementById('Field17_3').checked = 'checked';">Si</label></div>
+      <div class="radio"><label><input type="radio" name="Field15" id="Field15_2" value="No" onclick="document.getElementById('Field16_7').checked = 'checked';">No</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Cuál fue la causa?</label>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_1" value="Necesitaba trabajar para ayudar en mi casa">Necesitaba trabajar para ayudar en mi casa</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_2" value="No me gustaba la escuela">No me gustaba la escuela</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_3" value="Me expulsaron de la escuela">Me expulsaron de la escuela</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_4" value="Mis padres consideran que no es necesario que yo estudie">Mis padres consideran que no es necesario que yo estudie</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_5" value="El lugar a donde debo ir a estudiar está muy lejos">El lugar a donde debo ir a estudiar está muy lejos</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_6" value="No tengo dinero para pagar mis estudios">No tengo dinero para pagar mis estudios</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_7" value="No aplica">No aplica</label></div>
+      <div class="radio"><label><input type="radio" name="Field16" id="Field16_8" value="Otro">Otro</label><div class="form-other"><input type="text" class="form-control" name="Field16_others" id="Field16_others" placeholder="Su Respuesta" onclick="document.getElementById('Field16_8').checked = 'checked';"></div></div>
+    </div>
+    <div class="form-group">
+      <label>¿Te gustaría regresar a estudiar?</label>
+      <div class="radio"><label><input type="radio" name="Field17" id="Field17_1" value="Si">Si</label></div>
+      <div class="radio"><label><input type="radio" name="Field17" id="Field17_2" value="No">No</label></div>
+      <div class="radio"><label><input type="radio" name="Field17" id="Field17_3" value="No aplica">No aplica</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Por qué?</label>
+      <textarea class="form-control" rows="3" id="Field18" name="Field18" placeholder="Escribir brevemente dependiendo de la respuesta anterior"></textarea>
+    </div>
+    <legend>Antigüedad en la colonia</legend>
+    <div class="form-group">
+      <label>¿Cuantos años tienes viviendo en la colonia?</label>
+      <div class="radio"><label for="Field19_1"><input type="radio" name="Field19" id="Field19_1" value="Menos de 1 año">Menos de 1 año</label></div>
+      <div class="radio"><label for="Field19_2"><input type="radio" name="Field19" id="Field19_2" value="de 1 a 5 años">de 1 a 5 años</label></div>
+      <div class="radio"><label for="Field19_3"><input type="radio" name="Field19" id="Field19_3" value="6 a 10 años">6 a 10 años</label></div>
+      <div class="radio"><label for="Field19_4"><input type="radio" name="Field19" id="Field19_4" value="11 a 20 años">11 a 20 años</label></div>
+      <div class="radio"><label for="Field19_5"><input type="radio" name="Field19" id="Field19_5" value="Mas de 20 años">Mas de 20 años</label></div>
+    </div>
+  </fieldset>
+
+  <div class="page-header">
+  <h1>Percepción de su colonia</h1>
+  <small>A través de esta sección se pretende conocer algunos rasgos respecto al tema de vigilancia y seguridad pública para conocer el ambiente en el cual se desenvuelven los habitantes y en especial los jóvenes de la colonia e identificar factores que pueden entorpecer la sana convivencia para ellos</small>
+</div>
+
+  <fieldset>
+    <legend>Participación y organización</legend>
+    <div class="form-group">
+      <label>¿Los vecinos de su/tu cuadra se organizan para realizar algunas actividades?</label>
+      <p class="help-block">Por ejemplo: deportes, fiestas, eventos sociales, limpieza de la colonia, etc.</p>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field20" id="Field20_1" value="Si"> Si
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="Field20" id="Field20_2" value="No"> No
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>¿Usted o algún miembro del hogar participa(n) en algún grupo organizado u organización de vecinos para realizar actividades en favor de la colonia?</label>
+      <div class="radio"><label for="Field21_1"><input type="radio" name="Field21" id="Field21_1" value="Sí participo">Sí participo</label></div>
+      <div class="radio"><label for="Field21_2"><input type="radio" name="Field21" id="Field21_2" value="Yo no, pero un miembro de mi familia si participa">Yo no, pero un miembro de mi familia si participa</label></div>
+      <div class="radio"><label for="Field21_3"><input type="radio" name="Field21" id="Field21_3" value="Actualmente no participo, pero si he participado">Actualmente no participo, pero si he participado</label></div>
+      <div class="radio"><label for="Field21_4"><input type="radio" name="Field21" id="Field21_4" value="No participo pero me interesaría participar">No participo pero me interesaría participar</label></div>
+      <div class="radio"><label for="Field21_5"><input type="radio" name="Field21" id="Field16_5" value="No participo y no me interesa">No participo y no me interesa</label></div>
+    </div>
+    <legend>Vigilancia y Seguridad Pública</legend>
+    <div class="form-group">
+      <label>¿Quién o quienes vigilan en tu/su colonia?</label>
+      <div class="checkbox"><label for="Field22_1"><input type="checkbox" name="Field22" id="Field22_1" value="No hay vigilancia">No hay vigilancia</label></div>
+      <div class="checkbox"><label for="Field22_2"><input type="checkbox" name="Field22" id="Field22_2" value="La policía municipal">La policía municipal</label></div>
+      <div class="checkbox"><label for="Field22_3"><input type="checkbox" name="Field22" id="Field22_3" value="La policia del estado">La policia del estado</label></div>
+      <div class="checkbox"><label for="Field22_4"><input type="checkbox" name="Field22" id="Field22_4" value="La policía federal">La policía federal</label></div>
+      <div class="checkbox"><label for="Field22_5"><input type="checkbox" name="Field22" id="Field22_5" value="Personal del ejército">Personal del ejército</label></div>
+      <div class="checkbox"><label for="Field22_6"><input type="checkbox" name="Field22" id="Field22_6" value="Vecinos. Entre vecinos estamos pendientes unos de otros">Vecinos. Entre vecinos estamos pendientes unos de otros</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Cuándo cree que la vigilancia debe existir en su colonia?</label>
+      <div class="radio"><label for="Field23_1"><input type="radio" name="Field23" id="Field23_1" value="Siempre">Siempre</label></div>
+      <div class="radio"><label for="Field232_"><input type="radio" name="Field23" id="Field23_2" value="Únicamente durante el día">Únicamente durante el día</label></div>
+      <div class="radio"><label for="Field233_"><input type="radio" name="Field23" id="Field23_3" value="Únicamente durante la noche">Únicamente durante la noche</label></div>
+      <div class="radio"><label for="Field423_"><input type="radio" name="Field23" id="Field23_4" value="No es necesario que haya vigilancia">No es necesario que haya vigilancia</label></div>
+    </div>
+    <div class="form-group">
+      <label for="Field24">Mencione/menciona dos causas que provoquen inseguridad en esta colonia</label><textarea name="Field24" id="Field24" rows="3" class="form-control" row="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="Field25">Mencione/menciona dos soluciones que combatan la inseguridad en esta colonia</label><textarea name="Field25" id="Field25" rows="3" class="form-control" row="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>¿Ha/has sido víctima de inseguridad dentro de esta colonia?</label>
+      <div class="radio"><label for="Field26_1"><input type="radio" name="Field26" id="Field26_1" value="Si">Si</label></div>
+      <div class="radio"><label for="Field26_2"><input type="radio" name="Field26" id="Field26_2" value="No" onclick="document.getElementById('Field27_8').checked = 'checked';">No</label></div>
+    </div>
+
+    <div class="form-group">
+      <label>¿De qué tipo de delito ha/has sido víctima?</label>
+      <div class="checkbox"><label for="Field27_1"><input type="checkbox" name="Field27" id="Field27_1" value="Robo sin violencia">Robo sin violencia</label></div>
+      <div class="checkbox"><label for="Field27_2"><input type="checkbox" name="Field27" id="Field27_2" value="Robo con violencia">Robo con violencia</label></div>
+      <div class="checkbox"><label for="Field27_3"><input type="checkbox" name="Field27" id="Field27_3" value="Extorsión">Extorsión</label></div>
+      <div class="checkbox"><label for="Field27_4"><input type="checkbox" name="Field27" id="Field27_4" value="Secuestro">Secuestro</label></div>
+      <div class="checkbox"><label for="Field27_5"><input type="checkbox" name="Field27" id="Field27_5" value="Homicidio">Homicidio</label></div>
+      <div class="checkbox"><label for="Field27_6"><input type="checkbox" name="Field27" id="Field27_6" value="Violencia familiar">Violencia familiar</label></div>
+      <div class="checkbox"><label for="Field27_7"><input type="checkbox" name="Field27" id="Field27_7" value="Violencia sexual">Violencia sexual</label></div>
+      <div class="checkbox"><label for="Field27_8"><input type="checkbox" name="Field27" id="Field27_8" value="No aplica">No aplica</label></div>
+      <div class="checkbox">
+        <label for="Field27_9"><input type="checkbox" name="Field27" id="Field27_9" value="Otro" onmouseup="document.getElementById('Field27_others').focus();">Otro</label>
+        <div class="form-other">
+          <input type="text" class="form-control" id="Field27_others" name="Field27_others" placeholder="Su Respuesta" onclick="document.getElementById('Field27_9').checked = 'checked';">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>¿Se ha visto/Te has visto involucrado en algún tipo de delito?</label>
+      <div class="radio"><label for="Field28_1"><input type="radio" name="Field28" id="Field28_1" value="Si">Si</label></div>
+      <div class="radio"><label for="Field28_2"><input type="radio" name="Field28" id="Field28_2" value="No">No</label></div>
+      <div class="radio"><label for="Field28_3"><input type="radio" name="Field28" id="Field28_3" value="Prefiero no responder">Prefiero no responder</label></div>
+    </div>
+
+    <div class="form-group">
+      <label>¿Cuáles son las actividades de Las bandas o pandillas de esta colonia?</label>
+      <div class="checkbox">
+        <label for="Field29_1"><input type="checkbox" name="Field29" id="Field29_1" value="Están integradas por jóvenes de la colonia">Están integradas por jóvenes de la colonia</label>
+      </div>
+      <div class="checkbox">
+        <label for="Field29_2"><input type="checkbox" name="Field29" id="Field29_2" value="Están integradas por jóvenes que viven en la colonia y fuera de la colonia">Están integradas por jóvenes que viven en la colonia y fuera de la colonia</label>
+      </div>
+      <div class="checkbox">
+        <label for="Field29_3"><input type="checkbox" name="Field29" id="Field29_3" value="Se pelean entre ellas y causan daños (a casas o carros) mientas se pelean.">Se pelean entre ellas y causan daños (a casas o carros) mientas se pelean.</label>
+      </div>
+      <div class="checkbox">
+        <label for="Field29_4"><input type="checkbox" name="Field29" id="Field29_4" value="Cometen actos delictivos (fuera o dentro de la colonia)">Cometen actos delictivos (fuera o dentro de la colonia)</label>
+      </div>
+      <div class="checkbox">
+        <label for="Field29_5"><input type="checkbox" name="Field29" id="Field29_5" value="No hay bandas o pandillas en esta colonia">No hay bandas o pandillas en esta colonia</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Sobre el consumo de alcohol y drogas en las calles de esta colonia</label>
+      <div class="radio"><label for="Field30_1"><input type="radio" name="Field30" id="Field30_1" value="Únicamente se consume alcohol">Únicamente se consume alcohol</label></div>
+      <div class="radio"><label for="Field30_2"><input type="radio" name="Field30" id="Field30_2" value="Únicamente se consume drogas">Únicamente se consume drogas</label></div>
+      <div class="radio"><label for="Field30_3"><input type="radio" name="Field30" id="Field30_3" value="Se consume alcohol y drogas">Se consume alcohol y drogas</label></div>
+      <div class="radio"><label for="Field30_4"><input type="radio" name="Field30" id="Field30_4" value="No se consume alcohol ni drogas en las calles">No se consume alcohol ni drogas en las calles</label></div>
+      <div class="radio"><label for="Field30_5"><input type="radio" name="Field30" id="Field30_5" value="No sé">No sé</label></div>
+    </div>
+    <div class="form-group">
+      <label for="Field31">¿Qué acciones cree/crees que podría hacer el gobierno para mejorar la seguridad en su/tu colonia?</label><textarea name="Field31" id="Field31" rows="3" class="form-control"></textarea>
+    </div>
+    <legend>Espacios de recreación. Uso del tiempo libre</legend>
+    <div class="form-group">
+      <label>¿Qué actividades realiza(s) en su/tu tiempo libre?</label>
+      <div class="checkbox"><label for="Field32_1"><input type="checkbox" name="Field32" id="Field32_1" value="Deporte">Deporte</label></div>
+      <div class="checkbox"><label for="Field32_2"><input type="checkbox" name="Field32" id="Field32_2" value="Platico con mis amigos(as), vecinos">Platico con mis amigos(as), vecinos</label></div>
+      <div class="checkbox"><label for="Field32_3"><input type="checkbox" name="Field32" id="Field32_3" value="Ver televisión">Ver televisión</label></div>
+      <div class="checkbox"><label for="Field32_4"><input type="checkbox" name="Field32" id="Field32_4" value="Escuchar radio">Escuchar radio</label></div>
+      <div class="checkbox"><label for="Field32_5"><input type="checkbox" name="Field32" id="Field32_5" value="Leer">Leer</label></div>
+      <div class="checkbox"><label for="Field32_6"><input type="checkbox" name="Field32" id="Field32_6" value="Salir a pasear">Salir a pasear</label></div>
+      <div class="checkbox"><label for="Field32_7"><input type="checkbox" name="Field32" id="Field32_7" value="Visitar a algún familiar">Visitar a algún familiar</label></div>
+      <div class="checkbox"><label for="Field32_8"><input type="checkbox" name="Field32" id="Field32_8" value="Generalmente no tengo tiempo libre">Generalmente no tengo tiempo libre</label></div>
+      <div class="checkbox"><label for="Field32_9"><input type="checkbox" name="Field32" id="Field32_9" value="Delinquir">Delinquir</label></div>
+      <div class="checkbox">
+        <label for="Field32_10"><input type="checkbox" name="Field32" id="Field32_10" value="Otro">Otro</label>
+        <div class="form-other">
+          <input type="text" class="form-control" id="Field32_others" name="Field32_others" placeholder="Su Respuesta" onclick="document.getElementById('Field32_10').checked = 'checked';">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Field33">¿Qué deporte?</label>
+      <textarea name="Field33" id="Field33" rows="3" class="form-control" placeholder="Solo contestar si una de las respuestas anterior incluye Deporte"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="Field34">¿Qué le gustaría que tuviera su/tu colonia?</label>
+      <textarea name="Field34" id="Field34" rows="3" class="form-control"></textarea>
+    </div>
+  </fieldset>
+
+  <div class="page-header">
+    <h1>La juventud en la colonia</h1>
+    <small>Mediante esta sección nos interesa conocer la percepción que se tiene respecto a los jóvenes de la colonia, sus características, ocupación y espacios destinados para ellos</small>
+  </div>
+
+  <fieldset>
+    <legend>Percepción sobre los jóvenes</legend>
+    <div class="form-group">
+      <label>¿En dónde se reúnen los jóvenes de su/tu colonia?</label>
+      <div class="checkbox"><label for="Field35_1"><input type="checkbox" name="Field35" id="Field35_1" value="En la calle fuera de sus casas">En la calle fuera de sus casas</label></div>
+      <div class="checkbox"><label for="Field35_2"><input type="checkbox" name="Field35" id="Field35_2" value="En el parque">En el parque</label></div>
+      <div class="checkbox"><label for="Field35_3"><input type="checkbox" name="Field35" id="Field35_3" value="En sus casas">En sus casas</label></div>
+      <div class="checkbox"><label for="Field35_4"><input type="checkbox" name="Field35" id="Field35_4" value="En las esquinas">En las esquinas</label></div>
+      <div class="checkbox"><label for="Field35_5"><input type="checkbox" name="Field35" id="Field35_5" value="No se reúnen los jóvenes">No se reúnen los jóvenes</label></div>
+      <div class="checkbox"><label for="Field35_6"><input type="checkbox" name="Field35" id="Field35_6" value="No sé" onclick="document.getElementById('Field36_9').checked = 'checked';">No sé</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Qué actividades realizan los jóvenes cuando se reúnen?</label>
+      <div class="checkbox"><label for="Field36_1"><input type="checkbox" name="Field36" id="Field36_1" value="Jugar y/o hacer deporte">Jugar y/o hacer deporte</label></div>
+      <div class="checkbox"><label for="Field36_2"><input type="checkbox" name="Field36" id="Field36_2" value="Asistir a fiestas y reuniones sociales">Asistir a fiestas y reuniones sociales</label></div>
+      <div class="checkbox"><label for="Field36_3"><input type="checkbox" name="Field36" id="Field36_3" value="Platicar">Platicar</label></div>
+      <div class="checkbox"><label for="Field36_4"><input type="checkbox" name="Field36" id="Field36_4" value="Ir al cine o alguna otra actividad recreativa y cultural">Ir al cine o alguna otra actividad recreativa y cultural</label></div>
+      <div class="checkbox"><label for="Field36_5"><input type="checkbox" name="Field36" id="Field36_5" value="Fumar">Fumar</label></div>
+      <div class="checkbox"><label for="Field36_6"><input type="checkbox" name="Field36" id="Field36_6" value="Beber alcohol">Beber alcohol</label></div>
+      <div class="checkbox"><label for="Field36_7"><input type="checkbox" name="Field36" id="Field36_7" value="Consumir drogas">Consumir drogas</label></div>
+      <div class="checkbox"><label for="Field36_8"><input type="checkbox" name="Field36" id="Field36_8" value="Molestar a otras personas">Molestar a otras personas</label></div>
+      <div class="checkbox"><label for="Field36_9"><input type="checkbox" name="Field36" id="Field36_9" value="Pelearse">Pelearse</label></div>
+      <div class="checkbox"><label for="Field36_10"><input type="checkbox" name="Field36" id="Field36_10" value="No aplica">No aplica</label></div>
+      <div class="checkbox">
+        <label for="Field36_11"><input type="checkbox" name="Field36" id="Field36_11" value="Otros">Otros</label>
+        <div class="form-other">
+          <input type="text" class="form-control" id="Field36_others" name="Field36_others" placeholder="Su Respuesta" onclick="document.getElementById('Field36_11').checked = 'checked';">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>La mayoría de los jóvenes en esta colonia estudian hasta la ...</label>
+      <div class="radio"><label for="Field37_1"><input type="radio" name="Field37" id="Field37_1" value="Primaria">Primaria</label></div>
+      <div class="radio"><label for="Field37_2"><input type="radio" name="Field37" id="Field37_2" value="Secundaria">Secundaria</label></div>
+      <div class="radio"><label for="Field37_3"><input type="radio" name="Field37" id="Field37_3" value="Preparatoria">Preparatoria</label></div>
+      <div class="radio"><label for="Field37_4"><input type="radio" name="Field37" id="Field37_4" value="Universidad">Universidad</label></div>
+      <div class="radio"><label for="Field37_5"><input type="radio" name="Field37" id="Field37_5" value="No sé">No sé</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿En la colonia hay lugares que promueven la convivencia entre jóvenes?</label>
+      <div class="radio"><label for="Field38_1"><input type="radio" name="Field38" id="Field38_1" value="Si">Si</label></div>
+      <div class="radio"><label for="Field38_2"><input type="radio" name="Field38" id="Field38_2" value="No" onclick="document.getElementById('Field39_6').checked = 'checked';">No</label></div>
+    </div>
+    <div class="form-group">
+      <label>¿Qué tipo de lugares?</label>
+      <p class="help-block">Responder esta pregunta en caso de que la pregunta anterior haya sido afirmativa.</p>
+      <div class="checkbox"><label for="Field39_1"><input type="checkbox" name="Field39" id="Field39_1" value="Espacios deportivos">Espacios deportivos</label></div>
+      <div class="checkbox"><label for="Field39_2"><input type="checkbox" name="Field39" id="Field39_2" value="Centros culturales">Centros culturales</label></div>
+      <div class="checkbox"><label for="Field39_3"><input type="checkbox" name="Field39" id="Field39_3" value="Grupos religiosos">Grupos religiosos</label></div>
+      <div class="checkbox"><label for="Field39_4"><input type="checkbox" name="Field39" id="Field39_4" value="Parques">Parques</label></div>
+      <div class="checkbox"><label for="Field39_5"><input type="checkbox" name="Field39" id="Field39_5" value="Casas culturales o recreativas">Casas culturales o recreativas</label></div>
+      <div class="checkbox"><label for="Field39_6"><input type="checkbox" name="Field39" id="Field39_6" value="No aplica">No aplica</label></div>
+      <div class="checkbox">
+        <label for="Field39_7"><input type="checkbox" name="Field39" id="Field39_7" value="Otros">Otros</label>
+        <div class="form-other">
+          <input type="text" class="form-control" id="Field39_others" name="Field39_others" placeholder="Su Respuesta" onclick="document.getElementById('Field39_7').checked = 'checked';">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div id="onlyYouth">
+    <div class="page-header">
+      <h1>Sección exclusiva para ser consultada a los jóvenes</h1>
+      <small>Esta sección únicamente se le preguntará al encuestado que sea joven (12 a 29 años) de la colonia</small>
+    </div>
+    <fieldset>
+      <legend>La voz de los jóvenes</legend>
+      <div class="form-group">
+        <label>¿Te sientes a gusto con tu vida?</label>
+        <div class="radio"><label for="Field40_1"><input type="radio" name="Field40" id="Field40_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field40_2"><input type="radio" name="Field40" id="Field40_2" value="No">No</label></div>
+      </div>
+      <div class="form-group">
+        <label for="Field41">¿Por qué consideras que sí/no?</label><textarea name="Field41" id="Field41" rows="3" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>En el próximo año de mi vida quiero...</label>
+        <div class="radio"><label for="Field42_1"><input type="radio" name="Field42" id="Field42_1" value="Salir fuera de la colonia para trabajar">Salir fuera de la colonia para trabajar</label></div>
+        <div class="radio"><label for="Field42_2"><input type="radio" name="Field42" id="Field42_2" value="Seguir estudiando">Seguir estudiando</label></div>
+        <div class="radio"><label for="Field42_3"><input type="radio" name="Field42" id="Field42_3" value="Regresar a estudiar">Regresar a estudiar</label></div>
+        <div class="radio"><label for="Field42_4"><input type="radio" name="Field42" id="Field42_4" value="Casarme">Casarme</label></div>
+        <div class="radio"><label for="Field42_5"><input type="radio" name="Field42" id="Field42_5" value="Dedicar más tiempo a las reuniones sociales con mis amigos">Dedicar más tiempo a las reuniones sociales con mis amigos</label></div>
+        <div class="radio"><label for="Field42_6"><input type="radio" name="Field42" id="Field42_6" value="Estar en mi casa">Estar en mi casa</label></div>
+        <div class="radio"><label for="Field42_7"><input type="radio" name="Field42" id="Field42_7" value="Salir del país">Salir del país</label></div>
+        <div class="radio">
+          <label for="Field42_7"><input type="radio" name="Field42" id="Field42_7" value="Otros">Otros</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field42_others" name="Field42_others" placeholder="Su Respuesta" onclick="document.getElementById('Field42_7').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Field43">¿Cómo te visualizas en 5 años más?</label><textarea name="Field43" id="Field43" rows="3" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Lo más importante en este momento de mi vida es...</label>
+        <div class="help-block">Máximo 2 opciones</div>
+        <div class="checkbox"><label for="Field44_1"><input type="checkbox" name="Field44" id="Field44_1" value="Mi familia">Mi familia</label></div>
+        <div class="checkbox"><label for="Field44_2"><input type="checkbox" name="Field44" id="Field44_2" value="Mis amigos">Mis amigos</label></div>
+        <div class="checkbox"><label for="Field44_3"><input type="checkbox" name="Field44" id="Field44_3" value="Mi trabajo">Mi trabajo</label></div>
+        <div class="checkbox"><label for="Field44_4"><input type="checkbox" name="Field44" id="Field44_4" value="Mis estudios">Mis estudios</label></div>
+        <div class="checkbox"><label for="Field44_5"><input type="checkbox" name="Field44" id="Field44_5" value="Mi relación de pareja">Mi relación de pareja</label></div>
+        <div class="checkbox"><label for="Field44_6"><input type="checkbox" name="Field44" id="Field44_6" value="Las fiestas">Las fiestas</label></div>
+        <div class="checkbox"><label for="Field44_7"><input type="checkbox" name="Field44" id="Field44_7" value="Mis hijos">Mis hijos</label></div>
+        <div class="checkbox">
+          <label for="Field44_8"><input type="checkbox" name="Field44" id="Field44_8" value="Otros">Otros</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field44_others" name="Field44_others" placeholder="Su Respuesta" onclick="document.getElementById('Field44_8').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+
+      <legend>Prácticas cotidianas</legend>
+      <div class="form-group">
+        <label>¿Fumas cigarros?</label>
+        <div class="radio"><label for="Field45_1"><input type="radio" name="Field45" id="Field45_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field45_2"><input type="radio" name="Field45" id="Field45_2" value="No" onclick="document.getElementById('Field45_5').checked = 'checked';">No</label></div>
+      </div>
+
+      <div class="form-group">
+        <label>¿A qué edad comenzaste a fumar?</label>
+        <div class="radio"><label for="Field46_1"><input type="radio" name="Field46" id="Field46_1" value="Menos de 12 años">Menos de 12 años</label></div>
+        <div class="radio"><label for="Field46_2"><input type="radio" name="Field46" id="Field46_2" value="De 13 a 17 años">De 13 a 17 años</label></div>
+        <div class="radio"><label for="Field46_3"><input type="radio" name="Field46" id="Field46_3" value="De 18 a 29 años">De 18 a 29 años</label></div>
+        <div class="radio"><label for="Field46_4"><input type="radio" name="Field46" id="Field46_4" value="Mas de 29 años">Mas de 29 años</label></div>
+        <div class="radio"><label for="Field46_5"><input type="radio" name="Field46" id="Field46_5" value="No aplica">No aplica</label></div>
+      </div>
+
+      <div class="form-group">
+        <label>¿Con qué frecuencia consumes alcohol?</label>
+        <div class="radio"><label for="Field47_1"><input type="radio" name="Field47" id="Field47_1" value="Todos los días">Todos los días</label></div>
+        <div class="radio"><label for="Field47_2"><input type="radio" name="Field47" id="Field47_2" value="De dos a tres veces por semana">De dos a tres veces por semana</label></div>
+        <div class="radio"><label for="Field47_3"><input type="radio" name="Field47" id="Field47_3" value="De cuatro a 5 veces por semana">De cuatro a 5 veces por semana</label></div>
+        <div class="radio"><label for="Field47_4"><input type="radio" name="Field47" id="Field47_4" value="Solo cuanto voy a fiestas.">Solo cuanto voy a fiestas.</label></div>
+        <div class="radio"><label for="Field47_5"><input type="radio" name="Field47" id="Field47_5" value="Solo los fines de semana">Solo los fines de semana</label></div>
+        <div class="radio"><label for="Field47_6"><input type="radio" name="Field47" id="Field47_6" value="No consumo alcohol">No consumo alcohol</label></div>
+        <div class="radio">
+          <label for="Field47_7"><input type="radio" name="Field47" id="Field47_7" value="Otro">Otro</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field47_others" name="Field47_others" placeholder="Su Respuesta" onclick="document.getElementById('Field47_7').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>¿Actualmente consumes drogas?</label>
+        <div class="radio"><label for="Field48_1"><input type="radio" name="Field48" id="Field48_1" value="Si" onclick="document.getElementById('Field48').disabled = true;">Si</label></div>
+        <div class="radio"><label for="Field48_2"><input type="radio" name="Field48" id="Field48_2" value="No" onclick="
+          document.getElementById('Field49').disabled = true;
+          document.getElementById('Field50_6').checked = 'checked';
+          document.getElementById('Field51_6').checked = 'checked';
+
+          ">No</label></div>
+        <div class="radio"><label for="Field48_3"><input type="radio" name="Field48" id="Field48_3" value="Consumía anteriormente pero las dejé" onclick="document.getElementById('Field48').disabled = false;">Consumía anteriormente pero las dejé</label></div>
+      </div>
+
+      <div class="form-group">
+        <label for="Field49">¿Cómo las dejaste? ¿Quién o quiénes te ayudaron para dejarlas?</label>
+        <textarea name="Field49" id="Field49" rows="3" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>¿Qué tipo de droga consumes o consumías?</label>
+        <div class="radio"><label for="Field50_1"><input type="radio" name="Field50" id="Field50_1" value="Marihuana">Marihuana</label></div>
+        <div class="radio"><label for="Field50_2"><input type="radio" name="Field50" id="Field50_2" value="Cocaína">Cocaína</label></div>
+        <div class="radio"><label for="Field50_3"><input type="radio" name="Field50" id="Field50_3" value="Piedra">Piedra</label></div>
+        <div class="radio"><label for="Field50_4"><input type="radio" name="Field50" id="Field50_4" value="Pegamento">Pegamento</label></div>
+        <div class="radio"><label for="Field50_5"><input type="radio" name="Field50" id="Field50_5" value="Krokodil">Krokodil</label></div>
+        <div class="radio"><label for="Field50_6"><input type="radio" name="Field50" id="Field50_6" value="No aplica">No aplica</label></div>
+        <div class="radio">
+          <label for="Field50_7"><input type="radio" name="Field50" id="Field50_7" value="Otro">Otro</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field50_others" name="Field50_others" placeholder="Su Respuesta" onclick="document.getElementById('Field50_7').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>¿Con qué frecuencia?</label>
+        <div class="radio"><label for="Field51_1"><input type="radio" name="Field51" id="Field51_1" value="Todos los días">Todos los días</label></div>
+        <div class="radio"><label for="Field51_2"><input type="radio" name="Field51" id="Field51_2" value="De dos a tres veces por semana  y entre semana">De dos a tres veces por semana  y entre semana</label></div>
+        <div class="radio"><label for="Field51_3"><input type="radio" name="Field51" id="Field51_3" value="De cuatro a 5 veces por semana y entre semana">De cuatro a 5 veces por semana y entre semana</label></div>
+        <div class="radio"><label for="Field51_4"><input type="radio" name="Field51" id="Field51_4" value="Solo cuanto voy a fiestas">Solo cuanto voy a fiestas</label></div>
+        <div class="radio"><label for="Field51_5"><input type="radio" name="Field51" id="Field51_5" value="Solo los fines de semana">Solo los fines de semana</label></div>
+        <div class="radio"><label for="Field51_6"><input type="radio" name="Field51" id="Field51_6" value="No aplica">No aplica</label></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Relaciones Sociales, familiares y Personales</legend>
+      <div class="form-group">
+        <label>Los amigos que tengo...</label>
+        <div class="radio"><label for="Field52_1"><input type="radio" name="Field52" id="Field52_1" value="Pertenecen a mi colonia">Pertenecen a mi colonia</label></div>
+        <div class="radio"><label for="Field52_2"><input type="radio" name="Field52" id="Field52_2" value="Son de mi trabajo">Son de mi trabajo</label></div>
+        <div class="radio"><label for="Field52_3"><input type="radio" name="Field52" id="Field52_3" value="Viven en otras colonias">Viven en otras colonias</label></div>
+        <div class="radio"><label for="Field52_4"><input type="radio" name="Field52" id="Field52_4" value="Son de la escuela">Son de la escuela</label></div>
+        <div class="radio"><label for="Field52_5"><input type="radio" name="Field52" id="Field52_5" value="Considero que no tengo amigos">Considero que no tengo amigos</label></div>
+        <div class="radio">
+          <label for="Field52_6"><input type="radio" name="Field52" id="Field52_6" value="Otro">Otro</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field52_others" name="Field52_others" placeholder="Su Respuesta" onclick="document.getElementById('Field52_6').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Considero que en mi familia...</label>
+        <div class="radio"><label for="Field53_1"><input type="radio" name="Field53" id="Field53_1" value="Convivimos mucho">Convivimos mucho</label></div>
+        <div class="radio"><label for="Field53_2"><input type="radio" name="Field53" id="Field53_2" value="Convivimos a veces">Convivimos a veces</label></div>
+        <div class="radio"><label for="Field53_3"><input type="radio" name="Field53" id="Field53_3" value="Convivimos poco">Convivimos poco</label></div>
+        <div class="radio"><label for="Field53_4"><input type="radio" name="Field53" id="Field53_4" value="No convivimos para nada">No convivimos para nada</label></div>
+      </div>
+      <div class="form-group">
+        <label>¿Actualmente tienes una relación afectiva con alguien?</label>
+        <div class="radio"><label for="Field54_1"><input type="radio" name="Field54" id="Field54_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field54_2"><input type="radio" name="Field54" id="Field54_2" value="No" onclick="
+          document.getElementById('Field55_6').checked = 'checked';
+          document.getElementById('Field56_3').checked = 'checked';
+        ">No</label></div>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuánto tiempo llevas con esta relación?</label>
+        <div class="radio"><label for="Field55_1"><input type="radio" name="Field55" id="Field55_1" value="Menos de 1 años">Menos de 1 años</label></div>
+        <div class="radio"><label for="Field55_2"><input type="radio" name="Field55" id="Field55_2" value="De 1 a 2 años">De 1 a 2 años</label></div>
+        <div class="radio"><label for="Field55_3"><input type="radio" name="Field55" id="Field55_3" value="De 3 a 5 años">De 3 a 5 años</label></div>
+        <div class="radio"><label for="Field55_4"><input type="radio" name="Field55" id="Field55_4" value="De 6 a 15 años">De 6 a 15 años</label></div>
+        <div class="radio"><label for="Field55_5"><input type="radio" name="Field55" id="Field55_5" value="Mas de 15 años">Mas de 15 años</label></div>
+        <div class="radio"><label for="Field55_6"><input type="radio" name="Field55" id="Field55_6" value="No aplica">No aplica</label></div>
+      </div>
+      <div class="form-group">
+        <label>¿Tu pareja es de esta colonia?</label>
+        <div class="radio"><label for="Field56_1"><input type="radio" name="Field56" id="Field56_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field56_2"><input type="radio" name="Field56" id="Field56_2" value="No">No</label></div>
+        <div class="radio"><label for="Field56_3"><input type="radio" name="Field56" id="Field56_3" value="No aplica">No aplica</label></div>
+      </div>
+      <div class="form-group">
+        <label>¿Has tenido relaciones sexuales alguna vez?</label>
+        <div class="radio"><label for="Field57_1"><input type="radio" name="Field57" id="Field57_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field57_2"><input type="radio" name="Field57" id="Field57_2" value="No" onclick="
+          document.getElementById('Field58_3').checked = true;
+          document.getElementById('Field59_5').checked = true;
+          document.getElementById('Field60_4').checked = true;
+          document.getElementById('Field61_4').checked = true;
+          document.getElementById('Field62_8').checked = true;
+          document.getElementById('Field63_8').checked = true;
+          ">No</label></div>
+        <div class="radio"><label for="Field58_3"><input type="radio" name="Field58" id="Field58_3" value="Prefiero no contestar" onclick="
+          document.getElementById('Field58_4').checked = true;
+          document.getElementById('Field59_6').checked = true;
+          document.getElementById('Field60_5').checked = true;
+          document.getElementById('Field61_5').checked = true;
+          document.getElementById('Field63_7').checked = true;
+          "
+          >Prefiero no contestar</label></div>
+      </div>
+      <div class="form-group">
+        <label>Actualmente, ¿tienes relaciones sexuales?</label>
+        <div class="radio"><label for="Field59_1"><input type="radio" name="Field59" id="Field59_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field59_2"><input type="radio" name="Field59" id="Field59_2" value="No">No</label></div>
+        <div class="radio"><label for="Field59_3"><input type="radio" name="Field59" id="Field59_3" value="No aplica">No aplica</label></div>
+        <div class="radio"><label for="Field59_4"><input type="radio" name="Field59" id="Field59_4" value="Prefiero no contestar">Prefiero no contestar</label></div>
+      </div>
+
+      <div class="form-group">
+        <label>¿A qué edad tuviste relaciones sexuales por primera vez?</label>
+        <div class="radio"><label for="Field60_1"><input type="radio" name="Field60" id="Field60_1" value="11-14 años">11-14 años</label></div>
+        <div class="radio"><label for="Field60_2"><input type="radio" name="Field60" id="Field60_2" value="15-18 años">15-18 años</label></div>
+        <div class="radio"><label for="Field60_3"><input type="radio" name="Field60" id="Field60_3" value="19-24 años">19-24 años</label></div>
+        <div class="radio"><label for="Field60_4"><input type="radio" name="Field60" id="Field60_4" value="24-29 años">24-29 años</label></div>
+        <div class="radio"><label for="Field60_5"><input type="radio" name="Field60" id="Field60_5" value="No aplica">No aplica</label></div>
+        <div class="radio"><label for="Field60_6"><input type="radio" name="Field60" id="Field60_6" value="Prefiero no contestar">Prefiero no contestar</label></div>
+      </div>
+      <div class="form-group">
+        <label>¿Tus parejas sexuales en este último año han sido…?</label>
+        <div class="radio"><label for="Field61_1"><input type="radio" name="Field61" id="Field61_1" value="Pareja estable">Pareja estable <em>(de una duración de seis meses o más)</em></label></div>
+        <div class="radio"><label for="Field61_2"><input type="radio" name="Field61" id="Field61_2" value="Parejas ocasionales">Parejas ocasionales <em>(de duración menor a los seis meses)</em></label></div>
+        <div class="radio"><label for="Field61_3"><input type="radio" name="Field61" id="Field61_3" value="Ambas">Ambas (pareja estable y también parejas  ocasionales)</label></div>
+        <div class="radio"><label for="Field61_4"><input type="radio" name="Field61" id="Field61_4" value="No aplica">No aplica</label></div>
+        <div class="radio"><label for="Field61_4"><input type="radio" name="Field61" id="Field61_5" value="Prefiero no contestar">Prefiero no contestar</label></div>
+        <div class="radio">
+          <label for="Field61_5"><input type="radio" name="Field61" id="Field61_6" value="Otro">Otro</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field61_others" name="Field61_others" placeholder="Su Respuesta" onclick="document.getElementById('Field61_6').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>En tus relaciones sexuales  ¿usas o has usado un método anticonceptivo?</label>
+        <div class="radio"><label for="Field62_1"><input type="radio" name="Field62" id="Field62_1" value="Sí, siempre">Sí, siempre</label></div>
+        <div class="radio"><label for="Field62_2"><input type="radio" name="Field62" id="Field62_2" value="Algunas veces">Algunas veces</label></div>
+        <div class="radio"><label for="Field62_3"><input type="radio" name="Field62" id="Field62_3" value="No, hasta ahora no lo hemos usado">No, hasta ahora no lo hemos usado</label></div>
+        <div class="radio"><label for="Field62_4"><input type="radio" name="Field62" id="Field62_4" value="No aplica">No aplica</label></div>
+        <div class="radio"><label for="Field62_4"><input type="radio" name="Field62" id="Field62_5" value="Prefiero no contestar">Prefiero no contestar</label></div>
+      </div>
+      <div class="form-group">
+        <label>Si contesta que Si, ¿qué método has usado generalmente?</label>
+        <div class="checkbox"><label for="Field63_1"><input type="checkbox" name="Field63" id="Field63_1" value="Preservativo">Preservativo</label></div>
+        <div class="checkbox"><label for="Field63_2"><input type="checkbox" name="Field63" id="Field63_2" value="Píldora">Píldora</label></div>
+        <div class="checkbox"><label for="Field63_3"><input type="checkbox" name="Field63" id="Field63_3" value="Dispositivo Intra Uterino (DIU)">Dispositivo Intra Uterino (DIU)</label></div>
+        <div class="checkbox"><label for="Field63_4"><input type="checkbox" name="Field63" id="Field63_4" value="Inyección">Inyección</label></div>
+        <div class="checkbox"><label for="Field63_5"><input type="checkbox" name="Field63" id="Field63_5" value="Coito interrumpido (suspender el acto sexual antes de la eyaculación)">Coito interrumpido (suspender el acto sexual antes de la eyaculación)</label></div>
+        <div class="checkbox"><label for="Field63_6"><input type="checkbox" name="Field63" id="Field63_6" value="Método de los días (ritmo)">Método de los días (ritmo)</label></div>
+        <div class="checkbox"><label for="Field63_7"><input type="checkbox" name="Field63" id="Field63_7" value="Parche">Parche</label></div>
+        <div class="checkbox"><label for="Field63_8"><input type="checkbox" name="Field63" id="Field63_8" value="No aplica">No aplica</label></div>
+        <div class="checkbox">
+          <label for="Field63_9"><input type="checkbox" name="Field63" id="Field63_9" value="Otro">Otro</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field63_others" name="Field63_others" placeholder="Su Respuesta" onclick="document.getElementById('Field63_9').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>¿Cuáles fueron los motivos para no usar algún método anticonceptivo?</label>
+        <div class="checkbox"><label for="Field64_1"><input type="checkbox" name="Field64" id="Field64_1" value="No teníamos">No teníamos</label></div>
+        <div class="checkbox"><label for="Field64_2"><input type="checkbox" name="Field64" id="Field64_2" value="Es muy caro">Es muy caro</label></div>
+        <div class="checkbox"><label for="Field64_3"><input type="checkbox" name="Field64" id="Field64_3" value="Mi pareja no quiso">Mi pareja no quiso</label></div>
+        <div class="checkbox"><label for="Field64_4"><input type="checkbox" name="Field64" id="Field64_4" value="No me gusta usarlo">No me gusta usarlo</label></div>
+        <div class="checkbox"><label for="Field64_5"><input type="checkbox" name="Field64" id="Field64_5" value="No es natural">No es natural</label></div>
+        <div class="checkbox"><label for="Field64_6"><input type="checkbox" name="Field64" id="Field64_6" value="Quita placer">Quita placer</label></div>
+        <div class="checkbox"><label for="Field64_7"><input type="checkbox" name="Field64" id="Field64_7" value="Prefiero no contestar">Prefiero no contestar</label></div>
+        <div class="checkbox"><label for="Field64_8"><input type="checkbox" name="Field64" id="Field64_8" value="No aplica">No aplica</label></div>
+        <div class="checkbox">
+          <label for="Field64_9"><input type="checkbox" name="Field64" id="Field64_9" value="Otro">Otro</label>
+          <div class="form-other">
+            <input type="text" class="form-control" id="Field64_others" name="Field64_others" placeholder="Respuesta de otro" onclick="document.getElementById('Field64_9').checked = 'checked';">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Actividades dedicadas a los jóvenes</legend>
+      <div class="form-group">
+        <label>¿Has participado en algún grupo de jóvenes?</label>
+        <div class="radio"><label for="Field64_1"><input type="radio" name="Field64" id="Field64_1" value="Si" onclick="document.getElementById('Field65').disabled = false;">Si</label></div>
+        <div class="radio"><label for="Field64_2"><input type="radio" name="Field64" id="Field64_2" value="No" onclick="document.getElementById('Field65').disabled = true;">No</label></div>
+      </div>
+      <div class="form-group">
+        <label for="Field66">¿En qué tipo de grupo has participado o participas? y ¿qué actividades realizabas o realizas?</label>
+        <textarea name="Field66" id="Field66" rows="3" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>¿Te gustaría participar en alguna actividad dedicada para jóvenes como tú?</label>
+        <div class="radio"><label for="Field66_1"><input type="radio" name="Field66" id="Field66_1" value="Si" onclick="document.getElementById('Field67').disabled = false; document.getElementById('Field68').disabled = true;">Si</label></div>
+        <div class="radio"><label for="Field66_2"><input type="radio" name="Field66" id="Field66_2" value="No" onclick="document.getElementById('Field67').disabled = true;  document.getElementById('Field68').disabled = false;">No</label></div>
+      </div>
+
+      <div class="form-group">
+        <label for="Field67">¿En qué tipo de actividades te gustaría participar?</label>
+        <textarea name="Field67" id="Field67" rows="3" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="Field68">¿Porqué no?</label>
+        <textarea name="Field68" id="Field68" rows="3" class="form-control" placeholder="Solo si la respuesta a la pregunta anterior fue No"></textarea>
+      </div>
+      <div class="form-group">
+        <label>¿Consideras que tu colonia tiene lo necesario para que como joven puedas realizar actividades deportivas y recreativas?</label>
+        <div class="radio"><label for="Field69_1"><input type="radio" name="Field69" id="Field69_1" value="Si">Si</label></div>
+        <div class="radio"><label for="Field69_2"><input type="radio" name="Field69" id="Field69_2" value="No">No</label></div>
+      </div>
+      <div class="form-group">
+        <label for="Field70">¿Qué acciones crees pueden realizar ustedes los jóvenes para apoyar a su comunidad?</label>
+        <textarea name="Field70" id="Field70" rows="3" class="form-control"></textarea>
+      </div>
+    </fieldset>
+    <div class="form-action">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</form>

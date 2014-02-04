@@ -1,0 +1,35 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ * require_tree .
+ */
+
+form {
+	counter-reset: my-badass-counter;
+}
+.form-other {
+	margin-top: 5px;
+}
+.form-group {
+	position: relative;
+	padding-left: 30px;
+}
+.form-group:before {
+	content: counter(my-badass-counter);
+	counter-increment: my-badass-counter;
+	position: absolute;
+	left: 0;
+	top: 1px;
+	font: bold 20px/1 Sans-Serif;
+}
+.form-action {
+	padding: 20px 0 50px;
+}
