@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
   def can_edit
     @user = User.find(params[:id])
-    redirect_to root_url, alert: "Not authorized" if current_user != @user
+    redirect_to root_url, alert: "No estas loggeado" if current_user != @user
   end
 
 end

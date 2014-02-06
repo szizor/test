@@ -1,3 +1,4 @@
 class Survey < ActiveRecord::Base
-  attr_accessible :user_id
+  attr_accessible :user_id, :conoces, :que_conoces, :municipio, :colonia, :calle, :genero, :edad, :solo, :con_quien_vive, :hijos, :ocupacion, :estudia, :horas, :nivel, :grado, :dejo_estudiar, :causa, :regresar, :regresar_porque, :antiguedad, :se_organizan, :participa, :quien_vigila, :conviene, :provoca, :soluciones, :victima, :tipo_delito, :involucrado, :pandillas, :consumo, :acciones, :actividades, :deporte, :tuviera, :reunen, :act_reunen, :jovenes_estudian, :convivencia, :lugares, :agusto, :agusto_porque, :proximo, :visualizacion, :importante, :fumas, :edad_fumar, :frecuencia, :drogas, :como_dejaste, :tipo_droga, :frec_droga, :amigos, :familia, :relacion, :tiempo, :pareja, :rel_sex, :tiempo_relaciones, :primera_vez, :parejas_sexuales, :anticonceptivo, :metodos, :motivos, :grupo, :tipo_grupo, :gustaria_participar, :tipo_gustaria, :porque_no, :necesario, :acciones_comunidad
+  belongs_to :user
 end

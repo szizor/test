@@ -1,7 +1,11 @@
 class SurveysController < ApplicationController
-
+  layout "survey"
   def index
-    @surveys = Survey.all
+    if current_user.is_admin?
+      @surveys = Survey.all
+    else
+      @surveys = current_user.surveys
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,11 +36,12 @@ class SurveysController < ApplicationController
   end
 
   def create
-    @survey = Survey.new(params[:survey])
+    clean_params = check_others(params)
+    @survey = Survey.new(clean_params[:survey])
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
+        format.html { redirect_to surveys_url, notice: 'Encuesta Creada Satisfactoriamente.' }
         format.json { render json: @survey, status: :created, location: @survey }
       else
         format.html { render action: "new" }
@@ -45,11 +50,30 @@ class SurveysController < ApplicationController
     end
   end
 
+  def check_others(params)
+    params[:survey][:ocupacion] = params[:ocupacion_otro] if params[:ocupacion_otro].present?
+    params[:survey][:causa] = params[:causa_otro] if params[:causa_otro].present?
+    params[:survey][:tipo_delito] = params[:otro_tipo_delito] if params[:otro_tipo_delito].present?
+    params[:survey][:actividades] = params[:actividades_otro] if params[:actividades_otro].present?
+    params[:survey][:act_reunen] = params[:act_reunen_otro] if params[:act_reunen_otro].present?
+    params[:survey][:lugares] = params[:lugares_otro] if params[:lugares_otro].present?
+    params[:survey][:proximo] = params[:proximo_otro] if params[:proximo_otro].present?
+    params[:survey][:importante] = params[:importante_otro] if params[:importante_otro].present?
+    params[:survey][:frecuencia] = params[:frecuencia_otro] if params[:frecuencia_otro].present?
+    params[:survey][:tipo_droga] = params[:tipo_droga_otro] if params[:tipo_droga_otro].present?
+    params[:survey][:amigos] = params[:amigos_tag] if params[:amigos_tag].present?
+    params[:survey][:parejas_sexuales] = params[:parejas_sexuales_otro] if params[:parejas_sexuales_otro].present?
+    params[:survey][:metodos] = params[:metodos_otro] if params[:metodos_otro].present?
+    params[:survey][:motivos] = params[:motivos_otro] if params[:motivos_otro].present?
+    params
+  end
+
   def update
+    clean_params = check_others(params)
     @survey = Survey.find(params[:id])
 
     respond_to do |format|
-      if @survey.update_attributes(params[:survey])
+      if @survey.update_attributes(clean_params[:survey])
         format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
         format.json { head :no_content }
       else

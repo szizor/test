@@ -31,7 +31,7 @@ function isNotYouth() {
 }
 
 $('#youthControl').find('input').on("change", function(e) {
-    if (e.target.id === 'Field7_5' || e.target.id === 'Field7_6') {
+    if (e.target.id === 'survey_edad_30-59_aos' || e.target.id === 'survey_edad_mayor_de_60_aos') {
         isNotYouth();
     } else {
         isYouth();
