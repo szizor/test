@@ -15,7 +15,7 @@ Imjuve::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger
@@ -36,4 +36,15 @@ Imjuve::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  config.active_support.deprecation = :notify
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.global-objective.com",
+  :port                 => 587,
+  :domain               => 'global-objective.com',
+  :user_name            => 'notificaciones',
+  :password             => 'notigoto1',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true  }
+
 end
