@@ -7,6 +7,7 @@ set :user, "deploy"
 set :deploy_to, "/data/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
+set :app_env, 'production'
 
 set :scm, "git"
 set :repository,  "git@github.com:MohamedAlaa/imjuve.git"
