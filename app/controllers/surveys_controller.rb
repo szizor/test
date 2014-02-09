@@ -1,4 +1,6 @@
 class SurveysController < ApplicationController
+  before_filter :authorize_admin, :only => [:index, :show, :edit, :update, :destroy]
+  before_filter :authorize, :only => [:new, :create]
   layout "survey"
   def index
     if current_user.is_admin?
@@ -66,6 +68,15 @@ class SurveysController < ApplicationController
     params[:survey][:metodos] = params[:metodos_otro] if params[:metodos_otro].present?
     params[:survey][:motivos] = params[:motivos_otro] if params[:motivos_otro].present?
     params
+  end
+
+  def export
+    @surveys = Survey.order(:user_id)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @surveys.to_csv }
+      format.xls # { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
 
   def update

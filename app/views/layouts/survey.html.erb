@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
     <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
 
     <%= stylesheet_link_tag "survey", "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" %>
@@ -21,7 +23,13 @@
   </head>
 
   <body>
-
+    <% if params[:action] == "index"%>
+      <p>
+        Download:
+        <%= link_to "CSV", export_surveys_path(format: "csv") %> |
+        <%#= link_to "Excel", export_surveys_path(format: "xls") %>
+      </p>
+    <%end%>  
     <div class="container">
       <%= yield %>
     </div><!-- /.container -->

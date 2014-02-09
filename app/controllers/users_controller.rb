@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authorize, only: [:index, :new, :create]
   before_filter :can_edit, only: [:edit, :update]
-
+  layout "survey"
   def index
     @users = User.all
 

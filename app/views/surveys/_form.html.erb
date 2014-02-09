@@ -1,5 +1,6 @@
 <%= form_for @survey,  html: {:role => "form"} do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.hidden_field :username, :value => current_user.email %>
   <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
@@ -339,12 +340,12 @@
     <legend>Vigilancia y Seguridad Pública</legend>
     <div class="form-group">
       <%= f.label :quien_vigila, "¿Quién o quienes vigilan en tu/su colonia?" %>
-      <div class="checkbox"><label><%= f.radio_button(:quien_vigila, "No hay vigilancia")%>No hay vigilancia</label></div>
-      <div class="checkbox"><label><%= f.radio_button(:quien_vigila, "La policía municipal")%>La policía municipal</label></div>
-      <div class="checkbox"><label><%= f.radio_button(:quien_vigila, "La policia del estado")%>La policia del estado</label></div>
-      <div class="checkbox"><label><%= f.radio_button(:quien_vigila, "La policía federal")%>La policía federal</label></div>
-      <div class="checkbox"><label><%= f.radio_button(:quien_vigila, "Personal del ejército")%>Personal del ejército</label></div>
-      <div class="checkbox"><label><%= f.radio_button(:quien_vigila, "Vecinos. Entre vecinos estamos pendientes unos de otros")%>Vecinos. Entre vecinos estamos pendientes unos de otros</label></div>
+      <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "No hay vigilancia")%>No hay vigilancia</label></div>
+      <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "La policía municipal")%>La policía municipal</label></div>
+      <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "La policia del estado")%>La policia del estado</label></div>
+      <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "La policía federal")%>La policía federal</label></div>
+      <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "Personal del ejército")%>Personal del ejército</label></div>
+      <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "Vecinos. Entre vecinos estamos pendientes unos de otros")%>Vecinos. Entre vecinos estamos pendientes unos de otros</label></div>
     </div>
     <div class="form-group">
       <%= f.label :conviene, "¿Cuándo cree que la vigilancia debe existir en su colonia?" %>
@@ -510,7 +511,7 @@
       <div class="checkbox">
         <label><%= f.check_box(:lugares, {:multiple => true}, "Otros", nil) %>Otros</label>
         <div class="form-other">
-          <%= text_area_tag("lugares_otro", nil, :rows => 3, :class => "form-control", :placeholder=>"Su Respuesta", :onclick=>"document.getElementById('Field39_7').checked = 'checked';") %>
+          <%= text_field_tag("lugares_otro", nil, :class => "form-control", :placeholder=>"Su Respuesta", :onclick=>"document.getElementById('Field39_7').checked = 'checked';") %>
         </div>
       </div>
     </div>
@@ -563,7 +564,7 @@
         <div class="checkbox"><label><%= f.check_box(:importante, {:multiple => true}, "Las fiestas", nil) %>Las fiestas</label></div>
         <div class="checkbox"><label><%= f.check_box(:importante, {:multiple => true}, "Mis hijos", nil) %>Mis hijos</label></div>
         <div class="checkbox">
-          <label><%= f.radio_button(:importante, "Otros")%>Otros</label>
+          <label><%= f.check_box(:importante, {:multiple => true}, "Otros")%>Otros</label>
           <div class="form-other">
             <%= text_field_tag("importante_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_importante_otro').checked = 'checked';", :id=>"survey_importante_others") %>
           </div>
@@ -625,7 +626,7 @@
         <div class="radio">
           <label><%= f.radio_button(:tipo_droga, "Otro")%>Otro</label>
           <div class="form-other">
-            <%= text_area_tag("tipo_droga_otro", nil, :rows => 3, :class => "form-control", :placeholder =>"Su Respuesta", :onclick => "document.getElementById('Field50_7').checked = 'checked';") %>
+            <%= text_field_tag("tipo_droga_otro", nil, :class => "form-control", :placeholder =>"Su Respuesta", :onclick => "document.getElementById('Field50_7').checked = 'checked';") %>
           </div>
         </div>
       </div>

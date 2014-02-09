@@ -21,7 +21,7 @@ Logged in as <%= current_user.email %>.
     <td><%= survey.user.username if survey.user %></td>
     <td><%= survey.created_at.in_time_zone('America/Mexico_City').strftime("%d de %b %H:%M")%>
     <td><%= link_to 'Editar', edit_survey_path(survey) %></td>
-    <td><%= link_to 'Borrar', survey, :confirm => 'Are you sure?', :method => :DELETE if is_admin?%></td>
+    <td><%= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

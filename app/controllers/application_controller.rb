@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   end
   
   def authorize
-    redirect_to login_url, alert: "No estas logeado" unless current_user && current_user.is_admin
+    redirect_to login_url, alert: "No estas logeado" unless current_user
+  end
+
+  def authorize_admin
+    redirect_to login_url, alert: "No estas administrador" unless current_user && current_user.is_admin
   end
 
 end

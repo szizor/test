@@ -2,6 +2,7 @@ class CreateSurveys < ActiveRecord::Migration
   def change
     create_table :surveys do |t|
       t.integer :user_id
+      t.string :email
       t.string :conoces
       t.text    :que_conoces
       t.string :municipio
@@ -14,7 +15,6 @@ class CreateSurveys < ActiveRecord::Migration
       t.string  :hijos
       t.string  :ocupacion
       t.string :estudia
-      t.string :horas
       t.string  :nivel
       t.string  :grado
       t.string :dejo_estudiar
@@ -24,7 +24,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.string :antiguedad
       t.string :se_organizan
       t.string :participa
-      t.string  :quien_vigila
+      t.text  :quien_vigila
       t.string :conviene
       t.text  :provoca
       t.text  :soluciones
@@ -51,7 +51,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.string :edad_fumar
       t.string  :frecuencia
       t.string :drogas
-      t.text  :como_dejaste
+      t.text   :como_dejaste
       t.string  :tipo_droga
       t.string :frec_droga
       t.string  :amigos

@@ -1,21 +1,33 @@
-<h1>Listing users</h1>
+<%= link_to "Crear Usuario", users_path  if is_admin?%>
+Logged in as <%= current_user.email %>.
+<%= link_to 'Editar Usuario', edit_user_path(current_user) %> |
+<%= link_to "Log Out", logout_path %> 
 
-<table>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, id: "flash_#{name}" %>
+<% end %>
+
+<h1>Listado de usuarios</h1>
+
+<table class="table table-hover">
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th></th>
-    <th></th>
+    <th>Movil</th>
+    <th>Municipio</th>
+    <th colspan="2" align="center">Acciones</th>
   </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.username %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.movil %></td>
+      <td><%= user.municipio %></td>>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
