@@ -1,5 +1,7 @@
-<%= @user.username %>,
+Bienvenido Encuestador,
+Tus datos de usuario son :
+Username: <%= @user.username %>,
+Password: goto2014,
 
-Thank you for registering!
-
-Edit profile: <%= edit_user_url(@user) %>
+Para entrar al sistema visita la siguiente liga: 
+<%= link_to "Encuestas", new_survey_url %>

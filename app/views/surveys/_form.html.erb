@@ -1,6 +1,6 @@
 <%= form_for @survey,  html: {:role => "form"} do |f| %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
-<%= f.hidden_field :username, :value => current_user.email %>
+<%= f.hidden_field :email, :value => current_user.email %>
   <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
@@ -239,7 +239,7 @@
           <%= f.radio_button(:ocupacion, "Otro", :onmouseup=>"document.getElementById('Field11_others').focus();document.getElementById('Field11_others').disabled = false")%> Otro
         </label>
         <div class="form-other">
-          <%= text_field_tag("ocupacion_otro", nil,:class => "form-control", :placeholder => "Su Respuesta", :onkeyup => "$('ocupacion_radio).val($(this).val()", :onclick=> "document.getElementById('survey_ocupacion_otro').checked = 'checked';", :id=>"Field11_others") %>
+          <%= f.text_field("ocupacion_otro",:class => "form-control", :placeholder => "Su Respuesta", :onkeyup => "$('ocupacion_radio).val($(this).val()", :onclick=> "document.getElementById('survey_ocupacion_otro').checked = 'checked';", :id=>"Field11_others") %>
         </div>
       </div>
     </div>
@@ -285,7 +285,7 @@
       <div class="radio"><label><%= f.radio_button(:causa, "No tengo dinero para pagar mis estudios")%>No tengo dinero para pagar mis estudios</label></div>
       <div class="radio"><label><%= f.radio_button(:causa, "No aplica")%>No aplica</label></div>
       <div class="radio"><label><%= f.radio_button(:causa, "Otro", :onmouseup=>"document.getElementById('survey_causa_others').focus();")%>Otro</label>
-      <div class="form-other"><%= text_field_tag("otro_causa", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_causa_otro').checked = 'checked';", :id=>"survey_causa_others") %></div></div>
+      <div class="form-other"><%= f.text_field("causa_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_causa_otro').checked = 'checked';", :id=>"survey_causa_others") %></div></div>
     </div>
     <div class="form-group">
      <%= f.label :regresar, "¿Te gustaría regresar a estudiar?" %>
@@ -381,7 +381,7 @@
       <div class="checkbox">
         <label><%= f.check_box(:tipo_delito, {:multiple => true}, "No aplica", nil) %>Otro</label>
         <div class="form-other">
-          <%= text_field_tag("otro_tipo_delito", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_tipo_delito_otro').checked = 'checked';", :id=>"survey_tipo_delito_others") %>
+          <%= f.text_field("otro_tipo_delito", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_tipo_delito_otro').checked = 'checked';", :id=>"survey_tipo_delito_others") %>
         </div>
       </div>
     </div>
@@ -437,7 +437,7 @@
       <div class="checkbox">
         <label><%= f.check_box(:actividades, {:multiple => true}, "Otro", nil) %>Otro</label>
         <div class="form-other">
-          <%= text_field_tag("actividades_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_actividades_otro').checked = 'checked';", :id=>"survey_actividades_others") %>
+          <%= f.text_field("actividades_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_actividades_otro').checked = 'checked';", :id=>"survey_actividades_others") %>
         </div>
       </div>
     </div>
@@ -482,7 +482,7 @@
       <div class="checkbox">
         <label><input type="checkbox" name="Field36" id="Field36_11" value="Otros">Otros</label>
         <div class="form-other">
-          <%= text_field_tag("act_reunen_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_act_reunen_otro').checked = 'checked';", :id=>"survey_act_reunen_others") %>
+          <%= f.text_field("act_reunen_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_act_reunen_otro').checked = 'checked';", :id=>"survey_act_reunen_others") %>
         </div>
       </div>
     </div>
@@ -511,7 +511,7 @@
       <div class="checkbox">
         <label><%= f.check_box(:lugares, {:multiple => true}, "Otros", nil) %>Otros</label>
         <div class="form-other">
-          <%= text_field_tag("lugares_otro", nil, :class => "form-control", :placeholder=>"Su Respuesta", :onclick=>"document.getElementById('Field39_7').checked = 'checked';") %>
+          <%= f.text_field("lugares_otro", :class => "form-control", :placeholder=>"Su Respuesta", :onclick=>"document.getElementById('Field39_7').checked = 'checked';") %>
         </div>
       </div>
     </div>
@@ -545,7 +545,7 @@
         <div class="radio">
           <label><%= f.radio_button(:proximo, "Otros")%>Otros</label>
           <div class="form-other">
-            <%= text_field_tag("proximo_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_proximo_otro').checked = 'checked';", :id=>"survey_proximo_others") %>
+            <%= f.text_field("proximo_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_proximo_otro').checked = 'checked';", :id=>"survey_proximo_others") %>
           </div>
         </div>
       </div>
@@ -566,7 +566,7 @@
         <div class="checkbox">
           <label><%= f.check_box(:importante, {:multiple => true}, "Otros")%>Otros</label>
           <div class="form-other">
-            <%= text_field_tag("importante_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_importante_otro').checked = 'checked';", :id=>"survey_importante_others") %>
+            <%= f.text_field("importante_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_importante_otro').checked = 'checked';", :id=>"survey_importante_others") %>
           </div>
         </div>
       </div>
@@ -598,7 +598,7 @@
         <div class="radio">
           <label><%= f.radio_button(:frecuencia, "Otro")%>Otro</label>
           <div class="form-other">
-            <%= text_field_tag("frecuencia_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_frecuencia_otro').checked = 'checked';", :id=>"survey_frecuencia_others") %>
+            <%= f.text_field("frecuencia_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_frecuencia_otro').checked = 'checked';", :id=>"survey_frecuencia_others") %>
           </div>
         </div>
       </div>
@@ -626,7 +626,7 @@
         <div class="radio">
           <label><%= f.radio_button(:tipo_droga, "Otro")%>Otro</label>
           <div class="form-other">
-            <%= text_field_tag("tipo_droga_otro", nil, :class => "form-control", :placeholder =>"Su Respuesta", :onclick => "document.getElementById('Field50_7').checked = 'checked';") %>
+            <%= f.text_field("tipo_droga_otro", :class => "form-control", :placeholder =>"Su Respuesta", :onclick => "document.getElementById('Field50_7').checked = 'checked';") %>
           </div>
         </div>
       </div>
@@ -654,7 +654,7 @@
         <div class="radio">
           <label><%= f.radio_button(:amigos, "Otro")%>Otro</label>
           <div class="form-other">
-            <%= text_field_tag("amigos_tag", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field52_6').checked = 'checked';") %>
+            <%= f.text_field("amigos_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field52_6').checked = 'checked';") %>
           </div>
         </div>
       </div>
@@ -732,7 +732,7 @@
         <div class="radio">
           <label><%= f.radio_button(:parejas_sexuales, "Otro")%>Otro</label>
           <div class="form-other">
-            <%= text_field_tag("parejas_sexuales_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field61_6').checked = 'checked';") %>
+            <%= f.text_field("parejas_sexuales_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field61_6').checked = 'checked';") %>
           </div>
         </div>
       </div>
@@ -759,7 +759,7 @@
         <div class="checkbox">
           <label><%= f.check_box(:metodos, {:multiple => true}, "Otro", nil) %>Otro</label>
           <div class="form-other">
-            <%= text_field_tag("metodos_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field63_9').checked = 'checked';") %>
+            <%= f.text_field("metodos_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field63_9').checked = 'checked';") %>
           </div>
         </div>
       </div>
@@ -776,7 +776,7 @@
         <div class="checkbox">
           <label><%= f.check_box(:motivos, {:multiple => true}, "Otro", nil) %>Otro</label>
           <div class="form-other">
-            <%= text_field_tag("motivos_otro", nil, :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field64_9').checked = 'checked';") %>
+            <%= f.text_field("motivos_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('Field64_9').checked = 'checked';") %>
           </div>
         </div>
       </div>
