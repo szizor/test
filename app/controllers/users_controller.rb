@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(users_url, :notice => 'Usario editado con exito.') }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }
@@ -55,8 +55,10 @@ class UsersController < ApplicationController
   end
 
   def can_edit
-    @user = User.find(params[:id])
-    redirect_to root_url, alert: "No estas loggeado" if current_user != @user
+    unless current_user.is_admin?
+      @user = User.find(params[:id])
+      redirect_to root_url, alert: "No estas loggeado" if current_user != @user 
+    end
   end
 
 end

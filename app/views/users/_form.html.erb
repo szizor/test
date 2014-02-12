@@ -30,11 +30,22 @@
     <%= f.label :estado %><br />
     <%= f.text_field :estado %>
   </div>
-  <div class="field">
-    <%= f.hidden_field :password, :value => "goto2014" %>
+  <% if params[:action] == "edit" %>
+    <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.hidden_field :password_confirmation, :value => "goto2014" %>
-  </div><br />
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <% else %>  
+    <div class="field">
+      <%= f.hidden_field :password, :value => "goto2014" %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :password_confirmation, :value => "goto2014" %>
+    </div><br />
+  <% end %>
   <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>
