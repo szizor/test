@@ -1,0 +1,1 @@
+ActionMailer::Base.default_url_options[:host] = "66.228.51.135"
