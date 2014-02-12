@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
   before_filter :authorize_admin, :only => [:index, :show, :edit, :update, :destroy]
   before_filter :authorize, :only => [:new, :create]
-  layout "survey"
+  # layout "survey"
   def index
     if current_user.is_admin?
       @surveys = Survey.all

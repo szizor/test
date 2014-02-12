@@ -1,15 +1,8 @@
-<%= link_to "Crear Usuario", users_path  if is_admin?%>
-Logged in as <%= current_user.email %>.
-<%= link_to 'Editar Usuario', edit_user_path(current_user) %> |
-<%= link_to "Log Out", logout_path %> 
+<div class="page-header">
+  <h1>Listado de Encuestas</h1>
+</div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-<% end %>
-
-<h1>Listado de Encuestas</h1>
-
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <tr>
     <th>Usuario</th>
     <th>Fecha</th>
@@ -25,7 +18,3 @@ Logged in as <%= current_user.email %>.
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'Nueva Encuesta', new_survey_path %>

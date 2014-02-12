@@ -295,7 +295,7 @@
     </div>
     <div class="form-group">
       <%= f.label :regresar_porque, "¿Por qué?" %>
-      <%= f.text_area(:regresar_porque, :rows => 3, :class => "form-control", :placeholder=>"Escribir brevemente dependiendo de la respuesta anterior") %> 
+      <%= f.text_area(:regresar_porque, :rows => 3, :class => "form-control", :placeholder=>"Escribir brevemente dependiendo de la respuesta anterior") %>
     </div>
     <legend>Antigüedad en la colonia</legend>
     <div class="form-group">
@@ -356,11 +356,11 @@
     </div>
     <div class="form-group">
       <%= f.label :provoca, "Mencione/menciona dos causas que provoquen inseguridad en esta colonia" %>
-      <%= f.text_area(:provoca, :rows => 3, :class => "form-control") %> 
+      <%= f.text_area(:provoca, :rows => 3, :class => "form-control") %>
     </div>
     <div class="form-group">
       <%= f.label :soluciones, "Mencione/menciona dos soluciones que combatan la inseguridad en esta colonia" %>
-      <%= f.text_area(:soluciones, :rows => 3, :class => "form-control") %> 
+      <%= f.text_area(:soluciones, :rows => 3, :class => "form-control") %>
     </div>
     <div class="form-group">
       <%= f.label :victima, "¿Ha/has sido víctima de inseguridad dentro de esta colonia?" %>
@@ -420,7 +420,7 @@
     </div>
     <div class="form-group">
       <%= f.label :acciones, "¿Qué acciones cree/crees que podría hacer el gobierno para mejorar la seguridad en su/tu colonia?" %>
-      <%= f.text_area(:acciones, :rows => 3, :class => "form-control") %> 
+      <%= f.text_area(:acciones, :rows => 3, :class => "form-control") %>
     </div>
     <legend>Espacios de recreación. Uso del tiempo libre</legend>
     <div class="form-group">
@@ -443,11 +443,11 @@
     </div>
     <div class="form-group">
       <%= f.label :deporte, "¿Qué deporte?" %>
-      <%= f.text_area(:deporte, :rows => 3, :class => "form-control", :placeholder=>"Solo contestar si una de las respuestas anterior incluye Deporte") %> 
+      <%= f.text_area(:deporte, :rows => 3, :class => "form-control", :placeholder=>"Solo contestar si una de las respuestas anterior incluye Deporte") %>
     </div>
     <div class="form-group">
       <%= f.label :tuviera, "¿Qué le gustaría que tuviera su/tu colonia?" %>
-      <%= f.text_area(:tuviera, :rows => 3, :class => "form-control") %>    
+      <%= f.text_area(:tuviera, :rows => 3, :class => "form-control") %>
     </div>
   </fieldset>
 
@@ -816,12 +816,14 @@
         <%= f.label :acciones_comunidad, "¿Qué acciones crees pueden realizar ustedes los jóvenes para apoyar a su comunidad?" %>
         <%= f.text_area(:acciones_comunidad, :rows => 3, :class => "form-control") %>
       </div>
-    </fieldset>   
+    </fieldset>
   </div>
   <div class="form-action">
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+      <div class="col-md-12">
+        <div class="well text-center">
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
       </div>
     </div>
   </div>

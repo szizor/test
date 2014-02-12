@@ -1,21 +1,14 @@
-<%= link_to "Crear Usuario", users_path  if is_admin?%>
-Logged in as <%= current_user.email %>.
-<%= link_to 'Editar Usuario', edit_user_path(current_user) %> |
-<%= link_to "Log Out", logout_path %> 
+<div class="page-header">
+  <h1>Listado de usuarios</h1>
+</div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-<% end %>
-
-<h1>Listado de usuarios</h1>
-
-<table class="table table-hover">
+<table class="table table-hover table-striped">
   <tr>
     <th>Name</th>
     <th>Email</th>
     <th>Movil</th>
     <th>Municipio</th>
-    <th colspan="2" align="center">Acciones</th>
+    <th class="text-center">Acciones</th>
   </tr>
 
   <% @users.each do |user| %>
@@ -23,13 +16,8 @@ Logged in as <%= current_user.email %>.
       <td><%= user.username %></td>
       <td><%= user.email %></td>
       <td><%= user.movil %></td>
-      <td><%= user.municipio %></td>>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= user.municipio %></td>
+      <td class="text-center"><%= link_to 'Editar', edit_user_path(user), :class => 'btn btn-primary' %>  <%= link_to 'Borrar Usuario', user, :class => 'btn btn-danger', :confirm => 'Estas Seguro?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New user', new_user_path %>

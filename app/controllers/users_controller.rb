@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_filter :authorize, only: [:index, :new, :create]
   before_filter :can_edit, only: [:edit, :update]
-  layout "survey"
+  # layout "survey"
+
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @users }
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def can_edit
     unless current_user.is_admin?
       @user = User.find(params[:id])
-      redirect_to root_url, alert: "No estas loggeado" if current_user != @user 
+      redirect_to root_url, alert: "No estas loggeado" if current_user != @user
     end
   end
 
