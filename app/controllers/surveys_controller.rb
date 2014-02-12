@@ -43,7 +43,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to surveys_url, notice: 'Encuesta Creada Satisfactoriamente.' }
+        format.html { redirect_to new_survey_url, notice: 'Encuesta Creada Satisfactoriamente.' }
         format.json { render json: @survey, status: :created, location: @survey }
       else
         format.html { render action: "new" }
