@@ -1,5 +1,11 @@
-<p><%= @user.username %>,</p>
+<p>Bienvenido Encuestador,</p>
 
-<p>Thank you for registering!</p>
+<p>Tus datos de usuario son :</p>
 
-<p><%= link_to "Edit profile", edit_user_url(@user) %></p>
+<p>Username: <%= @user.username %>,</p>
+
+<p>Password: goto2014,</p>
+
+<p>Para entrar al sistema visita la siguiente liga: </p>
+
+<p><%= link_to "Encuestas", new_survey_url %></p>

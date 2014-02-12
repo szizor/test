@@ -31,12 +31,10 @@
     <%= f.text_field :estado %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.hidden_field :password, :value => "goto2014" %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
+    <%= f.hidden_field :password_confirmation, :value => "goto2014" %>
+  </div><br />
   <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>
