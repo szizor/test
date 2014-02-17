@@ -13,8 +13,6 @@
 //= require jquery
 //= require_self
 
-// onlyYouth
-
 $('#survey_start_time').val(new Date);
 
 function isYouth() {
