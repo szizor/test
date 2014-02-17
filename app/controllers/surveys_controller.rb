@@ -25,6 +25,7 @@ class SurveysController < ApplicationController
   end
 
   def new
+    # layout "survey"
     @survey = Survey.new
 
     respond_to do |format|
@@ -85,10 +86,10 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.update_attributes(clean_params[:survey])
-        format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
+        format.html { redirect_to @survey, notice: 'Survey was successfully updated.'}
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit"}
         format.json { render json: @survey.errors, status: :unprocessable_entity }
       end
     end

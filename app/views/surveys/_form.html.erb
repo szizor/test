@@ -1,4 +1,10 @@
 <%= form_for @survey,  html: {:role => "form"} do |f| %>
+<!-- To-Do
+  <input type="hidden" name="survey[start_time]" id="survey_start_time">
+  <input type="hidden" name="survey[city]" id="survey_city">
+  <input type="hidden" name="survey[latitude]" id="survey_latitude">
+  <input type="hidden" name="survey[longitude]" id="survey_longitude">
+-->
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :email, :value => current_user.email %>
   <% if @survey.errors.any? %>
@@ -34,11 +40,11 @@
   </fieldset>
   <fieldset>
     <legend>Datos de identificación de la zona de intervención</legend>
-    <div class="form-group">
+    <div class="form-group" id="IntervensionCity">
       <%= f.label :municipio %>
       <div class="radio">
         <label>
-          <%= f.radio_button(:municipio, "Zapopan")%> Zapopan
+          <%= f.radio_button(:municipio, "Zapopan" )%> Zapopan
         </label>
       </div>
       <div class="radio">
@@ -52,7 +58,7 @@
         </label>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="coloniaSelector">
       <%= f.label :colonia %>
       <div class="radio">
         <label>
@@ -95,7 +101,7 @@
       </div>
     </div>
     <div class="form-group" id="youthControl">
-      <%= f.label :edad, "¿Cuál es su/tu edad?" %>
+      <%= f.label :edad, "¿Cuál es su edad?" %>
       <div class="radio">
         <label>
           <%= f.radio_button(:edad, "12-14 años")%> 12-14 años
@@ -131,7 +137,7 @@
       <%= f.label :solo, "¿Vive(s) solo?" %>
       <div class="radio">
         <label>
-          <%= f.radio_button(:solo, "Si", :onclick=>"document.getElementById('survey_con_quien_vive_vivo_solo_o_sola').checked = 'checked';")%> Si
+          <%= f.radio_button(:solo, "Si")%> Si
         </label>
       </div>
       <div class="radio">
@@ -140,8 +146,8 @@
         </label>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :con_quien_vive, "¿Con quien vive(s)?" %>
+    <div class="form-group" id="withWhomLive">
+      <%= f.label :con_quien_vive, "¿Con quien vive?" %>
       <div class="checkbox">
         <label>
           <%= f.check_box(:con_quien_vive, {:multiple => true}, "Vivo con amigos o amigas", nil) %> Vivo con amigos o amigas
@@ -179,12 +185,12 @@
       </div>
       <div class="checkbox">
         <label>
-          <%= f.check_box(:con_quien_vive, {:multiple => true}, "Vivo solo o sola", nil) %> Vivo solo o sola
+          <%= f.check_box(:con_quien_vive, {:multiple => true}, "No aplica", nil) %> No aplica
         </label>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :hijos, "¿Cuántos hij@s tiene(s)?" %>
+      <%= f.label :hijos, "¿Cuántos hij@s tiene?" %>
       <div class="radio"><label><%= f.radio_button(:hijos, "No tengo hijos")%> No tengo hijos</label></div>
       <div class="radio"><label><%= f.radio_button(:hijos, "1")%> 1</label></div>
       <div class="radio"><label><%= f.radio_button(:hijos, "2")%> 2</label></div>
@@ -192,8 +198,7 @@
       <div class="radio"><label><%= f.radio_button(:hijos, "Más de 3")%> Más de 3</label></div>
     </div>
     <div class="form-group">
-      <%= f.label :ocupacion, "Actualmente, ¿a que se/te dedica(s) prioritariamente?" %>
-      <p class="help-block">la mayoría de tu/su tiempo</p>
+      <%= f.label :ocupacion, "Actualmente, ¿a qué dedica la mayoría de su tiempo?" %>
       <div class="radio">
         <label>
           <%= f.radio_button(:ocupacion, "Estudiante")%> Estudiante
@@ -244,7 +249,8 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :estudia, "¿Qué estás estudiando?" %>
+      <%= f.label :estudia, "¿Qué está estudiando?" %>
+      <p class="help-block">Si es estudiante preguntar</p>
       <div class="radio"><label><%= f.radio_button(:estudia, "Primaria")%>Primaria</label></div>
       <div class="radio"><label><%= f.radio_button(:estudia, "Secundaria")%>Secundaria</label></div>
       <div class="radio"><label><%= f.radio_button(:estudia, "Preparatoria")%>Preparatoria</label></div>
@@ -253,10 +259,11 @@
       <div class="radio"><label><%= f.radio_button(:estudia, "Carrera Universitaria")%>Carrera Universitaria</label></div>
       <div class="radio"><label><%= f.radio_button(:estudia, "Maestría")%>Maestría</label></div>
       <div class="radio"><label><%= f.radio_button(:estudia, "Doctorado")%>Doctorado</label></div>
+      <div class="radio"><label><%= f.radio_button(:estudia, "Curso o diplomado")%>Curso o diplomado</label></div>
       <div class="radio"><label><%= f.radio_button(:estudia, "No aplica")%>No aplica</label></div>
     </div>
     <div class="form-group">
-      <%= f.label :nivel, "¿Cuál es tu nivel de estudios?" %>
+      <%= f.label :nivel, "¿Cuál es su nivel de estudios máximo terminado?" %>
       <div class="radio"><label><%= f.radio_button(:nivel, "Primaria")%>Primaria</label></div>
       <div class="radio"><label><%= f.radio_button(:nivel, "Secundaria")%>Secundaria</label></div>
       <div class="radio"><label><%= f.radio_button(:nivel, "Preparatoria")%>Preparatoria</label></div>
@@ -268,38 +275,39 @@
     </div>
     <div class="form-group">
       <%= f.label :grado, "¿Hasta qué grado estudiaste?" %>
+      <p class="help-block">En caso de haber dejado incompleto algún grado académico.</p>
       <%= f.text_field(:grado, :class=>"form-control", :placeholder=>"ej.: 5o de Primaria") %>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="leftSchool">
       <%= f.label :dejo_estudiar, "¿Tuvo/tuviste que dejar de estudiar?" %>
-      <div class="radio"><label><%= f.radio_button(:dejo_estudiar, "Si", :onclick=>"document.getElementById('survey_regresar_no_aplica').checked = 'checked';")%>Si</label></div>
-      <div class="radio"><label><%= f.radio_button(:dejo_estudiar, "No", :onclick=>"document.getElementById('survey_causa_no_aplica').checked = 'checked';")%>No</label></div>
+      <div class="radio"><label><%= f.radio_button(:dejo_estudiar, "Si")%>Si</label></div>
+      <div class="radio"><label><%= f.radio_button(:dejo_estudiar, "No")%>No</label></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="causeLeftSchool">
       <%= f.label :causa, "¿Cuál fue la causa?" %>
       <div class="radio"><label><%= f.radio_button(:causa, "Necesitaba trabajar para ayudar en mi casa")%>Necesitaba trabajar para ayudar en mi casa</label></div>
       <div class="radio"><label><%= f.radio_button(:causa, "No me gustaba la escuela")%>No me gustaba la escuela</label></div>
       <div class="radio"><label><%= f.radio_button(:causa, "Me expulsaron de la escuela")%>Me expulsaron de la escuela</label></div>
-      <div class="radio"><label><%= f.radio_button(:causa, "Mis padres consideran que no es necesario que yo estudie")%>Mis padres consideran que no es necesario que yo estudie</label></div>
-      <div class="radio"><label><%= f.radio_button(:causa, "El lugar a donde debo ir a estudiar está muy lejos")%>El lugar a donde debo ir a estudiar está muy lejos</label></div>
-      <div class="radio"><label><%= f.radio_button(:causa, "No tengo dinero para pagar mis estudios")%>No tengo dinero para pagar mis estudios</label></div>
+      <div class="radio"><label><%= f.radio_button(:causa, "Mis padres consideraron que no es necesario que yo estudie")%>Mis padres consideraron que no es necesario que yo estudie</label></div>
+      <div class="radio"><label><%= f.radio_button(:causa, "El lugar a donde debo ir a estudiar estába muy lejos")%>El lugar a donde debo ir a estudiar estába muy lejos</label></div>
+      <div class="radio"><label><%= f.radio_button(:causa, "No tenía dinero para pagar mis estudios")%>No tenía dinero para pagar mis estudios</label></div>
       <div class="radio"><label><%= f.radio_button(:causa, "No aplica")%>No aplica</label></div>
       <div class="radio"><label><%= f.radio_button(:causa, "Otro", :onmouseup=>"document.getElementById('survey_causa_others').focus();")%>Otro</label>
       <div class="form-other"><%= f.text_field("causa_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_causa_otro').checked = 'checked';", :id=>"survey_causa_others") %></div></div>
     </div>
-    <div class="form-group">
-     <%= f.label :regresar, "¿Te gustaría regresar a estudiar?" %>
+    <div class="form-group" id="wantReturnSchool">
+     <%= f.label :regresar, "¿Le gustaría regresar a estudiar?" %>
       <div class="radio"><label><%= f.radio_button(:regresar, "Si")%>Si</label></div>
       <div class="radio"><label><%= f.radio_button(:regresar, "No")%>No</label></div>
       <div class="radio"><label><%= f.radio_button(:regresar, "No aplica")%>No aplica</label></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="whyReturnSchool">
       <%= f.label :regresar_porque, "¿Por qué?" %>
       <%= f.text_area(:regresar_porque, :rows => 3, :class => "form-control", :placeholder=>"Escribir brevemente dependiendo de la respuesta anterior") %>
     </div>
     <legend>Antigüedad en la colonia</legend>
     <div class="form-group">
-      <%= f.label :antiguedad, "¿Cuantos años tienes viviendo en la colonia?" %>
+      <%= f.label :antiguedad, "¿Cuántos años tienes viviendo en la colonia?" %>
       <div class="radio"><label><%= f.radio_button(:antiguedad, "Menos de 1 año")%>Menos de 1 año</label></div>
       <div class="radio"><label><%= f.radio_button(:antiguedad, "de 1 a 5 años")%>de 1 a 5 años</label></div>
       <div class="radio"><label><%= f.radio_button(:antiguedad, "6 a 10 años")%>6 a 10 años</label></div>
@@ -316,7 +324,7 @@
   <fieldset>
     <legend>Participación y organización</legend>
     <div class="form-group">
-      <%= f.label :se_organizan, "¿Los vecinos de su/tu cuadra se organizan para realizar algunas actividades?" %>
+      <%= f.label :se_organizan, "¿Los vecinos de su cuadra se organizan para realizar algunas actividades?" %>
       <p class="help-block">Por ejemplo: deportes, fiestas, eventos sociales, limpieza de la colonia, etc.</p>
       <div class="radio">
         <label>
@@ -340,6 +348,7 @@
     <legend>Vigilancia y Seguridad Pública</legend>
     <div class="form-group">
       <%= f.label :quien_vigila, "¿Quién o quienes vigilan en tu/su colonia?" %>
+      <p class="help-block">Puede seleccionar más de una opción.</p>
       <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "No hay vigilancia")%>No hay vigilancia</label></div>
       <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "La policía municipal")%>La policía municipal</label></div>
       <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "La policia del estado")%>La policia del estado</label></div>
@@ -355,20 +364,20 @@
       <div class="radio"><label><%= f.radio_button(:conviene, "No es necesario que haya vigilancia")%>No es necesario que haya vigilancia</label></div>
     </div>
     <div class="form-group">
-      <%= f.label :provoca, "Mencione/menciona dos causas que provoquen inseguridad en esta colonia" %>
+      <%= f.label :provoca, "Mencione dos causas que provoquen inseguridad en esta colonia" %>
       <%= f.text_area(:provoca, :rows => 3, :class => "form-control") %>
     </div>
     <div class="form-group">
-      <%= f.label :soluciones, "Mencione/menciona dos soluciones que combatan la inseguridad en esta colonia" %>
+      <%= f.label :soluciones, "Mencione dos soluciones que combatan la inseguridad en esta colonia" %>
       <%= f.text_area(:soluciones, :rows => 3, :class => "form-control") %>
     </div>
-    <div class="form-group">
-      <%= f.label :victima, "¿Ha/has sido víctima de inseguridad dentro de esta colonia?" %>
+    <div class="form-group" id="insecurityVictim">
+      <%= f.label :victima, "¿Ha sido víctima de inseguridad dentro de esta colonia?" %>
       <div class="radio"><label><%= f.radio_button(:victima, "Si")%>Si</label></div>
-      <div class="radio"><label><%= f.radio_button(:victima, "Siempre", :onclick=>"document.getElementById('survey_tipo_delito_no_aplica').checked = 'checked';")%>No</div>
+      <div class="radio"><label><%= f.radio_button(:victima, "No")%>No</div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="victimType">
       <%= f.label :tipo_delito, "¿De qué tipo de delito ha/has sido víctima?" %>
       <div class="checkbox"><label><%= f.check_box(:tipo_delito, {:multiple => true}, "Robo sin violencia", nil) %>Robo sin violencia</label></div>
       <div class="checkbox"><label><%= f.check_box(:tipo_delito, {:multiple => true}, "Robo con violencia", nil) %>Robo con violencia</label></div>
@@ -386,14 +395,15 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :involucrado, "¿Se ha visto/Te has visto involucrado en algún tipo de delito?" %>
+      <%= f.label :involucrado, "¿Se ha visto involucrado en algún tipo de delito?" %>
       <div class="radio"><label><%= f.radio_button(:involucrado, "Si")%>Si</label></div>
       <div class="radio"><label><%= f.radio_button(:involucrado, "No")%>No</label></div>
       <div class="radio"><label><%= f.radio_button(:involucrado, "Prefiero no responder")%>Prefiero no responder</label></div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="bandasActivities">
       <%= f.label :pandillas, "¿Cuáles son las actividades de Las bandas o pandillas de esta colonia?" %>
+      <p class="help-block">Puede seleccionar máximo tres opciones.</p>
       <div class="checkbox">
         <label><%= f.check_box(:pandillas, {:multiple => true}, "Están integradas por jóvenes de la colonia", nil) %>Están integradas por jóvenes de la colonia</label>
       </div>
@@ -419,12 +429,13 @@
       <div class="radio"><label><%= f.radio_button(:consumo, "No sé")%>No sé</label></div>
     </div>
     <div class="form-group">
-      <%= f.label :acciones, "¿Qué acciones cree/crees que podría hacer el gobierno para mejorar la seguridad en su/tu colonia?" %>
+      <%= f.label :acciones, "¿Qué acciones cree que podría hacer el gobierno para mejorar la seguridad en su colonia?" %>
       <%= f.text_area(:acciones, :rows => 3, :class => "form-control") %>
     </div>
     <legend>Espacios de recreación. Uso del tiempo libre</legend>
-    <div class="form-group">
-      <%= f.label :actividades, "¿Qué actividades realiza(s) en su/tu tiempo libre?" %>
+    <div class="form-group" id="freeTimeActivities">
+      <%= f.label :actividades, "¿Qué actividades realiza generalmente en su tiempo libre?" %>
+      <p class="help-block">Puede seleccionar máximo tres opciones.</p>
       <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Deporte", nil) %>Deporte</label></div>
       <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Platico con mis amigos(as), vecinos", nil) %>Platico con mis amigos(as), vecinos</label></div>
       <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Ver televisión", nil) %>Ver televisión</label></div>
@@ -446,7 +457,7 @@
       <%= f.text_area(:deporte, :rows => 3, :class => "form-control", :placeholder=>"Solo contestar si una de las respuestas anterior incluye Deporte") %>
     </div>
     <div class="form-group">
-      <%= f.label :tuviera, "¿Qué le gustaría que tuviera su/tu colonia?" %>
+      <%= f.label :tuviera, "¿Qué le gustaría que tuviera su colonia?" %>
       <%= f.text_area(:tuviera, :rows => 3, :class => "form-control") %>
     </div>
   </fieldset>
@@ -459,7 +470,8 @@
   <fieldset>
     <legend>Percepción sobre los jóvenes</legend>
     <div class="form-group">
-      <%= f.label :reunen, "¿En dónde se reúnen los jóvenes de su/tu colonia?" %>
+      <%= f.label :reunen, "¿En dónde se reúnen los jóvenes de su colonia?" %>
+      <p class="help-block">Se pueden seleccionar más de una opción</p>
       <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En la calle fuera de sus casas", nil) %>En la calle fuera de sus casas</label></div>
       <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En el parque", nil) %>En el parque</label></div>
       <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En sus casas", nil) %>En sus casas</label></div>
@@ -467,7 +479,7 @@
       <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "No se reúnen los jóvenes", nil) %>No se reúnen los jóvenes</label></div>
       <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "No sé", nil) %>No sé</label></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="youthMeetingsActivites">
       <%= f.label :act_reunen, "¿Qué actividades realizan los jóvenes cuando se reúnen?" %>
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "Jugar y/o hacer deporte", nil) %>Jugar y/o hacer deporte</label></div>
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "Asistir a fiestas y reuniones sociales", nil) %>Asistir a fiestas y reuniones sociales</label></div>
@@ -480,7 +492,7 @@
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "Pelearse", nil) %>Pelearse</label></div>
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "No aplica", nil) %>No aplica</label></div>
       <div class="checkbox">
-        <label><input type="checkbox" name="Field36" id="Field36_11" value="Otros">Otros</label>
+        <label><%= f.check_box(:act_reunen, {:multiple => true}, "Otro", nil) %>Otro</label>
         <div class="form-other">
           <%= f.text_field("act_reunen_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_act_reunen_otro').checked = 'checked';", :id=>"survey_act_reunen_others") %>
         </div>
@@ -494,24 +506,23 @@
       <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "Universidad")%>Universidad</label></div>
       <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "No sé")%>No sé</label></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="connivancePlacesCheck">
       <%= f.label :convivencia, "¿En la colonia hay lugares que promueven la convivencia entre jóvenes?" %>
       <div class="radio"><label><%= f.radio_button(:convivencia, "Si")%>Si</label></div>
-      <div class="radio"><label><%= f.radio_button(:convivencia, "No", :onclick=>"document.getElementById('survey_lugares_no_aplica').checked = 'checked';")%>No</label></div>
+      <div class="radio"><label><%= f.radio_button(:convivencia, "No")%>No</label></div>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="placesType">
       <%= f.label :lugares, "¿Qué tipo de lugares?" %>
-      <p class="help-block">Responder esta pregunta en caso de que la pregunta anterior haya sido afirmativa.</p>
+      <p class="help-block">Puede seleccionar más de un tipo de lugar.</p>
       <div class="checkbox"><label><%= f.check_box(:lugares, {:multiple => true}, "Espacios deportivos", nil) %>Espacios deportivos</label></div>
       <div class="checkbox"><label><%= f.check_box(:lugares, {:multiple => true}, "Centros culturales", nil) %>Centros culturales</label></div>
       <div class="checkbox"><label><%= f.check_box(:lugares, {:multiple => true}, "Grupos religiosos", nil) %>Grupos religiosos</label></div>
       <div class="checkbox"><label><%= f.check_box(:lugares, {:multiple => true}, "Parques", nil) %>Parques</label></div>
-      <div class="checkbox"><label><%= f.check_box(:lugares, {:multiple => true}, "Casas culturales o recreativas", nil) %>Casas culturales o recreativas</label></div>
       <div class="checkbox"><label><%= f.check_box(:lugares, {:multiple => true}, "No aplica", nil) %>No aplica</label></div>
       <div class="checkbox">
         <label><%= f.check_box(:lugares, {:multiple => true}, "Otros", nil) %>Otros</label>
         <div class="form-other">
-          <%= f.text_field("lugares_otro", :class => "form-control", :placeholder=>"Su Respuesta", :onclick=>"document.getElementById('Field39_7').checked = 'checked';") %>
+          <%= f.text_field("lugares_otro", :class => "form-control", :placeholder=>"Su Respuesta", :onclick=>"document.getElementById('survey_lugares_otros').checked = 'checked';") %>
         </div>
       </div>
     </div>
@@ -523,6 +534,7 @@
     </div>
     <fieldset>
       <legend>La voz de los jóvenes</legend>
+      <p class="help-block">Ahora vamos a comentar un poco acerca de tu cómo te sientes en tu vida y lo que deseas hacer</p>
       <div class="form-group">
         <%= f.label :agusto, "¿Te sientes a gusto con tu vida?" %>
         <label>¿Te sientes a gusto con tu vida?</label>
@@ -530,7 +542,7 @@
         <div class="radio"><label><%= f.radio_button(:agusto, "No")%>No</label></div>
       </div>
       <div class="form-group">
-        <label>¿Por qué consideras que sí/no?</label>
+        <label>¿Por qué consideras que sí o que no?</label>
         <%= f.text_area(:agusto_porque, :rows => 3, :class => "form-control") %>
       </div>
       <div class="form-group">
@@ -553,7 +565,7 @@
         <%= f.label :visualizacion, "¿Cómo te visualizas en 5 años más?" %>
         <%= f.text_area(:visualizacion, :rows => 3, :class => "form-control") %>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="mostImportantMyLife">
         <%= f.label :importante, "Lo más importante en este momento de mi vida es..." %>
         <div class="help-block">Máximo 2 opciones</div>
         <div class="checkbox"><label><%= f.check_box(:importante, {:multiple => true}, "Mi familia", nil) %>Mi familia</label></div>
@@ -566,12 +578,13 @@
         <div class="checkbox">
           <label><%= f.check_box(:importante, {:multiple => true}, "Otros")%>Otros</label>
           <div class="form-other">
-            <%= f.text_field("importante_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_importante_otro').checked = 'checked';", :id=>"survey_importante_others") %>
+            <%= f.text_field("importante_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_importante_otros').checked = 'checked';", :id=>"survey_importante_others") %>
           </div>
         </div>
       </div>
 
       <legend>Prácticas cotidianas</legend>
+      <p class="help-block">Comentarle brevemente al encuestado: “con las siguientes preguntas nos interesa saber sobre algunas de tus prácticas cotidianas, recuerda que tus respuestas son confidenciales”</p>
       <div class="form-group">
         <%= f.label :fumas, "¿Fumas cigarros?" %>
         <div class="radio"><label><%= f.radio_button(:fumas, "Si")%>Si</label></div>
@@ -689,21 +702,8 @@
       <div class="form-group">
         <%= f.label :rel_sex, "¿Has tenido relaciones sexuales alguna vez?" %>
         <div class="radio"><label><%= f.radio_button(:rel_sex, "Si")%>Si</label></div>
-        <div class="radio"><label><%= f.radio_button(:pareja, "No", :onclick=>"
-          document.getElementById('Field58_3').checked = true;
-          document.getElementById('Field59_5').checked = true;
-          document.getElementById('Field60_4').checked = true;
-          document.getElementById('Field61_4').checked = true;
-          document.getElementById('Field62_8').checked = true;
-          document.getElementById('Field63_8').checked = true;
-          ")%>No</label></div>
-        <div class="radio"><label><%= f.radio_button(:pareja, "Prefiero no contestar", :onclick=>"
-          document.getElementById('Field58_4').checked = true;
-          document.getElementById('Field59_6').checked = true;
-          document.getElementById('Field60_5').checked = true;
-          document.getElementById('Field61_5').checked = true;
-          document.getElementById('Field63_7').checked = true;
-          ")%>Prefiero no contestar</label></div>
+        <div class="radio"><label><%= f.radio_button(:rel_sex, "No")%>No</label></div>
+        <div class="radio"><label><%= f.radio_button(:rel_sex, "Prefiero no contestar")%>Prefiero no contestar</label></div>
       </div>
       <div class="form-group">
         <%= f.label :tiempo_relaciones, "Actualmente, ¿tienes relaciones sexuales?" %>
@@ -827,6 +827,6 @@
       </div>
     </div>
   </div>
-
-
 <% end %>
+<%= javascript_include_tag "survey" %>
+<%= stylesheet_link_tag "survey" %>
