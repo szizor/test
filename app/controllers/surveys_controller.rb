@@ -1,4 +1,6 @@
 class SurveysController < ApplicationController
+  require 'uri'
+  require 'net/http'
   before_filter :authorize_admin, :only => [:index, :show, :edit, :update, :destroy]
   before_filter :authorize, :only => [:new, :create]
   # layout "survey"
@@ -27,7 +29,8 @@ class SurveysController < ApplicationController
   def new
     # layout "survey"
     @survey = Survey.new
-
+    ipinfo = Net::HTTP.get(URI.parse("http://ipinfo.io/#{request.remote_ip}/geo"))
+    @ip = JSON.parse(ipinfo)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @survey }

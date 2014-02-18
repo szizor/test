@@ -1,12 +1,10 @@
 <%= form_for @survey,  html: {:role => "form"} do |f| %>
-<!-- To-Do
-  <input type="hidden" name="survey[start_time]" id="survey_start_time">
-  <input type="hidden" name="survey[city]" id="survey_city">
-  <input type="hidden" name="survey[latitude]" id="survey_latitude">
-  <input type="hidden" name="survey[longitude]" id="survey_longitude">
--->
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :email, :value => current_user.email %>
+<%= f.hidden_field :start_time, :value => Date.today %>
+<%= f.hidden_field :city, :value => @ip["city"] %>
+<%= f.hidden_field :latitude, :value => @ip["loc"].split(",")[0] %>
+<%= f.hidden_field :longitude, :value => @ip["loc"].split(",")[1] %>
   <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
