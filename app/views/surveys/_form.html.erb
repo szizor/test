@@ -381,8 +381,20 @@
       <div class="radio"><label><%= f.radio_button(:consumo, "No sé")%>No sé</label></div>
     </div>
     <div class="form-group">
-      <%= f.label :acciones, "¿Qué acciones cree que podría hacer el gobierno para mejorar la seguridad en su colonia?" %>
-      <%= f.text_area(:acciones, :rows => 3, :class => "form-control") %>
+      <%= f.label :tipo_droga, "¿Qué tipo de droga consumes o consumías?" %>
+      <div class="help-block">Si respondió que se consumen drogas, preguntarle</div>
+      <div class="radio"><label><%= f.radio_button(:tipo_droga, "Marihuana")%>Marihuana</label></div>
+      <div class="radio"><label><%= f.radio_button(:tipo_droga, "Cocaína")%>Cocaína</label></div>
+      <div class="radio"><label><%= f.radio_button(:tipo_droga, "Piedra")%>Piedra</label></div>
+      <div class="radio"><label><%= f.radio_button(:tipo_droga, "Pegamento")%>Pegamento</label></div>
+      <div class="radio"><label><%= f.radio_button(:tipo_droga, "Krokodil")%>Krokodil</label></div>
+      <div class="radio"><label><%= f.radio_button(:tipo_droga, "No aplica")%>No aplica</label></div>
+      <div class="radio">
+        <label><%= f.radio_button(:tipo_droga, "Otro")%>Otro</label>
+        <div class="form-other">
+          <%= f.text_field("tipo_droga_otro", :class => "form-control", :placeholder =>"Su Respuesta", :onclick => "document.getElementById('Field50_7').checked = 'checked';") %>
+        </div>
+      </div>
     </div>
     <legend>Espacios de recreación. Uso del tiempo libre</legend>
     <div class="form-group" id="freeTimeActivities">
@@ -396,7 +408,6 @@
       <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Salir a pasear", nil) %>Salir a pasear</label></div>
       <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Visitar a algún familiar", nil) %>Visitar a algún familiar</label></div>
       <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Generalmente no tengo tiempo libre", nil) %>Generalmente no tengo tiempo libre</label></div>
-      <div class="checkbox"><label><%= f.check_box(:actividades, {:multiple => true}, "Delinquir", nil) %>Delinquir</label></div>
       <div class="checkbox">
         <label><%= f.check_box(:actividades, {:multiple => true}, "Otro", nil) %>Otro</label>
         <div class="form-other">
@@ -406,11 +417,8 @@
     </div>
     <div class="form-group">
       <%= f.label :deporte, "¿Qué deporte?" %>
+      <div class="help-block">Solo contestar si una de las respuestas anteriores incluye Deporte.</div>
       <%= f.text_area(:deporte, :rows => 3, :class => "form-control", :placeholder=>"Solo contestar si una de las respuestas anterior incluye Deporte") %>
-    </div>
-    <div class="form-group">
-      <%= f.label :tuviera, "¿Qué le gustaría que tuviera su colonia?" %>
-      <%= f.text_area(:tuviera, :rows => 3, :class => "form-control") %>
     </div>
   </fieldset>
 
@@ -421,18 +429,9 @@
 
   <fieldset>
     <legend>Percepción sobre los jóvenes</legend>
-    <div class="form-group">
-      <%= f.label :reunen, "¿En dónde se reúnen los jóvenes de su colonia?" %>
-      <p class="help-block">Se pueden seleccionar más de una opción</p>
-      <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En la calle fuera de sus casas", nil) %>En la calle fuera de sus casas</label></div>
-      <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En el parque", nil) %>En el parque</label></div>
-      <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En sus casas", nil) %>En sus casas</label></div>
-      <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "En las esquinas", nil) %>En las esquinas</label></div>
-      <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "No se reúnen los jóvenes", nil) %>No se reúnen los jóvenes</label></div>
-      <div class="checkbox"><label><%= f.check_box(:reunen, {:multiple => true}, "No sé", nil) %>No sé</label></div>
-    </div>
     <div class="form-group" id="youthMeetingsActivites">
-      <%= f.label :act_reunen, "¿Qué actividades realizan los jóvenes cuando se reúnen?" %>
+      <%= f.label :act_reunen, "¿Qué actividades realizan principalmente los jóvenes cuando se reúnen?" %>
+      <div class="help-block">Puede seleccionar máximo tres opciones.</div>
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "Jugar y/o hacer deporte", nil) %>Jugar y/o hacer deporte</label></div>
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "Asistir a fiestas y reuniones sociales", nil) %>Asistir a fiestas y reuniones sociales</label></div>
       <div class="checkbox"><label><%= f.check_box(:act_reunen, {:multiple => true}, "Platicar", nil) %>Platicar</label></div>
@@ -449,14 +448,6 @@
           <%= f.text_field("act_reunen_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_act_reunen_otro').checked = 'checked';", :id=>"survey_act_reunen_others") %>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :jovenes_estudian, "La mayoría de los jóvenes en esta colonia estudian hasta la ..." %>
-      <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "Primaria")%>Primaria</label></div>
-      <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "Secundaria")%>Secundaria</label></div>
-      <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "Preparatoria")%>Preparatoria</label></div>
-      <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "Universidad")%>Universidad</label></div>
-      <div class="radio"><label><%= f.radio_button(:jovenes_estudian, "No sé")%>No sé</label></div>
     </div>
     <div class="form-group" id="connivancePlacesCheck">
       <%= f.label :convivencia, "¿En la colonia hay lugares que promueven la convivencia entre jóvenes?" %>
@@ -488,17 +479,7 @@
       <legend>La voz de los jóvenes</legend>
       <p class="help-block">Ahora vamos a comentar un poco acerca de tu cómo te sientes en tu vida y lo que deseas hacer</p>
       <div class="form-group">
-        <%= f.label :agusto, "¿Te sientes a gusto con tu vida?" %>
-        <label>¿Te sientes a gusto con tu vida?</label>
-        <div class="radio"><label><%= f.radio_button(:agusto, "Si")%>Si</label></div>
-        <div class="radio"><label><%= f.radio_button(:agusto, "No")%>No</label></div>
-      </div>
-      <div class="form-group">
-        <label>¿Por qué consideras que sí o que no?</label>
-        <%= f.text_area(:agusto_porque, :rows => 3, :class => "form-control") %>
-      </div>
-      <div class="form-group">
-        <%= f.label :proximo, "En el próximo año de mi vida quiero..." %>
+        <%= f.label :proximo, "¿Cuáles son tus planes para tu vida en los próximo dos años?" %>
         <div class="radio"><label><%= f.radio_button(:proximo, "Salir fuera de la colonia para trabajar")%>Salir fuera de la colonia para trabajar</label></div>
         <div class="radio"><label><%= f.radio_button(:proximo, "Seguir estudiando")%>Seguir estudiando</label></div>
         <div class="radio"><label><%= f.radio_button(:proximo, "Regresar a estudiar")%>Regresar a estudiar</label></div>
@@ -512,10 +493,6 @@
             <%= f.text_field("proximo_otro", :class => "form-control", :placeholder => "Su Respuesta", :onclick=> "document.getElementById('survey_proximo_otro').checked = 'checked';", :id=>"survey_proximo_others") %>
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :visualizacion, "¿Cómo te visualizas en 5 años más?" %>
-        <%= f.text_area(:visualizacion, :rows => 3, :class => "form-control") %>
       </div>
       <div class="form-group" id="mostImportantMyLife">
         <%= f.label :importante, "Lo más importante en este momento de mi vida es..." %>
@@ -578,22 +555,6 @@
       <div class="form-group">
         <%= f.label :como_dejaste, "¿Cómo las dejaste? ¿Quién o quiénes te ayudaron para dejarlas?" %>
         <%= f.text_area(:como_dejaste, :rows => 3, :class => "form-control") %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :tipo_droga, "¿Qué tipo de droga consumes o consumías?" %>
-        <div class="radio"><label><%= f.radio_button(:tipo_droga, "Marihuana")%>Marihuana</label></div>
-        <div class="radio"><label><%= f.radio_button(:tipo_droga, "Cocaína")%>Cocaína</label></div>
-        <div class="radio"><label><%= f.radio_button(:tipo_droga, "Piedra")%>Piedra</label></div>
-        <div class="radio"><label><%= f.radio_button(:tipo_droga, "Pegamento")%>Pegamento</label></div>
-        <div class="radio"><label><%= f.radio_button(:tipo_droga, "Krokodil")%>Krokodil</label></div>
-        <div class="radio"><label><%= f.radio_button(:tipo_droga, "No aplica")%>No aplica</label></div>
-        <div class="radio">
-          <label><%= f.radio_button(:tipo_droga, "Otro")%>Otro</label>
-          <div class="form-other">
-            <%= f.text_field("tipo_droga_otro", :class => "form-control", :placeholder =>"Su Respuesta", :onclick => "document.getElementById('Field50_7').checked = 'checked';") %>
-          </div>
-        </div>
       </div>
 
       <div class="form-group">
