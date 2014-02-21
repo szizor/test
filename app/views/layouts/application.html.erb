@@ -20,7 +20,13 @@
           <a class="navbar-brand" href="/">REDespierta</a>
         </div>
         <% if current_user %>
-        <!-- <p class="navbar-text pull-left text-center">Logged in as <%= current_user.email %>.</p> -->
+        <% if params[:action] == "index"%>
+          <p>
+            Download:
+            <%= link_to "CSV", export_surveys_path(format: "csv") %> |
+            <%#= link_to "Excel", export_surveys_path(format: "xls") %>
+          </p>
+        <%end%>
         <% end %>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">

@@ -38,6 +38,8 @@ class SurveysController < ApplicationController
   end
 
   def edit
+    ipinfo = Net::HTTP.get(URI.parse("http://ipinfo.io/#{request.remote_ip}/geo"))
+    @ip = JSON.parse(ipinfo)
     @survey = Survey.find(params[:id])
   end
 
