@@ -313,7 +313,7 @@
     </div>
     <legend>Vigilancia y Seguridad Pública</legend>
     <div class="form-group">
-      <%= f.label :quien_vigila, "¿Quién o quienes vigilan en tu/su colonia?" %>
+      <%= f.label :quien_vigila, "¿Quién o quienes vigilan en su colonia?" %>
       <p class="help-block">Puede seleccionar más de una opción.</p>
       <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "No hay vigilancia", nil)%>No hay vigilancia</label></div>
       <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "La policía municipal", nil)%>La policía municipal</label></div>
@@ -561,7 +561,7 @@
 
     <fieldset>
       <legend>Relaciones Sociales, familiares y Personales</legend>
-      
+
       <div class="form-group">
         <%= f.label :familia, "Considero que en mi familia..." %>
         <div class="radio"><label><%= f.radio_button(:familia, "Convivimos mucho")%>Convivimos mucho</label></div>
@@ -602,7 +602,7 @@
         <div class="radio"><label><%= f.radio_button(:anticonceptivo, "No aplica")%>No aplica</label></div>
         <div class="radio"><label><%= f.radio_button(:anticonceptivo, "Prefiero no contestar")%>Prefiero no contestar</label></div>
       </div>
-      
+
       <div class="form-group">
         <%= f.label :motivos, "¿Cuáles fueron los motivos para no usar algún método anticonceptivo?" %>
         <div class="checkbox"><label><%= f.check_box(:motivos, {:multiple => true}, "No teníamos anticonceptivos a la mano", nil) %>No teníamos anticonceptivos a la mano</label></div>
@@ -632,7 +632,7 @@
         <%#= f.label :tipo_grupo, "¿En qué tipo de grupo has participado o participas? y ¿qué actividades realizabas o realizas?" %>
         <%#= f.text_area(:tipo_grupo, :rows => 3, :class => "form-control") %>
       </div> -->
-     
+
 
       <!-- <div class="form-group">
         <%#= f.label :tipo_gustaria, "¿En qué tipo de actividades te gustaría participar?" %>
@@ -673,10 +673,8 @@
       </div>
     </fieldset>
   </div>
-  <div class="form-group">
-    <div class="alert alert-info">
-      Muchas gracias por tu disposición y tiempo, tus aportaciones nos servirán para idear acciones favorables
-    </div>
+  <div class="alert alert-info">
+    Muchas gracias por tu disposición y tiempo, tus aportaciones nos servirán para idear acciones favorables
   </div>
   <div class="form-action">
     <div class="row">

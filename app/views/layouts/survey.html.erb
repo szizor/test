@@ -24,15 +24,16 @@
   </head>
 
   <body>
-    <% if params[:action] == "index"%>
+    <div class="container">
+       <% if params[:action] == "index"%>
       <p>
         Download:
         <%= link_to "CSV", export_surveys_path(format: "csv") %> |
         <%#= link_to "Excel", export_surveys_path(format: "xls") %>
       </p>
     <%end%>
-    <div class="container">
       <%= yield %>
+
     </div><!-- /.container -->
 
 
