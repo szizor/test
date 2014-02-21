@@ -79,11 +79,6 @@
         </label>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :calle, "Calle, Manzana o Coto" %>
-      <p class="help-block">Escribir la calle, manzana o coto en el que viva el encuestado</p>
-      <%= f.text_area(:calle, :rows => 3, :class => "form-control") %>
-    </div>
     <legend>Datos del encuestado</legend>
     <div class="form-group">
       <%= f.label :genero, "Género del encuestado" %>
@@ -128,19 +123,6 @@
       <div class="radio">
         <label>
           <%= f.radio_button(:edad, "mayor de 60 años")%> mayor de 60 años
-        </label>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :solo, "¿Vive(s) solo?" %>
-      <div class="radio">
-        <label>
-          <%= f.radio_button(:solo, "Si")%> Si
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <%= f.radio_button(:solo, "No")%> No
         </label>
       </div>
     </div>
@@ -229,11 +211,6 @@
       </div>
       <div class="radio">
         <label>
-          <%= f.radio_button(:ocupacion, "Realizo actividades como robo, venta de drogas etc. para obtener dinero")%> Realizo actividades como robo, venta de drogas etc. para obtener dinero
-        </label>
-      </div>
-      <div class="radio">
-        <label>
           <%= f.radio_button(:ocupacion, "En este momento no tengo empleo ni estudio")%> En este momento no tengo empleo ni estudio
         </label>
       </div>
@@ -271,11 +248,6 @@
       <div class="radio"><label><%= f.radio_button(:nivel, "Doctorado")%>Doctorado</label></div>
       <div class="radio"><label><%= f.radio_button(:nivel, "No tengo estudios")%>No tengo estudios</label></div>
     </div>
-    <div class="form-group">
-      <%= f.label :grado, "¿Hasta qué grado estudiaste?" %>
-      <p class="help-block">En caso de haber dejado incompleto algún grado académico.</p>
-      <%= f.text_field(:grado, :class=>"form-control", :placeholder=>"ej.: 5o de Primaria") %>
-    </div>
     <div class="form-group" id="leftSchool">
       <%= f.label :dejo_estudiar, "¿Tuvo/tuviste que dejar de estudiar?" %>
       <div class="radio"><label><%= f.radio_button(:dejo_estudiar, "Si")%>Si</label></div>
@@ -298,10 +270,6 @@
       <div class="radio"><label><%= f.radio_button(:regresar, "Si")%>Si</label></div>
       <div class="radio"><label><%= f.radio_button(:regresar, "No")%>No</label></div>
       <div class="radio"><label><%= f.radio_button(:regresar, "No aplica")%>No aplica</label></div>
-    </div>
-    <div class="form-group" id="whyReturnSchool">
-      <%= f.label :regresar_porque, "¿Por qué?" %>
-      <%= f.text_area(:regresar_porque, :rows => 3, :class => "form-control", :placeholder=>"Escribir brevemente dependiendo de la respuesta anterior") %>
     </div>
     <legend>Antigüedad en la colonia</legend>
     <div class="form-group">
@@ -355,18 +323,11 @@
       <div class="checkbox"><label><%= f.check_box(:quien_vigila, {:multiple => true}, "Vecinos. Entre vecinos estamos pendientes unos de otros")%>Vecinos. Entre vecinos estamos pendientes unos de otros</label></div>
     </div>
     <div class="form-group">
-      <%= f.label :conviene, "¿Cuándo cree que la vigilancia debe existir en su colonia?" %>
-      <div class="radio"><label><%= f.radio_button(:conviene, "Siempre")%>Siempre</label></div>
-      <div class="radio"><label><%= f.radio_button(:conviene, "Únicamente durante el día")%>Únicamente durante el día</label></div>
-      <div class="radio"><label><%= f.radio_button(:conviene, "Únicamente durante la noche")%>Únicamente durante la noche</label></div>
-      <div class="radio"><label><%= f.radio_button(:conviene, "No es necesario que haya vigilancia")%>No es necesario que haya vigilancia</label></div>
-    </div>
-    <div class="form-group">
-      <%= f.label :provoca, "Mencione dos causas que provoquen inseguridad en esta colonia" %>
+      <%= f.label :provoca, "¿A qué cree que se deba la inseguridad en esta colonia?" %>
       <%= f.text_area(:provoca, :rows => 3, :class => "form-control") %>
     </div>
     <div class="form-group">
-      <%= f.label :soluciones, "Mencione dos soluciones que combatan la inseguridad en esta colonia" %>
+      <%= f.label :soluciones, "Menciona dos propuestas para combatir la inseguridad en esta colonia." %>
       <%= f.text_area(:soluciones, :rows => 3, :class => "form-control") %>
     </div>
     <div class="form-group" id="insecurityVictim">
@@ -392,13 +353,6 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :involucrado, "¿Se ha visto involucrado en algún tipo de delito?" %>
-      <div class="radio"><label><%= f.radio_button(:involucrado, "Si")%>Si</label></div>
-      <div class="radio"><label><%= f.radio_button(:involucrado, "No")%>No</label></div>
-      <div class="radio"><label><%= f.radio_button(:involucrado, "Prefiero no responder")%>Prefiero no responder</label></div>
-    </div>
-
     <div class="form-group" id="bandasActivities">
       <%= f.label :pandillas, "¿Cuáles son las actividades de Las bandas o pandillas de esta colonia?" %>
       <p class="help-block">Puede seleccionar máximo tres opciones.</p>
