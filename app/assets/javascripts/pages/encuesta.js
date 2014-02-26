@@ -89,6 +89,27 @@ $('#bandasActivities').find('input').on('change', function(e) {
     }
 });
 
+
+$('#drugsConsumed').find('input').on('change', function(e) {
+    var checkedElements = $('#drugsConsumed').find('input:checked');
+
+    if (checkedElements.length === 2) {
+
+        $('#drugsConsumed').find('input:not(:checked)').attr("disabled", 'disabled');
+        if ($(this).is(':checked') && $(this).val() === 'Otro') {
+            $(this).closest('.form-group').find('input[type=text]').removeAttr("disabled")
+        }
+
+        if ($('#survey_tipo_droga_otro').is(':not(:checked)') && $('#survey_tipo_droga_otro').val() === 'Otro') {
+            $(this).closest('.form-group').find('input[type=text]').val('');
+        }
+
+    } else {
+        $('#drugsConsumed').find('input').removeAttr("disabled");
+    }
+
+});
+
 $('#freeTimeActivities').find('input').on('change', function(e) {
     var checkedElements = $('#freeTimeActivities').find('input:checked');
     if (checkedElements.length === 3) {
@@ -101,6 +122,93 @@ $('#freeTimeActivities').find('input').on('change', function(e) {
     }
 
 });
+
+$('#youthMeetingsActivites').find('input').on('change', function(e) {
+    var checkedElements = $('#youthMeetingsActivites').find('input:checked');
+    if (checkedElements.length === 3) {
+        $('#youthMeetingsActivites').find('input:not(:checked)').attr("disabled", 'disabled');
+
+        if ($(this).is(':checked') && $(this).val() === 'Otro') {
+            $(this).closest('.form-group').find('input[type=text]').removeAttr("disabled")
+        }
+
+        if ($('#survey_act_reunen_otro').is(':not(:checked)') && $('#survey_act_reunen_otro').val() === 'Otro') {
+            $(this).closest('.form-group').find('input[type=text]').val('');
+        }
+
+    } else {
+        $('#youthMeetingsActivites').find('input').removeAttr("disabled");
+    }
+
+});
+
+$('#FuturePlansLife').find('input').on('change', function(e) {
+    var checkedElements = $('#FuturePlansLife').find('input:checked');
+    if (checkedElements.length === 2) {
+        $('#FuturePlansLife').find('input:not(:checked)').attr("disabled", 'disabled');
+
+        if ($(this).is(':checked') && $(this).val() === 'Otros') {
+            $(this).closest('.form-group').find('input[type=text]').removeAttr("disabled")
+        }
+
+        if ($('#survey_proximo_otros').is(':not(:checked)') && $('#survey_proximo_otros').val() === 'Otros') {
+            $(this).closest('.form-group').find('input[type=text]').val('');
+        }
+
+    } else {
+        $('#FuturePlansLife').find('input').removeAttr("disabled");
+    }
+
+});
+
+$('#MotiveNoAntiConceptives').find('input').on('change', function(e) {
+    var checkedElements = $('#MotiveNoAntiConceptives').find('input:checked');
+    if (checkedElements.length === 3) {
+        $('#MotiveNoAntiConceptives').find('input:not(:checked)').attr("disabled", 'disabled');
+
+        if ($(this).is(':checked') && $(this).val() === 'Otro') {
+            $(this).closest('.form-group').find('input[type=text]').removeAttr("disabled")
+        }
+
+        if ($('#survey_motivos_otro').is(':not(:checked)') && $('#survey_motivos_otro').val() === 'Otro') {
+            $(this).closest('.form-group').find('input[type=text]').val('');
+        }
+
+    } else {
+        $('#MotiveNoAntiConceptives').find('input').removeAttr("disabled");
+    }
+
+});
+
+$('#survey_grupo_no').on('change', function(e) {
+    if ($(e.target).is(':checked')) {
+        $('#survey_tipo_grupo_no_aplica').attr('checked', true)
+    }
+});
+// ColoniaAlcholYDrogas
+
+$('#ColoniaAlcholYDrogas input[type=radio]').on('change', function(e) {
+    if ($('#survey_consumo_nicamente_se_consume_alcohol').is(':checked') || $('#survey_consumo_no_se_consume_alcohol_ni_drogas_en_las_calles').is(':checked') || $('#survey_consumo_no_s').is(':checked')) {
+        $('#survey_tipo_droga_no_aplica')[0].checked = 'checked';
+    } else {
+        $('#survey_tipo_droga_no_aplica')[0].checked = false;
+    }
+});
+
+$('#survey_primera_vez_no_he_tenido_relaciones_sexuales').on('change', function(e) {
+    if ($(e.target).is(':checked')) {
+        $('#survey_parejas_sexuales_no_aplica').attr('checked', true);
+        $('#survey_anticonceptivo_no_aplica').attr('checked', true);
+        $('#survey_motivos_no_aplica').attr('checked', true);
+        $('html, body').animate({
+            scrollTop: $("#ActivadesDedicadasJovenes").offset().top - 60
+        }, 200);
+    }
+});
+// FirstSexTime
+
+
+
 
 $('#survey_reunen_no_s').on('change', function(e) {
     if ($(this).is(':checked') && $(this).val() === "No sé") {
