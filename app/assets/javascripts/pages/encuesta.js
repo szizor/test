@@ -1,3 +1,7 @@
+$('html, body').animate({
+    scrollTop: 0
+}, 200);
+
 $('#survey_start_time').val(new Date);
 
 function isYouth() {
