@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       if user.is_admin?
         redirect_to surveys_url, notice: "Logged in!"
       else
+        UserMailer.logged_user(user).deliver
         redirect_to new_survey_url, notice: "Logged in!"
       end
     else

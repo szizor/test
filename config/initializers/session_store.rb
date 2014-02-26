@@ -1,6 +1,7 @@
 # Be sure to restart your server when you modify this file.
-
-Imjuve::Application.config.session_store :cookie_store, key: '_imjuve_session'
+Imjuve::Application.config.session_store :cookie_store, 
+                                             :key => '_imjuve_session',
+                                             :expire_after => 2.hours
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

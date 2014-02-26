@@ -1,9 +1,9 @@
 class DropSurveysTable < ActiveRecord::Migration
-  def up
-    drop_table :surveys
-  end
+  # def up
+  #   drop_table :surveys
+  # end
 
-  def down
-    raise ActiveRecord::IrreversibleMigration
-  end
+  # def down
+  #   raise ActiveRecord::IrreversibleMigration
+  # end
 end
