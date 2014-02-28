@@ -356,7 +356,7 @@
       </div>
     </div>
     <div class="form-group" id="bandasActivities">
-      <%= f.label :pandillas, "¿Cuáles son las características de Las bandas o pandillas de esta colonia?" %>
+      <%= f.label :pandillas, "¿Cuáles son las características de las bandas o pandillas de esta colonia?" %>
       <p class="help-block">Puede seleccionar máximo tres opciones.</p>
       <div class="checkbox">
         <label><%= f.check_box(:pandillas, {:multiple => true}, "Están integradas por jóvenes de la colonia", nil) %>Están integradas por jóvenes de la colonia</label>
@@ -481,6 +481,7 @@
       <p class="help-block">Ahora vamos a comentar un poco acerca de tu cómo te sientes en tu vida y lo que deseas hacer</p>
       <div class="form-group" id="FuturePlansLife">
         <%= f.label :proximo, "¿Cuáles son tus planes para tu vida en los próximo dos años?" %>
+        <div class="help-block">Máximo 2 opciones</div>
         <div class="checkbox"><label><%= f.check_box(:proximo, {:multiple => true}, "Salir fuera de la colonia para trabajar", nil)%>Salir fuera de la colonia para trabajar</label></div>
         <div class="checkbox"><label><%= f.check_box(:proximo, {:multiple => true}, "Seguir estudiando", nil)%>Seguir estudiando</label></div>
         <div class="checkbox"><label><%= f.check_box(:proximo, {:multiple => true}, "Regresar a estudiar", nil)%>Regresar a estudiar</label></div>
@@ -555,7 +556,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :como_dejaste, "¿Cómo las dejaste?" %>
+        <%= f.label :como_dejaste, "¿Cómo dejaste las drogas?" %>
         <p class="help-block">Preguntar si respondió que anteriormente consumía</p>
         <%= f.text_area(:como_dejaste, :rows => 3, :class => "form-control") %>
       </div>
