@@ -80,7 +80,7 @@ class SurveysController < ApplicationController
     @surveys = Survey.order(:user_id)
     respond_to do |format|
       format.html
-      format.csv { send_data @surveys.to_csv }
+      format.csv { send_data @surveys.to_csv, :type => 'text/csv; charset=utf-8; header=present', :filename => "users.csv" }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
   end
