@@ -1,5 +1,6 @@
 class SurveysController < ApplicationController
   require 'uri'
+  require 'iconv'
   require 'net/http'
   before_filter :authorize_admin, :only => [:index, :show, :edit, :update, :destroy]
   before_filter :authorize, :only => [:new, :create]
@@ -80,7 +81,9 @@ class SurveysController < ApplicationController
     @surveys = Survey.order(:user_id)
     respond_to do |format|
       format.html
-      format.csv { send_data @surveys.to_csv, :type => 'text/csv; charset=utf-8; header=present', :filename => "users.csv" }
+      format.csv { send_data Iconv.conv('iso-8859-1//IGNORE', 'utf-8',  @surveys.to_csv),
+  :type => 'text/csv; charset=iso-8859-1; header=present',
+  :disposition => "attachment; filename=surveys.csv" }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
   end
