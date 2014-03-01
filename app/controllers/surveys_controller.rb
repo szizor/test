@@ -81,12 +81,13 @@ class SurveysController < ApplicationController
     @surveys = Survey.order(:user_id)
     respond_to do |format|
       format.html
-      format.csv { send_data Iconv.conv('iso-8859-1//IGNORE', 'utf-8',  @surveys.to_csv),
+      format.csv { send_data Iconv.conv('UTF-16LE//TRANSLIT//IGNORE', 'utf-8',  @surveys.to_csv),
   :type => 'text/csv; charset=iso-8859-1; header=present',
   :disposition => "attachment; filename=surveys.csv" }
       format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
   end
+
 
   def update
     clean_params = check_others(params)
