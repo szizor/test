@@ -33,8 +33,6 @@
     <!-- Uniform -->
     <link rel="stylesheet" href="css/vendor/daterangepicker-bs3.css" />
     <!-- Bootstrap toggle -->
-    <link rel="stylesheet" href="css/vendor/dataTables.bootstrap.css" />
-    <!-- Bootstrap toggle -->
     <link rel="stylesheet" href="css/vendor/bootstrap-switch.css">
 
     <!-- Widgets stylesheet -->
@@ -49,7 +47,6 @@
     <![endif]-->
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="css/pages/polygons.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -74,18 +71,23 @@
         <ul id="nav">
           <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
           <li class="has_sub">
-            <a href="#" class="open"><i class="fa fa-map-marker"></i> <span>Polígonos</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+            <a href="#"><i class="fa fa-map-marker"></i> <span>Polygon</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
             <ul>
               <li><a href="polygon.html">Listados de Polígonos</a></li>
-              <li><a href="problemas.html">Problemas</a></li>
-              <li><a href="actores.html">Actores</a></li>
-              <li><a href="recorridos.html">Recorridos</a></li>
+              <li><a href="add-polygon.html">Crear Nuevo Polígono</a></li>
+              <li><a href="widgets3.html">Widgets #3</a></li>
             </ul>
           </li>
-          <li class="has_sub"><a href="#"><i class="fa fa-users"></i> <span>Usarios</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+          <li class="has_sub"><a href="#" class="open"><i class="fa fa-users"></i> <span>Usarios</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
             <ul>
               <li><a href="users.html">Listados de Usarios</a></li>
               <li><a href="add-users.html">Crear Nuevo Usario</a></li>
+            </ul>
+          </li>
+          <li class="has_sub"><a href="#"><i class="fa fa-location-arrow"></i> <span>Recorridos </span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+            <ul>
+              <li><a href="recorridos.html">Listados de Recorridos</a></li>
+              <li><a href="add-recorridos.html">Crear Nuevo Recorrido</a></li>
             </ul>
           </li>
           <!-- <li class="has_sub"><a href="#"><i class="fa fa-list-alt"></i> <span>Widgets</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
@@ -127,106 +129,151 @@
     </div>
 
     <div class="mainbar">
-      <div class="page-head">
 
-        <h2 class="pull-left">Actores</h2>
-        <div class="pull-right">
-          <a class="btn btn-primary btn-add-polygon" href="add-actore.html">Crear Nuevo Actore</a>
-        </div>
+      <!-- Page heading -->
+      <div class="page-head">
+        <h2 class="pull-left">Nuevo Actore</h2>
         <div class="clearfix"></div>
         <!-- Breadcrumb -->
         <div class="bread-crumb">
-          <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+          <a href="index.html"><i class="fa fa-home"></i> Home</a>
           <!-- Divider -->
           <span class="divider">/</span>
-          <a href="#" class="bread-current">Actores</a>
+          <a href="index.html"><i class="fa fa-users"></i> Actore</a>
+          <span class="divider">/</span>
+          <a href="#" class="bread-current">Nuevo Actore</a>
         </div>
 
         <div class="clearfix"></div>
+
       </div>
+      <!-- Page heading ends -->
+
+
+      <!-- Matter -->
+
       <div class="matter">
         <div class="container">
+
           <div class="row">
+
             <div class="col-md-12">
+
               <div class="widget">
                 <div class="widget-head">
-                  <div class="pull-left">Listado de Actores</div>
+                  <div class="pull-left">Nuevo Actore</div>
                   <div class="widget-icons pull-right">
                     <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                   </div>
                   <div class="clearfix"></div>
                 </div>
+
                 <div class="widget-content">
-                  <div class="table-responsive">
-                    <table id="datatable" class="table table-striped table-bordered table-hover">
-                      <thead>
-                        <tr>
-                          <th>Nombre</th>
-                          <th>Estado</th>
-                          <th>Municipio</th>
-                          <th>Facebook</th>
-                          <th>Twitter</th>
-                          <th class="text-center">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Villas del Centinela</td>
-                          <td>Jalisco</td>
-                          <td>Zapopan</td>
-                          <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
-                          <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
-                          <td class="text-center">
-                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Editar</button>
-                            <button class="btn btn-xs btn-danger"><i class="fa fa-times"></i> Borrar</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Prados de Santa Lucía</td>
-                          <td>Jalisco</td>
-                          <td>Zapopan</td>
-                          <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
-                          <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
-                          <td class="text-center">
-                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Editar</button>
-                            <button class="btn btn-xs btn-danger"><i class="fa fa-times"></i> Borrar</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Santiago Ramírez</td>
-                          <td>Coahuila</td>
-                          <td>Torreon</td>
-                          <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
-                          <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
-                          <td class="text-center">
-                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Editar</button>
-                            <button class="btn btn-xs btn-danger"><i class="fa fa-times"></i> Borrar</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>San Isidro</td>
-                          <td>Durango</td>
-                          <td>Lerdo</td>
-                          <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
-                          <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
-                          <td class="text-center">
-                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> Editar</button>
-                            <button class="btn btn-xs btn-danger"><i class="fa fa-times"></i> Borrar</button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="widget-foot">
-                    <br><br>
-                    <div class="clearfix"></div>
+                  <div class="padd">
+
+                    <!-- Profile form -->
+
+                  <div class="form profile">
+                    <form class="">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Nombre de la institución</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nombre de la institución">
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Dirección</label>
+                               <input type="text" class="form-control" placeholder="Calle, Colonia">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Estado</label>
+                              <select name="" id="input" class="form-control" required="required">
+                                <option value="">-- Selecciona</option>
+                                <option value="">Jalisco</option>
+                                <option value="">Estado de Mexico</option>
+                                <option value="">Nayarit</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Cuidad</label>
+                              <input type="text" class="form-control" placeholder="Cuidad">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Teléfono de oficina</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Teléfono de oficina">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Pagina Web</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Pagina Web">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                          </div>
+                        </div>
+
+                        <h4>Redes sociales</h4>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Representante Oficial</label>
+                              <select name="ListadoDeUsuarios" id="inputListadoDeUsuarios" class="form-control" required="required">
+                                <option value="">-- Seleciona</option>
+                                <option value="">Heberto Morales</option>
+                                <option value="" selected>Juan Perez</option>
+                                <option value="">Erica Garcia</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Facebook</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Facebook">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Twitter</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Twitter">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <!-- Buttons -->
+                          <button type="submit" class="btn btn-primary">Añadir</button>
+                        </div>
+                      </form>
+                    </div>
+
                   </div>
                 </div>
               </div>
+
             </div>
+
           </div>
+
         </div>
       </div>
+
+    <!-- Matter ends -->
+
     </div>
 
 
@@ -257,8 +304,6 @@
     <script src="javascripts/plugins/top.js"></script> <!-- jQuery Notify -->
     <!-- jQuery Notification ends -->
 
-    <script src="javascripts/plugins/jquery.dataTables.js"></script>
-
     <!-- Daterangepicker -->
     <script src="javascripts/plugins/moment.min.js"></script>
     <script src="javascripts/plugins/daterangepicker.js"></script>
@@ -271,8 +316,9 @@
     <script src="javascripts/plugins/jquery.slimscroll.min.js"></script> <!-- jQuery SlimScroll -->
     <script src="javascripts/plugins/bootstrap-switch.min.js"></script> <!-- Bootstrap Toggle -->
     <script src="javascripts/plugins/filter.js"></script> <!-- Filter for support page -->
-    <script src="javascripts/admin.js"></script>
     <script src="javascripts/plugins/charts.js"></script> <!-- Charts & Graphs -->
+
+    <script src="javascripts/admin.js"></script>
 
   </body>
 </html>
