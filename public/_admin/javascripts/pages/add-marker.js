@@ -87,6 +87,7 @@ function setAllMap(map) {
 
 function clearMarkers() {
   setAllMap(null);
+  $('#mapCoords').val('');
 }
 
 function initialize() {
