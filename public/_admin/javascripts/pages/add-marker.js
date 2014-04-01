@@ -95,7 +95,7 @@ function initialize() {
 
     var mapOptions = {
         center: new google.maps.LatLng(20.690908602661718, -103.36192846298218),
-        zoom: 15,
+        zoom: 17,
         mapTypeControl: true,
         mapTypeControlOptions: {
           style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
