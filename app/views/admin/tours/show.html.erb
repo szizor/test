@@ -1,0 +1,28 @@
+<% title "Admin/Tour" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tour.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @tour.description %>
+</p>
+<p>
+  <strong>Coordinates:</strong>
+  <%= @tour.coordinates %>
+</p>
+<p>
+  <strong>Polygon:</strong>
+  <%= @tour.polygon_id %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @tour.start_date %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_tour_path(@tour) %> |
+  <%= link_to "Destroy", [:admin, @tour], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_tours_path %>
+</p>

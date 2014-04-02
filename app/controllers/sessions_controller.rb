@@ -7,12 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      if user.is_admin?
-        redirect_to surveys_url, notice: "Logged in!"
-      else
-        UserMailer.logged_user(user).deliver
-        redirect_to new_survey_url, notice: "Logged in!"
-      end
+      redirect_to admin_root_url, notice: "Logged in!"
     else
       flash.now.alert = "Email or password is invalid"
       render "new"

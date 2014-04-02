@@ -1,0 +1,16 @@
+<% title "Admin/Document" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @document.name %>
+</p>
+<p>
+  <strong>Visible:</strong>
+  <%= @document.visible %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_document_path(@document) %> |
+  <%= link_to "Destroy", [:admin, @document], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_documents_path %>
+</p>

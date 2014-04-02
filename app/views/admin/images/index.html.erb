@@ -1,0 +1,21 @@
+<% title "Admin/Images" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Visible</th>
+  </tr>
+  <% for image in @images %>
+    <tr>
+      <td><%= image.name %></td>
+      <td><%= image.image %></td>
+      <td><%= image.visible %></td>
+      <td><%= link_to "Show", [:admin, image] %></td>
+      <td><%= link_to "Edit", edit_admin_image_path(image) %></td>
+      <td><%= link_to "Destroy", [:admin, image], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Image", new_admin_image_path %></p>

@@ -1,0 +1,19 @@
+<% title "Admin/Videos" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Visible</th>
+  </tr>
+  <% for video in @videos %>
+    <tr>
+      <td><%= video.name %></td>
+      <td><%= video.visible %></td>
+      <td><%= link_to "Show", [:admin, video] %></td>
+      <td><%= link_to "Edit", edit_admin_video_path(video) %></td>
+      <td><%= link_to "Destroy", [:admin, video], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Video", new_admin_video_path %></p>

@@ -1,0 +1,20 @@
+<% title "Admin/Image" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @image.name %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= @image.image %>
+</p>
+<p>
+  <strong>Visible:</strong>
+  <%= @image.visible %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_image_path(@image) %> |
+  <%= link_to "Destroy", [:admin, @image], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_images_path %>
+</p>

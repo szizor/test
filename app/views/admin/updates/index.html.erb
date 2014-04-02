@@ -1,0 +1,23 @@
+<% title "Admin/Updates" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Alternative</th>
+    <th>User</th>
+  </tr>
+  <% for update in @updates %>
+    <tr>
+      <td><%= update.name %></td>
+      <td><%= update.description %></td>
+      <td><%= update.alternative_id %></td>
+      <td><%= update.user_id %></td>
+      <td><%= link_to "Show", [:admin, update] %></td>
+      <td><%= link_to "Edit", edit_admin_update_path(update) %></td>
+      <td><%= link_to "Destroy", [:admin, update], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Update", new_admin_update_path %></p>

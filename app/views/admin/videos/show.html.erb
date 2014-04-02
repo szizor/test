@@ -1,0 +1,16 @@
+<% title "Admin/Video" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @video.name %>
+</p>
+<p>
+  <strong>Visible:</strong>
+  <%= @video.visible %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_video_path(@video) %> |
+  <%= link_to "Destroy", [:admin, @video], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_videos_path %>
+</p>

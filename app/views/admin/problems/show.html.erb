@@ -1,0 +1,76 @@
+<% title "Admin/Problem" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @problem.name %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @problem.state_id %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @problem.city_id %>
+</p>
+<p>
+  <strong>Neighborhood:</strong>
+  <%= @problem.neighborhood_id %>
+</p>
+<p>
+  <strong>Polygon:</strong>
+  <%= @problem.polygon_id %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @problem.description %>
+</p>
+<p>
+  <strong>Cause:</strong>
+  <%= @problem.cause %>
+</p>
+<p>
+  <strong>Effects:</strong>
+  <%= @problem.effects %>
+</p>
+<p>
+  <strong>Costs:</strong>
+  <%= @problem.costs %>
+</p>
+<p>
+  <strong>Frecuency:</strong>
+  <%= @problem.frecuency %>
+</p>
+<p>
+  <strong>Affects To:</strong>
+  <%= @problem.affects_to %>
+</p>
+<p>
+  <strong>Houses:</strong>
+  <%= @problem.houses %>
+</p>
+<p>
+  <strong>Affected Population:</strong>
+  <%= @problem.affected_population %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @problem.category_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @problem.user_id %>
+</p>
+<p>
+  <strong>Public:</strong>
+  <%= @problem.public %>
+</p>
+<p>
+  <strong>Votes Count:</strong>
+  <%= @problem.votes_count %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_problem_path(@problem) %> |
+  <%= link_to "Destroy", [:admin, @problem], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_problems_path %>
+</p>

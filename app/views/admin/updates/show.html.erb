@@ -1,0 +1,24 @@
+<% title "Admin/Update" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @update.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @update.description %>
+</p>
+<p>
+  <strong>Alternative:</strong>
+  <%= @update.alternative_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @update.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_update_path(@update) %> |
+  <%= link_to "Destroy", [:admin, @update], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_updates_path %>
+</p>

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
   before_filter :authorize, only: [:index, :new, :create]
   before_filter :can_edit, only: [:edit, :update]
   # layout "survey"

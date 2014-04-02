@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Title and other stuffs -->
+    <title>Dashboard - MoodStrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <%= stylesheet_link_tag "admin" %>
+    <%= javascript_include_tag "admin" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="sidebar">
+        <div class="logo">
+          <%= image_tag("logo.png") %>
+        </div>
+        <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+        <form class="navbar-form" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <button class="btn search-button" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+        <ul id="nav">
+          <li><a href="/admin/dashboard"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+          <li class="has_sub">
+            <a href="#"><i class="fa fa-map-marker"></i> <span>Polígonos</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+            <ul>
+              <li><a href="/admin/polygons">Listados de Polígonos</a></li>
+              <li><a href="/admin/problems">Problems</a></li>
+              <li><a href="/admin/actors">Actors</a></li>
+              <li><a href="/admin/tours">Recorridos</a></li>
+            </ul>
+          </li>
+          <li class="has_sub">
+            <a href="#"><i class="fa fa-users"></i> <span>Usarios</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+            <ul>
+              <li><a href="/admin/users">Listados de Usarios</a></li>
+              <li><a href="/admin/users/new">Crear Nuevo Usario</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mainbar">
+      <%= yield %>
+    </div>div>  
+  </body>
+</html>

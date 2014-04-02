@@ -1,0 +1,35 @@
+<% title "Admin/Alternatives" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Population</th>
+    <th>Budget Expected</th>
+    <th>Assigned Budget</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Actor</th>
+    <th>User</th>
+    <th>Project</th>
+  </tr>
+  <% for alternative in @alternatives %>
+    <tr>
+      <td><%= alternative.name %></td>
+      <td><%= alternative.description %></td>
+      <td><%= alternative.population %></td>
+      <td><%= alternative.budget_expected %></td>
+      <td><%= alternative.assigned_budget %></td>
+      <td><%= alternative.start_date %></td>
+      <td><%= alternative.end_date %></td>
+      <td><%= alternative.actor_id %></td>
+      <td><%= alternative.user_id %></td>
+      <td><%= alternative.project %></td>
+      <td><%= link_to "Show", [:admin, alternative] %></td>
+      <td><%= link_to "Edit", edit_admin_alternative_path(alternative) %></td>
+      <td><%= link_to "Destroy", [:admin, alternative], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Alternative", new_admin_alternative_path %></p>

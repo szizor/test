@@ -1,0 +1,60 @@
+<% title "Admin/Polygon" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @polygon.name %>
+</p>
+<p>
+  <strong>Coords:</strong>
+  <%= @polygon.coords %>
+</p>
+<p>
+  <strong>Population:</strong>
+  <%= @polygon.population %>
+</p>
+<p>
+  <strong>Women Pop:</strong>
+  <%= @polygon.women_pop %>
+</p>
+<p>
+  <strong>Men Pop:</strong>
+  <%= @polygon.men_pop %>
+</p>
+<p>
+  <strong>Life Span:</strong>
+  <%= @polygon.life_span %>
+</p>
+<p>
+  <strong>Ses:</strong>
+  <%= @polygon.ses %>
+</p>
+<p>
+  <strong>Scholarity:</strong>
+  <%= @polygon.scholarity %>
+</p>
+<p>
+  <strong>Prod Act:</strong>
+  <%= @polygon.prod_act %>
+</p>
+<p>
+  <strong>Econ Act:</strong>
+  <%= @polygon.econ_act %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @polygon.state_id %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @polygon.city_id %>
+</p>
+<p>
+  <strong>Neighborhood:</strong>
+  <%= @polygon.neighborhood %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_polygon_path(@polygon) %> |
+  <%= link_to "Destroy", [:admin, @polygon], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_polygons_path %>
+</p>

@@ -24,6 +24,7 @@ group :development do
   gem "nifty-generators", '0.4.6'
   gem 'debugger', '1.6.1'
   gem 'letter_opener'
+  gem "nifty-generators", '0.4.6'
 end
 
 # group :production do
@@ -38,5 +39,4 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
 

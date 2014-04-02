@@ -1,0 +1,44 @@
+<%= form_for [:admin, @alternative] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :population %><br />
+    <%= f.number_field :population %>
+  </p>
+  <p>
+    <%= f.label :budget_expected %><br />
+    <%= f.number_field :budget_expected %>
+  </p>
+  <p>
+    <%= f.label :assigned_budget %><br />
+    <%= f.number_field :assigned_budget %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.datetime_select :start_date %>
+  </p>
+  <p>
+    <%= f.label :end_date %><br />
+    <%= f.datetime_select :end_date %>
+  </p>
+  <p>
+    <%= f.label :actor_id %><br />
+    <%= f.number_field :actor_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :project %><br />
+    <%= f.check_box :project %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

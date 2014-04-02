@@ -1,0 +1,21 @@
+<% title "Admin/Votes" %>
+
+<table>
+  <tr>
+    <th>Ip Address</th>
+    <th>Problem</th>
+    <th>User</th>
+  </tr>
+  <% for vote in @votes %>
+    <tr>
+      <td><%= vote.ip_address %></td>
+      <td><%= vote.problem_id %></td>
+      <td><%= vote.user_id %></td>
+      <td><%= link_to "Show", [:admin, vote] %></td>
+      <td><%= link_to "Edit", edit_admin_vote_path(vote) %></td>
+      <td><%= link_to "Destroy", [:admin, vote], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Vote", new_admin_vote_path %></p>

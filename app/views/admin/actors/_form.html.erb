@@ -1,0 +1,56 @@
+<%= form_for [:admin, @actor] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :facebook %><br />
+    <%= f.text_field :facebook %>
+  </p>
+  <p>
+    <%= f.label :twitter %><br />
+    <%= f.text_field :twitter %>
+  </p>
+  <p>
+    <%= f.label :contact_name %><br />
+    <%= f.text_field :contact_name %>
+  </p>
+  <p>
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email %>
+  </p>
+  <p>
+    <%= f.label :contact_phone %><br />
+    <%= f.text_field :contact_phone %>
+  </p>
+  <p>
+    <%= f.label :contact_title %><br />
+    <%= f.text_field :contact_title %>
+  </p>
+  <p>
+    <%= f.label :actor_type_id %><br />
+    <%= f.number_field :actor_type_id %>
+  </p>
+  <p>
+    <%= f.label :polygon_id %><br />
+    <%= f.number_field :polygon_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

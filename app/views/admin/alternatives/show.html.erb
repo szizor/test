@@ -1,0 +1,48 @@
+<% title "Admin/Alternative" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @alternative.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @alternative.description %>
+</p>
+<p>
+  <strong>Population:</strong>
+  <%= @alternative.population %>
+</p>
+<p>
+  <strong>Budget Expected:</strong>
+  <%= @alternative.budget_expected %>
+</p>
+<p>
+  <strong>Assigned Budget:</strong>
+  <%= @alternative.assigned_budget %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @alternative.start_date %>
+</p>
+<p>
+  <strong>End Date:</strong>
+  <%= @alternative.end_date %>
+</p>
+<p>
+  <strong>Actor:</strong>
+  <%= @alternative.actor_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @alternative.user_id %>
+</p>
+<p>
+  <strong>Project:</strong>
+  <%= @alternative.project %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_alternative_path(@alternative) %> |
+  <%= link_to "Destroy", [:admin, @alternative], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_alternatives_path %>
+</p>

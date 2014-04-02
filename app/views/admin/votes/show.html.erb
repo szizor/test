@@ -1,0 +1,20 @@
+<% title "Admin/Vote" %>
+
+<p>
+  <strong>Ip Address:</strong>
+  <%= @vote.ip_address %>
+</p>
+<p>
+  <strong>Problem:</strong>
+  <%= @vote.problem_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @vote.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_vote_path(@vote) %> |
+  <%= link_to "Destroy", [:admin, @vote], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_votes_path %>
+</p>
