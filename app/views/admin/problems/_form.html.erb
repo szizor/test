@@ -10,49 +10,21 @@
             </div>
             <div class="widget-content">
               <div class="padd">
-                <form class="" role="form">
+                <%= form_for [:admin, @problem], :html => { :class => "", :role => "form" } do |f| %>
                   <div class="form-group">
-                    <label for="">Nombre del Problema</label>
-                    <input type="text" class="form-control input-lg" placeholder="Nombre del Problema">
+                    <%= f.label :name, "Nombre del Problema" %>
+                    <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del Problema" %>
                   </div>
 
                   <div class="form-group">
-                    <label for="">Categoria del Problema</label>
-                    <select name="" id="input" class="form-control" required="required">
-                      <option value="">-- Selecciona</option>
-                      <optgroup label="Servicios Públicos">
-                        <option value="">Agua potable y saneamiento</option>
-                        <option value="">Alcantarillado</option>
-                        <option value="">Residuos Sólidos</option>
-                        <option value="">Calles, vialidades y accesos</option>
-                        <option value="">Alumbrado público</option>
-                        <option value="">Energía eléctrica</option>
-                        <option value="">Espacios públicos, parques y jardines (infraestructura)</option>
-                        <option value="">Seguridad Pública y tránsito</option>
-                        <option value="">Asistencia médica</option>
-                        <option value="">Infraestructura educativa</option>
-                        <option value="">Rezago educativo</option>
-                      </optgroup>
-                      <optgroup label="Familias">
-                        <option value="">Integración familiar</option>
-                        <option value="">Violencia intrafamiliar</option>
-                        <option value="">Planificación familiar</option>
-                        <option value="">Equidad de género</option>
-                      </optgroup>
-                      <option value="">Empleo y planeación socioeconómica</option>
-                      <option value="">Vivienda</option>
-                      <option value="">Salud, higiene, prevención y combate a las adicciones</option>
-                      <option value="">Medio ambiente</option>
-                      <option value="">Alimentación y nutrición</option>
-                      <option value="">Participación ciudadana y vecinal</option>
-                      <option value="">Deporte y atención a la juventud con programas sociales, culturales y recreativos</option>
-                      <option value="">Transferencia o desarrollo de tecnología</option>
-                    </select>
+                    <%= f.label :category_id, "Categoria del Problema" %>
+                    <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
+                    
                   </div>
 
                   <div class="form-group">
-                    <label for="">Descripción del problema</label>
-                    <textarea class="form-control" rows="5" placeholder="descripción del problema"></textarea>
+                    <%= f.label :description, "Descripción del problema" %>
+                    <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "descripción del problema") %>
                   </div>
 
 
@@ -62,14 +34,14 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="">Posibles causas</label>
-                        <input type="text" class="form-control" placeholder="Posibles causas">
+                         <%= f.label :cause, "Posibles causas" %>
+                         <%= f.text_field :cause, :class => "form-control", :placeholder => "Posibles causas" %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="">efectos que provoca</label>
-                        <input type="text" class="form-control" placeholder="efectos que provoca">
+                        <%= f.label :effects, "efectos que provoca" %>
+                        <%= f.text_field :effects, :class => "form-control", :placeholder => "efectos que provoca" %>
                       </div>
                     </div>
                   </div>
@@ -77,31 +49,21 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="">costo del problema</label>
-                        <input type="text" class="form-control" placeholder="Posibles causas">
+                        <%= f.label :costs, "costo del problema" %>
+                        <%= f.text_field :costs, :class => "form-control", :placeholder => "costo del problema" %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Frecuencia del problema</label>
-                        <select name="" id="input" class="form-control" required="required">
-                          <option value="">-- Selecciona</option>
-                          <option value="">Cíclico (ejemplo: cada temporada de lluvia)</option>
-                          <option value="">Estacional (todo el año)</option>
-                          <option value="">Esporádico (una vez cada 5 años)</option>
-                        </select>
+                        <%= f.select :frecuency, ['Cíclico (ejemplo: cada temporada de lluvia)', 'Estacional (todo el año)', 'Esporádico (una vez cada 5 años)'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
                       </div>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="">El problema afecta más a mujeres o a hombres (problema de género)</label>
-                    <select name="" id="input" class="form-control" required="required">
-                      <option value="">-- Selecciona</option>
-                      <option value="">Más a hombres</option>
-                      <option value="">Más a mujeres</option>
-                      <option value="">Ambos</option>
-                    </select>
+                    <%= f.select :affects_to, ['Más a hombres', 'Más a mujeres', 'Ambos'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
                   </div>
 
                   <h4>Grupo de edad al que afecta directamente</h4>
@@ -147,18 +109,17 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="">Número casas afectadas por el problema</label>
-                        <input type="text" class="form-control" placeholder="Número casas afectadas por el problema">
+                        <%= f.label :houses, "Número casas afectadas por el problema" %>
+                        <%= f.text_field :houses, :class => "form-control", :placeholder => "Número casas afectadas por el problema" %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="">Cantidad de población afectada</label>
-                        <input type="text" class="form-control" placeholder="Cantidad de población afectada">
-                      </div>
+                        <%= f.label :affected_population, "Cantidad de población afectada" %>
+                        <%= f.text_field :affected_population, :class => "form-control", :placeholder => "Cantidad de población afectada" %>
                     </div>
                   </div>
-                </form>
+                <% end %>
               </div>
               <div class="widget-foot text-center">
                 <button type="button" class="btn btn-success">Guardar</button>
