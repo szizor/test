@@ -44,8 +44,8 @@
                   <% for problem in @problems %>
                     <tr>
                       <td><%= problem.name %></td>
-                      <td><%= problem.polygon.name %></td>
-                      <td><%= problem.category.name %></td>
+                      <td><%= problem.polygon.try(:name) %></td>
+                      <td><%= problem.category.try(:name) %></td>
                       <td><%= problem.frecuency %></td>
                       <!-- TODO -->
                       <td>4</td>
