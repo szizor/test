@@ -30,3 +30,6 @@ Category.create(:name => "Alimentación y nutrición", :parent_category_id => ot
 Category.create(:name => "Participación ciudadana y vecinal", :parent_category_id => otros.id)
 Category.create(:name => "Deporte y atención a la juventud con programas sociales, culturales y recreativos", :parent_category_id => otros.id)
 Category.create(:name => "Transferencia o desarrollo de tecnología", :parent_category_id => otros.id)
+
+
+3.times{Polygon.create!({name: "test1", coords: "[{\"k\":20.691031414379818,\"A\":-103.3650958538783},{\"...", population: 12000, women_pop: 7000, men_pop: 5000, life_span: 60, ses: "Medio", scholarity: "secundaria", prod_act: "Productivas", econ_act: "economicas", state_id: nil, city_id: nil, neighborhood: nil, promedio: 35, cero_doce: 1200, doce_catorce: 1200, quince_diecinueve: 1500, veinte_veinticuatro: 2000, veinticinco_veintinueve: 2500, treinta_cincuentainueve: 3000, sesenta: 6000, rutas: "centro a periferico", colors: "#e9571e"})}

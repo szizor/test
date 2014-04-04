@@ -15,9 +15,8 @@
                 <%= f.label :name, "Nombre del Polígono" %>
                 <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del Polígono" %>
               </div>
-
-              <input type="hidden" id="mapCoords">
-              <input type="hidden" id="PolygonColors">
+              <%= f.hidden_field :coords, :id=> "mapCoords"%>
+              <%= f.hidden_field :colors, :id=> "PolygonColors"%>
 
               <div class="row">
                 <div class="col-md-6">
@@ -49,40 +48,38 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <%#= f.label :women_pop, "0-12 años" %>
-                    <%#= f.text_field :women_pop, :class => "form-control input-lg", :placeholder => "0-12 años" %>
-                    <label for="">0-12 años</label>
-                    <input type="text" class="form-control" placeholder="0-12 años">
+                    <%= f.label :cero_doce, "0-12 años" %>
+                    <%= f.text_field :cero_doce, :class => "form-control", :placeholder => "0-12 años" %>
                   </div>
                   <div class="form-group">
-                    <label for="">15-19 años</label>
-                    <input type="text" class="form-control" placeholder="15-19 años">
+                    <%= f.label :quince_diecinueve, "15-19 años" %>
+                    <%= f.text_field :quince_diecinueve, :class => "form-control", :placeholder => "15-19 años" %>
                   </div>
                   <div class="form-group">
-                    <label for="">25-29 años</label>
-                    <input type="text" class="form-control" placeholder="25-29 años">
+                    <%= f.label :veinticinco_veintinueve, "25-29 años" %>
+                    <%= f.text_field :veinticinco_veintinueve, :class => "form-control", :placeholder => "25-29 años" %>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="">12-14 años</label>
-                    <input type="text" class="form-control" placeholder="12-14 años">
+                    <%= f.label :doce_catorce, "12-14 años" %>
+                    <%= f.text_field :doce_catorce, :class => "form-control", :placeholder => "12-14 años" %>
                   </div>
                   <div class="form-group">
-                    <label for="">20-24 años</label>
-                    <input type="text" class="form-control" placeholder="20-24 años">
+                    <%= f.label :veinte_veinticuatro, "20-24 años" %>
+                    <%= f.text_field :veinte_veinticuatro, :class => "form-control", :placeholder => "20-24 años" %>
                   </div>
                   <div class="form-group">
-                    <label for="">30-59 años</label>
-                    <input type="text" class="form-control" placeholder="30-59 años">
+                    <%= f.label :treinta_cincuentainueve, "30-59 años" %>
+                    <%= f.text_field :treinta_cincuentainueve, :class => "form-control", :placeholder => "30-59 años" %>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="">60 años y más</label>
-                    <input type="text" class="form-control" placeholder="60 años y más">
+                    <%= f.label :sesenta, "60 años y más" %>
+                    <%= f.text_field :sesenta, :class => "form-control", :placeholder => "60 años y más" %>
                   </div>
                 </div>
               </div>
@@ -90,8 +87,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="">Edad promedio de los habitantes</label>
-                    <input type="text" class="form-control" placeholder="Edad promedio de los habitantes">
+                    <%= f.label :promedio, "Edad promedio de los habitantes" %>
+                    <%= f.text_field :promedio, :class => "form-control", :placeholder => "Edad promedio de los habitantes" %>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -106,13 +103,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <%= f.label :ses, "Nivel socioeconómico" %>
-                    <select name="polygon[ses]" id="input" class="form-control" required="required">
-                      <option>-- Seleccionar</option>
-                      <option value="Muy Bajo">Muy Bajo</option>
-                      <option value="Bajo">Bajo</option>
-                      <option value="Medio">Medio</option>
-                      <option value="Alto">Alto</option>
-                    </select>
+                    <%= f.select :ses, ['Muy Bajo', 'Bajo', 'Medio', 'Alto'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -141,8 +132,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="">Rutas de transporte público</label>
-                    <textarea class="form-control" rows="5" placeholder="Rutas de transporte público"></textarea>
+                    <%= f.label :rutas, "Rutas de transporte público" %>
+                    <%= f.text_area(:rutas, rows: 5, class: 'form-control', placeholder: "Rutas de transporte público") %>
                   </div>
                 </div>
               </div>
