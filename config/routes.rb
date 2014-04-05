@@ -1,19 +1,19 @@
 Imjuve::Application.routes.draw do
-  
+
   namespace :admin do
     resources :tours
     resources :videos
     resources :events
     resources :votes
-    resources :updates 
-    resources :alternatives 
+    resources :updates
+    resources :alternatives
     resources :images
     resources :documents
     resources :categories
-    resources :problems 
-    resources :polygons 
+    resources :problems
+    resources :polygons
     resources :users
-    resources :actors 
+    resources :actors
     resources :dashboard, :only => [:index]
     root :to => "dashboard#index"
   end
@@ -28,7 +28,6 @@ Imjuve::Application.routes.draw do
   resources :surveys do
 	get :export, :on => :collection
   end
-
 
   root to: 'home#index'
 

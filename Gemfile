@@ -15,6 +15,7 @@ gem 'capistrano', '~> 2.9.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem "font-awesome-rails"
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', '0.12.0', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'

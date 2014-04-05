@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require vendor/bootstrap.min
-//= require vendor/font-awesome.min
 //= require vendor/jquery-ui-1.9.2.custom.min
 //= require vendor/fullcalendar
 //= require vendor/prettyPhoto
@@ -24,6 +23,8 @@
 //= require vendor/jquery.gritter
 //= require admin/admin
  */
+
+ @import "font-awesome";
 
 body {
   padding-top: 50px;
