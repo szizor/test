@@ -22,6 +22,7 @@ class Admin::ProblemsController < Admin::BaseController
 
   def edit
     @problem = Problem.find(params[:id])
+    @alternatives = Alternative.all
   end
 
   def update

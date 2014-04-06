@@ -1,44 +1,173 @@
-<%= form_for [:admin, @alternative] do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :population %><br />
-    <%= f.number_field :population %>
-  </p>
-  <p>
-    <%= f.label :budget_expected %><br />
-    <%= f.number_field :budget_expected %>
-  </p>
-  <p>
-    <%= f.label :assigned_budget %><br />
-    <%= f.number_field :assigned_budget %>
-  </p>
-  <p>
-    <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
-  </p>
-  <p>
-    <%= f.label :end_date %><br />
-    <%= f.datetime_select :end_date %>
-  </p>
-  <p>
-    <%= f.label :actor_id %><br />
-    <%= f.number_field :actor_id %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :project %><br />
-    <%= f.check_box :project %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
+<div class="page-head">
+  <h2 class="pull-left">Editar Idea/Solucion</h2>
+  <div class="pull-right"></div>
+  <div class="clearfix"></div>
+  <!-- Breadcrumb -->
+  <div class="bread-crumb">
+    <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="index.html"><i class="fa fa-map-marker"></i> Idea/Solucion</a>
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Editar Idea/Solucion</a>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="matter">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= form_for [:admin, @alternative] do |f| %>
+          <div class="widget">
+            <div class="widget-head">
+              <div class="pull-left">Informacion Basica de la solucion</div>
+              <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+              <div class="padd">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label :name, "Titlo" %>
+                      <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Titlo" %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                     <%= f.label :category_id, "Categoria de la Solucion" %>
+                    <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <%= f.label :description, "Descripción de las acciones principales" %>
+                  <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "Descripción de las acciones principales") %>
+                </div>
+              </div>
+              <div class="widget-foot text-center">
+                <%= f.submit "Guardar", :class => 'btn btn-success' %>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+          <div class="widget">
+            <div class="widget-head">
+              <div class="pull-left">Características de la Solucion</div>
+              <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+              <div class="padd">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :group_benefited, "Grupo de edad beneficiado" %>
+                        <%= f.text_field :group_benefited, :class => "form-control input-lg", :placeholder => "Grupo de edad beneficiado" %>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :quantity_benefited, "Cantidad de la Población beneficiaria" %>
+                        <%= f.text_field :quantity_benefited, :class => "form-control input-lg", :placeholder => "Cantidad de la Población beneficiaria" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4>Presupuesto</h4>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :budget_expected, "Presupuesto contemplado" %>
+                        <%= f.text_field :budget_expected, :class => "form-control input-lg", :placeholder => "Presupuesto contemplado" %>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :assigned_budget, "Presupuesto asignado" %>
+                        <%= f.text_field :assigned_budget, :class => "form-control input-lg", :placeholder => "Presupuesto asignado" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :start_date, "Fecha de inicio" %>
+                        <div id="datetimepicker1" class="input-append">
+                          <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd" %>
+                          <span class="add-on">
+                            <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :end_date, "Fecha de término estimada" %>
+                        <div id="datetimepicker1" class="input-append">
+                          <%= f.text_field :end_date, :class => "form-control dtpicker", :placeholder => "Fecha de término estimada", :"data-format"=>"yyyy-MM-dd" %>
+                          <span class="add-on">
+                            <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4>La institución responsable de implementar el proyecto</h4>
+
+                  <div class="form-group">
+                    <label for="">Actor Principal</label>
+                    <!-- Actores en el mismo Municipio -->
+                    <%= f.select(:actor_id, Actor.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+                  </div>
+
+                  <h4>Actore Relacionado</h4>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <ol class="form-inline">
+                        <li>
+                          <div class="form-group">
+                            <select name="" id="input" class="form-control" required="required">
+                              <option value="">-- Seleccionar</option>
+                              <option value="" selected>Children international</option>
+                              <option value="">Freedom House</option>
+                            </select>
+                          </div>
+                          <button class="btn btn-primary btn-sm">Agregar Mas</button>
+                          <button class="btn btn-danger btn-sm">Borrar</button>
+                        </li>
+                        <li>
+                          <div class="form-group">
+                            <select name="" id="input" class="form-control" required="required">
+                              <option value="">-- Seleccionar</option>
+                              <option value="">Children international</option>
+                              <option value="" selected>Freedom House</option>
+                            </select>
+                          </div>
+                          <button class="btn btn-primary btn-sm">Agregar Mas</button>
+                          <button class="btn btn-danger btn-sm">Borrar</button>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+
+              </div>
+              <div class="widget-foot text-center">
+                <%= f.submit "Guardar", :class => 'btn btn-success' %>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
