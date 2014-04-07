@@ -1,4 +1,6 @@
 var geocoder, map, selectedShape, drawingManager;
+var drawPolygon = [];
+var bounds;
 var colors = [
     '#1E90FF',
     '#FF1493',
@@ -90,9 +92,21 @@ function polygonCoords(coords) {
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
+    bounds = new google.maps.LatLngBounds();
+    var i;
+
+    for (i = 0; i < polyCoords.length; i++) {
+        drawPolygon.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A) );
+    };
+
+
+    for (i = 0; i < drawPolygon.length; i++) {
+      bounds.extend(drawPolygon[i]);
+    }
+
     var mapOptions = {
-        center: new google.maps.LatLng(20.673584, -103.281784),
-        zoom: 15,
+        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().A),
+        zoom: 17,
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -103,6 +117,7 @@ function initialize() {
         },
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
     drawingManager = new google.maps.drawing.DrawingManager({
@@ -130,6 +145,8 @@ function initialize() {
             drawingModes: [google.maps.drawing.OverlayType.POLYGON]
         }
     });
+
+    drawingManager.setDrawingMode(null);
 
     google.maps.event.addListener(drawingManager, 'polygoncomplete', function(polygon) {
         var coordinates = (polygon.getPath().getArray());
@@ -168,7 +185,6 @@ function initialize() {
 
             coordinates = newShape.getPath().getArray();
             polygonCoords(coordinates);
-
         }
     });
 
@@ -178,6 +194,26 @@ function initialize() {
     google.maps.event.addDomListener(document.getElementById('delete-button'), 'click', deleteSelectedShape);
     drawingManager.setMap(map);
     buildColorPalette();
+
+    currentPolygon = new google.maps.Polygon({
+        path: drawPolygon,
+        strokeWeight: 0,
+        fillColor: polyColor,
+        fillOpacity: 0.35,
+        clickable: true,
+        draggable: false,
+        editable: true,
+        zIndex: 1
+    })
+
+    currentPolygon.setMap(map);
+    google.maps.event.addListener(currentPolygon, 'click', function() {
+        coordinates = currentPolygon.getPath().getArray()
+        polygonCoords(coordinates);
+        setSelection(currentPolygon);
+    });
+
+    drawingManager.setMap(null);
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -197,6 +233,25 @@ function codeAddress() {
 
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+
+function codeLatLng() {
+    var latlng = new google.maps.LatLng(bounds.getCenter().lat(), bounds.getCenter().lng());
+    geocoder.geocode({
+        'latLng': latlng
+    }, function (results, status) {
+        debugger;
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                map.setZoom(11);
+                debugger;
+            } else {
+                alert('No results found');
+            }
+        } else {
+            alert('Geocoder failed due to: ' + status);
         }
     });
 }
