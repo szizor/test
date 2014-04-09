@@ -6,9 +6,9 @@ gem 'mysql2', '0.3.13'
 gem "jquery-rails"
 gem 'will_paginate', '> 3.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
-#gem "carrierwave", "0.9.0"
+gem "carrierwave", "0.9.0"
 #gem "devise", "3.1.1"
-#gem "rmagick", "2.13.2"
+gem "rmagick", "2.13.2"
 #gem 'omniauth-twitter', '1.0.1'
 #gem 'omniauth-facebook', '1.4.1'
 gem 'capistrano', '~> 2.9.0'

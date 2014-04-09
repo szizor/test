@@ -170,7 +170,7 @@
               </ul>
               <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
                 <div class="tab-pane" id="documentos">
-                  <button class="btn btn-sm btn-primary pull-right">Agregar Documento</button>
+                  <%= button_to "Agregar Documento", new_admin_polygon_document_path(@polygon), :method => "get", :class=>"btn btn-sm btn-primary pull-right" %>
                   <h4>Documentos</h4>
                   <hr>
                   <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -179,68 +179,41 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Tipo</th>
-                        <th>Previcidad</th>
+                        <th>Privacidad</th>
                         <th>Tamaño</th>
                         <th class="text-center">Opciones</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Documento 1</td>
-                        <td>PDF</td>
-                        <td>Capacitadores</td>
-                        <td>15.57 (KB)</td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Documento 2</td>
-                        <td>DOC</td>
-                        <td>Publico</td>
-                        <td>15.57 (KB)</td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Documento 3</td>
-                        <td>DOC</td>
-                        <td>Capacitadores</td>
-                        <td>15.57 (KB)</td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
+                      <% for doc in @polygon.documents %>
+                        <tr>
+                          <td><%= doc.id %></td>
+                          <td><%= doc.name %></td>
+                          <td></td>
+                          <td><%= doc.visible? ? "Publico" : "Capacitadores" %></td>
+                          <td>15.57 (KB)</td>
+                          <td class="text-center">
+                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
+                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
+                          </td>
+                        </tr>
+                      <% end %>
                     </tbody>
                   </table>
                 </div>
                 <div class="tab-pane" id="fotos">
-                  <button class="btn btn-sm btn-primary pull-right">Agregar Foto</button>
+                  <%= button_to "Agregar Foto", admin_polygon_images_path(@polygon), :method => "get", :class=>"btn btn-sm btn-primary pull-right" %>
                   <h4>Fotos</h4>
                   <hr>
                   <div class="gallery">
                     <!-- Full size image link in anchor tag. Thumbnail link in image tag. -->
-                    <a href="img/photos/s1.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t1.jpg" alt=""></a>
-                    <a href="img/photos/s2.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t2.jpg" alt=""></a>
-                    <a href="img/photos/s3.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t3.jpg" alt=""></a>
-                    <a href="img/photos/s4.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t4.jpg" alt=""></a>
-                    <a href="img/photos/s5.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t5.jpg" alt=""></a>
-                    <a href="img/photos/s6.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t6.jpg" alt=""></a>
-                    <a href="img/photos/s7.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t7.jpg" alt=""></a>
-                    <a href="img/photos/s8.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t8.jpg" alt=""></a>
-                    <a href="img/photos/s9.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t9.jpg" alt=""></a>
-                    <a href="img/photos/s10.jpg" class="prettyPhoto[pp_gal]"><img src="img/photos/t10.jpg" alt=""></a>
+                    <% for image in @polygon.images %>
+                      <a href="<%= image.image.url(:thumb) %>" class="prettyPhoto[pp_gal]"><img src="<%= image.image.url() %>" alt=""></a>
+                    <% end %>
                   </div>
                 </div>
                 <div class="tab-pane" id="videos">
-                  <button class="btn btn-sm btn-primary pull-right">Agregar Video</button>
+                  <%= button_to "Agregar Video", new_admin_polygon_video_path(@polygon), :method => "get", :class=>"btn btn-sm btn-primary pull-right" %>
                   <h4>Videos</h4>
                   <hr>
                   <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -253,33 +226,17 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Children International</td>
-                        <td><span class="label label-info">Actore</span></td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>PROBLEMA_IUUJK_JDS</td>
-                        <td><span class="label label-danger">Problema</span></td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>ALTERNATIVA_IUUJK_JDS</td>
-                        <td><span class="label label-success">Alternativa</span></td>
-                        <td class="text-center">
-                          <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                          <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                        </td>
-                      </tr>
+                      <% for video in @polygon.videos %>
+                        <tr>
+                          <td><%= video.id %></td>
+                          <td><%= video.name %></td>
+                          <td><%= video.visible %></td>
+                          <td class="text-center">
+                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
+                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
+                          </td>
+                        </tr>
+                      <% end %>
                     </tbody>
                   </table>
                 </div>

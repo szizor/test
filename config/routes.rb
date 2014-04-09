@@ -2,16 +2,17 @@ Imjuve::Application.routes.draw do
 
   namespace :admin do
     resources :tours
-    resources :videos
     resources :events
     resources :votes
     resources :updates
     resources :alternatives
-    resources :images
-    resources :documents
     resources :categories
     resources :problems
-    resources :polygons
+    resources :polygons do
+      resources :images
+      resources :documents
+      resources :videos
+    end
     resources :users
     resources :actors
     resources :dashboard, :only => [:index]

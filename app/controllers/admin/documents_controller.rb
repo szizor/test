@@ -1,6 +1,6 @@
 class Admin::DocumentsController < Admin::BaseController
   def index
-    @documents = Document.all
+    @polygon = Polygon.find(params[:polygon_id])
   end
 
   def show
@@ -8,13 +8,17 @@ class Admin::DocumentsController < Admin::BaseController
   end
 
   def new
-    @document = Document.new
+    @document = Document.new(:polygon_id => params[:polygon_id])
   end
 
   def create
     @document = Document.new(params[:document])
     if @document.save
-      redirect_to [:admin, @document], :notice => "Successfully created document."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Document was successfully created.' }
+        format.json { render json: @image, status: :created, location: @image }
+      end
     else
       render :action => 'new'
     end
@@ -27,7 +31,10 @@ class Admin::DocumentsController < Admin::BaseController
   def update
     @document = Document.find(params[:id])
     if @document.update_attributes(params[:document])
-      redirect_to [:admin, @document], :notice  => "Successfully updated document."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to admin_polygon_documents_path(polygon), notice: 'Document was successfully updated.' }
+      end
     else
       render :action => 'edit'
     end
@@ -36,6 +43,6 @@ class Admin::DocumentsController < Admin::BaseController
   def destroy
     @document = Document.find(params[:id])
     @document.destroy
-    redirect_to admin_documents_url, :notice => "Successfully destroyed document."
+    redirect_to :back, :notice => "Successfully destroyed document."
   end
 end

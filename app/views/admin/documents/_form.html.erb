@@ -1,12 +1,16 @@
-<%= form_for [:admin, @document] do |f| %>
+<%= form_for [:admin, :polygon, @document], :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
+  <%= f.hidden_field :polygon_id %>
+  <%= f.label :name, "Nombre" %>
   <p>
-    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+  <%= f.label :file, "Archivo" %>
   <p>
-    <%= f.label :visible %><br />
-    <%= f.check_box :visible %>
+    <%= f.file_field :file %>
+  </p>
+  <p>
+    <%= f.file_field :visible %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

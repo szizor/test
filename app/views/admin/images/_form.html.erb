@@ -1,16 +1,12 @@
-<%= form_for [:admin, @image] do |f| %>
+<%= form_for [:admin, :polygon, @image], :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
+  <%= f.hidden_field :polygon_id %>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.file_field :image %>
   </p>
   <p>
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
-  </p>
-  <p>
-    <%= f.label :visible %><br />
-    <%= f.check_box :visible %>
+    <%= f.label :remote_image_url, "or image URL" %><br />
+    <%= f.text_field :remote_image_url %>
   </p>
   <p><%= f.submit %></p>
 <% end %>
