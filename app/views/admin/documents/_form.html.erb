@@ -1,17 +1,19 @@
 <%= form_for [:admin, :polygon, @document], :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
   <%= f.hidden_field :polygon_id %>
-  <%= f.label :name, "Nombre" %>
-  <p>
-    <%= f.text_field :name %>
-  </p>
-  <%= f.label :file, "Archivo" %>
-  <p>
-    <%= f.file_field :file %>
-  </p>
-  <%= f.label :visoble, "Visible a" %>
-  <p>
+  <div class="form-group">
+    <%= f.label :name, "Nombre" %>
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :file, "Archivo" %>
+    <%= f.file_field :file, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :visoble, "Visible a" %>
     <%= f.select :visible, ['Publico', 'Capacitador'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
-  </p>
-  <p><%= f.submit %></p>
+  </div>
+  <p><%= f.submit  "Guardar", :class => 'btn btn-success' %></p>
 <% end %>
