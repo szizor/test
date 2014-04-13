@@ -27,6 +27,9 @@ class Admin::AlternativesController < Admin::BaseController
   def update
     @alternative = Alternative.find(params[:id])
     if @alternative.update_attributes(params[:alternative])
+      debugger
+      if params[:actors]
+      end
       redirect_to [:admin, @alternative], :notice  => "Successfully updated alternative."
     else
       render :action => 'edit'

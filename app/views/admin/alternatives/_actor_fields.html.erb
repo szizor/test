@@ -1,0 +1,1 @@
+<%= f.select(:id, Actor.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>

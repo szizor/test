@@ -9,8 +9,9 @@
   <p>
     <%= f.file_field :file %>
   </p>
+  <%= f.label :visoble, "Visible a" %>
   <p>
-    <%= f.file_field :visible %>
+    <%= f.select :visible, ['Publico', 'Capacitador'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

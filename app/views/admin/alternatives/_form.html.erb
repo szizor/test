@@ -128,33 +128,18 @@
                     <%= f.select(:actor_id, Actor.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
                   </div>
 
-                  <h4>Actore Relacionado</h4>
+                  <h4>Actores Relacionados</h4>
 
                   <div class="row">
                     <div class="col-md-6">
                       <ol class="form-inline">
-                        <li>
-                          <div class="form-group">
-                            <select name="" id="input" class="form-control" required="required">
-                              <option value="">-- Seleccionar</option>
-                              <option value="" selected>Children international</option>
-                              <option value="">Freedom House</option>
-                            </select>
-                          </div>
-                          <button class="btn btn-primary btn-sm">Agregar Mas</button>
-                          <button class="btn btn-danger btn-sm">Borrar</button>
-                        </li>
-                        <li>
-                          <div class="form-group">
-                            <select name="" id="input" class="form-control" required="required">
-                              <option value="">-- Seleccionar</option>
-                              <option value="">Children international</option>
-                              <option value="" selected>Freedom House</option>
-                            </select>
-                          </div>
-                          <button class="btn btn-primary btn-sm">Agregar Mas</button>
-                          <button class="btn btn-danger btn-sm">Borrar</button>
-                        </li>
+                        <%= f.fields_for :actors_attributes do |builder| %>
+                          <li>
+                            <%= builder.select(:id, Actor.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+                            <%#= link_to_add_fields "Agregar Mas", f, :actors %>
+                            <button class="btn btn-danger btn-sm">Borrar</button>
+                          </li>
+                        <% end %>
                       </ol>
                     </div>
                   </div>
@@ -171,3 +156,14 @@
     </div>
   </div>
 </div>
+<script>
+  $(function() {
+    $('form').on('click', '.add_fields', function(event) {
+      var regexp, time;
+      time = new Date().getTime();
+      regexp = new RegExp($(this).data('id'), 'g');
+      $(this).before($(this).data('fields').replace(regexp, time));
+      return event.preventDefault();
+    });
+  });  
+</script>
