@@ -49,7 +49,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Estado</label>
-                        <%= f.select(:state_id, Estado.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+                        <%= f.select(:state_id, State.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
                       </div>
                     </div>
                     <div class="col-md-4">
