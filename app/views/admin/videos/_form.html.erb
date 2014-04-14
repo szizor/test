@@ -1,12 +1,17 @@
-<%= form_for [:admin, @video] do |f| %>
+<%= form_for [:admin, :polygon, @video], :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
+  <%= f.hidden_field :polygon_id %>
+  <%= f.label :name, "Nombre" %>
   <p>
-    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+  <%= f.label :url, "Ruta" %>
   <p>
-    <%= f.label :visible %><br />
-    <%= f.check_box :visible %>
+    <%= f.text_field :url %>
+  </p>
+  <%= f.label :visible, "Tipo" %>
+  <p>
+    <%= f.select :visible, ['Actor', 'Problema', 'Alternativa'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

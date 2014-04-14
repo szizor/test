@@ -1,56 +1,117 @@
-<%= form_for [:admin, @actor] do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-  <p>
-    <%= f.label :facebook %><br />
-    <%= f.text_field :facebook %>
-  </p>
-  <p>
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter %>
-  </p>
-  <p>
-    <%= f.label :contact_name %><br />
-    <%= f.text_field :contact_name %>
-  </p>
-  <p>
-    <%= f.label :contact_email %><br />
-    <%= f.text_field :contact_email %>
-  </p>
-  <p>
-    <%= f.label :contact_phone %><br />
-    <%= f.text_field :contact_phone %>
-  </p>
-  <p>
-    <%= f.label :contact_title %><br />
-    <%= f.text_field :contact_title %>
-  </p>
-  <p>
-    <%= f.label :actor_type_id %><br />
-    <%= f.number_field :actor_type_id %>
-  </p>
-  <p>
-    <%= f.label :polygon_id %><br />
-    <%= f.number_field :polygon_id %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
+<!-- Page heading -->
+<div class="page-head">
+  <h2 class="pull-left"><%= params[:id].present? ? "Editar Actor" : "Nuevo Actor" %></h2>
+  <div class="clearfix"></div>
+  <!-- Breadcrumb -->
+  <div class="bread-crumb">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="index.html"><i class="fa fa-users"></i> Actores</a>
+    <span class="divider">/</span>
+    <a href="#" class="bread-current"><%= params[:id].present? ? "Editar Actor" : "Nuevo Actor" %></a>
+  </div>
+
+  <div class="clearfix"></div>
+</div>
+<!-- Page heading ends -->
+<!-- Matter -->
+
+<div class="matter">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget">
+          <div class="widget-head">
+            <div class="pull-left"><%= params[:id].present? ? @actor.name : "Nuevo Actor" %></div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget-content">
+            <div class="padd">
+              <!-- Profile form -->
+            <div class="form profile">
+              <%= form_for [:admin, @actor] do |f| %>
+                  <div class="form-group">
+                    <%= f.label :name, "Nombre de la institución" %>
+                    <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la institución" %>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">  
+                        <%= f.label :address, "Dirección" %>
+                        <%= f.text_field :address, :class => "form-control", :placeholder => "Calle, Colonia" %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Estado</label>
+                        <%= f.select(:state_id, Estado.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :city, "Ciudad" %>
+                        <%= f.text_field :city, :class => "form-control", :placeholder => "Ciudad" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :phone, "Teléfono de oficina" %>
+                        <%= f.text_field :phone, :class => "form-control", :placeholder => "Teléfono de oficina" %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :website, "Pagina Web" %>
+                        <%= f.text_field :website, :class => "form-control", :placeholder => "Pagina Web" %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :email, "Email" %>
+                        <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4>Redes sociales</h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Representante Oficial</label>
+                        <%= f.select(:user_id, User.all.collect {|p| [ p.username, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :facebook, "Facebook" %>
+                        <%= f.text_field :facebook, :class => "form-control", :placeholder => "Facebook" %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :twitter, "Twitter" %>
+                        <%= f.text_field :twitter, :class => "form-control", :placeholder => "Twitter" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <!-- Buttons -->
+                    <%= f.submit "Añadir", :class => 'btn btn-success' %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>

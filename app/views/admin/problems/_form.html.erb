@@ -205,26 +205,18 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Heberto Morales</td>
-                      <td>Areglar las calles!</td>
-                      <td><span class="label label-success">Solucion</span></td>
-                      <td class="text-center">
-                        <button class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> Editar</button>
-                        <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> Borrar</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Heberto Morales</td>
-                      <td>Agregare Luz!</td>
-                      <td>Idea</td>
-                      <td class="text-center">
-                        <button class="btn btn-xs btn-success"><i class="fa fa-pencil"></i> Editar</button>
-                        <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> Borrar</button>
-                      </td>
-                    </tr>
+                    <% for alternative in @alternatives %>
+                      <tr>
+                        <td><%= alternative.id %></td>
+                        <td><%= alternative.user.username %></td>
+                        <td><%= alternative.name %></td>
+                        <td><%= alternative.solution? ? "<span class='label label-success'>Solucion</span>" : "Idea" %></td>
+                        <td class="text-center">
+                          <%= link_to "Edit", edit_admin_alternative_path(alternative) %>
+                          <%= link_to "Destroy", [:admin, alternative], :confirm => 'Are you sure?', :method => :delete %>
+                        </td>
+                      </tr>
+                    <% end %>
                   </tbody>
                 </table>
               </div>

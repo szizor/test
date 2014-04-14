@@ -1,6 +1,7 @@
 class Admin::ImagesController < Admin::BaseController
+
   def index
-    @images = Image.all
+    @polygon = Polygon.find(params[:polygon_id])
   end
 
   def show
@@ -8,13 +9,17 @@ class Admin::ImagesController < Admin::BaseController
   end
 
   def new
-    @image = Image.new
+    @image = Image.new(:polygon_id => params[:polygon_id])
   end
 
   def create
     @image = Image.new(params[:image])
     if @image.save
-      redirect_to [:admin, @image], :notice => "Successfully created image."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to admin_polygon_documents_path(polygon), notice: 'Image was successfully created.' }
+        format.json { render json: @image, status: :created, location: @image }
+      end
     else
       render :action => 'new'
     end
@@ -27,7 +32,10 @@ class Admin::ImagesController < Admin::BaseController
   def update
     @image = Image.find(params[:id])
     if @image.update_attributes(params[:image])
-      redirect_to [:admin, @image], :notice  => "Successfully updated image."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to admin_polygon_images_path(polygon), notice: 'Image was successfully updated.' }
+      end
     else
       render :action => 'edit'
     end
@@ -36,6 +44,6 @@ class Admin::ImagesController < Admin::BaseController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    redirect_to admin_images_url, :notice => "Successfully destroyed image."
+    redirect_to :back, :notice => "Successfully destroyed image."
   end
 end

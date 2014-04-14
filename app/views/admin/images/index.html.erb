@@ -1,21 +1,42 @@
-<% title "Admin/Images" %>
+<% title @polygon.name %>
+<div class="row" id="paintings">
+  <div class="col-sm-12" id="gallery_grid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title"><%= link_to @polygon.name, edit_admin_polygon_path(@polygon) %></h4>
+      </div>
+      <table id="dt_basic" class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Preview</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for image in @polygon.images %>
+          <tr class="mix">
+            <td><%= image.id %></td>
+            <td>
+              <%= link_to image.image_url, class: 'img-thumbnail img_wrapper gal_lightbox' do %>
+                <%= image_tag(image.image.url(:thumb), :class => "img-responsive") %>
+              <% end %>
+            </td>
+            <td>
+              <%#= link_to "Editar", edit_admin_listing_image_path(@listing,image), :class => 'btn btn-primary' %>   
+              <%= link_to "Borrar", admin_polygon_image_path(@polygon,image), :confirm => '¿Está seguro? ', :method => :delete, :class => 'btn btn-danger' %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body text-center">
+    <%= link_to "Añadir nueva foto", new_admin_polygon_image_path(:listing_id => @polygon.id), :class => 'btn btn-primary' %>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Image</th>
-    <th>Visible</th>
-  </tr>
-  <% for image in @images %>
-    <tr>
-      <td><%= image.name %></td>
-      <td><%= image.image %></td>
-      <td><%= image.visible %></td>
-      <td><%= link_to "Show", [:admin, image] %></td>
-      <td><%= link_to "Edit", edit_admin_image_path(image) %></td>
-      <td><%= link_to "Destroy", [:admin, image], :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
 
-<p><%= link_to "New Admin/Image", new_admin_image_path %></p>

@@ -3,4 +3,7 @@ class Polygon < ActiveRecord::Base
   belongs_to :state
   has_many :tours
   has_many :actors
+  has_many :images
+  has_many :videos
+  has_many :documents
 end
