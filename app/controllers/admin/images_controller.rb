@@ -17,7 +17,7 @@ class Admin::ImagesController < Admin::BaseController
     if @image.save
       respond_to do |format|
         polygon = Polygon.find(params[:polygon_id])
-        format.html { redirect_to admin_polygon_documents_path(polygon), notice: 'Image was successfully created.' }
+        format.html { redirect_to admin_polygon_images_path(polygon), notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       end
     else

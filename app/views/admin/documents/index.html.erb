@@ -1,19 +1,39 @@
 <% title "Admin/Documents" %>
+<div class="page-head">
+<h2 class="pull-left">Fotos</h2>
+<div class="pull-right">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Visible</th>
-  </tr>
-  <% for document in @documents %>
-    <tr>
-      <td><%= document.name %></td>
-      <td><%= document.visible %></td>
-      <td><%= link_to "Show", [:admin, document] %></td>
-      <td><%= link_to "Edit", edit_admin_document_path(document) %></td>
-      <td><%= link_to "Destroy", [:admin, document], :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+</div>
+<div class="clearfix"></div>
+<!-- Breadcrumb -->
+<div class="bread-crumb">
+  <a href="/admin/dashboard"><i class="fa fa-home"></i> Inicio</a>
+  <!-- Divider -->
+  <span class="divider">/</span>
+  <a href="/admin/polygons"><i class="fa fa-map-marker"></i> Agregar Documentos</a>
+  <span class="divider">/</span>
+  <a href="#" class="bread-current">Agregar Documentos</a>
+</div>
 
-<p><%= link_to "New Admin/Document", new_admin_document_path %></p>
+<div class="clearfix"></div>
+</div>
+<div class="matter">
+  <div class="container">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Visible</th>
+      </tr>
+      <% for document in @documents %>
+        <tr>
+          <td><%= document.name %></td>
+          <td><%= document.visible %></td>
+          <td><%= link_to "Show", [:admin, document] %></td>
+          <td><%= link_to "Edit", edit_admin_document_path(document) %></td>
+          <td><%= link_to "Destroy", [:admin, document], :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p><%= link_to "New Admin/Document", new_admin_document_path %></p>
+  </div>
+</div>
