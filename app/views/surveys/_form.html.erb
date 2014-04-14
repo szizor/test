@@ -40,12 +40,44 @@
   </fieldset>
   <fieldset>
     <legend>Datos de identificación de la zona de intervención</legend>
-    
-    <div class="form-group" id="coloniaSelector">
-      <%= f.label :polygon_id, "Poligono" %>
+    <div class="form-group" id="IntervensionCity">
+      <%= f.label :municipio %>
       <div class="radio">
         <label>
-          <%= f.select(:polygon_id, Polygon.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+          <%= f.radio_button(:municipio, "Zapopan" )%> Zapopan
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button(:municipio, "Torreón")%> Torreón
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+           <%= f.radio_button(:municipio, "Lerdo")%> Lerdo
+        </label>
+      </div>
+    </div>
+    <div class="form-group" id="coloniaSelector">
+      <%= f.label :colonia %>
+      <div class="radio">
+        <label>
+          <%= f.radio_button(:colonia, "Prados de Santa Lucía")%> Prados de Santa Lucía
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button(:colonia, "Villas del Centinela")%> Villas del Centinela
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button(:colonia, "Santiago Ramírez")%> Santiago Ramírez
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button(:colonia, "San Isidro")%> San Isidro
         </label>
       </div>
     </div>
