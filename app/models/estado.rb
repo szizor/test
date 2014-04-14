@@ -1,3 +1,3 @@
 class Estado < ActiveRecord::Base
-  attr_accessible :clave, :nombre, :abrev
+  attr_accessible :name
 end

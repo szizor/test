@@ -1,5 +1,5 @@
 #encoding: utf-8
-User.create(username: 'Admin', email: 'test@imjuve.com', password: '12345678', password_confirmation: '12345678', is_admin: true)
+user = User.create(username: 'Admin', email: 'test@imjuve.com', password: '12345678', password_confirmation: '12345678', is_admin: true)
 UserType.create(name: 'Admin')
 UserType.create(name: 'Capacitador')
 UserType.create(name: 'Encuestador')
@@ -7,7 +7,7 @@ UserType.create(name: 'Usuario')
 servicios = ParentCategory.create(:name => "Servicios Públicos")
 familias = ParentCategory.create(:name => "Familias")
 otros = ParentCategory.create(:name => "Otros")
-Category.create(:name => "Agua potable y saneamiento", :parent_category_id => servicios.id)
+demo = Category.create(:name => "Agua potable y saneamiento", :parent_category_id => servicios.id)
 Category.create(:name => "Alcantarillado", :parent_category_id => servicios.id)
 Category.create(:name => "Residuos Sólidos", :parent_category_id => servicios.id)
 Category.create(:name => "Calles, vialidades y accesos", :parent_category_id => servicios.id)
@@ -32,42 +32,6 @@ Category.create(:name => "Deporte y atención a la juventud con programas social
 Category.create(:name => "Transferencia o desarrollo de tecnología", :parent_category_id => otros.id)
 
 
-3.times{Polygon.create!({name: "test1", coords: '[{"k":20.679325661886306,"A":-103.28320026397705},{"k":20.67928551150732,"A":-103.28783512115479},{"k":20.680128667235778,"A":-103.29414367675781},{"k":20.672218879405218,"A":-103.29594612121582},{"k":20.671415832218987,"A":-103.2960319519043},{"k":20.669488501645947,"A":-103.29706192016602},{"k":20.668203601008877,"A":-103.29731941223145},{"k":20.666677767384083,"A":-103.28667640686035},{"k":20.672620401405798,"A":-103.2753038406372},{"k":20.674909056535157,"A":-103.27470302581787},{"k":20.67547117707932,"A":-103.27358722686768},{"k":20.67864310399928,"A":-103.27191352844238},{"k":20.678602953439768,"A":-103.27457427978516},{"k":20.67936581225468,"A":-103.28028202056885}]', population: 12000, women_pop: 7000, men_pop: 5000, life_span: 60, ses: "Medio", scholarity: "secundaria", prod_act: "Productivas", econ_act: "economicas", state_id: nil, city_id: nil, neighborhood: nil, promedio: 35, cero_doce: 1200, doce_catorce: 1200, quince_diecinueve: 1500, veinte_veinticuatro: 2000, veinticinco_veintinueve: 2500, treinta_cincuentainueve: 3000, sesenta: 6000, rutas: "centro a periferico", colors: "#e9571e"})}
-3.times{Problem.create!( name: "problema 1", state_id: nil, city_id: nil, neighborhood_id: nil, polygon_id: nil, description: "Descripcion Problema 1", cause: "Esta causa", effects: "Este efecto", costs: 120000, frecuency: "Estacional (todo el año)", affects_to: 0, houses: 300, affected_population: 456, category_id: 2, user_id: nil, public: nil, votes_count: nil, cero_doce: 0, doce_catorce: 0, quince_diecinueve: 0, veinte_veinticuatro: 0, veinticinco_veintinueve: 0, treinta_cincuentainueve: 0, sesenta: 0, coords: "[{\"k\":20.690860788358275,\"A\":-103.36533188827161},{...", colors: "#FF1493")}
-
-
-# seed States
-Estado.create(:clave => '01', :nombre => 'Aguascalientes', :abrev => 'Ags.')
-Estado.create(:clave => '02', :nombre => 'Baja California', :abrev => 'BC')
-Estado.create(:clave => '03', :nombre => 'Baja California Sur', :abrev => 'BCS')
-Estado.create(:clave => '04', :nombre => 'Campeche', :abrev => 'Camp.')
-Estado.create(:clave => '05', :nombre => 'Coahuila de Zaragoza', :abrev => 'Coah.')
-Estado.create(:clave => '06', :nombre => 'Colima', :abrev => 'Col.')
-Estado.create(:clave => '07', :nombre => 'Chiapas', :abrev => 'Chis.')
-Estado.create(:clave => '08', :nombre => 'Chihuahua', :abrev => 'Chih.')
-Estado.create(:clave => '09', :nombre => 'Distrito Federal', :abrev => 'DF')
-Estado.create(:clave => '10', :nombre => 'Durango', :abrev => 'Dgo.')
-Estado.create(:clave => '11', :nombre => 'Guanajuato', :abrev => 'Gto.')
-Estado.create(:clave => '12', :nombre => 'Guerrero', :abrev => 'Gro.')
-Estado.create(:clave => '13', :nombre => 'Hidalgo', :abrev => 'Hgo.')
-Estado.create(:clave => '14', :nombre => 'Jalisco', :abrev => 'Jal.')
-Estado.create(:clave => '15', :nombre => 'México', :abrev => 'Mex.')
-Estado.create(:clave => '16', :nombre => 'Michoacán de Ocampo', :abrev => 'Mich.')
-Estado.create(:clave => '17', :nombre => 'Morelos', :abrev => 'Mor.')
-Estado.create(:clave => '18', :nombre => 'Nayarit', :abrev => 'Nay.')
-Estado.create(:clave => '19', :nombre => 'Nuevo León', :abrev => 'NL')
-Estado.create(:clave => '20', :nombre => 'Oaxaca', :abrev => 'Oax.')
-Estado.create(:clave => '21', :nombre => 'Puebla', :abrev => 'Pue.')
-Estado.create(:clave => '22', :nombre => 'Querétaro', :abrev => 'Qro.')
-Estado.create(:clave => '23', :nombre => 'Quintana Roo', :abrev => 'Q. Roo')
-Estado.create(:clave => '24', :nombre => 'San Luis Potosí', :abrev => 'SLP')
-Estado.create(:clave => '25', :nombre => 'Sinaloa', :abrev => 'Sin.')
-Estado.create(:clave => '26', :nombre => 'Sonora', :abrev => 'Son.')
-Estado.create(:clave => '27', :nombre => 'Tabasco', :abrev => 'Tab.')
-Estado.create(:clave => '28', :nombre => 'Tamaulipas', :abrev => 'Tamps.')
-Estado.create(:clave => '29', :nombre => 'Tlaxcala', :abrev => 'Tlax.')
-Estado.create(:clave => '30', :nombre => 'Veracruz de Ignacio de la Llave', :abrev => 'Ver.')
-Estado.create(:clave => '31', :nombre => 'Yucatán', :abrev => 'Yuc.')
-Estado.create(:clave => '32', :nombre => 'Zacatecas', :abrev => 'Zac.')
-
-# seed Minicipios
+3.times{Polygon.create!({name: "test1", coords: "[{\"k\":20.691031414379818,\"A\":-103.3650958538783},{\"...", population: 12000, women_pop: 7000, men_pop: 5000, life_span: 60, ses: "Medio", scholarity: "secundaria", prod_act: "Productivas", econ_act: "economicas", state_id: nil, city_id: nil, neighborhood: nil, promedio: 35, cero_doce: 1200, doce_catorce: 1200, quince_diecinueve: 1500, veinte_veinticuatro: 2000, veinticinco_veintinueve: 2500, treinta_cincuentainueve: 3000, sesenta: 6000, rutas: "centro a periferico", colors: "#e9571e"})}
+3.times{Problem.create!({name: "problema 1", state_id: nil, city_id: nil, neighborhood_id: nil, polygon_id: nil, description: "Descripcion Problema 1", cause: "Esta causa", effects: "Este efecto", costs: 120000, frecuency: "Estacional (todo el año)", affects_to: 0, houses: 300, affected_population: 456, category_id: 2, user_id: nil, public: nil, votes_count: nil, created_at: "2014-04-04 23:29:43", updated_at: "2014-04-04 23:29:43", cero_doce: 0, doce_catorce: 0, quince_diecinueve: 0, veinte_veinticuatro: 0, veinticinco_veintinueve: 0, treinta_cincuentainueve: 0, sesenta: 0, coords: "[{\"k\":20.690860788358275,\"A\":-103.36533188827161},{...", colors: "#FF1493"})}
+3.times{Alternative.create!({name: "test", category_id: demo.id, description: "test desc", user_id: user.id})}
