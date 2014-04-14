@@ -32,8 +32,10 @@
                   <tr>
                     <th>Nombre</th>
                     <th>Direccion</th>
-                    <th>Facebook</th>
-                    <th>Twitter</th>
+                    <th>Estado</th>
+                    <th>Municipio</th>
+                    <th class="text-center">Facebook</th>
+                    <th class="text-center">Twitter</th>
                     <th class="text-center">Acciones</th>
                   </tr>
                 </thead>
@@ -42,10 +44,30 @@
                     <tr>
                       <td><%= actor.name %></td>
                       <td><%= actor.address %></td>
-                      <td><%= actor.facebook %></td>
-                      <td><%= actor.twitter %></td>
-                      <td><%= link_to "Edit", edit_admin_actor_path(actor) %></td>
-                      <td><%= link_to "Destroy", [:admin, actor], :confirm => 'Are you sure?', :method => :delete %></td>
+                      <td><%= actor.state.name %></td>
+                      <td><%= actor.city %></td>
+                      <td class="text-center" style="font-size: 16px;">
+                        <% if actor.facebook.present? %>
+                          <a href="<%= actor.facebook %>" target="_blank">
+                            <i class="fa fa-facebook-square"></i>
+                          </a>
+                        <% end %>
+                      </td>
+                      <td class="text-center" style="font-size: 16px;">
+                        <% if actor.twitter.present? %>
+                          <a href="<%= actor.twitter %>" target="_blank">
+                            <i class="fa fa-twitter-square"></i>
+                          </a>
+                        <% end %>
+                      </td>
+                      <td class="text-center">
+                        <%= link_to edit_admin_actor_path(actor), class: "btn btn-xs btn-primary" do %>
+                          <i class="fa fa-pencil"></i> Editar
+                        <% end %>
+                        <%= link_to [:admin, actor], :confirm => 'Are you sure?', :method => :delete, class: "btn btn-xs btn-danger" do %>
+                          <i class="fa fa-times"></i> Borrar
+                        <% end %>
+                      </td>
                     </tr>
                   <% end %>
                 </tbody>
