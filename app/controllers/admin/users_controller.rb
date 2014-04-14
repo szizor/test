@@ -20,7 +20,11 @@ class Admin::UsersController < Admin::BaseController
     if @user.save
       #session[:user_id] = @user.id
       UserMailer.registration_confirmation(@user).deliver
-      redirect_to root_url, notice: "Thank you for signing up!"
+      if current_user && current_user.is_admin?
+        redirect_to :back, notice: "Usuario Creado con exito"
+      else
+        redirect_to root_url, notice: "Gracias por Registrarse"
+      end
     else
       render "new"
     end

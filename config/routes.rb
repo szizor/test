@@ -10,6 +10,7 @@ Imjuve::Application.routes.draw do
     resources :problems
     resources :polygons do
       resources :images
+      resources :trees
       resources :documents
       resources :videos
     end
