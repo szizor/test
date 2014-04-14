@@ -1,5 +1,25 @@
-<% title "New Image" %>
+<% title "New Video" %>
+<div class="page-head">
+<h2 class="pull-left">Nuevo Video</h2>
+<div class="pull-right">
 
-<%= render 'form' %>
+</div>
+<div class="clearfix"></div>
+<!-- Breadcrumb -->
+<div class="bread-crumb">
+  <a href="/admin/dashboard"><i class="fa fa-home"></i> Inicio</a>
+  <!-- Divider -->
+  <span class="divider">/</span>
+  <a href="/admin/polygons"><i class="fa fa-map-marker"></i> Agregar Video</a>
+  <span class="divider">/</span>
+  <a href="#" class="bread-current">Agregar Video</a>
+</div>
 
-<p><%= link_to "Back to Images", admin_polygon_videos_path(:polygon_id => params[:polygon_id]) %></p>
+<div class="clearfix"></div>
+</div>
+<div class="matter">
+  <div class="container">
+    <%= render 'form' %>
+    <p><%= link_to "Back to Videos", admin_polygon_videos_path(:polygon_id => params[:polygon_id]) %></p>
+    </div>
+</div>
