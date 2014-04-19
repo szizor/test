@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :username, :email, :password, :password_confirmation, :is_admin, :movil, :municipio, :estado
+  attr_accessible :username, :email, :password, :password_confirmation, :is_admin, :movil, :municipio, :estado, :user_type_id
   validates_uniqueness_of :email
   belongs_to :user_type
   has_many :surveys

@@ -1,6 +1,10 @@
 #encoding: utf-8
 if User.count == 0
   user = User.create(username: 'Admin', email: 'test@imjuve.com', password: '12345678', password_confirmation: '12345678', is_admin: true)
+  user = User.create(username: 'capacitador', email: 'test+capacitador@imjuve.com', password: '12345678', password_confirmation: '12345678', movil: "3314351686", municipio: "Guadalajara", estado: "Jalisco", user_type_id: 2)
+  user = User.create(username: 'encuestador', email: 'test+encuestador@imjuve.com', password: '12345678', password_confirmation: '12345678', movil: "3314351686", municipio: "Guadalajara", estado: "Jalisco", user_type_id: 3)
+  user = User.create(username: 'juanperez', email: 'test+usuario@imjuve.com', password: '12345678', password_confirmation: '12345678', movil: "3314351686", municipio: "Guadalajara", estado: "Jalisco", user_type_id: 4)
+  user = User.create(username: 'Soriana', email: 'test+soriana@imjuve.com', password: '12345678', password_confirmation: '12345678', movil: "3314351686", municipio: "Guadalajara", estado: "Jalisco", user_type_id: 4)
 end
 
 if UserType.count == 0
