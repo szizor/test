@@ -50,8 +50,12 @@
                           <td><a href="#"><i class="fa fa-facebook-square"></i></a></td>
                           <td><a href="#"><i class="fa fa-twitter-square"></i></a></td>
                           <td class="text-center">
-                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
+                            <%= link_to edit_admin_user_path(user), class: "btn btn-xs btn-primary" do %>
+                              <i class="fa fa-pencil"></i> Editar
+                            <% end %>
+                            <%= link_to [:admin, user], :confirm => 'Are you sure?', :method => :delete, class: "btn btn-xs btn-danger" do %>
+                              <i class="fa fa-times"></i> Borrar
+                            <% end %>
                           </td>
                         </tr>
                       <% end %>
