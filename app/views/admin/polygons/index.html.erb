@@ -45,7 +45,7 @@
                         <% for polygon in @polygons %>
                           <tr>
                             <td><%= polygon.name %></td>
-                            <td><%#= polygon.state.name %></td>
+                            <td><%= polygon.state.try(:name) %></td>
                             <td><%= polygon.city_id %></td>
                             <td><%= polygon.tours.count %></td>
                             <td><%= polygon.actors.count %></td>

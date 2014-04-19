@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :visoble, "Visible a" %>
-    <%= f.select :visible, ['Publico', 'Capacitador'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
+    <%= f.select :visible, ['Publico', 'Capacitador'], {:class => "form-control"} %>
   </div>
   <p><%= f.submit  "Guardar", :class => 'btn btn-success' %></p>
 <% end %>

@@ -133,12 +133,10 @@
                   <div class="row">
                     <div class="col-md-6">
                       <ol class="form-inline">
-                        <%= f.fields_for :actors_attributes do |builder| %>
-                          <li>
-                            <%= builder.select(:id, Actor.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
-                            <%#= link_to_add_fields "Agregar Mas", f, :actors %>
-                            <button class="btn btn-danger btn-sm">Borrar</button>
-                          </li>
+                        <%= hidden_field_tag "alternative[actor_ids][]", nil %>
+                        <% Actor.all.each do |actor| %>
+                          <%= check_box_tag "alternative[actor_ids][]", actor.id, @alternative.actor_ids.include?(actor.id), id: dom_id(actor) %>
+                          <%= label_tag dom_id(actor), actor.name %><br>
                         <% end %>
                       </ol>
                     </div>

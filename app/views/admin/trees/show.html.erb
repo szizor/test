@@ -1,0 +1,24 @@
+<% title "Tree" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tree.name %>
+</p>
+<p>
+  <strong>Visible:</strong>
+  <%= @tree.visible %>
+</p>
+<p>
+  <strong>Polygon:</strong>
+  <%= @tree.polygon_id %>
+</p>
+<p>
+  <strong>File:</strong>
+  <%= @tree.file %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_tree_path(@tree) %> |
+  <%= link_to "Destroy", @tree, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", trees_path %>
+</p>

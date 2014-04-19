@@ -58,6 +58,15 @@
       </div>
     </div>
     <div class="mainbar">
+      <% if flash.present? %>
+
+        <div class="alert alert-warning" style="margin-top: 15px;">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

@@ -1,0 +1,11 @@
+development: &development
+  HOST: 'http://localhost:3000'
+test:
+  <<: *development
+
+staging:
+  <<: *development
+  HOST: 'http://staging.placeit.net'
+production:
+  <<: *development
+  HOST: 'https://placeit.net'
