@@ -1,5 +1,13 @@
 Imjuve::Application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      #################### Reports ###########################
+      namespace :reports do
+        get '/:id',    to: 'api#get_polygon'
+      end
+    end
+  end
   namespace :admin do
     resources :tours
     resources :events
