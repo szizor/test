@@ -54,12 +54,19 @@
               <li><a href="/admin/users/new">Crear Nuevo Usario</a></li>
             </ul>
           </li>
+          <li class="has_sub">
+            <a href="#"><i class="fa fa-edit"></i> <span>Encuestas</span> <span class="pull-right"><i class="fa fa-chevron-down"></i></span></a>
+            <ul>
+              <li><a href="#">Listados de Encuestas</a></li>
+              <li><a href="#">Nueva Encuesta</a></li>
+              <li><a href="#">Exportar Encuestas</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
     <div class="mainbar">
       <% if flash.present? %>
-
         <div class="alert alert-warning" style="margin-top: 15px;">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <% flash.each do |name, msg| %>
