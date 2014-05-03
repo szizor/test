@@ -57,3 +57,14 @@ end
 if Alternative.count == 0
   3.times{Alternative.create!({name: "test", category_id: demo.id, description: "test desc", user_id: 1})}
 end
+
+surveys_file = File.open(Rails.root.to_s + '/db/surveys.json')
+surveys_json = JSON.parse(surveys_file.read)
+
+surveys_json.each do |survey|
+  survey.delete("created_at")
+  survey.delete("updated_at")
+  Survey.create(survey)
+end
+
+
