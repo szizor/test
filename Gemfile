@@ -22,7 +22,6 @@ group :assets do
 end
 
 group :development do
-  gem "nifty-generators", '0.4.6'
   gem 'debugger', '1.6.1'
   gem 'letter_opener'
   gem "nifty-generators", '0.4.6'
