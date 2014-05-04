@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google" value="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
+
+    <title>Landing Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/plugins/select2.css">
+    <link rel="stylesheet" href="css/plugins/select2-bootstrap.css">
+    <link href="css/plugins/bootstrap-switch.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/theme.css">
+    <!--
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB871cvJzMmT5lqCPbpQapooIuu0150Hvc&sensor=true">
+    </script>
+    -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.jpg" alt="">
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="menuRegister">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navRegister">Ingresa</a>
+            </li>
+            <li class="dropdown" id="menuLogin">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Participa</a>
+              <div class="dropdown-menu">
+                <div class="social-login-title">Conéctate con</div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                      <i class="fa fa-facebook"></i>
+                      <span class="hidden-xs">Facebook</span>
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+                      <i class="fa fa-twitter"></i>
+                      <span class="hidden-xs">Twitter</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="form-title">ó Regístrate con tu Correo</div>
+                <form class="form" id="formLogin">
+                  <div class="form-group">
+                    <input type="email" name="" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
+                  </div>
+                  <div class="form-group">
+                    <button type="button" class="btn btn-block btn-lg btn-danger">Registrárme</button>
+                  </div>
+                </form>
+                <div class="register-trigger text-center">
+                  ¿Ya tienes cuenta? <a href="#">Ingresa aqui</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- <form class="navbar-form navbar-right" role="logins">
+            <button type="button" class="btn btn-primary pull-right">Participa</button>
+            <button type="button" class="btn btn-default">Ingresa</button>
+          </form> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="map-container polygon-view">
+      <div class="map-toolbar">
+        <div class="container">
+          <div class="map-toolbar-responsive">
+            <a href="#" class="element-toggle" data-toggle="collapse" data-target=".filter-form"><i class="fa fa-th-large"></i> Filtros de la mapa</a>
+          </div>
+          <form action="" role="form" class="filter-form">
+            <div class="row">
+              <div class="col-md-4 col-xs-12 toolbar__form-group">
+                <div class="toolbar__label">Reportes y Proyectos de</div>
+                <div class="row">
+                  <div class="col-md-6 col-xs-6 toolbar__form-group-field">
+                    <select name="mapProjects" id="mapProjects" class="form-control select2-control" required="required">
+                      <option></option>
+                      <option value="Gobierno" selected>Gobierno</option>
+                      <option value="Ciudadano‎">Ciudadano‎</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 col-xs-6 toolbar__form-group-field">
+                    <div class="checkbox">
+                      <div class="bootstrap-switchy-container bootstrap-switchy-off pull-right">
+                        <span class="bootstrap-switchy-status"></span>
+                        <input type="checkbox" name="ModeratorFlag" id="ModeratorFlag" class="pull-right">
+                      </div>
+                      <label>Vista de Moderador</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
+                <div class="toolbar__label">Categorias</div>
+                <select class="form-control select2-control" id="problem_category_id" name="problem[category_id]" required="required">
+                  <option></option>
+                  <optgroup label="Servicios Públicos"><option value="1">Agua potable y saneamiento</option>
+                  <option value="2">Alcantarillado</option>
+                  <option value="3">Residuos Sólidos</option>
+                  <option value="4">Calles, vialidades y accesos</option>
+                  <option value="5">Alumbrado público</option>
+                  <option value="6">Energía eléctrica</option>
+                  <option value="7">Espacios públicos, parques y jardines (infraestructura)</option>
+                  <option value="8">Seguridad Pública y tránsito</option>
+                  <option value="9">Asistencia médica</option>
+                  <option value="10">Infraestructura educativa</option>
+                  <option value="11">Rezago educativo</option></optgroup><optgroup label="Familias"><option value="12">Integración familiar</option>
+                  <option value="13">Violencia intrafamiliar</option>
+                  <option value="14">Planificación familiar</option>
+                  <option value="15">Equidad de género</option></optgroup><optgroup label="Otros"><option value="16">Empleo y planeación socioeconómica</option>
+                  <option value="17">Vivienda</option>
+                  <option value="18">Salud, higiene, prevención y combate a las adicciones</option>
+                  <option value="19">Medio ambiente</option>
+                  <option value="20">Alimentación y nutrición</option>
+                  <option value="21">Participación ciudadana y vecinal</option>
+                  <option value="22">Deporte y atención a la juventud con programas sociales, culturales y recreativos</option>
+                  <option value="23">Transferencia o desarrollo de tecnología</option></optgroup>
+                </select>
+              </div>
+              <div class="col-md-5 col-xs-12 toolbar__form-group">
+                <div class="row">
+                  <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
+                    <div class="toolbar__label">Estado</div>
+                    <select class="form-control select2-control" id="polygon_state_id" name="polygon[state_id]">
+                      <option></option>
+                      <option value="1">Aguascalientes</option>
+                      <option value="2">Baja California</option>
+                      <option value="3">Baja California Sur</option>
+                      <option value="4">Campeche</option>
+                      <option value="5">Coahuila de Zaragoza</option>
+                      <option value="6">Colima</option>
+                      <option value="7">Chiapas</option>
+                      <option value="8">Chihuahua</option>
+                      <option value="9">Distrito Federal</option>
+                      <option value="10">Durango</option>
+                      <option value="11">Guanajuato</option>
+                      <option value="12">Guerrero</option>
+                      <option value="13">Hidalgo</option>
+                      <option value="14">Jalisco</option>
+                      <option value="15">México</option>
+                      <option value="16">Michoacán de Ocampo</option>
+                      <option value="17">Morelos</option>
+                      <option value="18">Nayarit</option>
+                      <option value="19">Nuevo León</option>
+                      <option value="20">Oaxaca</option>
+                      <option value="21">Puebla</option>
+                      <option value="22">Querétaro</option>
+                      <option value="23">Quintana Roo</option>
+                      <option value="24">San Luis Potosí</option>
+                      <option value="25">Sinaloa</option>
+                      <option value="26">Sonora</option>
+                      <option value="27">Tabasco</option>
+                      <option value="28">Tamaulipas</option>
+                      <option value="29">Tlaxcala</option>
+                      <option value="30">Veracruz de Ignacio de la Llave</option>
+                      <option value="31">Yucatán</option>
+                      <option value="32">Zacatecas</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 col-xs-6">
+                    <div class="toolbar__label">Polígono</div>
+                    <select class="form-control select2-control" id="polygon-select" name="polygon-select">
+                      <option></option>
+                      <option value="1">Prados de Santa Lucía</option>
+                      <option value="2">Villas del Centinela</option>
+                      <option value="3">Santiago Ramírez</option>
+                      <option value="4">San Isidro</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="polygon__info">
+        <div class="polygon__icon"><img src="img/icons/polygon.png"></div>
+          <div class="polygon__content">
+            <h1>
+              <a href="#" class="close pull-right element-toggle" data-toggle="collapse" data-target=".slick-responsive"><i class="fa fa-th"></i></a>
+              Polígono Minerva · <small>Guadalajara</small>
+            </h1>
+            <div class="slick-responsive collapse in">
+              <ul class="list-inline polygon__meta">
+                <li>
+                  <div class="polygon__meta-label">Población</div>
+                  <div class="polygon__meta-content">2,458</div>
+                  <div class="polygon__meta-description">Habitantes</div>
+                </li>
+                <li class="genre-list">
+                  <div class="polygon__meta-label">género</div>
+                  <div class="row">
+                    <div class="col-md-6 col-xs-6 br_right">
+                      <div class="polygon__meta-content">39%</div>
+                      <div class="polygon__meta-description">Hombres</div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                      <div class="polygon__meta-content">61%</div>
+                      <div class="polygon__meta-description">Mujeres</div>
+                    </div>
+                  </div>
+                </li>
+                <li class="ages-list">
+                  <div class="polygon__meta-label">Rangos de edad</div>
+                  <div class="row">
+                    <div class="col-md-6 col-xs-6 br_right">
+                      <div class="polygon__meta-content">34%</div>
+                      <div class="polygon__meta-description">12-29 años</div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                      <div class="polygon__meta-content">48%</div>
+                      <div class="polygon__meta-description">30-60+ años</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="polygon__meta-label">NSE</div>
+                  <div class="polygon__meta-content">C+</div>
+                  <div class="polygon__meta-description">(Prom.)</div>
+                </li>
+                <li>
+                  <div class="polygon__meta-label">escolaridad</div>
+                  <div class="polygon__meta-content">Sec</div>
+                  <div class="polygon__meta-description">(Prom.)</div>
+                </li>
+                <li class="br_right">
+                  <div class="polygon__meta-label">Economía</div>
+                  <div class="polygon__meta-content">
+                    <span class="polygon-sprite activities"></span>
+                  </div>
+                  <div class="polygon__meta-description">Actividades</div>
+                </li>
+                <li>
+                  <div class="polygon__meta-label">eventos</div>
+                  <div class="polygon__meta-content">
+                    <span class="polygon-sprite events"></span>
+                  </div>
+                  <div class="polygon__meta-description">Programa</div>
+                </li>
+                <li>
+                  <div class="polygon__meta-label">recorridos</div>
+                  <div class="polygon__meta-content">
+                    <a href="#" id="recorridosLink">
+                      <span class="polygon-sprite walkings"></span>
+                    </a>
+                  </div>
+                  <div class="polygon__meta-description">Programa</div>
+                </li>
+                <li>
+                  <div class="polygon__meta-label">transporte</div>
+                  <div class="polygon__meta-content">
+                    <span class="polygon-sprite transports"></span>
+                  </div>
+                  <div class="polygon__meta-description">Rutas</div>
+                </li>
+                <li>
+                  <div class="polygon__meta-label">galeria</div>
+                  <div class="polygon__meta-content">
+                    <span class="polygon-sprite gallery"></span>
+                  </div>
+                  <div class="polygon__meta-description">Fotos y video</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="problem__wrapper">
+        <div class="problem__cover" style="background-image: url('img/samples/problem-cover.jpg')"></div>
+        <div class="problem__container violencia">
+          <div class="problem__header">
+            <div class="problem__icon-container">
+              <span class="problem__icon"></span>
+            </div>
+            HEADER
+          </div>
+          <div class="problem__footer">
+            FOOTER
+          </div>
+        </div>
+      </div>
+      <div class="map-view" id="mainMap"></div>
+    </div>
+
+    <div class="unsuppoted hide">
+      <div class="container">
+        <h2>Usted está utilizando un navegador no compatible <small><br/>Por favor actualice a una de las siguientes opciones</small></h2>
+        <div class="text-center">
+          <a href="#"><img width="50" height="50" src="https://cdn1.iconfinder.com/data/icons/fs-icons-ubuntu-by-franksouza-/64/google-chrome.png" alt=""></a>
+          <a href="#"><img width="50" height="50" src="https://cdn1.iconfinder.com/data/icons/humano2/72x72/apps/firefox-icon.png" alt=""></a>
+          <a href="#"><img width="64" height="64" src="https://cdn1.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/64/safari_64.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        // e.src='//www.google-analytics.com/analytics.js';
+        // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        // ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="js/vendor/underscore-min.js"></script>
+    <script src="js/plugins/bootstrap-switch.min.js"></script>
+    <script src="js/plugins/select2.js"></script>
+    <script src="js/plugins/iscroll.js"></script>
+    <script src="js/home.js"></script>
+  </body>
+</html>

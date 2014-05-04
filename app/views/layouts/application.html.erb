@@ -24,12 +24,13 @@
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
               <% if is_admin? %>
+              <!--
                 <li><%= link_to "Usuarios", admin_users_path %></li>
                 <li><%= link_to 'Crear Usuario', new_admin_user_path %></li>
                 <li><%= link_to 'Encuestas', surveys_path %></li>
+              -->
               <% end %>
               <li><%= link_to 'Crear Encuesta', new_survey_path %></li>
-              <li><%= link_to 'Editar Perfil', edit_admin_user_path(current_user) %></li>
               <li><%= link_to "Salir", logout_path %></li>
             <% else %>
               <li><%= link_to "Log In", login_path %></li>

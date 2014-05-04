@@ -26,6 +26,12 @@
 
  @import "font-awesome";
 
+.graph_container,
+.table_container {
+  height: 350px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 body {
   padding-top: 50px;
 }
