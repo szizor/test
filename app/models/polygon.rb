@@ -6,5 +6,6 @@ class Polygon < ActiveRecord::Base
   has_many :images
   has_many :videos
   has_many :documents
+  has_many :problems
   has_many :trees
 end

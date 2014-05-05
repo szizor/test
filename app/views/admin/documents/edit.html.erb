@@ -1,8 +1,24 @@
-<% title "Edit Admin/Document" %>
+<% title "New Document" %>
+<div class="page-head">
+<h2 class="pull-left">Editar Documento</h2>
+<div class="pull-right">
 
-<%= render 'form' %>
+</div>
+<div class="clearfix"></div>
+<!-- Breadcrumb -->
+<div class="bread-crumb">
+  <a href="/admin/dashboard"><i class="fa fa-home"></i> Inicio</a>
+  <!-- Divider -->
+  <span class="divider">/</span>
+  <a href="/admin/polygons"><i class="fa fa-map-marker"></i> Editar Documento</a>
+  <span class="divider">/</span>
+  <a href="#" class="bread-current">Editar Documento</a>
+</div>
 
-<p>
-  <%= link_to "Show", [:admin, @document] %> |
-  <%= link_to "View All", admin_documents_path %>
-</p>
+<div class="clearfix"></div>
+</div>
+<div class="matter">
+  <div class="container">
+    <%= render 'form' %>
+  </div>
+</div>

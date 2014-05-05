@@ -9,7 +9,8 @@
         <div class="clearfix"></div>
       </div>
         <div class="widget-content">
-        <%= form_for [:admin, @problem], :html => { :class => "", :role => "form" } do |f| %>
+        <%= form_for [:admin, :polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
+      <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
           <div class="padd">
             <div class="form-group">
             <%= f.label :name, "Nombre del Problema" %>

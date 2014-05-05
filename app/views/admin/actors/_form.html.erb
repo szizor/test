@@ -1,10 +1,10 @@
 <div class="form profile">
-  <%= form_for [:admin, @actor] do |f| %>
+  <%= form_for [:admin, :polygon, @actor] do |f| %>
       <div class="form-group">
         <%= f.label :name, "Nombre de la institución" %>
         <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la institución" %>
       </div>
-
+      <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">

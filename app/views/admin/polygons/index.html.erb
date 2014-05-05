@@ -38,7 +38,7 @@
                           <th>Problemas</th>
                           <th>Recorridos</th>
                           <th>Actores</th>
-                          <th class="text-center">Acciones</th>
+                          <th class="text-center" colspan="2">Acciones</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -47,6 +47,7 @@
                             <td><%= polygon.name %></td>
                             <td><%= polygon.state.try(:name) %></td>
                             <td><%= polygon.city_id %></td>
+                            <td><%= polygon.problems.count %></td>
                             <td><%= polygon.tours.count %></td>
                             <td><%= polygon.actors.count %></td>
                             <td><%= link_to "Edit", edit_admin_polygon_path(polygon) %></td>

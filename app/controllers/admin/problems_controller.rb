@@ -14,7 +14,11 @@ class Admin::ProblemsController < Admin::BaseController
   def create
     @problem = Problem.new(params[:problem])
     if @problem.save
-      redirect_to [:admin, @problem], :notice => "Successfully created problem."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Problema creado satisfactoriamente.' }
+        format.json { render json: @problem, status: :created, location: @problem }
+      end
     else
       render :action => 'new'
     end
@@ -28,7 +32,10 @@ class Admin::ProblemsController < Admin::BaseController
   def update
     @problem = Problem.find(params[:id])
     if @problem.update_attributes(params[:problem])
-      redirect_to [:admin, @problem], :notice  => "Successfully updated problem."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El problema fue editado.' }
+      end
     else
       render :action => 'edit'
     end

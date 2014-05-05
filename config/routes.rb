@@ -15,15 +15,15 @@ Imjuve::Application.routes.draw do
     resources :updates
     resources :alternatives
     resources :categories
-    resources :problems
     resources :polygons do
       resources :images
+      resources :problems
       resources :trees
       resources :documents
       resources :videos
+      resources :actors
     end
     resources :users
-    resources :actors
     resources :dashboard, :only => [:index]
     root :to => "dashboard#index"
   end

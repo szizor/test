@@ -12,9 +12,14 @@ class Admin::ActorsController < Admin::BaseController
   end
 
   def create
+    debugger
     @actor = Actor.new(params[:actor])
     if @actor.save
-      redirect_to [:admin, @actor], :notice => "Successfully created actor."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Actor creado satisfactoriamente.' }
+        format.json { render json: @actor, status: :created, location: @actor }
+      end
     else
       render :action => 'new'
     end
@@ -27,7 +32,10 @@ class Admin::ActorsController < Admin::BaseController
   def update
     @actor = Actor.find(params[:id])
     if @actor.update_attributes(params[:actor])
-      redirect_to [:admin, @actor], :notice  => "Successfully updated actor."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El Actor fue editado.' }
+      end
     else
       render :action => 'edit'
     end
