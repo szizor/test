@@ -1,5 +1,16 @@
 <%= form_for [:admin, :polygon, @video], :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
+  <div class="row">
+    <% if @video.errors.any? %>
+      <div class="alert alert-danger">
+        <strong><%= pluralize(@video.errors.count, "Error") %></strong> prohibieron a este video guardar la información!
+        <ul>
+          <% @video.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
   <%= f.hidden_field :polygon_id %>
   <div class="form-group">
     <%= f.label :name, "Nombre" %>

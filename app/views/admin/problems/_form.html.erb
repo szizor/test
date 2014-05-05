@@ -1,4 +1,16 @@
   <div class="row">
+    <% if @problem.errors.any? %>
+      <div class="alert alert-danger">
+        <strong><%= pluralize(@problem.errors.count, "Error") %></strong> prohibieron a este poligono guardar la información!
+        <ul>
+          <% @problem.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
     <div class="col-md-12">
       <div class="widget">
         <div class="widget-head">
@@ -10,7 +22,7 @@
       </div>
         <div class="widget-content">
         <%= form_for [:admin, :polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
-      <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
+          <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
           <div class="padd">
             <div class="form-group">
             <%= f.label :name, "Nombre del Problema" %>

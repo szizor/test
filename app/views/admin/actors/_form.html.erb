@@ -1,5 +1,17 @@
 <div class="form profile">
   <%= form_for [:admin, :polygon, @actor] do |f| %>
+      <div class="row">
+        <% if @actor.errors.any? %>
+          <div class="alert alert-danger">
+            <strong><%= pluralize(@actor.errors.count, "Error") %></strong> prohibieron a este poligono guardar la información!
+            <ul>
+              <% @actor.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
       <div class="form-group">
         <%= f.label :name, "Nombre de la institución" %>
         <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la institución" %>

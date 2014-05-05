@@ -1,5 +1,16 @@
 <%= stylesheet_link_tag "vendor/prettyPhoto", :media => "all" %>
-
+<div class="row">
+  <% if @polygon.errors.any? %>
+    <div class="alert alert-danger">
+      <strong><%= pluralize(@polygon.errors.count, "Error") %></strong> prohibieron a este poligono guardar la información!
+      <ul>
+        <% @polygon.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 <div class="row">
   <div class="col-md-12">
     <div class="widget">

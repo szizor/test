@@ -16,7 +16,7 @@ class Admin::DocumentsController < Admin::BaseController
     if @document.save
       respond_to do |format|
         polygon = Polygon.find(params[:polygon_id])
-        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Document was successfully created.' }
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Documento creado con exito.' }
         format.json { render json: @image, status: :created, location: @image }
       end
     else
@@ -33,7 +33,7 @@ class Admin::DocumentsController < Admin::BaseController
     if @document.update_attributes(params[:document])
       respond_to do |format|
         polygon = Polygon.find(params[:polygon_id])
-        format.html { redirect_to admin_polygon_documents_path(polygon), notice: 'Document was successfully updated.' }
+        format.html { redirect_to admin_polygon_documents_path(polygon), notice: 'Documento editado con exito.' }
       end
     else
       render :action => 'edit'
@@ -43,6 +43,6 @@ class Admin::DocumentsController < Admin::BaseController
   def destroy
     @document = Document.find(params[:id])
     @document.destroy
-    redirect_to :back, :notice => "Successfully destroyed document."
+    redirect_to :back, :notice => "documento destruido."
   end
 end

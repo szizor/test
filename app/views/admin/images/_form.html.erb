@@ -1,5 +1,16 @@
 <%= form_for [:admin, :polygon, @image], :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
+  <div class="row">
+    <% if @image.errors.any? %>
+      <div class="alert alert-danger">
+        <strong><%= pluralize(@image.errors.count, "Error") %></strong> prohibieron a este imagen guardar la información!
+        <ul>
+          <% @image.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
   <div class="form-group">
     <%= f.hidden_field :polygon_id %>
     <%= f.file_field :image, :class => "form-control" %>

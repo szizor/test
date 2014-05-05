@@ -12,7 +12,6 @@ class Admin::ActorsController < Admin::BaseController
   end
 
   def create
-    debugger
     @actor = Actor.new(params[:actor])
     if @actor.save
       respond_to do |format|
