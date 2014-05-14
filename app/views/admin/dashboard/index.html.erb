@@ -1,5 +1,253 @@
-<div class="page-head">
+<script>
+  Array.prototype.unique = function() {
+      var o = {}, i, l = this.length, r = [];
+      for(i=0; i<l;i+=1) o[this[i]] = this[i];
+      for(i in o) r.push(o[i]);
+      return r;
+  };
 
+  var surveys_raw = <%= @surveys.to_json.html_safe %>;
+  var polygons_raw = <%= @polygons.to_json.html_safe %>;
+  var surveys_1 = [];
+  var surveys_2 = [];
+  var surveys_3 = [];
+  var surveys_4 = [];
+  var acknowldgeGraphData = [
+    {
+      "label": "Si",
+      "value" : 0
+    } ,
+    {
+      "label": "No",
+      "value" : 0
+    }
+  ];
+
+  var genreGraphDataTemp = {};
+  var genreGraphData = [
+    {
+      "label": "Mujeres",
+      "value" : 0
+    } ,
+    {
+      "label": "Hombres",
+      "value" : 0
+    }
+  ];
+
+  var withWhomYouLiveDataTemp = [];
+  var withWhomYouLiveDataCount = {};
+  var withWhomYouLiveData = [
+    {
+      key: "",
+      values: [
+        {
+          "label": "Vivo con mi madre",
+          "value": 0
+        }, {
+          "label": "Vivo con mi padre",
+          "value": 0
+        }, {
+          "label": "Vivo con mis hermanos o hermanas",
+          "value": 0
+        }, {
+          "label": "Vivo con mi pareja",
+          "value": 0
+        }, {
+          "label": "Vivo con mi(s) hijo(s)",
+          "value": 0
+        }, {
+          "label": "No aplica",
+          "value": 0
+        }, {
+          "label": "Vivo con mis suegros",
+          "value": 0
+        }, {
+          "label": "Vivo con amigos o amigas",
+          "value": 0
+        }
+      ]
+    }
+  ]
+
+  var jobDataTemp = [];
+  var jobDataCount = {};
+  var jobData = [
+    {
+      key: "",
+      values: [{
+        "label": "Estudiante",
+        "value": 0
+      }, {
+        "label": "Empleada(o) de tiempo completo",
+        "value": 0
+      }, {
+        "label": "Otro",
+        "value": 0
+      }, {
+        "label": "Empleada(o) por horas",
+        "value": 0
+      }, {
+        "label": "Al hogar y/o cuidado de los niños en casa",
+        "value": 0
+      }, {
+        "label": "En este momento no tengo empleo ni estudio",
+        "value": 0
+      }, {
+        "label": "Tengo un negocio propio",
+        "value": 0
+      }, {
+        "label": "Ayudo en los quehaceres de mi casa",
+        "value": 0
+      }
+    ]}
+  ]
+
+  var manyKidsTemp = [];
+  var manyKidsCount = {};
+  var manyKidsGraphData = [
+    {
+      "label": "1",
+      "value" : 0
+    },
+    {
+      "label": "2",
+      "value" : 0
+    },
+    {
+      "label": "3",
+      "value" : 0
+    },
+    {
+      "label": "Más de 3",
+      "value" : 0
+    },
+    {
+      "label": "No tengo hijos",
+      "value" : 0
+    }
+  ];
+
+  var agesGraphData = [
+    {
+      key: "Cumulative Return",
+      values: [
+        {
+          "label": "12-14 años",
+          "value" : 0
+        },
+        {
+          "label": "15-19 años",
+          "value" : 0
+        },
+        {
+          "label": "20-24 años",
+          "value" : 0
+        },
+        {
+          "label": "25-29 años",
+          "value" : 0
+        },
+        {
+          "label": "30-59 años",
+          "value" : 0
+        },
+        {
+          "label": "mayor de 60 años",
+          "value" : 0
+        }
+      ]
+    }
+  ];
+  var agesGraphDataTemp = {};
+
+  surveys_raw.map(function(survey) {
+    if (survey.polygon_id === 1) {
+      surveys_1.push(survey);
+    }
+    if (survey.polygon_id === 2) {
+      surveys_2.push(survey);
+    }
+    if (survey.polygon_id === 3) {
+      surveys_3.push(survey);
+    }
+    if (survey.polygon_id === 4) {
+      surveys_4.push(survey);
+    }
+  });
+
+
+  surveys_1.map( function (a) { if (a.genero in genreGraphDataTemp) genreGraphDataTemp[a.genero] ++; else genreGraphDataTemp[a.genero] = 1; } )
+  genreGraphData[0].value = genreGraphDataTemp["Mujer"]
+  genreGraphData[1].value = genreGraphDataTemp["Hombre"]
+
+  surveys_1.map(function (item) {
+    item.con_quien_vive.forEach(function (l) {
+      withWhomYouLiveDataTemp.push(l)
+    })
+  });
+  withWhomYouLiveDataTemp.forEach(function (obj, objIndex) {
+    if (withWhomYouLiveDataCount.hasOwnProperty(obj) === false) {
+      withWhomYouLiveDataCount[obj] = 0;
+    } else {
+      withWhomYouLiveDataCount[obj] = withWhomYouLiveDataCount[obj] +1;
+    }
+  });
+
+  withWhomYouLiveData[0].values[0].value = withWhomYouLiveDataCount["Vivo con mi madre"]
+  withWhomYouLiveData[0].values[1].value = withWhomYouLiveDataCount["Vivo con mi padre"]
+  withWhomYouLiveData[0].values[2].value = withWhomYouLiveDataCount["Vivo con mis hermanos o hermanas"]
+  withWhomYouLiveData[0].values[3].value = withWhomYouLiveDataCount["Vivo con mi pareja"]
+  withWhomYouLiveData[0].values[4].value = withWhomYouLiveDataCount["Vivo con mi(s) hijo(s)"]
+  withWhomYouLiveData[0].values[5].value = withWhomYouLiveDataCount["No aplica"]
+  withWhomYouLiveData[0].values[6].value = withWhomYouLiveDataCount["Vivo con mis suegros"]
+  withWhomYouLiveData[0].values[7].value = withWhomYouLiveDataCount["Vivo con amigos o amigas"]
+
+  surveys_1.map(function (item) {
+    jobDataTemp.push(item.ocupacion)
+  });
+  jobDataTemp.forEach(function (obj, objIndex) {
+    if (jobDataCount.hasOwnProperty(obj) === false) {
+      jobDataCount[obj] = 0;
+    } else {
+      jobDataCount[obj] = jobDataCount[obj] +1;
+    }
+  });
+
+  jobData[0].values[0].value = jobDataCount["Estudiante"];
+  jobData[0].values[1].value = jobDataCount["Empleada(o) de tiempo completo"];
+  jobData[0].values[2].value = jobDataCount["Otro"];
+  jobData[0].values[3].value = jobDataCount["Empleada(o) por horas"];
+  jobData[0].values[4].value = jobDataCount["Al hogar y/o cuidado de los niños en casa"];
+  jobData[0].values[5].value = jobDataCount["En este momento no tengo empleo ni estudio"];
+  jobData[0].values[6].value = jobDataCount["Tengo un negocio propio"];
+  jobData[0].values[7].value = jobDataCount["Ayudo en los quehaceres de mi casa"];
+
+  surveys_1.map( function (a) { if (a.hijos in manyKidsCount) manyKidsCount[a.hijos] ++; else manyKidsCount[a.hijos] = 1; } )
+  manyKidsGraphData[0].value = manyKidsCount["1"];
+  manyKidsGraphData[1].value = manyKidsCount["2"];
+  manyKidsGraphData[2].value = manyKidsCount["3"];
+  manyKidsGraphData[3].value = manyKidsCount["Más de 3"];
+  manyKidsGraphData[4].value = manyKidsCount["No tengo hijos"];
+
+  surveys_1.map( function (a) { if (a.edad in agesGraphDataTemp) agesGraphDataTemp[a.edad] ++; else agesGraphDataTemp[a.edad] = 1; } )
+  agesGraphData[0].values[0].value = agesGraphDataTemp["12-14 años"];
+  agesGraphData[0].values[1].value = agesGraphDataTemp["15-19 años"];
+  agesGraphData[0].values[2].value = agesGraphDataTemp["20-24 años"];
+  agesGraphData[0].values[3].value = agesGraphDataTemp["25-29 años"];
+  agesGraphData[0].values[4].value = agesGraphDataTemp["30-59 años"];
+  agesGraphData[0].values[5].value = agesGraphDataTemp["mayor de 60 años"];
+
+  surveys_1.filter(function(item) {
+    if ( item.conoces === 'Si' ) {
+      acknowldgeGraphData[0].value = acknowldgeGraphData[0].value + 1;
+    } else if ( item.conoces === 'No' ) {
+      acknowldgeGraphData[1].value = acknowldgeGraphData[1].value + 1;
+    }
+  })
+  // polygons_raw.map(function(item) {console.log(item.id, item.name)})
+</script>
+<div class="page-head">
   <h2 class="pull-left">Dashboard</h2>
   <div class="clearfix"></div>
   <!-- Breadcrumb -->
@@ -13,58 +261,19 @@
 </div>
 <div class="matter">
   <div class="container">
-    <!-- Today status. jQuery Sparkline plugin used. -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-        <div class="col-md-8">
-        <!-- List starts -->
-        <ul class="today-datas">
-          <!-- List #1 -->
-          <li>
-            <!-- Graph -->
-            <div><span id="todayspark1" class="spark"></span></div>
-            <!-- Text -->
-            <div class="datas-text">11 Actores/diario</div>
-          </li>
-          <li>
-            <div><span id="todayspark2" class="spark"></span></div>
-            <div class="datas-text">19 Alternativas</div>
-          </li>
-          <li>
-            <div><span id="todayspark3" class="spark"></span></div>
-            <div class="datas-text">15.66% incremental soluciones</div>
-          </li>
-          <li>
-            <div><span id="todayspark4" class="spark"></span></div>
-            <div class="datas-text">12,000$ Ahorro/diario</div>
-          </li>
-          <li>
-            <div><span id="todayspark5" class="spark"></span></div>
-            <div class="datas-text">15,000000 visitas al mes</div>
-          </li>
-        </ul>
-        </div>
-        <div class="col-md-4 pill-container">
-          <div class="header-data">
-
-            <!-- Traffic data -->
-            <div class="hdata">
-              <div class="mcol-left">
-                <div id="pie-chart4"></div>
-              </div>
-              <div class="mcol-right">
-                <!-- Number of visitors -->
-                <p><a href="#">15</a> <em>alternativas</em></p>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-
-          </div>
-        </div>
-        </div>
+    <div class="form-group" id="polygonSelector">
+      <div class="col-sm-6 col-sm-offset-3">
+        <label for="polygonSelect" class="text-center">Seleccione el polígono para generar el reporte</label>
+        <select name="polygonSelect" id="polygonSelect" class="form-control" required="required">
+          <option value="todos">Todos</option>
+          <% @polygons.each do |polygon| %>
+            <option value="<%= polygon.id %>"><%= polygon.name %></option>
+          <% end %>
+        </select>
       </div>
     </div>
+  </div>
+  <div class="container" id="ReportContainer">
     <!-- Today status ends -->
     <div class="row">
       <div class="col-md-6 portlets ui-sortable">
@@ -77,7 +286,9 @@
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-              <div class="graph_container" id="acknowldgeGraph"></div>
+              <div class="graph_container" id="acknowldgeGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
           <!-- Widget ends -->
@@ -102,10 +313,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.</td>
-                    </tr>
+                    <% @surveys.each do |survey| %>
+                      <% if survey.polygon_id === 1 && survey.conoces === 'Si' && ( !survey.que_conoces.nil? ) && survey.que_conoces.length > 0 %>
+                        <tr>
+                          <td><%= survey.id %></td>
+                          <td><%= survey.que_conoces %></td>
+                        </tr>
+                      <% end %>
+                    <% end %>
                   </tbody>
                 </table>
               </div>
@@ -126,7 +341,9 @@
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-              <div class="graph_container" id="acknowldgeGraph"></div>
+              <div class="graph_container" id="genreGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
           <!-- Widget ends -->
@@ -142,7 +359,9 @@
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-              <div class="graph_container" id="acknowldgeGraph"></div>
+              <div class="graph_container" id="ageGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
           <!-- Widget ends -->
@@ -161,7 +380,9 @@
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-              <div class="graph_container" id="acknowldgeGraph"></div>
+              <div class="graph_container" id="withWhomYouLiveGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
           <!-- Widget ends -->
@@ -177,7 +398,29 @@
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-              <div class="graph_container" id="acknowldgeGraph"></div>
+              <div class="graph_container" id="manyKidsGraph">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Actualmente, ¿a que se/te dedica(s)?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="jobGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
           <!-- Widget ends -->
@@ -798,5 +1041,6 @@
   </div>
 </div>
 <% content_for :footer_scripts do %>
+  <%= stylesheet_link_tag "reports" %>
   <%= javascript_include_tag "reports" %>
 <% end %>

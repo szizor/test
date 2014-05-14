@@ -28,30 +28,131 @@ ReportsWidget = {
     }
 
 }
+var ageGraphChart,
+    acknowldgeGraphChart,
+    withWhomYouLiveGraphChart,
+    manyKidsGraphChart,
+    jobGraphChart,
+    genreGraphChart;
 
-// var reports = {
-//     el: {
-//         body: $("body")
-//     },
-//     timer: 0,
-//     init: function() {
-//         reports.bindEvents();
-//     },
+nv.addGraph(function() {
+  var chart = nv.models.pieChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .showLabels(true);
 
-//     bindEvents: function() {
-//     },
+      chart.valueFormat(d3.format('f'))
 
-//     requestJson: function() {
+    d3.select("#acknowldgeGraph svg")
+        .datum(acknowldgeGraphData)
+      .transition().duration(1200)
+        .call(chart);
 
-//     },
+    nv.utils.windowResize(chart.update);
+    acknowldgeGraphChart = chart;
 
-//     dataProcessing: function (data) {
+  return chart;
+});
 
-//     },
+nv.addGraph(function() {
+  var chart = nv.models.pieChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .showLabels(true);
 
-//     renderGraph: function (type, data, element) {
+    chart.valueFormat(d3.format('f'))
 
-//     }
-// }
+    d3.select("#genreGraph svg")
+        .datum(genreGraphData)
+      .transition().duration(1200)
+        .call(chart);
 
-// reports.init();
+    nv.utils.windowResize(chart.update);
+    genreGraphChart = chart;
+
+  return chart;
+});
+
+nv.addGraph(function() {
+  var chart = nv.models.discreteBarChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .staggerLabels(true)
+      .tooltips(false)
+      .showValues(true);
+
+  chart.valueFormat(d3.format('f'))
+
+  d3.select("#ageGraph svg")
+      .datum(agesGraphData)
+    .transition().duration(500)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+  ageGraphChart = chart;
+
+  return chart;
+});
+
+nv.addGraph(function() {
+  var chart = nv.models.discreteBarChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .margin({bottom: 150})
+      .tooltips(false)
+      .showValues(true);
+
+  chart.valueFormat(d3.format('f'));
+  chart.xAxis.rotateLabels(-45);
+
+  d3.select("#withWhomYouLiveGraph svg")
+      .datum(withWhomYouLiveData)
+    .transition().duration(500)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+  withWhomYouLiveGraphChart = chart;
+
+  return chart;
+});
+
+nv.addGraph(function() {
+  var chart = nv.models.pieChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .showLabels(true);
+
+    chart.valueFormat(d3.format('f'))
+
+    d3.select("#manyKidsGraph svg")
+        .datum(manyKidsGraphData)
+      .transition().duration(1200)
+        .call(chart);
+
+    nv.utils.windowResize(chart.update);
+    manyKidsGraphChart = chart;
+
+  return chart;
+});
+
+nv.addGraph(function() {
+  var chart = nv.models.discreteBarChart()
+      .x(function(d) { return d.label })
+      .y(function(d) { return d.value })
+      .margin({bottom: 190})
+      .tooltips(false)
+      .showValues(true);
+
+  chart.valueFormat(d3.format('f'));
+  chart.xAxis.rotateLabels(-45);
+
+  d3.select("#jobGraph svg")
+      .datum(jobData)
+    .transition().duration(500)
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+  jobGraphChart = chart;
+
+  return chart;
+});
