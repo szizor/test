@@ -11,6 +11,7 @@
  *= require_self
  *= require vendor/bootstrap.min
 //= require vendor/jquery-ui-1.9.2.custom.min
+//= require vendor/font-awesome.min
 //= require vendor/fullcalendar
 //= require vendor/prettyPhoto
 //= require vendor/rateit
@@ -24,7 +25,6 @@
 //= require admin/admin
  */
 
- @import "font-awesome";
 
 .graph_container,
 .table_container {
