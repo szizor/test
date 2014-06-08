@@ -1,4 +1,4 @@
-root = "/data/imjuve/current"
+root = "/home/deploy/apps/imjuve/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"

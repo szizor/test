@@ -1,10 +1,10 @@
 require "bundler/capistrano"
 
-server "66.228.51.135", :web, :app, :db, primary: true
+server "198.58.100.188", :web, :app, :db, primary: true
 
 set :application, "imjuve"
 set :user, "deploy"
-set :deploy_to, "/data/#{application}"
+set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :app_env, 'production'
