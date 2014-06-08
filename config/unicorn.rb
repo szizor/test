@@ -6,4 +6,4 @@ stdout_path "#{root}/log/unicornstd_out.log"
 
 listen "/tmp/unicorn.imjuve.sock"
 worker_processes 2
-timeout 30
+timeout 60
