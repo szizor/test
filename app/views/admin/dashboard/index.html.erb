@@ -1,252 +1,4 @@
-<script>
-  Array.prototype.unique = function() {
-      var o = {}, i, l = this.length, r = [];
-      for(i=0; i<l;i+=1) o[this[i]] = this[i];
-      for(i in o) r.push(o[i]);
-      return r;
-  };
 
-  var surveys_raw = <%= @surveys.to_json.html_safe %>;
-  var polygons_raw = <%= @polygons.to_json.html_safe %>;
-  var surveys_1 = [];
-  var surveys_2 = [];
-  var surveys_3 = [];
-  var surveys_4 = [];
-  var acknowldgeGraphData = [
-    {
-      "label": "Si",
-      "value" : 0
-    } ,
-    {
-      "label": "No",
-      "value" : 0
-    }
-  ];
-
-  var genreGraphDataTemp = {};
-  var genreGraphData = [
-    {
-      "label": "Mujeres",
-      "value" : 0
-    } ,
-    {
-      "label": "Hombres",
-      "value" : 0
-    }
-  ];
-
-  var withWhomYouLiveDataTemp = [];
-  var withWhomYouLiveDataCount = {};
-  var withWhomYouLiveData = [
-    {
-      key: "",
-      values: [
-        {
-          "label": "Vivo con mi madre",
-          "value": 0
-        }, {
-          "label": "Vivo con mi padre",
-          "value": 0
-        }, {
-          "label": "Vivo con mis hermanos o hermanas",
-          "value": 0
-        }, {
-          "label": "Vivo con mi pareja",
-          "value": 0
-        }, {
-          "label": "Vivo con mi(s) hijo(s)",
-          "value": 0
-        }, {
-          "label": "No aplica",
-          "value": 0
-        }, {
-          "label": "Vivo con mis suegros",
-          "value": 0
-        }, {
-          "label": "Vivo con amigos o amigas",
-          "value": 0
-        }
-      ]
-    }
-  ]
-
-  var jobDataTemp = [];
-  var jobDataCount = {};
-  var jobData = [
-    {
-      key: "",
-      values: [{
-        "label": "Estudiante",
-        "value": 0
-      }, {
-        "label": "Empleada(o) de tiempo completo",
-        "value": 0
-      }, {
-        "label": "Otro",
-        "value": 0
-      }, {
-        "label": "Empleada(o) por horas",
-        "value": 0
-      }, {
-        "label": "Al hogar y/o cuidado de los niños en casa",
-        "value": 0
-      }, {
-        "label": "En este momento no tengo empleo ni estudio",
-        "value": 0
-      }, {
-        "label": "Tengo un negocio propio",
-        "value": 0
-      }, {
-        "label": "Ayudo en los quehaceres de mi casa",
-        "value": 0
-      }
-    ]}
-  ]
-
-  var manyKidsTemp = [];
-  var manyKidsCount = {};
-  var manyKidsGraphData = [
-    {
-      "label": "1",
-      "value" : 0
-    },
-    {
-      "label": "2",
-      "value" : 0
-    },
-    {
-      "label": "3",
-      "value" : 0
-    },
-    {
-      "label": "Más de 3",
-      "value" : 0
-    },
-    {
-      "label": "No tengo hijos",
-      "value" : 0
-    }
-  ];
-
-  var agesGraphData = [
-    {
-      key: "Cumulative Return",
-      values: [
-        {
-          "label": "12-14 años",
-          "value" : 0
-        },
-        {
-          "label": "15-19 años",
-          "value" : 0
-        },
-        {
-          "label": "20-24 años",
-          "value" : 0
-        },
-        {
-          "label": "25-29 años",
-          "value" : 0
-        },
-        {
-          "label": "30-59 años",
-          "value" : 0
-        },
-        {
-          "label": "mayor de 60 años",
-          "value" : 0
-        }
-      ]
-    }
-  ];
-  var agesGraphDataTemp = {};
-
-  surveys_raw.map(function(survey) {
-    if (survey.polygon_id === 1) {
-      surveys_1.push(survey);
-    }
-    if (survey.polygon_id === 2) {
-      surveys_2.push(survey);
-    }
-    if (survey.polygon_id === 3) {
-      surveys_3.push(survey);
-    }
-    if (survey.polygon_id === 4) {
-      surveys_4.push(survey);
-    }
-  });
-
-
-  surveys_1.map( function (a) { if (a.genero in genreGraphDataTemp) genreGraphDataTemp[a.genero] ++; else genreGraphDataTemp[a.genero] = 1; } )
-  genreGraphData[0].value = genreGraphDataTemp["Mujer"]
-  genreGraphData[1].value = genreGraphDataTemp["Hombre"]
-
-  surveys_1.map(function (item) {
-    item.con_quien_vive.forEach(function (l) {
-      withWhomYouLiveDataTemp.push(l)
-    })
-  });
-  withWhomYouLiveDataTemp.forEach(function (obj, objIndex) {
-    if (withWhomYouLiveDataCount.hasOwnProperty(obj) === false) {
-      withWhomYouLiveDataCount[obj] = 0;
-    } else {
-      withWhomYouLiveDataCount[obj] = withWhomYouLiveDataCount[obj] +1;
-    }
-  });
-
-  withWhomYouLiveData[0].values[0].value = withWhomYouLiveDataCount["Vivo con mi madre"]
-  withWhomYouLiveData[0].values[1].value = withWhomYouLiveDataCount["Vivo con mi padre"]
-  withWhomYouLiveData[0].values[2].value = withWhomYouLiveDataCount["Vivo con mis hermanos o hermanas"]
-  withWhomYouLiveData[0].values[3].value = withWhomYouLiveDataCount["Vivo con mi pareja"]
-  withWhomYouLiveData[0].values[4].value = withWhomYouLiveDataCount["Vivo con mi(s) hijo(s)"]
-  withWhomYouLiveData[0].values[5].value = withWhomYouLiveDataCount["No aplica"]
-  withWhomYouLiveData[0].values[6].value = withWhomYouLiveDataCount["Vivo con mis suegros"]
-  withWhomYouLiveData[0].values[7].value = withWhomYouLiveDataCount["Vivo con amigos o amigas"]
-
-  surveys_1.map(function (item) {
-    jobDataTemp.push(item.ocupacion)
-  });
-  jobDataTemp.forEach(function (obj, objIndex) {
-    if (jobDataCount.hasOwnProperty(obj) === false) {
-      jobDataCount[obj] = 0;
-    } else {
-      jobDataCount[obj] = jobDataCount[obj] +1;
-    }
-  });
-
-  jobData[0].values[0].value = jobDataCount["Estudiante"];
-  jobData[0].values[1].value = jobDataCount["Empleada(o) de tiempo completo"];
-  jobData[0].values[2].value = jobDataCount["Otro"];
-  jobData[0].values[3].value = jobDataCount["Empleada(o) por horas"];
-  jobData[0].values[4].value = jobDataCount["Al hogar y/o cuidado de los niños en casa"];
-  jobData[0].values[5].value = jobDataCount["En este momento no tengo empleo ni estudio"];
-  jobData[0].values[6].value = jobDataCount["Tengo un negocio propio"];
-  jobData[0].values[7].value = jobDataCount["Ayudo en los quehaceres de mi casa"];
-
-  surveys_1.map( function (a) { if (a.hijos in manyKidsCount) manyKidsCount[a.hijos] ++; else manyKidsCount[a.hijos] = 1; } )
-  manyKidsGraphData[0].value = manyKidsCount["1"];
-  manyKidsGraphData[1].value = manyKidsCount["2"];
-  manyKidsGraphData[2].value = manyKidsCount["3"];
-  manyKidsGraphData[3].value = manyKidsCount["Más de 3"];
-  manyKidsGraphData[4].value = manyKidsCount["No tengo hijos"];
-
-  surveys_1.map( function (a) { if (a.edad in agesGraphDataTemp) agesGraphDataTemp[a.edad] ++; else agesGraphDataTemp[a.edad] = 1; } )
-  agesGraphData[0].values[0].value = agesGraphDataTemp["12-14 años"];
-  agesGraphData[0].values[1].value = agesGraphDataTemp["15-19 años"];
-  agesGraphData[0].values[2].value = agesGraphDataTemp["20-24 años"];
-  agesGraphData[0].values[3].value = agesGraphDataTemp["25-29 años"];
-  agesGraphData[0].values[4].value = agesGraphDataTemp["30-59 años"];
-  agesGraphData[0].values[5].value = agesGraphDataTemp["mayor de 60 años"];
-
-  surveys_1.filter(function(item) {
-    if ( item.conoces === 'Si' ) {
-      acknowldgeGraphData[0].value = acknowldgeGraphData[0].value + 1;
-    } else if ( item.conoces === 'No' ) {
-      acknowldgeGraphData[1].value = acknowldgeGraphData[1].value + 1;
-    }
-  })
-  // polygons_raw.map(function(item) {console.log(item.id, item.name)})
-</script>
 <div class="page-head">
   <h2 class="pull-left">Dashboard</h2>
   <div class="clearfix"></div>
@@ -262,19 +14,72 @@
 <div class="matter">
   <div class="container">
     <div class="form-group" id="polygonSelector">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-6 col-sm-offset-3 text-center">
         <label for="polygonSelect" class="text-center">Seleccione el polígono para generar el reporte</label>
         <select name="polygonSelect" id="polygonSelect" class="form-control" required="required">
+          <option value="NaN">Seleccione un polígono</option>
           <option value="todos">Todos</option>
           <% @polygons.each do |polygon| %>
-            <option value="<%= polygon.id %>"><%= polygon.name %></option>
+            <option value=<%= polygon.id %>><%= polygon.name %></option>
           <% end %>
         </select>
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="widget">
+      <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <h3 class="text-center" id="polygonName">Seleccione un polígono</h3>
+          </div>
+        </div>
+    </div>
+      <!-- Widget ends -->
+  </div>
+  </div>
   <div class="container" id="ReportContainer">
     <!-- Today status ends -->
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Municipio</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="MunicipioGraph">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Colonia</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <div class="graph_container" id="ColoniaGraph">
+                  <svg></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6 portlets ui-sortable">
         <div class="widget">
@@ -305,23 +110,14 @@
           <div class="widget-content">
             <div class="padd">
               <div class="table_container table-responsive">
-                <table class="table table-hover table-condensed">
+                <table class="table table-hover table-condensed" id="graph-02">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>Respuesta</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <% @surveys.each do |survey| %>
-                      <% if survey.polygon_id === 1 && survey.conoces === 'Si' && ( !survey.que_conoces.nil? ) && survey.que_conoces.length > 0 %>
-                        <tr>
-                          <td><%= survey.id %></td>
-                          <td><%= survey.que_conoces %></td>
-                        </tr>
-                      <% end %>
-                    <% end %>
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
@@ -426,621 +222,831 @@
           <!-- Widget ends -->
         </div>
       </div>
-    </div>
-    <!-- Dashboard Graph starts -->
-    <div class="row">
-      <div class="col-md-8 portlets">
-
-        <!-- Widget -->
-        <div class="widget white headless footless">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
           <!-- Widget head -->
           <div class="widget-head">
-            <div class="pull-left">Dashboard Chart</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué estás estudiando?</div>
             <div class="clearfix"></div>
           </div>
-
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-                <div class="btn-group">
-                <button class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-th-large"></i>
-                  <span class="fa fa-caret-down fa fa-on-right"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="#">Action</a>
-                  </li>
-
-                  <li>
-                    <a href="#">Another action</a>
-                  </li>
-
-                  <li>
-                    <a href="#">Something else here</a>
-                  </li>
-
-                  <li class="divider"></li>
-
-                  <li>
-                    <a href="#">Separated link</a>
-                  </li>
-                </ul>
-                </div>
-                <div class="pull-right">
-                  <div data-toggle="buttons" class="btn-group">
-                    <label class="btn btn-sm btn-default">
-                      <input id="option1" name="options" type="radio"> Diario
-                    </label>
-                    <label class="btn btn-sm btn-default">
-                      <input id="option2" name="options" type="radio"> Mensual
-                    </label>
-                    <label class="btn btn-sm btn-default active">
-                      <input id="option3" name="options" type="radio"> Anual
-                    </label>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              <div id="graph1"></div>
-            </div>
-          </div>
-          <!-- Widget ends -->
-
-        </div>
-      </div>
-      <div class="col-md-4 portlets">
-
-        <!-- Widget -->
-        <div class="widget">
-          <!-- Widget content -->
-          <div class="widget-content">
-              <div id="graph2"></div>
-          </div>
-          <!-- Widget ends -->
-
-        </div>
-        <!-- Widget -->
-        <div class="widget">
-          <!-- Widget content -->
-          <div class="widget-content">
-              <div class="padd">
-                <div data-toggle="buttons" class="btn-group">
-                    <label class="btn btn-default">
-                       Print
-                    </label>
-                    <label class="btn btn-default">
-                      Export
-                    </label>
-                    <label class="btn btn-default">
-                       E-mail
-                    </label>
-                  </div>
-
-                  <div class="btn-group pull-right">
-                  <button class="btn dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-cog"></i> Settings
-                    <span class="fa fa-caret-down fa fa-on-right"></span>
-                  </button>
-
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="#">Action</a>
-                    </li>
-
-                    <li>
-                      <a href="#">Another action</a>
-                    </li>
-                    <li>
-                      <a href="#">Something else here</a>
-                    </li>
-
-                    <li class="divider"></li>
-
-                    <li>
-                      <a href="#">Separated link</a>
-                    </li>
-                  </ul>
-                </div>
+              <div class="graph_container" id="studiesGraph">
+                <svg></svg>
               </div>
+            </div>
           </div>
           <!-- Widget ends -->
-
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-8 portlets">
-
-        <!-- Widget -->
+      <div class="col-md-6 portlets ui-sortable">
         <div class="widget">
           <!-- Widget head -->
           <div class="widget-head">
-            <div class="pull-left"><i class="fa fa-bar-chart"></i> Graph Chart</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cuál es su nivel de estudios máximo terminado?</div>
             <div class="clearfix"></div>
           </div>
-
           <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-
-              <div id="bar-chart2"></div>
-
+              <div class="graph_container" id="lastStudiesGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
           <!-- Widget ends -->
-
         </div>
-
       </div>
-
-      <div class="col-md-4 portlets">
-
+      <div class="col-md-6 portlets ui-sortable">
         <div class="widget">
-
+          <!-- Widget head -->
           <div class="widget-head">
-            <div class="pull-left">Today Status</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wsettings"><i class="fa fa-wrench"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Tuvo que dejar de estudiar?</div>
             <div class="clearfix"></div>
           </div>
-
+          <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-
-              <!-- Visitors, pageview, bounce rate, etc., Sparklines plugin used -->
-              <ul class="current-status">
-                <li>
-                  <span id="status1"></span> <span class="bold">Visits : 411,231</span>
-                </li>
-                <li>
-                  <span id="status2"></span> <span class="bold">Unique Visitors : 1,345</span>
-                </li>
-                <li>
-                  <span id="status3"></span> <span class="bold">Pageviews : 21,312</span>
-                </li>
-                <li>
-                  <span id="status4"></span> <span class="bold">Pages / Visit : 6,523</span>
-                </li>
-                <li>
-                  <span id="status5"></span> <span class="bold">Avg. Visit Duration : 12:17</span>
-                </li>
-                <li>
-                  <span id="status6"></span> <span class="bold">Bounce Rate : 32%</span>
-                </li>
-                <li>
-                  <span id="status7"></span> <span class="bold">% New Visits : 76%</span>
-                </li>
-              </ul>
-
+              <div class="graph_container" id="leftStudiesGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
-
+          <!-- Widget ends -->
         </div>
-
-      </div>
-    </div>
-    <!-- Dashboard graph ends -->
-    <!-- Chats, File upload and Recent Comments -->
-    <div class="row">
-      <div class="col-md-4 portlets">
-        <!-- Widget -->
-        <div class="widget">
-          <!-- Widget title -->
-          <div class="widget-head">
-            <div class="pull-left">Chats</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-
-          <div class="widget-content">
-            <!-- Widget content -->
-            <div class="padd sscroll">
-
-              <ul class="chats">
-
-                <!-- Chat by us. Use the class "by-me". -->
-                <li class="by-me">
-                  <!-- Use the class "pull-left" in avatar -->
-                  <div class="avatar pull-left">
-                    <%= image_tag("user.jpg") %>
-                  </div>
-
-                  <div class="chat-content">
-                    <!-- In meta area, first include "name" and then "time" -->
-                    <div class="chat-meta">Jane Doe <span class="pull-right">3 hours ago</span></div>
-                    Vivamus diam elit diam, consectetur dapibus adipiscing elit.
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-                <!-- Chat by other. Use the class "by-other". -->
-                <li class="by-other">
-                  <!-- Use the class "pull-right" in avatar -->
-                  <div class="avatar pull-right">
-                    <%= image_tag("user22.png") %>
-                  </div>
-
-                  <div class="chat-content">
-                    <!-- In the chat meta, first include "time" then "name" -->
-                    <div class="chat-meta">3 hours ago <span class="pull-right">John Doe</span></div>
-                    Vivamus diam elit diam, consectetur fconsectetur dapibus adipiscing elit.
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-                <li class="by-me">
-                  <div class="avatar pull-left">
-                    <%= image_tag("user.jpg") %>
-                  </div>
-
-                  <div class="chat-content">
-                    <div class="chat-meta">Jane Doe <span class="pull-right">4 hours ago</span></div>
-                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-                <li class="by-other">
-                  <!-- Use the class "pull-right" in avatar -->
-                  <div class="avatar pull-right">
-                    <%= image_tag("user22.png") %>
-                  </div>
-
-                  <div class="chat-content">
-                    <!-- In the chat meta, first include "time" then "name" -->
-                    <div class="chat-meta">3 hours ago <span class="pull-right">John Doe</span></div>
-                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-              </ul>
-
-            </div>
-            <!-- Widget footer -->
-            <div class="widget-foot">
-                <form class="form-inline">
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Type your message here..." type="text">
-                  </div>
-                  <button type="submit" class="btn btn-info">Send</button>
-                </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- File Upload widget -->
-      <div class="col-md-4 portlets">
-        <div class="widget">
-          <!-- Widget title -->
-          <div class="widget-head">
-            <div class="pull-left">File Upload</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-
-          <div class="widget-content">
-            <!-- Widget content -->
-            <ul class="file-upload">
-
-              <li>
-                <strong><i class="fa fa-upload-alt"></i> File_Name_Here.Mp3</strong>
-                <div class="file-meta">3.3 of 5MB - 5 mins - 1MB/Sec</div>
-
-                <div class="progress progress-animated progress-striped">
-        <div class="progress-bar progress-bar-success" data-percentage="100">
-        <span class="sr-only">100 % completed</span>
-        </div>
-      </div>
-              </li>
-
-              <li>
-                <strong><i class="fa fa-check"></i> Third_File_Here.Mp3</strong>
-                <div class="file-meta">5MB - 5 mins - Stopped</div>
-              </li>
-
-              <li>
-                <strong><i class="fa fa-check"></i> Third_File_Here.Mp3</strong>
-                <div class="file-meta">5MB - 5 mins - Stopped</div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="widget">
-          <!-- Widget title -->
-          <div class="widget-head">
-            <div class="pull-left">Browsers</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="widget-content referrer">
-            <!-- Widget content -->
-
-            <table class="table table-striped table-bordered table-hover">
-              <tbody><tr>
-                <th><center>#</center></th>
-                <th>Browsers</th>
-                <th>Visits</th>
-              </tr>
-              <tr>
-                <td><%= image_tag("icons/chrome.png") %>
-                </td><td>Google Chrome</td>
-                <td>3,005</td>
-              </tr>
-              <tr>
-                <td><%= image_tag("icons/firefox.png") %>
-                </td><td>Mozilla Firefox</td>
-                <td>2,505</td>
-              </tr>
-              <tr>
-                <td><%= image_tag("ie.png") %>
-                </td><td>Internet Explorer</td>
-                <td>1,405</td>
-              </tr>
-              <tr>
-                <td><%= image_tag("opera.png") %>
-                </td><td>Opera</td>
-                <td>4,005</td>
-              </tr>
-              <tr>
-                <td><%= image_tag("icons/safari.png") %>
-                </td><td>Safari</td>
-                <td>505</td>
-              </tr>
-            </tbody></table>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="col-md-4 portlets">
-        <!-- Widget -->
-        <div class="widget">
-          <!-- Widget title -->
-          <div class="widget-head">
-            <div class="pull-left">Recent Comments</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="widget-content">
-            <!-- Widget content -->
-            <div class="padd">
-
-              <ul class="recent">
-
-
-                <li>
-
-                  <div class="recent-content">
-                    <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
-                    <div>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                    </div>
-
-                    <div class="btn-group">
-                      <button class="btn btn-xs btn-default"><i class="fa fa-check"></i> </button>
-                      <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                      <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                    </div>
-
-                    <button class="btn btn-xs btn-danger pull-right">Spam</button>
-
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-
-
-                <li>
-
-                  <div class="recent-content">
-                    <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
-                    <div>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                    </div>
-
-                    <div class="btn-group">
-                      <button class="btn btn-xs btn-default"><i class="fa fa-check"></i> </button>
-                      <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                      <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                    </div>
-
-                    <button class="btn btn-xs btn-danger pull-right">Spam</button>
-
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-
-
-                <li>
-
-                  <div class="recent-content">
-                    <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
-                    <div>Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                    </div>
-
-                    <div class="btn-group">
-                      <button class="btn btn-xs btn-default"><i class="fa fa-check"></i> </button>
-                      <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                      <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
-                    </div>
-
-                    <button class="btn btn-xs btn-danger pull-right">Spam</button>
-
-                    <div class="clearfix"></div>
-                  </div>
-                </li>
-
-
-              </ul>
-
-            </div>
-            <!-- Widget footer -->
-            <div class="widget-foot">
-
-
-                <ul class="pagination pull-right">
-                  <li><a href="#">Prev</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">Next</a></li>
-                </ul>
-
-              <div class="clearfix"></div>
-
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 portlets">
+      <div class="col-md-6 portlets ui-sortable">
         <div class="widget">
-          <!-- Widget title -->
+          <!-- Widget head -->
           <div class="widget-head">
-            <div class="pull-left">Calendar</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cuál fue la causa?</div>
             <div class="clearfix"></div>
           </div>
+          <!-- Widget content -->
           <div class="widget-content">
-            <!-- Widget content -->
             <div class="padd">
-              <!-- Below line produces calendar. I am using FullCalendar plugin. -->
-              <div id="calendar"></div>
+              <div class="graph_container" id="leftStudiesCauseGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
+          <!-- Widget ends -->
         </div>
-
       </div>
-      <div class="col-md-6 portlets">
+      <div class="col-md-6 portlets ui-sortable">
         <div class="widget">
+          <!-- Widget head -->
           <div class="widget-head">
-            <div class="pull-left">Quick Post</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Te gustaría regresar a estudiar?</div>
             <div class="clearfix"></div>
           </div>
+          <!-- Widget content -->
           <div class="widget-content">
             <div class="padd">
-
-                <div class="form quick-post">
-                                <!-- Edit profile form (not working)-->
-                                <form class="form-horizontal">
-                                    <!-- Title -->
-                                    <div class="form-group">
-                                      <label class="control-label col-lg-2" for="title">Title</label>
-                                      <div class="col-lg-10">
-                                        <input class="form-control" id="title" type="text">
-                                      </div>
-                                    </div>
-                                    <!-- Content -->
-                                    <div class="form-group">
-                                      <label class="control-label col-lg-2" for="content">Content</label>
-                                      <div class="col-lg-10">
-                                        <textarea class="form-control" id="content"></textarea>
-                                      </div>
-                                    </div>
-                                    <!-- Cateogry -->
-                                    <div class="form-group">
-                                      <label class="control-label col-lg-2">Category</label>
-                                      <div class="col-lg-10">
-                                          <select class="form-control">
-                                            <option value="">- Choose Cateogry -</option>
-                                            <option value="1">General</option>
-                                            <option value="2">News</option>
-                                            <option value="3">Media</option>
-                                            <option value="4">Funny</option>
-                                          </select>
-                                      </div>
-                                    </div>
-                                    <!-- Tags -->
-                                    <div class="form-group">
-                                      <label class="control-label col-lg-2" for="tags">Tags</label>
-                                      <div class="col-lg-10">
-                                        <input class="form-control" id="tags" type="text">
-                                      </div>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="form-group">
-                                       <!-- Buttons -->
-                 <div class="col-lg-offset-2 col-lg-9">
-                  <button type="submit" class="btn btn-primary">Publish</button>
-                  <button type="submit" class="btn btn-danger">Save Draft</button>
-                  <button type="reset" class="btn btn-default">Reset</button>
-                 </div>
-                                    </div>
-                                </form>
-                              </div>
-
-
-            </div>
-            <div class="widget-foot">
-              <!-- Footer goes here -->
+              <div class="graph_container" id="backtoStudyGraph">
+                <svg></svg>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="widget wblack">
-          <div class="widget-head">
-            <div class="pull-left">Black Chart</div>
-            <div class="widget-icons pull-right">
-              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-              <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="widget-content">
-            <div class="padd">
-
-             <div id="bar-chart"></div>
-
-            </div>
-            <div class="widget-foot">
-              <!-- Footer goes here -->
-            </div>
-          </div>
+          <!-- Widget ends -->
         </div>
       </div>
     </div>
+
+    <h3>Antigüedad en la colonia</h3>
+    <div class="row">
+      <div class="col-md-12 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cuántos años tienes viviendo en la colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph15">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <h3>Percepción de su colonia</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Los vecinos de su cuadra se organizan para realizar algunas actividades?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph16">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Usted o algún miembro del hogar participa(n) en algún grupo organizado u organización de vecinos para realizar actividades en favor de la colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph17">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <h3>Vigilancia y Seguridad Pública</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Quién o quienes vigilan en su colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph18">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿A qué cree que se deba la inseguridad en esta colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <table class="table table-hover table-condensed" id="graph19">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Respuesta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Menciona dos propuestas para combatir la inseguridad en esta colonia.</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <table class="table table-hover table-condensed" id="graph20">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Respuesta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Ha sido víctima de inseguridad dentro de esta colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph21">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿De qué tipo de delito ha/has sido víctima?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph22">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cuáles son las características de las bandas o pandillas de esta colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph23">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Sobre el consumo de alcohol y drogas en las calles de esta colonia</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph24">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué tipo de drogas se consumen principalmente en la colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph25">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+
+    <h3>Espacios de recreación. Uso del tiempo libre</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué actividades realiza generalmente en su tiempo libre?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph26">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué deporte?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <table class="table table-hover table-condensed" id="graph27">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Respuesta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+
+    <h3>La juventud en la colonia</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué actividades realizan principalmente los jóvenes cuando se reúnen?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph28">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿En la colonia hay lugares que promueven la convivencia entre jóvenes?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph29">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué tipo de lugares?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph30">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+
+    <h3>La voz de los jóvenes</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cuáles son tus planes para tu vida en los próximo dos años?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph31">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Lo más importante en este momento de mi vida es...</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph32">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <h3>Prácticas cotidianas</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Fumas cigarros?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph33">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿A qué edad comenzaste a fumar?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph34">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Con qué frecuencia consumes alcohol?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph35">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Actualmente consumes drogas?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph36">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cómo dejaste las drogas?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <table class="table table-hover table-condensed" id="graph37">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Respuesta</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <h3>Relaciones Sociales, familiares y Personales</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Considero que en mi familia...</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph38">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿A qué edad tuviste relaciones sexuales por primera vez?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph39">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Tus parejas sexuales en este último año han sido…?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph40">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> En tus relaciones sexuales ¿usas o has usado un método anticonceptivo?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph41">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Cuáles fueron los motivos para no usar algún método anticonceptivo?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph42">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+    </div>
+
+    <h3>Actividades dedicadas a los jóvenes</h3>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Existen grupos que realicen actividades dedicadas a los jóvenes en tu colonia?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph43">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué tipo de actividades realizan estos grupos?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph44">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿En qué tipo de actividades para jóvenes te gustaría participar ?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph45">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+
+      <div class="col-md-6 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Consideras que tu colonia tiene lo necesario para que como joven puedas realizar actividades deportivas y recreativas?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="graph_container" id="graph46">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 portlets ui-sortable">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> ¿Qué acciones crees pueden realizar ustedes los jóvenes para apoyar a su comunidad?</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <table class="table table-hover table-condensed" id="graph47">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Respuesta</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
 </div>
+<script>
+  var surveys_raw = <%= @surveys.to_json.html_safe %>;
+  // polygons_raw.map(function(item) {console.log(item.id, item.name)})
+</script>
 <% content_for :footer_scripts do %>
   <%= stylesheet_link_tag "reports" %>
   <%= javascript_include_tag "reports" %>
+  <style media="print">
+    .page-head,
+    #polygonSelector,
+    .content {
+      display: none
+    }
+    .page-head {}
+    .row > div {
+      width: 100%;
+      height: auto;
+    }
+  </style>
 <% end %>
