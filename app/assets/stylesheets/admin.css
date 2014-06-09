@@ -11,6 +11,7 @@
  * require vendor/font-awesome.min
  *= require_self
  *= require vendor/bootstrap.min
+ *= require font-awesome
 //= require vendor/jquery-ui-1.9.2.custom.min
 //= require vendor/fullcalendar
 //= require vendor/prettyPhoto
