@@ -63,7 +63,7 @@ function makeColorButton(color) {
     var button = document.createElement('span');
     button.className = 'color-button';
     button.style.backgroundColor = color;
-    google.maps.event.addDomListener(button, 'click', function() {
+    google.maps.event.addDomListener(button, "click", function() {
         selectColor(color);
         setSelectedShapeColor(color);
 
@@ -191,7 +191,7 @@ function initialize() {
     google.maps.event.addListener(drawingManager, 'drawingmode_changed', clearSelection);
 
     google.maps.event.addListener(map, 'click', clearSelection);
-    google.maps.event.addDomListener(document.getElementById('delete-button'), 'click', deleteSelectedShape);
+    google.maps.event.addDomListener(document.getElementById('delete-button'), "click", deleteSelectedShape);
     drawingManager.setMap(map);
     buildColorPalette();
 
@@ -215,7 +215,7 @@ function initialize() {
 
     drawingManager.setMap(null);
 }
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, "load", initialize);
 
 function codeAddress() {
     var address = document.getElementById('search_address').value;

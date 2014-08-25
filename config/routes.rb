@@ -33,6 +33,7 @@ Imjuve::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  post "dynamic_polygons/:id" => "home#dynamic_polygons"
   match 'users/subscribe' => redirect('/500.html')
   resources :sessions
   resources :surveys do

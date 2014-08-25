@@ -1,1 +1,66 @@
 
+<div class="map-container">
+  <div class="map-toolbar">
+    <div class="container">
+      <div class="map-toolbar-responsive">
+        <a href="#" class="element-toggle" data-toggle="collapse" data-target=".filter-form"><i class="fa fa-th-large"></i> Filtros de la mapa</a>
+      </div>
+      <form action="" role="form" class="filter-form">
+        <div class="row">
+          <div class="col-md-4 col-xs-12 toolbar__form-group">
+            <div class="toolbar__label">Reportes y Proyectos de</div>
+            <div class="row">
+              <div class="col-md-6 col-xs-6 toolbar__form-group-field">
+                <select name="mapProjects" id="mapProjects" class="form-control select2-control" required="required">
+                  <option></option>
+                  <option value="Gobierno" selected>Gobierno</option>
+                  <option value="Ciudadano‎">Ciudadano‎</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-xs-6 toolbar__form-group-field">
+                <div class="checkbox">
+                  <div class="bootstrap-switchy-container bootstrap-switchy-off pull-right">
+                    <span class="bootstrap-switchy-status"></span>
+                    <input type="checkbox" name="ModeratorFlag" id="ModeratorFlag" class="pull-right">
+                  </div>
+                  <label>Vista de Moderador</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
+            <div class="toolbar__label">Categorias</div>
+            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name, nil), :class=>"form-control select2-control", :id=>"problem_category_id"%>
+          </div>
+          <div class="col-md-5 col-xs-12 toolbar__form-group">
+            <div class="row">
+              <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
+                <div class="toolbar__label">Estado</div>
+                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                </div>
+              <div class="col-md-6 col-xs-6">
+                <div class="toolbar__label">Polígono</div>
+                <select id="polygon_select" class="form-control select2-control">
+                  <option value=''>Selecciona el Estado</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="map-view" id="mainMap">
+    Map
+  </div>
+</div>
+<div class="unsuppoted hide">
+  <div class="container">
+    <h2>Usted está utilizando un navegador no compatible <small><br/>Por favor actualice a una de las siguientes opciones</small></h2>
+    <div class="text-center">
+      <a href="#"><img width="50" height="50" src="https://cdn1.iconfinder.com/data/icons/fs-icons-ubuntu-by-franksouza-/64/google-chrome.png" alt=""></a>
+      <a href="#"><img width="50" height="50" src="https://cdn1.iconfinder.com/data/icons/humano2/72x72/apps/firefox-icon.png" alt=""></a>
+      <a href="#"><img width="64" height="64" src="https://cdn1.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/64/safari_64.png" alt=""></a>
+    </div>
+  </div>
+</div>

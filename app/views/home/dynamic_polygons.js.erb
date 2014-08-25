@@ -1,0 +1,4 @@
+$('#polygon_select').empty();
+<% for polygon in @polygons %>
+    $('#polygon_select').append($("<option></option>").attr("value",<%= polygon.id %>).text('<%= polygon.name %>'));
+<% end %>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Imjuve</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">REDespierta</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+              <% if is_admin? %>
+              <!--
+                <li><%= link_to "Usuarios", admin_users_path %></li>
+                <li><%= link_to 'Crear Usuario', new_admin_user_path %></li>
+                <li><%= link_to 'Encuestas', surveys_path %></li>
+              -->
+              <% end %>
+              <li><%= link_to 'Crear Encuesta', new_survey_path %></li>
+              <li><%= link_to "Salir", logout_path %></li>
+            <% else %>
+              <li><%= link_to "Log In", login_path %></li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+      <% if flash.present? %>
+
+        <div class="alert alert-warning" style="margin-top: 15px;">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, id: "flash_#{name}" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

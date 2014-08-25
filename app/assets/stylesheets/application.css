@@ -10,10 +10,15 @@
  *
  *= require_self
  *= require vendor/bootstrap.min
+ *= require vendor/font-awesome.min.css
+ *= require plugins/select2.css
+ *= require plugins/select2-bootstrap.css
+ *= require plugins/bootstrap-switch.min.css
+ *= require theme.css
  * require_tree .
  */
 
-body {
+/*body {
   padding-top: 50px;
 }
 .starter-template {
@@ -27,4 +32,4 @@ body {
     padding: 20px 40px 40px;
     background: #fff;
     border: 1px solid #ccc;
-}
+}*/

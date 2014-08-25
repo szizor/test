@@ -13,4 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require vendor/bootstrap.min
+//= require vendor/underscore-min.js
+//= require plugins/bootstrap-switch.min.js
+//= require plugins/select2.js
+//= require home.js
 // require_tree .
+
+$(document).ready(function() {
+  $('#polygon_state_id').change(function() {
+    console.log("entro");
+    var data=$('#polygon_state_id').val();
+    $.ajax({
+      type: "POST",
+      url: "http://"+location.host+"/dynamic_polygons/"+data,
+      data: data,
+    });
+  });
+}); 
