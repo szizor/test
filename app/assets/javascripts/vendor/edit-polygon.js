@@ -96,16 +96,15 @@ function initialize() {
     var i;
 
     for (i = 0; i < polyCoords.length; i++) {
-        drawPolygon.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A) );
+        drawPolygon.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A || polyCoords[i].B) );
     };
 
 
     for (i = 0; i < drawPolygon.length; i++) {
       bounds.extend(drawPolygon[i]);
     }
-
     var mapOptions = {
-        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().B),
+        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().A || bounds.getCenter().B),
         zoom: 15,
         mapTypeControl: true,
         mapTypeControlOptions: {
@@ -207,7 +206,12 @@ function initialize() {
     })
 
     currentPolygon.setMap(map);
-    google.maps.event.addListener(currentPolygon, 'click', function() {
+    google.maps.event.addListener(currentPolygon.getPath(), 'insert_at', function() {
+        coordinates = currentPolygon.getPath().getArray()
+        polygonCoords(coordinates);
+        setSelection(currentPolygon);
+    });
+    google.maps.event.addListener(currentPolygon.getPath(), 'set_at', function() {
         coordinates = currentPolygon.getPath().getArray()
         polygonCoords(coordinates);
         setSelection(currentPolygon);
@@ -242,11 +246,9 @@ function codeLatLng() {
     geocoder.geocode({
         'latLng': latlng
     }, function (results, status) {
-        debugger;
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
                 map.setZoom(11);
-                debugger;
             } else {
                 alert('No results found');
             }
