@@ -105,8 +105,8 @@ function initialize() {
     }
 
     var mapOptions = {
-        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().A),
-        zoom: 17,
+        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().B),
+        zoom: 15,
         mapTypeControl: true,
         mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
@@ -194,7 +194,7 @@ function initialize() {
     google.maps.event.addDomListener(document.getElementById('delete-button'), "click", deleteSelectedShape);
     drawingManager.setMap(map);
     buildColorPalette();
-
+    
     currentPolygon = new google.maps.Polygon({
         path: drawPolygon,
         strokeWeight: 0,
