@@ -1,4 +1,18 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+}
 html, body {
     height: 100%;
 }
@@ -450,4 +464,524 @@ html, body {
   .polygon__info .polygon__content h1 small {
     font-size: 1.5rem;
   }
+}
+.content {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}    
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.infobox {
+    position: absolute;
+    z-index: 999;
+}
+
+.infobox .itemb {
+    background: url(../images/bg_box.png) no-repeat;
+    color: #848484;
+    font-size: 14px;
+    position: absolute;
+    height: 123px;
+    padding: 2px !important;
+    width: 380px;
+}
+
+.infobox .error h2 {
+    color: #fff;
+    padding-top: 7px;
+}
+
+.infobox .error p {
+    color: #cd0537;
+    font-size: 12px;
+}
+
+.infobox .error {
+    background: url(../images/bg_erroe.png) no-repeat;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    padding-left: 53px;
+    height: 80px;
+    margin-top: 43px;
+    padding: 2px 0 0  53px !important;
+    width: 380px;
+}
+
+.infobox .left {
+    float: left;
+    color: #cd0537;
+    font-size: 15px;
+    line-height: 38px;
+    font-weight: bold;
+    padding: 0 15px;
+}
+
+.infobox .right strong {
+    color: #5a5a5a;
+    font-weight: normal;
+}
+
+.infobox .right {
+    float: right;
+    color: #848484;
+    font-size: 14px;
+    line-height: 38px;
+    padding: 0 15px;
+}
+
+.infobox .green .right {
+    margin-top: -4px;
+    float: right;
+    height: 28px;
+    padding: 0 10px 0 24px;
+    border-radius: 2px;
+    background: #45b31f url(../images/ico_check.png) no-repeat 7px 50%;
+    line-height: 28px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.infobox .green {
+    overflow: hidden;
+    background: #edffe7;
+    border-bottom: 1px solid #aed6a0;
+    padding: 5px 15px;
+}
+
+.infobox .green p {
+    margin: 0;
+    padding: 0;
+    color: #2d7016;
+    font-size: 11px;
+    text-shadow: 0 1px 1px rgba(237,255,231,.75);
+}
+
+.infobox .like {
+    float: right;
+    background: url(../images/ico_like.png) no-repeat;
+    padding: 0 3px 0 31px;
+    color: #848484;
+    height: 21px;
+    border-right: 1px solid #a3a3a3;
+    border-radius: 0 2px 2px 0;
+    margin: 10px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: bold;
+}
+
+.infobox .orange .right {
+    margin-top: -4px;
+    float: right;
+    height: 28px;
+    padding: 0 10px;
+    border-radius: 2px;
+    background: #b3761f;
+    line-height: 28px;
+    border: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.infobox .orange {
+    overflow: hidden;
+    background: #fdf7e0;
+    border-bottom: 1px solid #e4cfb1;
+    padding: 5px 15px;
+}
+
+.infobox .orange p {
+    margin: 0;
+    padding: 0;
+    color: #b3761f;
+    font-size: 11px;
+    text-shadow: 0 1px 1px rgba(237,255,231,.75);
+}
+
+.infobox .red .right {
+    margin-top: -4px;
+    float: right;
+    height: 28px;
+    padding: 0 10px;
+    border-radius: 2px;
+    background: #b3761f;
+    line-height: 28px;
+    border: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.infobox .red {
+    overflow: hidden;
+    border-bottom: 1px solid #a8ab9d;
+    padding: 5px 15px;
+}
+
+.infobox .red p {
+    margin: 0;
+    padding: 0;
+    color: #ce0538;
+    font-size: 11px;
+    text-shadow: 0 1px 1px rgba(237,255,231,.75);
+}
+
+.infobox h2 {
+    color: #292929;
+    padding: 3px 0 4px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 23px;
+    line-height: normal;
+}
+
+.infobox .close {
+    position: relative;
+    /*top: 0;*/
+    /*text-indent: -999em;*/
+    /*background: none;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    right: 0;
+    display: block;*/
+}
+.poligon-info {
+    position: absolute;
+    top: 64px;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    padding-left: 52px;
+    height: 143px;
+    background-color: rgba(9,9,9,.89);
+    box-shadow: 0 2px 2px rgba(0,1,1,.2);
+}
+
+.poligon-info:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    background: #cd0537 url(../images/poligon.png) no-repeat 50% 16px;
+    content: "";
+}
+
+.poligon-info a {
+    color: #7f7e7e;
+    text-decoration: underline;
+}
+
+.poligon-info h5 {
+    padding: 12px 0 6px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.poligon-info h4 {
+    color: #f71c53;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.poligon-info .ico img {
+    display: inline-block;
+    margin: 0 -35px;
+}
+
+.poligon-info .count.rr {
+    right: 9px;
+}
+
+.poligon-info .close {
+    position: absolute;
+    top: 20px;
+    display: block;
+    right: 20px;
+    background: url(../images/ico_close.png) no-repeat;
+    width: 14px;
+    height: 14px;
+}
+
+.poligon-info .count {
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 17px;
+    color: #1f1d1d;
+    font-size: 12px;
+    font-weight: bold;
+    top: 0;
+    right: 2px;
+    width: 23px;
+    height: 23px;
+    border: 3px solid #232121;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.poligon-info .ico {
+    position: relative;
+    height: 36px;
+    display: block;
+    padding-top: 11px;
+    margin: auto;
+}
+
+.poligon-info h3 {
+    color: #fff;
+    font-weight: normal;
+    padding: 19px 0 25px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 23px;
+}
+
+.poligon-info .more-info .chart {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.poligon-info .set:hover > .more-info,
+.poligon-info .item:hover .more-info {
+    display: block;
+}
+
+.poligon-info .more-info:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 15px;
+}
+
+.poligon-info .more-info:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    width: 0;
+    margin-left: -8px;
+    height: 0;
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #10100f transparent;
+}
+
+.poligon-info .content {
+    padding: 10px 9px;
+}
+
+.poligon-info .more-info li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.poligon-info .more-info li {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #ffffff;
+}
+
+.poligon-info .more-info ul + h6 {
+    padding-top: 15px;
+}
+
+.poligon-info .more-info h6 {
+    color: #656565;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.poligon-info .more-info h3 {
+    color: #d2d2d2;
+    font-size: 15px;
+    background: #10100f;
+    border-bottom: 1px solid #31302f;
+    line-height: 34px;
+    margin: 0;
+    padding: 0 11px;
+    text-align: left;
+}
+
+.poligon-info .more-info .close {
+    margin: -7px;
+    background: url(../images/ico_close_s.png) no-repeat;
+    width: 9px;
+    height: 9px;
+}
+
+.poligon-info .more-info {
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    left: 50%;
+    text-align: left;
+    width: 276px;
+    border-radius: 1px;
+    display: none;
+    background-color: #211f1f;
+    margin-left: -140px;
+    box-shadow: 0 1px 3px rgba(0,1,1,.75);
+}
+
+.poligon-info h3 span {
+    color: #747474;
+    font-weight: 300;
+}
+
+.poligon-info .set.nos {
+    padding-left: 0;
+}
+
+.poligon-info .set {
+    position: relative;
+    padding: 0 0 0 20px;
+    float: left;
+    text-align: center;
+}
+
+.poligon-info .set + .set {
+    padding-right: 15px;
+}
+
+.poligon-info .set .item h5 {
+    margin-top: -12px;
+}
+
+.poligon-info .set.nos .item h5,
+.poligon-info .set.nos .item {
+    margin-top: 0;
+}
+
+.poligon-info .set.nos .item {
+    height: 80px;
+    padding-right: 22px;
+}
+
+.poligon-info .set .item {
+    float: left;
+    position: relative;
+    margin-top: 12px;
+    padding: 0 10px;
+}
+
+.poligon-info .set .item + .item {
+    border-left: 1px solid #3a3939;
+}
+
+.poligon-info .item {
+    float: left;
+    color: #7f7e7e;
+    font-size: 12px;
+    height: 50px;
+    text-align: center;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+.poligon-info .item.first {
+    padding-left: 0;
+}
+
+.poligon-info .item.pl {
+    padding-left: 25px !important;
+}
+
+.popup {
+    width: 439px;
+    display: none;
+    padding: 19px;
+    overflow: hidden;
+}
+
+.popup h3 {
+    color: #202020;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 23px;
+    padding-bottom: 32px;
+}
+
+.popup textarea,
+.popup input {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #cbcbcb;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.popup fieldset {
+    padding-bottom: 13px;
+}
+
+.popup .btn-red {
+    margin-top: 11px;
+}
+
+.popup textarea {
+    height: 84px;
+}
+
+.alte-poligon .close,
+.fancybox-close {
+    background: url(../images/ico_close_g.png) no-repeat;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 13px;
+    right: 19px;
+}
+
+.alte-poligon .close {
+    right: 17px;
+}
+
+.popup .public {
+    padding: 8px 0 0;
+}
+
+.popup .public input {
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 2px 8px 0 4px;
+    border: 0;
+    background: none;
+}
+
+.popup .public label {
+    float: left;
+    font-size: 12px;
+    color: #404040;
+    font-weight: normal;
+    opacity: 1;
+    text-transform: none;
+}
+
+.popup label {
+    opacity: .8;
+    display: block;
+    padding: 0 0 4px;
+    color: #3f3f3f;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 9px;
 }

@@ -8,6 +8,7 @@ class Admin::ProblemsController < Admin::BaseController
   end
 
   def new
+    @polygon = Polygon.find(params[:polygon_id])
     @problem = Problem.new
   end
 
@@ -25,6 +26,7 @@ class Admin::ProblemsController < Admin::BaseController
   end
 
   def edit
+    @polygon = Polygon.find(params[:polygon_id])
     @problem = Problem.find(params[:id])
     @alternatives = Alternative.all
   end

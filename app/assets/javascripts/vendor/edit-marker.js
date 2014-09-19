@@ -4,16 +4,12 @@ var initailCoords;
 var mapClick;
 var markers;
 
-var initialPolygonCoords = [
-    new google.maps.LatLng(20.690908602661718, -103.36192846298218),
-    new google.maps.LatLng(20.69091863948866, -103.36549043655396),
-    new google.maps.LatLng(20.688871113042268, -103.36352705955505),
-    new google.maps.LatLng(20.68878078035671, -103.36196064949036),
-    new google.maps.LatLng(20.68854992991592, -103.3590316772461),
-    new google.maps.LatLng(20.689814584543726, -103.35883855819702),
-    new google.maps.LatLng(20.689824621443048, -103.3607804775238),
-    new google.maps.LatLng(20.690908602661718, -103.36076974868774)
-  ];
+var initialPolygonCoords = [];
+var i;
+
+    for (i = 0; i < coordsVal.length; i++) {
+        initialPolygonCoords.push( new google.maps.LatLng(coordsVal[i].k, coordsVal[i].A || coordsVal[i].B) );
+    };  
 
 var myLatlng = new google.maps.LatLng(20.689824621443048,-103.36192846298218);
 
@@ -27,6 +23,18 @@ function clearMarkers() {
 }
 
 function initialize() {
+    google.maps.Polygon.prototype.getBounds = function() {
+      var bounds = new google.maps.LatLngBounds();
+      var paths = this.getPaths();
+      var path;        
+      for (var i = 0; i < paths.getLength(); i++) {
+          path = paths.getAt(i);
+          for (var ii = 0; ii < path.getLength(); ii++) {
+              bounds.extend(path.getAt(ii));
+          }
+      }
+      return bounds;
+    }
     geocoder = new google.maps.Geocoder();
 
     var mapOptions = {
@@ -149,6 +157,7 @@ function initialize() {
 
     initailCoords.setMap(map);
     drawingManager.setMap(map);
+    map.fitBounds(initailCoords.getBounds());
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

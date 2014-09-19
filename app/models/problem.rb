@@ -4,4 +4,5 @@ class Problem < ActiveRecord::Base
   belongs_to :category
   has_many :alternatives
   belongs_to :polygon
+  serialize :coords
 end

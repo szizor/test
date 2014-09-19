@@ -9,4 +9,5 @@ class Polygon < ActiveRecord::Base
   has_many :documents
   has_many :problems
   has_many :trees
+  serialize :coords
 end

@@ -1,3 +1,55 @@
 <% title "Nueva problema" %>
-<%= render 'form' %>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places,geometry,visualization,drawing"></script>
+<%= stylesheet_link_tag "plugins/polygons", :media => "all" %>
+<script>
+	var coordsVal = <%= raw @polygon.coords %>;
+</script>
+<div class="page-head">
+    <h2 class="pull-left"><%= params[:id].present? ? "Editar Problema" : "Nuevo Problema" %></h2>
+    <div class="pull-right">
+
+    </div>
+    <div class="clearfix"></div>
+    <!-- Breadcrumb -->
+    <div class="bread-crumb">
+      <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+      <!-- Divider -->
+      <span class="divider">/</span>
+      <a href="index.html"><i class="fa fa-map-marker"></i> Problemas</a>
+      <span class="divider">/</span>
+      <a href="#" class="bread-current"><%= params[:id].present? ? "Editar Problema" : "Nuevo Problema" %></a>
+    </div>
+
+    <div class="clearfix"></div>
+</div>
+
+<div class="matter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="widget">
+            <div class="widget-head">
+              <div class="pull-left"><%= params[:id].present? ? @problem.name : "Nuevo Problema" %></div>
+              <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="widget-content">
+              <div class="padd">
+                <div class="toolbar">
+                  <div class="col-md-3 col-xs-12">
+                    <div id="color-palette" class="text-center"></div>
+                  </div>
+                </div>
+                <div class="toolbar" role="navigation"></div>
+                <div id="map-canvas"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <%= render 'form' %>
+    </div>
+  </div>
 <%= javascript_include_tag "vendor/add-marker.js" %>
