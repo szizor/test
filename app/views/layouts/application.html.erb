@@ -23,46 +23,101 @@
           </a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li id="menuRegister">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navRegister">Ingresa</a>
-            </li>
-            <li class="dropdown" id="menuLogin">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Participa</a>
-              <div class="dropdown-menu">
-                <div class="social-login-title">Conéctate con</div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-                      <i class="fa fa-facebook"></i>
-                      <span class="hidden-xs">Facebook</span>
-                    </a>
+          <% if current_user %>
+            <header id="header">
+              <div class="container">
+                <div class="right">
+                  <div class="report">
+                    <a href="#report">Reportar un Problema</a>
                   </div>
-                  <div class="col-md-6">
-                    <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-                      <i class="fa fa-twitter"></i>
-                      <span class="hidden-xs">Twitter</span>
-                    </a>
+                  <div class="user">
+                    <a href="#"><img src="images/1.png" alt=""></a>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: -30px;height:30px;">
+                      <li class="dropdown" id="menuUser">
+                        <a href="#" class="drop dropdown-toggle" data-toggle="dropdown" id="navUser"></a>
+                        <div class="dropdown-menu">
+                          <%= link_to "Salir", logout_path %>
+                        </div>
+                      </li>
+                    <ul>  
                   </div>
                 </div>
-                <div class="form-title">ó Regístrate con tu Correo</div>
-                <form class="form" id="formLogin">
-                  <div class="form-group">
-                    <input type="email" name="" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
-                  </div>
-                  <div class="form-group">
-                    <input type="password" name="" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
-                  </div>
-                  <div class="form-group">
-                    <button type="button" class="btn btn-block btn-lg btn-danger">Registrárme</button>
-                  </div>
-                </form>
-                <div class="register-trigger text-center">
-                  ¿Ya tienes cuenta? <a href="#">Ingresa aqui</a>
-                </div>
+                <a href="#" id="logo" title="ProjectName">ProjectName</a>
               </div>
-            </li>
-          </ul>
+              <!-- / container -->
+            </header>
+            <!-- / header -->
+          <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown" id="menuRegister">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navRegister">Ingresa</a>
+                <div class="dropdown-menu">
+                  <!-- <div class="social-login-title">Conéctate con</div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                        <i class="fa fa-facebook"></i>
+                        <span class="hidden-xs">Facebook</span>
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                        <span class="hidden-xs">Twitter</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="form-title">ó Regístrate con tu Correo</div> -->
+                  <%= form_tag sessions_path, {:id => 'formLogin'} do %>
+                    <div class="form-group">
+                      <input type="email" name="email" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                      <%= submit_tag "Log In", class: "btn btn-info btn-block login" %>
+                    </div>
+                  <% end %>
+                </div>
+              </li>
+              <li class="dropdown" id="menuLogin">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Participa</a>
+                <div class="dropdown-menu">
+                  <!-- <div class="social-login-title">Conéctate con</div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                        <i class="fa fa-facebook"></i>
+                        <span class="hidden-xs">Facebook</span>
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                        <span class="hidden-xs">Twitter</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="form-title">ó Regístrate con tu Correo</div> -->
+                  <form class="form" id="formLogin">
+                    <div class="form-group">
+                      <input type="email" name="" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                      <button type="button" class="btn btn-block btn-lg btn-danger">Registrárme</button>
+                    </div>
+                  </form>
+                  <div class="register-trigger text-center">
+                    ¿Ya tienes cuenta? <a href="#">Ingresa aqui</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          <% end %>  
           <!-- <form class="navbar-form navbar-right" role="logins">
             <button type="button" class="btn btn-primary pull-right">Participa</button>
             <button type="button" class="btn btn-default">Ingresa</button>
@@ -70,10 +125,33 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+    <div class="popup" id="report">
+      <h3>Reporte de problema</h3>
+      <%= form_for [:admin, @polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
+        <%= f.hidden_field :polygon_id, :value => @polygon.id %>
+        <fieldset>
+          <label>nombre del problema </label>
+          <%= f.text_field :name %>
+          <div class="public">
+            <input type="checkbox">
+            <label>Publicar como anónimo</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <label>Describe el problema </label>
+           <%= f.text_area(:description) %>
+        </fieldset>
+        <fieldset>
+          <label>Selecciona el tipo del problema</label>
+          <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
+        </fieldset>
+        <button type="submit" class="btn-red">Publicar</button>
+      <% end %>
+    </div>
     <!-- <div class="container"> -->
       <% if flash.present? %>
 
-        <div class="alert alert-warning" style="margin-top: 15px;">
+        <div class="alert alert-warning" style="margin-top: 55px;position: absolute;top: 55px;z-index: 1000;width: 100%;">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, id: "flash_#{name}" %>
@@ -84,6 +162,6 @@
       <%= yield %>
     <!-- </div> -->
     <%= javascript_include_tag "application" %>
-    
+
   </body>
 </html>

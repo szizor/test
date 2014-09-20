@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @parents = ParentCategory.all
     @states = State.all
     @polygon = params[:p] ? Polygon.find(params[:p]) : Polygon.first
+    @problem = Problem.new
   end
 
   def dynamic_polygons

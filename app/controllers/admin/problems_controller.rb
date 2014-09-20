@@ -13,6 +13,7 @@ class Admin::ProblemsController < Admin::BaseController
   end
 
   def create
+    debugger
     @problem = Problem.new(params[:problem])
     if @problem.save
       respond_to do |format|

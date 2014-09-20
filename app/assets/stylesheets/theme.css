@@ -46,6 +46,16 @@ html, body {
     margin-top: 8px;
     padding: 30px 30px 10px;
 }
+#menuRegister .dropdown-menu {
+    width: 350px;
+    margin-top: 8px;
+    padding: 30px 30px 10px;
+}
+#menuUser .dropdown-menu {
+    width: 350px;
+    margin-top: 8px;
+    padding: 30px 30px 10px;
+}
 .form-title {
     color: #7d7d7d;
     text-align: center;
@@ -482,6 +492,7 @@ html, body {
 .infobox {
     position: absolute;
     z-index: 999;
+    height: 65px !important;
 }
 
 .infobox .itemb {
@@ -646,15 +657,15 @@ html, body {
 }
 
 .infobox .close {
-    position: relative;
-    /*top: 0;*/
-    /*text-indent: -999em;*/
-    /*background: none;
+    position: absolute;
+    top: 0;
+    text-indent: -999em;
+    background: none;
     bottom: 0;
     left: 0;
     z-index: 99;
     right: 0;
-    display: block;*/
+    display: block;
 }
 .poligon-info {
     position: absolute;
@@ -1070,4 +1081,228 @@ html, body {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 9px;
+}
+/* Header
+------------------------------------------------------------------------------*/
+#navUser {
+    background-color : #fff;
+}
+#header {
+    height: 54px;
+    background: #fff;
+    border-bottom: 1px solid #c1c1c1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+#header .right {
+    float: right;
+    height: 53px;
+}
+
+#header .right .report a {
+    color: #292929;
+    background: url(../images/ico_plus.png) no-repeat 0 50%;
+    display: block;
+    padding-left: 24px;
+}
+
+#header .right .report {
+    color: #292929;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 19px;
+    float: left;
+    line-height: 53px;
+}
+
+#header .user .drop {
+    position: relative;
+    margin: 6px 0 0 6px;
+    float: left;
+}
+
+#header .user .drop:before {
+    width: 0;
+    height: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-style: solid;
+    border-width: 4px 3.5px 0 3.5px;
+    border-color: #616161 transparent transparent transparent;
+}
+
+#header .user img {
+    float: left;
+}
+
+#header .user {
+    padding: 15px 7px;
+    height: 52px;
+    float: right;
+    width: 50px;
+    border-left: 1px solid #c1c1c1;
+}
+
+#logo {
+    width: 73px;
+    height: 36px;
+    display: block;
+    cursor: pointer;
+    float: left;
+    margin: 9px 0 0 11px;
+    text-indent: -9999em;
+    background: url(../images/logo.png) no-repeat;
+}
+.fancybox-close {
+    background: url(../images/ico_close_g.png) no-repeat;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 13px;
+    right: 19px;
+}
+/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license */
+
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+    vertical-align: top;
+}
+.fancybox-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 8020;
+}
+.fancybox-skin {
+    position: relative;
+    background: #f9f9f9;
+    color: #444;
+    text-shadow: none;
+border-radius: 2px;
+box-shadow: 0 1px 3px rgba(0,1,1,.75);
+background-color: #fff;
+}
+.fancybox-opened {
+    z-index: 8030;
+}
+.fancybox-outer,
+.fancybox-inner {
+    position: relative;
+}
+.fancybox-inner {
+    overflow: hidden;
+}
+.fancybox-type-iframe .fancybox-inner {
+    -webkit-overflow-scrolling: touch;
+}
+.fancybox-error {
+    color: #444;
+    font: 14px/20px"Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 15px;
+    white-space: nowrap;
+}
+.fancybox-image,
+.fancybox-iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.fancybox-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+.fancybox-tmp {
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    visibility: hidden;
+    max-width: 99999px;
+    max-height: 99999px;
+    overflow: visible !important;
+}
+/* Overlay helper */
+
+.fancybox-lock {
+    overflow: hidden !important;
+    width: auto;
+}
+.fancybox-lock body {
+    overflow: hidden !important;
+}
+.fancybox-lock-test {
+    overflow-y: hidden !important;
+}
+.fancybox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
+    z-index: 8010;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,.7);
+}
+.fancybox-overlay-fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.fancybox-lock .fancybox-overlay {
+    overflow: auto;
+    overflow-y: scroll;
+}
+.details-2 {
+    position: absolute;
+    top: 245px;
+    overflow: hidden;
+    bottom: 0;
+    min-height: 500px;
+    left: 0;
+    z-index: 99;
+    right: 0;
+    padding: 26px 45px;
+    font-size: 15px;
+    color: #5a5a5a;
+    background-color: #fff;
+    box-shadow: 0 -1px 3px rgba(0,1,1,.55);
+}
+
+.details-2 .social {
+    padding: 58px 0;
+    float: right;
+}
+
+.details-2 .loc {
+    background: url(../images/ico_loc.png) no-repeat 0 48%;
+    padding-left: 17px;
+    color: #595959;
+    margin-top: 4px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.details-2 h2 {
+    color: #2c2c2c;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 28px;
+    line-height: normal;
 }

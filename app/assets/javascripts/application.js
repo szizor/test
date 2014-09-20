@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require vendor/bootstrap.min
 //= require vendor/underscore-min.js
+//= require vendor/fancybox.js
 //= require plugins/bootstrap-switch.min.js
 //= require plugins/select2.js
 //= require home.js
@@ -28,5 +29,6 @@ $(document).ready(function() {
       data: data,
     });
   });
-
+  $(".report a").fancybox();
+  
 }); 
