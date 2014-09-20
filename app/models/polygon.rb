@@ -10,4 +10,26 @@ class Polygon < ActiveRecord::Base
   has_many :problems
   has_many :trees
   serialize :coords
+
+  def population
+    total = women_pop + men_pop
+    total
+  end
+
+  def women_perc
+    (women_pop.to_f * 100 / population).round
+  end
+
+  def men_perc
+    (men_pop.to_f * 100 / population).round
+  end
+
+  def rangos_low
+    ((cero_doce + doce_catorce+ quince_diecinueve + veinte_veinticuatro + veinticinco_veintinueve).to_f * 100  / population).round
+  end
+
+  def rangos_high
+    ((treinta_cincuentainueve + sesenta).to_f * 100  / population).round
+  end
+
 end

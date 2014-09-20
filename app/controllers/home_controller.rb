@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     @parents = ParentCategory.all
     @states = State.all
-    @polygon = params[:id] ? Polygon.find(params[:id]) : Polygon.first
+    @polygon = params[:p] ? Polygon.find(params[:p]) : Polygon.first
   end
 
   def dynamic_polygons

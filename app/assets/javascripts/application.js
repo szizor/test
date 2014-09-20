@@ -21,7 +21,6 @@
 
 $(document).ready(function() {
   $('#polygon_state_id').change(function() {
-    console.log("entro");
     var data=$('#polygon_state_id').val();
     $.ajax({
       type: "POST",
@@ -29,5 +28,5 @@ $(document).ready(function() {
       data: data,
     });
   });
-  
+
 }); 

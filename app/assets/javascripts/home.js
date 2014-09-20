@@ -228,35 +228,22 @@ InfoBox.prototype.panMap = function () {
 
     map.fitBounds(currentPolygon.getBounds());
     currentPolygon.setMap(map);
-    // Polygon Center
-    var image = 'images/gmaps-marker.png';
-    var marker = new google.maps.Marker({
-        position: currentPolygon.getBounds().getCenter(),
-        map: map,
-        content: '<div class="error"><h2>Polígono Minerva</h2><p id="verInfo" onclick="$(&quot;.poligon-info&quot;).show()">Ver Información Demográfica</p></div>',
-        icon: image
-      });
-    markers.push(marker);
-    google.maps.event.addListener(markers[0], "click", function (e) {
-        var infoBox = new InfoBox({
-            latlng: this.getPosition(),
-            map: map,
-            content: this.content
-        });
-      });
-    // Other Markers
+    
+    var marker_image = 'images/pin-agua1-unchecked.png'
     for (var i = 0; i < data.length; i++) {
       var current = data[i];
   
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(current.position.lat, current.position.lng),
         map: map,
-        content: current.content
+        content: current.content,
+        icon: marker_image
       });
   
       markers.push(marker);
   
       google.maps.event.addListener(markers[i], "click", function (e) {
+        $('.infobox').children('.close').click()
         var infoBox = new InfoBox({
             latlng: this.getPosition(),
             map: map,
@@ -264,6 +251,24 @@ InfoBox.prototype.panMap = function () {
         });
       });
     }
+    // Polygon Center
+    var image = 'images/pin-sector-main.png';
+    var marker = new google.maps.Marker({
+        position: currentPolygon.getBounds().getCenter(),
+        map: map,
+        content: polyinfo,
+        icon: image
+      });
+    markers.push(marker);
+    google.maps.event.addListener(markers[data.length], "click", function (e) {
+        $('.infobox').children('.close').click()
+        var infoBox = new InfoBox({
+            latlng: this.getPosition(),
+            map: map,
+            content: this.content
+        });
+      });
+    // Other Markers
 }
 
 
@@ -300,6 +305,13 @@ $(document).ready(function() {
   $(".select2-control").select2({
     placeholder: "Selecciona...",
     allowClear: true
+  });
+
+  $(".select2-control-exec").select2({
+    placeholder: "Selecciona...",
+    allowClear: true
+  }).on("select2-selecting", function(e) { 
+    window.location.href="/?p="+ e.val; 
   });
 
   $('.element-toggle').bind('click', function (e) {

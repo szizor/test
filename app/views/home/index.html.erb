@@ -40,7 +40,7 @@
                 </div>
               <div class="col-md-6 col-xs-6">
                 <div class="toolbar__label">Polígono</div>
-                <select id="polygon_select" class="form-control select2-control">
+                <select id="polygon_select" class="form-control select2-control-exec">
                   <option value=''>Selecciona el Estado</option>
                 </select>
               </div>
@@ -51,49 +51,49 @@
     </div>
     <div class="poligon-info" style="display: none">
     <a href="#" class="close" onclick="$('.poligon-info').hide()"></a>
-    <h3>Polígono Minerva · <span>Guadalajara</span></h3>
+    <h3><%= @polygon.name %> · <span><%= @polygon.city_id %></span></h3>
     <div class="item first">
       <h4>Población</h4>
-      <h5>2,458</h5>
+      <h5><%= @polygon.population %></h5>
       <p>Habitantes</p>
     </div>
     <div class="set">
       <h4>género</h4>
       <div class="item">
-        <h5>39%</h5>
+        <h5><%= @polygon.women_perc %>%</h5>
         <p>Hombres</p>
       </div>
       <div class="item">
-        <h5>61%</h5>
+        <h5><%= @polygon.men_perc %>%</h5>
         <p>Mujeres</p>
       </div>
     </div>
     <div class="set">
       <h4>Rangos de edad</h4>
       <div class="item">
-        <h5>39%</h5>
+        <h5><%= @polygon.rangos_low %>%</h5>
         <p><a href="#">12-29 años</a></p>
       </div>
       <div class="item">
-        <h5>61%</h5>
+        <h5><%= @polygon.rangos_high %>%</h5>
         <p><a href="#">30-60+ años</a></p>
       </div>
-      <div class="more-info">
+      <!-- <div class="more-info">
         <a href="#" class="close"></a>
         <h3>Rangos de Edad</h3>
         <div class="chart">
           <img src="images/chart.png" alt="">
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="item">
       <h4>NSE</h4>
-      <h5>C+</h5>
+      <h5><%= @polygon.ses %></h5>
       <p>(Prom.)</p>
     </div>
     <div class="item">
       <h4>escolaridad</h4>
-      <h5>Sec</h5>
+      <h5><%= @polygon.scholarity %></h5>
       <p>(Prom.)</p>
     </div>
     <div class="set nos">
@@ -101,7 +101,7 @@
         <h4>Economía</h4>
         <div class="ico">
           <img src="images/ico_m_1.png" alt="">
-          <div class="count rr">7</div>
+          <!-- <div class="count rr">7</div> -->
         </div>
         <p><a href="#">Actividades</a></p>
         <div class="more-info">
@@ -110,16 +110,11 @@
           <div class="content">
             <h6>Productivas</h6>
             <ul>
-              <li><a href="#">Aprovechamiento forestal</a></li>
-              <li><a href="#">Industrias Manufactureras</a></li>
+              <li><%= @polygon.prod_act %></li>
             </ul>
             <h6>económicas</h6>
             <ul>
-              <li><a href="#">Comercio</a></li>
-              <li><a href="#">Restaurantes</a></li>
-              <li><a href="#">Hoteles</a></li>
-              <li><a href="#">Servicios financieros e inmobiliarios</a></li>
-              <li><a href="#">Servicios educativos y médicos </a></li>
+              <li><%= @polygon.econ_act %></li>
             </ul>
           </div>
         </div>
@@ -128,7 +123,7 @@
         <h4>eventos</h4>
         <div class="ico">
           <img src="images/ico_m_2.png" alt="">
-          <div class="count">2</div>
+          <!-- <div class="count">2</div> -->
         </div>
         <p><a href="#">Programa</a></p>
       </div>
@@ -137,25 +132,37 @@
       <h4>recorridos</h4>
       <div class="ico">
         <img src="images/ico_m_3.png" alt="">
-        <div class="count">2</div>
+        <div class="count"><%= @polygon.tours.count %></div>
       </div>
-      <p><a href="#">Programa</a></p>
+      <p>Programa</p>
     </div>
     <div class="item pl">
       <h4>transporte</h4>
       <div class="ico">
         <img src="images/ico_m_4.png" alt="">
-        <div class="count rr">8</div>
+        <div class="count rr"><%= @polygon.rutas.split(",").count %></div>
       </div>
       <p><a href="#">Rutas</a></p>
+      <div class="more-info-rutas">
+          <a href="#" class="close"></a>
+          <h3>Rutas</h3>
+          <div class="content">
+            <ul>
+              <% @polygon.rutas.split(",").each do |ruta|%>
+                <li><%= ruta %></li>
+              <% end %>  
+            </ul>
+            
+          </div>
+        </div>
     </div>
-    <div class="item">
+    <!-- <div class="item">
       <h4>galeria</h4>
       <div class="ico">
         <img src="images/ico_m_5.png" alt="">
       </div>
       <p><a href="#">Fotos y video</a></p>
-    </div>
+    </div> -->
   </div>
   </div>
   <div class="map-view" id="mainMap">
@@ -175,6 +182,7 @@
 <script>
   var polyCoords;
   var polyColor = "<%= @polygon[:colors] %>";
+  var polyinfo  = '<div class="error"><h2><%=h truncate(@polygon.name, :length => 26) %></h2><p id="verInfo" onclick="$(&quot;.poligon-info&quot;).show()">Ver Información Demográfica</p></div>';
   var coordsVal = <%= raw @polygon.coords %>;
   if ( typeof coordsVal === 'string') {
     polyCoords = JSON.parse(coordsVal);
@@ -185,7 +193,7 @@
       
       {
         'id':<%=problem.id%>,
-        'content':'<div class="itemb"><div class="orange">  <h2>Cuida-coches violentos</h2>  <div class="right">Resuelto</div><p>Minerva, Guadalajara</p></div><div class="left">Ver Proyecto</div><div class="like">7</div></div>',
+        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 36) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left"><%= Alternative.all.count %> Soluciones </div><div class="like">0</div></div>',
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],
           'lng':JSON.parse(test[<%=index%>])["A"] || JSON.parse(test[<%=index%>])["B"]
