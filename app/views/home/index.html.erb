@@ -203,7 +203,7 @@
       
       {
         'id':<%=problem.id%>,
-        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 36) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= Alternative.all.count %> Soluciones </div><div class="like">0</div></div>',
+        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 35) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= Alternative.all.count %> Soluciones </div><div class="like">0</div></div>',
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],
           'lng':JSON.parse(test[<%=index%>])["A"] || JSON.parse(test[<%=index%>])["B"]

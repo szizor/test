@@ -292,6 +292,9 @@ $(document).ready(function() {
         dropOnEmpty: true,
         forcePlaceholderSize: true
     });
+    $('.datepicker').datepicker({
+    format: 'dd/MM/yyyy hh:mm:ss'
+})
 });
 
 /* Scroll to Top */
