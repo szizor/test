@@ -1426,7 +1426,7 @@ background-color: #fff;
 .problem-detail {
     background-color: rgba(0, 0, 0, 0.5);
     background-position: 50% 20%;
-    background-size: 100% auto;);
+    background-size: 100% auto;
 }
 .problem-detail .close {
     background: url('../images/ico_close.png') no-repeat scroll 0% 0% transparent;
