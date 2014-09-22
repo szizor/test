@@ -1274,7 +1274,7 @@ background-color: #fff;
     position: absolute;
     top: 245px;
     overflow: hidden;
-    bottom: 0;
+    /*bottom: 0;*/
     min-height: 500px;
     left: 0;
     z-index: 99;

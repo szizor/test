@@ -49,109 +49,6 @@
         </div>
       </form>
     </div>
-    <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
-      <div class="details-2 problem-<%= problem.id %>" style="display: none">
-        <div style="position:relative">
-          <!-- <a href="#" class="close" onclick="$('.problem-<%= problem.id %>').hide()">X</a> -->
-          <!-- <h2><%= problem. name%></h2>     -->
-          <div class="problem-detail collapsed" style="background-image: url('images/backgrounds/violencia-callejera.jpg');">
-              <a class="close" href="#"></a>
-              <div class="excerpt-container">
-                  <div class="detail-heading">
-                      <i class="detail-icon"><img src="images/icons/icn-gun.png" alt="Gun"></i>
-                      <span class="category-title">Violencia</span>
-                  </div>
-                  <div class="title">
-                      Pleitos Callejeros
-                  </div>
-                  <div class="excerpt">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed arcu neque.</p>
-                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                  </div>
-                  <div class="excerpt-info">
-                      <div class="excerpt-brief">
-                          <span class="info-1">1,300 Afectados</span>
-                          <span class="info-separator">·</span>
-                          <span class="info-2">Mayormente jóvenes de 15 a 19 años</span>
-                          <a href="#" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
-                          <a href="#" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
-                      </div>
-                      <div class="info-column column-1">
-                          <div class="sub-title">
-                              Posibles causas
-                          </div>
-                          <div class="column-detail">
-                              El director de la secundaria Joséfa Ortíz de Domínguez, dio este reporte al respecto de pleitos entre estudiantes, principalmente de nivel secundaria y peor aún, de mujeres que a su corta edad generan la movilización de la corporación policiaca.
-                          </div>
-                      </div>
-                      <div class="info-column column-2">
-                          <div class="sub-title">
-                              Efectos que provoca
-                          </div>
-                          <div class="column-detail">
-                              Es de verdad triste y preocupante, primero porque sigue creciendo y muchos niños se están integrando a éstas peleas, otra, porque son menores de edad, que por viejas rencillas generadas al interior de la escuela, empeora en las calles
-                          </div>
-                      </div>
-                      <div class="excerpt-stats">
-                          <div class="problem-detail-column">
-                              <span class="sub-title">
-                                  Afecta
-                              </span>
-                              <div class="detail-container">
-                                  368
-                              </div>
-                              <span class="units">
-                                  Casas
-                              </span>
-                          </div>
-                          <div class="problem-detail-column">
-                              <span class="sub-title">
-                                  Frecuencia
-                              </span>
-                              <div class="detail-container">
-                                  <img src="images/icons/icn-cycle.png" alt="Cíclica">
-                              </div>
-                              <span class="units">
-                                  Cíclica
-                              </span>
-                          </div>
-                          <div class="problem-detail-column">
-                              <span class="sub-title">
-                                  Costo del problema
-                              </span>
-                              <div class="detail-container">
-                                  $250,000
-                              </div>
-                              <span class="units">
-                                  Pesos anuales (aprox.)
-                              </span>
-                          </div>
-                          <div class="problem-detail-column">
-                              <span class="sub-title">
-                                  Galería
-                              </span>
-                              <div class="detail-container">
-                                  <a href="#"><img src="images/icons/icn-gallery.png" alt="Galería"></a>
-                              </div>
-                              <span class="units">
-                                  Fotos y video
-                              </span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <p class="loc"><%= Alternative.all.count%> Soluciones</p>
-          <%= Alternative.all.each do |alternative|%>
-          <h1><%= alternative.name%></h1>
-          <p><%= alternative.description%></p>
-          <% end %>
-          <div class="social">
-            <img src="images/social.png" alt="">
-          </div>
-        </div> 
-      </div>
-    <% end %>
 
     <div class="poligon-info" style="display: none">
     <a href="#" class="close" onclick="$('.poligon-info').hide()"></a>
@@ -273,6 +170,109 @@
     Map
   </div>
 </div>
+    <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
+      <div class="details-2 problem-<%= problem.id %>" style="display: none">
+        <div style="position:relative">
+          <!-- <a href="#" class="close" onclick="$('.problem-<%= problem.id %>').hide()">X</a> -->
+          <!-- <h2><%= problem. name%></h2>     -->
+          <div class="problem-detail collapsed" style="background-image: url('images/backgrounds/violencia-callejera.jpg');">
+              <a class="close" href="#"></a>
+              <div class="excerpt-container">
+                  <div class="detail-heading">
+                      <i class="detail-icon"><img src="images/icons/icn-gun.png" alt="Gun"></i>
+                      <span class="category-title">Violencia</span>
+                  </div>
+                  <div class="title">
+                      Pleitos Callejeros
+                  </div>
+                  <div class="excerpt">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed arcu neque.</p>
+                      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                  </div>
+                  <div class="excerpt-info">
+                      <div class="excerpt-brief">
+                          <span class="info-1">1,300 Afectados</span>
+                          <span class="info-separator">·</span>
+                          <span class="info-2">Mayormente jóvenes de 15 a 19 años</span>
+                          <a href="#" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
+                          <a href="#" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
+                      </div>
+                      <div class="info-column column-1">
+                          <div class="sub-title">
+                              Posibles causas
+                          </div>
+                          <div class="column-detail">
+                              El director de la secundaria Joséfa Ortíz de Domínguez, dio este reporte al respecto de pleitos entre estudiantes, principalmente de nivel secundaria y peor aún, de mujeres que a su corta edad generan la movilización de la corporación policiaca.
+                          </div>
+                      </div>
+                      <div class="info-column column-2">
+                          <div class="sub-title">
+                              Efectos que provoca
+                          </div>
+                          <div class="column-detail">
+                              Es de verdad triste y preocupante, primero porque sigue creciendo y muchos niños se están integrando a éstas peleas, otra, porque son menores de edad, que por viejas rencillas generadas al interior de la escuela, empeora en las calles
+                          </div>
+                      </div>
+                      <div class="excerpt-stats">
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Afecta
+                              </span>
+                              <div class="detail-container">
+                                  368
+                              </div>
+                              <span class="units">
+                                  Casas
+                              </span>
+                          </div>
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Frecuencia
+                              </span>
+                              <div class="detail-container">
+                                  <img src="images/icons/icn-cycle.png" alt="Cíclica">
+                              </div>
+                              <span class="units">
+                                  Cíclica
+                              </span>
+                          </div>
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Costo del problema
+                              </span>
+                              <div class="detail-container">
+                                  $250,000
+                              </div>
+                              <span class="units">
+                                  Pesos anuales (aprox.)
+                              </span>
+                          </div>
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Galería
+                              </span>
+                              <div class="detail-container">
+                                  <a href="#"><img src="images/icons/icn-gallery.png" alt="Galería"></a>
+                              </div>
+                              <span class="units">
+                                  Fotos y video
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <p class="loc"><%= Alternative.all.count%> Soluciones</p>
+          <%= Alternative.all.each do |alternative|%>
+          <h1><%= alternative.name%></h1>
+          <p><%= alternative.description%></p>
+          <% end %>
+          <div class="social">
+            <img src="images/social.png" alt="">
+          </div>
+        </div> 
+      </div>
+    <% end %>
 <div class="unsuppoted hide">
   <div class="container">
     <h2>Usted está utilizando un navegador no compatible <small><br/>Por favor actualice a una de las siguientes opciones</small></h2>
