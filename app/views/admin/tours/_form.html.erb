@@ -16,6 +16,19 @@
         <%= f.label :name, "Nombre del recorrido" %>
         <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del recorrido" %>
       </div>
+      <div class="row">  
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :polygon_id, "Poligono" %>
+            <%= f.select(:polygon_id, Polygon.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            
+          </div>
+        </div>
+      </div>
       <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
       <div class="row">
         <div class="col-md-4">

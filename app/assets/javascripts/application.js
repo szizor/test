@@ -30,5 +30,14 @@ $(document).ready(function() {
     });
   });
   $(".report a").fancybox();
-  
+  var detailBox = $('.problem-detail');
+	var closeBtn = detailBox.find('.close');
+	var toggleControl = detailBox.find('.info-toggle');
+
+	closeBtn.on('click', function(){
+	    detailBox.addClass('collapsed').hide();
+	});
+	toggleControl.on('click', function(){
+        detailBox.toggleClass('collapsed');
+    });
 }); 
