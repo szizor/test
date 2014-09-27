@@ -19,7 +19,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.new(params[:user])
     if @user.save
       #session[:user_id] = @user.id
-      UserMailer.registration_confirmation(@user).deliver
+      #UserMailer.registration_confirmation(@user).deliver
       if current_user && current_user.is_admin?
         redirect_to :back, notice: "Usuario Creado con exito"
       else
@@ -39,7 +39,7 @@ class Admin::UsersController < Admin::BaseController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(users_url, :notice => 'Usario editado con exito.') }
+        format.html { redirect_to(admin_users_url, :notice => 'Usario editado con exito.') }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }

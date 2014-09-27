@@ -218,6 +218,13 @@ function initialize() {
     });
 
     drawingManager.setMap(null);
+    google.maps.event.addDomListener(document.getElementById('delete-button'), "click", function() {
+        currentPolygon.setMap(null);
+        drawingManager.setOptions({
+            drawingControl: true
+        });
+        drawingManager.setMap(map);
+    });
 }
 google.maps.event.addDomListener(window, "load", initialize);
 

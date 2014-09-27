@@ -14,7 +14,7 @@ class Admin::PolygonsController < Admin::BaseController
   def create
     @polygon = Polygon.new(params[:polygon])
     if @polygon.save
-      redirect_to [:admin, @polygon], :notice => "Successfully created polygon."
+      redirect_to admin_polygons_url, :notice => "Successfully created polygon."
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class Admin::PolygonsController < Admin::BaseController
   def update
     @polygon = Polygon.find(params[:id])
     if @polygon.update_attributes(params[:polygon])
-      redirect_to [:admin, @polygon], :notice  => "Successfully updated polygon."
+      redirect_to admin_polygons_url, :notice  => "Successfully updated polygon."
     else
       render :action => 'edit'
     end

@@ -40,6 +40,6 @@ class Admin::TreesController < Admin::BaseController
   def destroy
     @tree = Tree.find(params[:id])
     @tree.destroy
-    redirect_to trees_url, :notice => "Successfully destroyed tree."
+    redirect_to :back, :notice => "Arbol Eliminado exitosamente."
   end
 end

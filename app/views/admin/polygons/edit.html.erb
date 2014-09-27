@@ -42,7 +42,7 @@
                     <input id="search_address" type="text" class="form-control" placeholder="Search" value="Nicolas Romero, Guadalajara, Jalisco">
                   </div>
                   <button type="button" class="btn btn-default" value="Geocode" class="btn btn-default" onclick="codeAddress()">Buscar Direccion</button>
-                  <button type="button" id="delete-button" class="btn btn-default hide">Eliminar</button>
+                  <button type="button" id="delete-button" class="btn btn-default ">Eliminar</button>
                 </form>
               </div>
               <div class="toolbar" role="navigation"></div>
@@ -59,7 +59,7 @@
   var polyCoords;
   var polyColor = "<%= @polygon[:colors] %>";
   var coordsVal = $('#mapCoords').val();
-  if ( typeof coordsVal === 'string') {
+  if ( typeof coordsVal === 'string' && coordsVal.length > 0) {
     polyCoords = JSON.parse(coordsVal);
   }
 </script>

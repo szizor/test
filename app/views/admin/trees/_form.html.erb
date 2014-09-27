@@ -19,6 +19,9 @@
   <div class="form-group">
     <%= f.label :file %>
     <%= f.file_field :file, :class => 'form-control'%>
+    <% if @tree.file %>
+      <%= link_to @tree.name, @tree.file_url, :target => "_blank" %>
+    <% end %>  
   </div>
   <div class="form-group">
     <%= f.label :visible, "Visible para" %>

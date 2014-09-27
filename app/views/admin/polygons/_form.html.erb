@@ -331,8 +331,17 @@
                             <span class="label label-<%= tree.visible == "publico" ? "success" : "danger" %>"><%= tree.visible %></span>
                           </td>
                           <td class="text-center">
-                            <button class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> </button>
-                            <button class="btn btn-xs btn-default"><i class="fa fa-times"></i> </button>
+                            <button class="btn btn-xs btn-default">
+                            <%= link_to(edit_admin_polygon_tree_path(@polygon, tree)) do %>
+                                <i class="fa fa-pencil"></i> </a>
+                              <% end %>  
+                            </button>
+                            
+                            <button class="btn btn-xs btn-default">
+                              <%= link_to(admin_polygon_tree_path(@polygon, tree), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
+                                <i class="fa fa-times"></i>
+                              <% end %>  
+                            </button>    
                           </td>
                         </tr>
                       <% end %>
@@ -406,7 +415,7 @@
                             <% end %>
                           </td>
                           <td><%= link_to "Edit", edit_admin_polygon_actor_path(@polygon, actor) %></td>
-                          <td><%= link_to "Destroy", admin_polygon_problem_path(@polygon, problem), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
+                          <td><%= link_to "Destroy", admin_polygon_actor_path(@polygon, actor), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>
                       <% end %>
                     </tbody>

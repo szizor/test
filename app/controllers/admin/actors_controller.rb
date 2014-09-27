@@ -43,6 +43,6 @@ class Admin::ActorsController < Admin::BaseController
   def destroy
     @actor = Actor.find(params[:id])
     @actor.destroy
-    redirect_to admin_actors_url, :notice => "Successfully destroyed actor."
+    redirect_to :back, :notice => "Actor eliminado exitosamente."
   end
 end

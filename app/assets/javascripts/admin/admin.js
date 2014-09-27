@@ -391,7 +391,7 @@ $(function() {
 
 $(function() {
     $('#datetimepicker2').datetimepicker({
-        pickDate: false
+        pickTime: false
     });
 });
 
