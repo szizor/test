@@ -100,7 +100,8 @@
                       <div class="form-group">
                         <%= f.label :start_date, "Fecha de inicio" %>
                         <div id="datetimepicker1" class="input-append">
-                          <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd" %>
+                          <% date = @alternative.start_date.present? ? @alternative.start_date.strftime("%Y-%m-%d") : ""%>
+                          <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd", :value => date %>
                           <span class="add-on">
                             <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
                           </span>
@@ -111,7 +112,8 @@
                       <div class="form-group">
                         <%= f.label :end_date, "Fecha de término estimada" %>
                         <div id="datetimepicker2" class="input-append">
-                          <%= f.text_field :end_date, :class => "form-control dtpicker", :placeholder => "Fecha de término estimada", :"data-format"=>"yyyy-MM-dd" %>
+                          <% date_end = @alternative.end_date.present? ? @alternative.end_date.strftime("%Y-%m-%d") : ""%>
+                          <%= f.text_field :end_date, :class => "form-control dtpicker", :placeholder => "Fecha de término estimada", :"data-format"=>"yyyy-MM-dd", :value => date_end %>
                           <span class="add-on">
                             <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
                           </span>

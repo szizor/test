@@ -1,5 +1,5 @@
 <div class="form profile">
-  <%= form_for [:admin, @tour] do |f| %>
+  <%= form_for [:admin, :polygon, @tour] do |f| %>
       <div class="row">
         <% if @tour.errors.any? %>
           <div class="alert alert-danger">
@@ -12,53 +12,28 @@
           </div>
         <% end %>
       </div>
+      <%= f.hidden_field :coordinates, :id=> "mapCoords"%>
+      <%= f.hidden_field :colors, :id=> "PolygonColors"%>
       <div class="form-group">
         <%= f.label :name, "Nombre del recorrido" %>
         <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del recorrido" %>
       </div>
-      <div class="row">  
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :polygon_id, "Poligono" %>
-            <%= f.select(:polygon_id, Polygon.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            
-          </div>
-        </div>
-      </div>
       <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <%= f.label :description, "Descripción" %>
-            <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "Descripción") %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <%= f.label :coordinates, "Coordenadas" %>
-            <%= f.text_area(:coordinates, rows: 5, class: 'form-control', placeholder: "Coordenadas") %>
-          </div>
-        </div>
+      <div class="form-group">
+        <%= f.label :description, "Descripción" %>
+        <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "Descripción") %>
       </div>
-      <div class="row">  
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :start_date, "Fecha" %>
-            <%= f.datetime_select :start_date, :class => "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            
-          </div>
+      <div class="form-group">
+
+        <%= f.label :start_date, "Fecha" %>
+        <div id="datetimepickertour" class="input-append">
+          <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd hh:mm", :style=>"max-width:150px", :value => @tour.start_date.strftime("%Y-%m-%d %I:%M")%>
+          <span class="add-on">
+            <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+          </span>
         </div>
       </div>
       <div class="form-group">
-        <!-- Buttons -->
         <%= f.submit params[:id].present? ? "Actualizar" : "Añadir", :class => 'btn btn-success' %>
       </div>
     <% end %>

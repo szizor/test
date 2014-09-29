@@ -382,6 +382,11 @@ $(document).ready(function() {
 
 
 /* Date picker */
+$(function() {
+    $('#datetimepickertour').datetimepicker({
+        // pickTime: true
+    });
+});
 
 $(function() {
     $('#datetimepicker1').datetimepicker({

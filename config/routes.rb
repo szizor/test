@@ -9,7 +9,6 @@ Imjuve::Application.routes.draw do
     end
   end
   namespace :admin do
-    resources :tours
     resources :events
     resources :votes
     resources :updates
@@ -22,6 +21,7 @@ Imjuve::Application.routes.draw do
       resources :documents
       resources :videos
       resources :actors
+      resources :tours
     end
     resources :users
     resources :dashboard, :only => [:index]

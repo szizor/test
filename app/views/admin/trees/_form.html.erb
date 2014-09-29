@@ -19,7 +19,7 @@
   <div class="form-group">
     <%= f.label :file %>
     <%= f.file_field :file, :class => 'form-control'%>
-    <% if @tree.file %>
+    <% if @tree.file.present? %>
       <%= link_to @tree.name, @tree.file_url, :target => "_blank" %>
     <% end %>  
   </div>

@@ -1,5 +1,6 @@
 var geocoder, map, selectedShape, drawingManager;
 var drawPolygon = [];
+var drawPolyline=[];
 var bounds;
 var address = "San Gabriel 2975, Guadalajara, JAL";
 var colors = [
@@ -193,21 +194,6 @@ InfoBox.prototype.panMap = function () {
         disableDefaultUI: false
     };
     map = new google.maps.Map(document.getElementById("mainMap"), mapOptions);
-    // geocoder = new google.maps.Geocoder();
-    // geocoder.geocode({
-    //     'address': address
-    // }, function(results, status) {
-    //     if (status == google.maps.GeocoderStatus.OK) {
-    //         resultsLocation = results[0].geometry.location;
-    //         resultsBounds = results[0].geometry.bounds;
-    //         map.setCenter(resultsLocation);
-    //         map.fitBounds(resultsBounds);
-    //         mapCenter = resultsLocation;
-    //         console.log(resultsLocation);
-    //     } else {
-    //         alert("Geocode was not successful for the following reason: " + status);
-    //     }
-    // });
 
     google.maps.event.addDomListener(map, 'idle', function() {
         calculateCenter();
@@ -267,7 +253,30 @@ InfoBox.prototype.panMap = function () {
             map: map,
             content: this.content
         });
-      });
+    });
+    for (var idx = 0; idx < tours.length; idx++) {
+        google.maps.event.addDomListener(document.getElementById("ruta_"+tours[idx].id), "click", function (e) {
+            var i, elTour;
+            var index= e.target.id.replace(/ruta_/, '');
+            tours.forEach(function(plan) {
+             if (plan.id === parseInt(index)) {elTour=plan}
+            })
+            for (i = 0; i < elTour.coords.length; i++) {
+                drawPolyline.push( new google.maps.LatLng(elTour.coords[i].k, elTour.coords[i].A || elTour.coords[i].B) );
+            };
+            currentPolyline = new google.maps.Polyline({
+                path: drawPolyline,
+                strokeWeight: 3,
+                strokeColor: polyColor,
+                fillOpacity: 0.35,
+                clickable: true,
+                draggable: false,
+                editable: true,
+                zIndex: 1
+            })
+            currentPolyline.setMap(map);
+        });  
+    }
     // Other Markers
 }
 

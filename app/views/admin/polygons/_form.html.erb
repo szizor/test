@@ -196,6 +196,7 @@
                 <li><a href="#arboles" data-toggle="tab">Arboles</a></li>
                 <li><a href="#problemas" data-toggle="tab">Problemas</a></li>
                 <li><a href="#actores" data-toggle="tab">Actores</a></li>
+                <li><a href="#recorridos" data-toggle="tab">Recorridos</a></li>
               </ul>
               <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
                 <div class="tab-pane" id="documentos">
@@ -416,6 +417,30 @@
                           </td>
                           <td><%= link_to "Edit", edit_admin_polygon_actor_path(@polygon, actor) %></td>
                           <td><%= link_to "Destroy", admin_polygon_actor_path(@polygon, actor), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane" id="recorridos">
+                  <%= button_to "Agregar Recorrido", new_admin_polygon_tour_path(@polygon), :method => "get", :class=>"btn btn-sm btn-primary pull-right" %>
+                  <h4>Recorridos</h4>
+                  <hr>
+                  <table id="datatable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Fecha</th>
+                        <th class="text-center" colspan="2">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for tour in @polygon.tours %>
+                        <tr>
+                          <td><%= tour.name %></td>
+                          <td><%= tour.start_date.in_time_zone('America/Mexico_City').strftime("%d de %b %H:%M") %></td>
+                          <td><%= link_to "Edit", edit_admin_polygon_tour_path(@polygon, tour) %></td>
+                          <td><%= link_to "Destroy", admin_polygon_tour_path(@polygon, tour), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>
                       <% end %>
                     </tbody>

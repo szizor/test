@@ -14,7 +14,11 @@ class Admin::ToursController < Admin::BaseController
   def create
     @tour = Tour.new(params[:tour])
     if @tour.save
-      redirect_to [:admin, @tour], :notice => "Successfully created tour."
+      respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Recorrido creado satisfactoriamente.' }
+        format.json { render json: @tour, status: :created, location: @tour }
+      end
     else
       render :action => 'new'
     end
@@ -27,7 +31,10 @@ class Admin::ToursController < Admin::BaseController
   def update
     @tour = Tour.find(params[:id])
     if @tour.update_attributes(params[:tour])
-      redirect_to [:admin, @tour], :notice  => "Successfully updated tour."
+      respond_to do |format|
+        polygon = Polygon.find(params[:tour][:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El recorrido fue editado.' }
+      end
     else
       render :action => 'edit'
     end
