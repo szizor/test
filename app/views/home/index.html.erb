@@ -297,7 +297,7 @@
                 <h1><%= alternative.name %></h1>
                 <p class="location">
                   <span class="solution-user">
-                    <%= alternative.user.username %>
+                    <%= alternative.user.username if alternative.user %>
                   </span> &middot; <%= time_ago_in_words(alternative.created_at) %>
                 </p>
                 <p class="explicacion">ACCIONES PRINCIPALES</p>
