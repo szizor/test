@@ -40,8 +40,10 @@
               <tr class="mix">
                 <td><%= image.id %></td>
                 <td>
-                  <%= link_to image.image_url, class: 'img-thumbnail img_wrapper gal_lightbox' do %>
-                    <%= image_tag(image.image.url(:thumb), :class => "img-responsive") %>
+                  <%if image.image.present? %>
+                    <%= link_to image.image_url, class: 'img-thumbnail img_wrapper gal_lightbox' do %>
+                      <%= image_tag(image.image.url(:thumb), :class => "img-responsive") %>
+                    <% end %>
                   <% end %>
                 </td>
                 <td>
