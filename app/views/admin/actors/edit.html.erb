@@ -4,12 +4,14 @@
   <div class="clearfix"></div>
   <!-- Breadcrumb -->
   <div class="bread-crumb">
-    <a href="index.html"><i class="fa fa-home"></i> Home</a>
-    <!-- Divider -->
-    <span class="divider">/</span>
-    <a href="index.html"><i class="fa fa-users"></i> Actores</a>
-    <span class="divider">/</span>
-    <a href="#" class="bread-current"><%= params[:id].present? ? "Editar Actor" : "Nuevo Actor" %></a>
+    <a href="/admin/dashboard"><i class="fa fa-home"></i> Inicio</a>
+      <!-- Divider -->
+      <span class="divider">/</span>
+      <a href="/admin/polygons"><i class="fa fa-map-marker"></i> Polígonos</a>
+      <span class="divider">/</span>
+      <a href="/admin/polygons/<%=params[:polygon_id]%>/edit"><i class="fa fa-map-marker"></i> Editar polígono</a>
+      <span class="divider">/</span>
+      <a href="#" class="bread-current">Editar Actor</a>
   </div>
 
   <div class="clearfix"></div>

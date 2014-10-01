@@ -32,6 +32,7 @@
         <%#= link_to "Excel", export_surveys_path(format: "xls") %>
       </p>
     <%end%>
+    <%= javascript_include_tag "application", "survey" %>
       <%= yield %>
 
     </div><!-- /.container -->
@@ -40,7 +41,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application", "survey" %>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   </body>
 </html>

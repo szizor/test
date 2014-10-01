@@ -1,173 +1,184 @@
   <div class="row">
     <% if @problem.errors.any? %>
-      <div class="alert alert-danger">
-        <strong><%= pluralize(@problem.errors.count, "Error") %></strong> prohibieron a este poligono guardar la información!
-        <ul>
-          <% @problem.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+    <div class="alert alert-danger">
+      <strong><%= pluralize(@problem.errors.count, "Error") %></strong> prohibieron a este poligono guardar la información!
+      <ul>
+        <% @problem.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div class="widget">
         <div class="widget-head">
-        <div class="pull-left">Características de la problema</div>
+          <div class="pull-left">Características de la problema</div>
           <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+          </div>
+          <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
-      </div>
         <div class="widget-content">
-        <%= form_for [:admin, :polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
+          <%= form_for [:admin, :polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
           <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
           <div class="padd">
             <div class="form-group">
-            <%= f.label :name, "Nombre del Problema" %>
-            <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del Problema" %>
-          </div>
+              <%= f.label :name, "Nombre del Problema" %>
+              <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del Problema" %>
+            </div>
             <div class="form-group">
-            <%= f.label :category_id, "Categoria del Problema" %>
-            <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
-          </div>
+              <%= f.label :category_id, "Categoria del Problema" %>
+              <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
+            </div>
             <div class="form-group">
-            <%= f.label :description, "Descripción del problema" %>
-            <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "descripción del problema") %>
-          </div>
-          <%= f.hidden_field :coords, :id=> "mapCoords"%>
+              <%= f.label :description, "Descripción del problema" %>
+              <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "descripción del problema") %>
+            </div>
+            <%= f.hidden_field :coords, :id=> "mapCoords"%>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :cause, "Posibles causas" %>
-                <%= f.text_field :cause, :class => "form-control", :placeholder => "Posibles causas" %>
+                  <%= f.label :cause, "Posibles causas" %>
+                  <%= f.text_field :cause, :class => "form-control", :placeholder => "Posibles causas" %>
+                </div>
               </div>
-            </div>
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :effects, "efectos que provoca" %>
-                <%= f.text_field :effects, :class => "form-control", :placeholder => "efectos que provoca" %>
+                  <%= f.label :effects, "efectos que provoca" %>
+                  <%= f.text_field :effects, :class => "form-control", :placeholder => "efectos que provoca" %>
+                </div>
               </div>
             </div>
-          </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :costs, "costo del problema" %>
-                <%= f.text_field :costs, :class => "form-control", :placeholder => "costo del problema" %>
+                  <%= f.label :costs, "costo del problema" %>
+                  <%= f.text_field :costs, :class => "form-control", :placeholder => "costo del problema" %>
+                </div>
               </div>
-            </div>
               <div class="col-md-6">
                 <div class="form-group">
-                <label for="">Frecuencia del problema</label>
-                <%= f.select :frecuency, ['Cíclico (ejemplo: cada temporada de lluvia)', 'Estacional (todo el año)', 'Esporádico (una vez cada 5 años)'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
+                  <label for="">Frecuencia del problema</label>
+                  <%= f.select :frecuency, ['Cíclico (ejemplo: cada temporada de lluvia)', 'Estacional (todo el año)', 'Esporádico (una vez cada 5 años)'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
+                </div>
               </div>
             </div>
-          </div>
             <div class="form-group">
-            <label for="">El problema afecta más a mujeres o a hombres (problema de género)</label>
-            <%= f.select :affects_to, ['Más a hombres', 'Más a mujeres', 'Ambos'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
-          </div>
-          <h4>Grupo de edad al que afecta directamente</h4>
+              <label for="">El problema afecta más a mujeres o a hombres (problema de género)</label>
+              <%= f.select :affects_to, ['Más a hombres', 'Más a mujeres', 'Ambos'], {:include_blank => "-- Selecciona"}, {:class => "form-control"} %>
+            </div>
+            <h4>Grupo de edad al que afecta directamente</h4>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :cero_doce, "0-12 años" %>
-                <%= f.text_field :cero_doce, :class => "form-control", :placeholder => "0-12 años" %>
-              </div>
+                  <%= f.label :cero_doce, "0-12 años" %>
+                  <%= f.text_field :cero_doce, :class => "form-control", :placeholder => "0-12 años" %>
+                </div>
                 <div class="form-group">
-                <%= f.label :quince_diecinueve, "15-19 años" %>
-                <%= f.text_field :quince_diecinueve, :class => "form-control", :placeholder => "15-19 años" %>
-              </div>
+                  <%= f.label :quince_diecinueve, "15-19 años" %>
+                  <%= f.text_field :quince_diecinueve, :class => "form-control", :placeholder => "15-19 años" %>
+                </div>
                 <div class="form-group">
-                <%= f.label :veinticinco_veintinueve, "25-29 años" %>
-                <%= f.text_field :veinticinco_veintinueve, :class => "form-control", :placeholder => "25-29 años" %>
+                  <%= f.label :veinticinco_veintinueve, "25-29 años" %>
+                  <%= f.text_field :veinticinco_veintinueve, :class => "form-control", :placeholder => "25-29 años" %>
+                </div>
               </div>
-            </div>
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :doce_catorce, "12-14 años" %>
-                <%= f.text_field :doce_catorce, :class => "form-control", :placeholder => "12-14 años" %>
-              </div>
+                  <%= f.label :doce_catorce, "12-14 años" %>
+                  <%= f.text_field :doce_catorce, :class => "form-control", :placeholder => "12-14 años" %>
+                </div>
                 <div class="form-group">
-                <%= f.label :veinte_veinticuatro, "20-24 años" %>
-                <%= f.text_field :veinte_veinticuatro, :class => "form-control", :placeholder => "20-24 años" %>
-              </div>
+                  <%= f.label :veinte_veinticuatro, "20-24 años" %>
+                  <%= f.text_field :veinte_veinticuatro, :class => "form-control", :placeholder => "20-24 años" %>
+                </div>
                 <div class="form-group">
-                <%= f.label :treinta_cincuentainueve, "30-59 años" %>
-                <%= f.text_field :treinta_cincuentainueve, :class => "form-control", :placeholder => "30-59 años" %>
+                  <%= f.label :treinta_cincuentainueve, "30-59 años" %>
+                  <%= f.text_field :treinta_cincuentainueve, :class => "form-control", :placeholder => "30-59 años" %>
+                </div>
               </div>
             </div>
-          </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                <%= f.label :sesenta, "60 años y más" %>
-                <%= f.text_field :sesenta, :class => "form-control", :placeholder => "60 años y más" %>
+                  <%= f.label :sesenta, "60 años y más" %>
+                  <%= f.text_field :sesenta, :class => "form-control", :placeholder => "60 años y más" %>
+                </div>
               </div>
             </div>
-          </div>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :houses, "Número casas afectadas por el problema" %>
-                <%= f.text_field :houses, :class => "form-control", :placeholder => "Número casas afectadas por el problema" %>
+                  <%= f.label :houses, "Número casas afectadas por el problema" %>
+                  <%= f.text_field :houses, :class => "form-control", :placeholder => "Número casas afectadas por el problema" %>
+                </div>
               </div>
-            </div>
               <div class="col-md-6">
                 <div class="form-group">
-                <%= f.label :affected_population, "Cantidad de población afectada" %>
-                <%= f.text_field :affected_population, :class => "form-control", :placeholder => "Cantidad de población afectada" %>
+                  <%= f.label :affected_population, "Cantidad de población afectada" %>
+                  <%= f.text_field :affected_population, :class => "form-control", :placeholder => "Cantidad de población afectada" %>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :image, "Imagen representativa del problema" %>
+                  <%= f.file_field :image, :class => "form-control" %>
+                  <% if @problem.image.present? %>
+                    <%= image_tag(@problem.image.url(:thumb), :class => "img-responsive") %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
             <div class="widget-foot text-center">
-            <%= f.submit "Guardar", :class => 'btn btn-success' %>
+              <%= f.submit "Guardar", :class => 'btn btn-success' %>
+              <div class="clearfix"></div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if params[:id].present? %>
+      <div class="col-md-12">
+        <div class="widget">
+          <div class="widget-head">
+            <div class="pull-left">Soluciones Para este problema</div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            </div>
             <div class="clearfix"></div>
           </div>
-          <% end %>
+          <div class="widget-content">
+            <table id="datatable" class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Usuario</th>
+                  <th>Titlo</th>
+                  <th>Tipo</th>
+                  <th class="text-center">Opciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for alternative in @alternatives %>
+                  <tr>
+                    <td><%= alternative.id %></td>
+                    <td><%= alternative.user.username %></td>
+                    <td><%= alternative.name %></td>
+                    <td><%= alternative.solution? ? "<span class='label label-success'>Solucion</span>" : "Idea" %></td>
+                    <td class="text-center">
+                      <%= link_to "Edit", edit_admin_alternative_path(alternative) %>
+                      <%= link_to "Destroy", [:admin, alternative], :confirm => 'Are you sure?', :method => :delete %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <% if params[:id].present? %>
-    <div class="col-md-12">
-      <div class="widget">
-        <div class="widget-head">
-        <div class="pull-left">Soluciones Para este problema</div>
-          <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-        <div class="widget-content">
-          <table id="datatable" class="table table-striped table-bordered table-hover">
-            <thead>
-              <tr>
-              <th>#</th>
-              <th>Usuario</th>
-              <th>Titlo</th>
-              <th>Tipo</th>
-              <th class="text-center">Opciones</th>
-            </tr>
-          </thead>
-            <tbody>
-            <% for alternative in @alternatives %>
-              <tr>
-              <td><%= alternative.id %></td>
-              <td><%= alternative.user.username %></td>
-              <td><%= alternative.name %></td>
-              <td><%= alternative.solution? ? "<span class='label label-success'>Solucion</span>" : "Idea" %></td>
-                <td class="text-center">
-                <%= link_to "Edit", edit_admin_alternative_path(alternative) %>
-                <%= link_to "Destroy", [:admin, alternative], :confirm => 'Are you sure?', :method => :delete %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <% end %>
+    <% end %>

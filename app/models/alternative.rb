@@ -4,5 +4,6 @@ class Alternative < ActiveRecord::Base
   belongs_to :actor
   has_many :actors, :through => :actors_alternatives
   has_many :actors_alternatives
+  belongs_to :problem
 
 end

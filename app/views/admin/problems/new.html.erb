@@ -12,12 +12,14 @@
     <div class="clearfix"></div>
     <!-- Breadcrumb -->
     <div class="bread-crumb">
-      <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+      <a href="/admin/dashboard"><i class="fa fa-home"></i> Inicio</a>
       <!-- Divider -->
       <span class="divider">/</span>
-      <a href="index.html"><i class="fa fa-map-marker"></i> Problemas</a>
+      <a href="/admin/polygons"><i class="fa fa-map-marker"></i> Polígonos</a>
       <span class="divider">/</span>
-      <a href="#" class="bread-current"><%= params[:id].present? ? "Editar Problema" : "Nuevo Problema" %></a>
+      <a href="/admin/polygons/<%=params[:polygon_id]%>/edit"><i class="fa fa-map-marker"></i> Editar polígono</a>
+      <span class="divider">/</span>
+      <a href="#" class="bread-current">Editar Problema</a>
     </div>
 
     <div class="clearfix"></div>

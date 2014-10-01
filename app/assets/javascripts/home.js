@@ -215,8 +215,8 @@ InfoBox.prototype.panMap = function () {
     map.fitBounds(currentPolygon.getBounds());
     currentPolygon.setMap(map);
     
-    var marker_image = 'images/pin-agua1-unchecked.png'
     for (var i = 0; i < data.length; i++) {
+    var marker_image = 'images/markers/' + data[i].category +'.png'
       var current = data[i];
   
       var marker = new google.maps.Marker({
@@ -238,22 +238,22 @@ InfoBox.prototype.panMap = function () {
       });
     }
     // Polygon Center
-    var image = 'images/pin-sector-main.png';
-    var marker = new google.maps.Marker({
-        position: currentPolygon.getBounds().getCenter(),
-        map: map,
-        content: polyinfo,
-        icon: image
-      });
-    markers.push(marker);
-    google.maps.event.addListener(markers[data.length], "click", function (e) {
-        $('.infobox').children('.close').click()
-        var infoBox = new InfoBox({
-            latlng: this.getPosition(),
-            map: map,
-            content: this.content
-        });
-    });
+    // var image = 'images/pin-sector-main.png';
+    // var marker = new google.maps.Marker({
+    //     position: currentPolygon.getBounds().getCenter(),
+    //     map: map,
+    //     content: polyinfo,
+    //     icon: image
+    //   });
+    // markers.push(marker);
+    // google.maps.event.addListener(markers[data.length], "click", function (e) {
+    //     $('.infobox').children('.close').click()
+    //     var infoBox = new InfoBox({
+    //         latlng: this.getPosition(),
+    //         map: map,
+    //         content: this.content
+    //     });
+    // });
     for (var idx = 0; idx < tours.length; idx++) {
         google.maps.event.addDomListener(document.getElementById("ruta_"+tours[idx].id), "click", function (e) {
             var i, elTour;
