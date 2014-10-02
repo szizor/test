@@ -218,6 +218,8 @@ function initialize() {
     });
 
     drawingManager.setMap(null);
+    setSelection(currentPolygon); 
+
     google.maps.event.addDomListener(document.getElementById('delete-button'), "click", function() {
         currentPolygon.setMap(null);
         drawingManager.setOptions({
