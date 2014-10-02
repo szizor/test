@@ -13,7 +13,6 @@ class Admin::ProblemsController < Admin::BaseController
   end
 
   def create
-    debugger
     @problem = Problem.new(params[:problem])
     if @problem.save
       respond_to do |format|
@@ -36,7 +35,7 @@ class Admin::ProblemsController < Admin::BaseController
     @problem = Problem.find(params[:id])
     if @problem.update_attributes(params[:problem])
       respond_to do |format|
-        polygon = Polygon.find(params[:polygon_id])
+        polygon = Polygon.find(params[:problem][:polygon_id])
         format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El problema fue editado.' }
       end
     else

@@ -198,20 +198,19 @@
             <div class="excerpt-container">
                 <div class="detail-heading">
                     <i class="detail-icon"><img src="images/icons/icn-gun.png" alt="Gun"></i>
-                    <span class="category-title">Violencia</span>
+                    <span class="category-title"><%= problem.category.name %></span>
                 </div>
                 <div class="title">
-                    Pleitos Callejeros
+                    <%= problem.name %>
                 </div>
                 <div class="excerpt">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed arcu neque.</p>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <p><%= problem.description %></p>
                 </div>
                 <div class="excerpt-info">
                     <div class="excerpt-brief">
-                        <span class="info-1">1,300 Afectados</span>
+                        <span class="info-1"><%= number_with_delimiter(problem.affected_population) %> Afectados</span>
                         <span class="info-separator">·</span>
-                        <span class="info-2">Mayormente jóvenes de 15 a 19 años</span>
+                        <span class="info-2"><%= problem.matority %></span>
                         <a href="#" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
                         <a href="#" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
                     </div>
@@ -220,7 +219,7 @@
                             Posibles causas
                         </div>
                         <div class="column-detail">
-                            El director de la secundaria Joséfa Ortíz de Domínguez, dio este reporte al respecto de pleitos entre estudiantes, principalmente de nivel secundaria y peor aún, de mujeres que a su corta edad generan la movilización de la corporación policiaca.
+                           <%= problem.cause %>
                         </div>
                     </div>
                     <div class="info-column column-2">
@@ -228,7 +227,7 @@
                             Efectos que provoca
                         </div>
                         <div class="column-detail">
-                            Es de verdad triste y preocupante, primero porque sigue creciendo y muchos niños se están integrando a éstas peleas, otra, porque son menores de edad, que por viejas rencillas generadas al interior de la escuela, empeora en las calles
+                            <%= problem.effects %>
                         </div>
                     </div>
                     <div class="excerpt-stats">
@@ -237,7 +236,7 @@
                                 Afecta
                             </span>
                             <div class="detail-container">
-                                368
+                                <%= problem.houses %>
                             </div>
                             <span class="units">
                                 Casas
@@ -251,7 +250,7 @@
                                 <img src="images/icons/icn-cycle.png" alt="Cíclica">
                             </div>
                             <span class="units">
-                                Cíclica
+                                <%= problem.frecuency %>
                             </span>
                         </div>
                         <div class="problem-detail-column">
@@ -259,13 +258,13 @@
                                 Costo del problema
                             </span>
                             <div class="detail-container">
-                                $250,000
+                                <%= number_to_currency(problem.costs) %>
                             </div>
                             <span class="units">
                                 Pesos anuales (aprox.)
                             </span>
                         </div>
-                        <div class="problem-detail-column">
+                        <!-- <div class="problem-detail-column">
                             <span class="sub-title">
                                 Galería
                             </span>
@@ -275,7 +274,7 @@
                             <span class="units">
                                 Fotos y video
                             </span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

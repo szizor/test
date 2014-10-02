@@ -1,23 +1,7 @@
-<div class="page-head">
-  <h2 class="pull-left">Editar Idea/Solucion</h2>
-  <div class="pull-right"></div>
-  <div class="clearfix"></div>
-  <!-- Breadcrumb -->
-  <div class="bread-crumb">
-    <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
-    <!-- Divider -->
-    <span class="divider">/</span>
-    <a href="index.html"><i class="fa fa-map-marker"></i> Idea/Solucion</a>
-    <span class="divider">/</span>
-    <a href="#" class="bread-current">Editar Idea/Solucion</a>
-  </div>
-  <div class="clearfix"></div>
-</div>
-<div class="matter">
-  <div class="container">
+
     <div class="row">
       <div class="col-md-12">
-        <%= form_for [:admin, @alternative] do |f| %>
+        <%= form_for [:admin, :polygon, :problem, @alternative] do |f| %>
           <div class="widget">
             <div class="widget-head">
               <div class="pull-left">Informacion Basica de la solucion</div>
@@ -154,8 +138,7 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
+  
 <script>
   $(function() {
     $('form').on('click', '.add_fields', function(event) {

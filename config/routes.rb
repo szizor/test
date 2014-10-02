@@ -12,11 +12,12 @@ Imjuve::Application.routes.draw do
     resources :events
     resources :votes
     resources :updates
-    resources :alternatives
     resources :categories
     resources :polygons do
       resources :images
-      resources :problems
+      resources :problems do
+        resources :alternatives
+      end
       resources :trees
       resources :documents
       resources :videos

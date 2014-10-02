@@ -15,7 +15,11 @@ var myLatlng = new google.maps.LatLng(20.689824621443048,-103.36192846298218);
 
 function setAllMap(map) {
     markers.setMap(map);
+    drawingManager.setOptions({
+        drawingControl: true
+    });
 }
+
 
 function clearMarkers() {
   setAllMap(null);
@@ -102,6 +106,7 @@ function initialize() {
         map: map,
         draggable:true
     });
+    markers = marker;
 
     drawingManager.setOptions({
         drawingControl: false
@@ -154,7 +159,7 @@ function initialize() {
         });
 
     });
-
+    google.maps.event.addDomListener(document.getElementById('delete-button'), "click", clearMarkers);
     initailCoords.setMap(map);
     drawingManager.setMap(map);
     map.fitBounds(initailCoords.getBounds());
