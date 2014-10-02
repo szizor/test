@@ -14,9 +14,11 @@ class Admin::AlternativesController < Admin::BaseController
   end
 
   def create
+    debugger
     @alternative = Alternative.new(params[:alternative])
     if @alternative.save
-      redirect_to [:admin, @alternative], :notice => "Successfully created alternative."
+      polygon = Polygon.find(params[:polygon_id])
+      redirect_to edit_admin_polygon_path(polygon), :notice => "Successfully created alternative."
     else
       render :action => 'new'
     end

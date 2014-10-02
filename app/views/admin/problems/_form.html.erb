@@ -172,8 +172,8 @@
                     <td><%= alternative.name %></td>
                     <td><%= alternative.solution? ? "<span class='label label-success'>Solucion</span>" : "Idea" %></td>
                     <td class="text-center">
-                      <%= link_to "Edit", edit_admin_alternative_path(alternative) %>
-                      <%= link_to "Destroy", [:admin, alternative], :confirm => 'Are you sure?', :method => :delete %>
+                      <%= link_to "Edit", edit_admin_polygon_problem_alternative_path(@polygon, @problem,alternative) %>
+                      <%= link_to "Destroy", admin_polygon_problem_alternative_path(@polygon, @problem,alternative), :confirm => 'Are you sure?', :method => :delete %>
                     </td>
                   </tr>
                 <% end %>

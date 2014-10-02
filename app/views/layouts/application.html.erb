@@ -98,17 +98,17 @@
                     </div>
                   </div>
                   <div class="form-title">ó Regístrate con tu Correo</div> -->
-                  <form class="form" id="formLogin">
+                  <%= form_tag signup_path, {:id => 'formLogin'} do %>
                     <div class="form-group">
-                      <input type="email" name="" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                      <input type="email" name="user[email]" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
+                      <input type="password" name="user[password]" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
                     </div>
                     <div class="form-group">
-                      <button type="button" class="btn btn-block btn-lg btn-danger">Registrárme</button>
+                      <%= submit_tag "Registrárme", class: "btn btn-block btn-lg btn-danger" %>
                     </div>
-                  </form>
+                  <% end %>
                   <div class="register-trigger text-center">
                     ¿Ya tienes cuenta? <a href="#">Ingresa aqui</a>
                   </div>

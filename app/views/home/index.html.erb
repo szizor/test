@@ -35,11 +35,11 @@
           <div class="col-md-5 col-xs-12 toolbar__form-group">
             <div class="row">
               <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
-                <div class="toolbar__label">Estado</div>
+                <div class="toolbar__label">Seleccione un Estado</div>
                   <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :class=>"form-control select2-control", :id=>"polygon_state_id" %>
                 </div>
               <div class="col-md-6 col-xs-6">
-                <div class="toolbar__label">Polígono</div>
+                <div class="toolbar__label">Seleccione un polígono</div>
                 <select id="polygon_select" class="form-control select2-control-exec">
                   <option value=''>Selecciona el Estado</option>
                 </select>
@@ -290,7 +290,7 @@
               </div>
             </div>  
           </div>  
-          <% Alternative.all.each do |alternative| %>
+          <% problem.alternatives.each do |alternative| %>
             <div class="solution-detail">
               <div class="solution-item">
                 <h1><%= alternative.name %></h1>
@@ -339,7 +339,7 @@
       
       {
         'id':<%=problem.id%>,
-        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 35) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= Alternative.all.count %> Soluciones </div><div class="like">0</div></div>',
+        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 35) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= problem.alternatives.count %> Soluciones </div><div class="like">0</div></div>',
         'category': <%=problem.category_id%>,
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],

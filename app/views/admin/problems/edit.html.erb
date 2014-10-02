@@ -3,7 +3,7 @@
 <%= stylesheet_link_tag "plugins/polygons", :media => "all" %>
 
 <script>
-  var markerCoords = <%= @problem.coords.html_safe %>;
+  var markerCoords = <%= @problem.coords.present? ? @problem.coords.html_safe : [] %>;
   var coordsA;
   coordsA = markerCoords.A || markerCoords.B;
   var markerLatlng = new google.maps.LatLng(markerCoords.k,coordsA);
