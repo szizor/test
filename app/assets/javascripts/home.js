@@ -291,11 +291,11 @@ InfoBox.prototype.panMap = function () {
             currentPolyline = new google.maps.Polyline({
                 path: drawPolyline,
                 strokeWeight: 3,
-                strokeColor: polyColor,
+                strokeColor: elTour.color,
                 fillOpacity: 0.35,
                 clickable: true,
                 draggable: false,
-                editable: true,
+                editable: false,
                 zIndex: 1
             })
             currentPolyline.setMap(map);
