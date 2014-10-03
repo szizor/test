@@ -1,3 +1,13 @@
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places,geometry,visualization,drawing"></script>
+<%= stylesheet_link_tag "plugins/polygons", :media => "all" %>
+
+<script>
+  var markerCoords = <%= @actor.coords.present? ? @actor.coords.html_safe : [] %>;
+  var coordsA;
+  coordsA = markerCoords.A || markerCoords.B;
+  var markerLatlng = new google.maps.LatLng(markerCoords.k,coordsA);
+  var coordsVal = <%= raw @polygon.coords %>;
+</script>
 <!-- Page heading -->
 <div class="page-head">
   <h2 class="pull-left"><%= params[:id].present? ? "Editar Actor" : "Nuevo Actor" %></h2>
@@ -20,12 +30,12 @@
 <!-- Matter -->
 
 <div class="matter">
-  <div class="container">
+    <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="widget">
           <div class="widget-head">
-            <div class="pull-left"><%= params[:id].present? ? @actor.name : "Nuevo Actor" %></div>
+            <div class="pull-left">Editar polígono</div>
             <div class="widget-icons pull-right">
               <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
             </div>
@@ -33,12 +43,26 @@
           </div>
           <div class="widget-content">
             <div class="padd">
-
-              <%= render 'form' %>
-
+              <div class="toolbar">
+                <div class="col-md-3 col-xs-12">
+                  <div id="color-palette" class="text-center"></div>
+                </div>
+                <form class="form-inline" role="form" onsubmit="">
+                  <div class="form-group col-md-4">
+                    <input id="search_address" type="text" class="form-control" placeholder="Search" value="Nicolas Romero, Guadalajara, Jalisco">
+                  </div>
+                  <button type="button" class="btn btn-default" value="Geocode" class="btn btn-default" onclick="codeAddress()">Buscar Direccion</button>
+                  <button type="button" id="delete-button" class="btn btn-default ">Eliminar</button>
+                </form>
+              </div>
+              <div class="toolbar" role="navigation"></div>
+              <div id="map-canvas"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <%= render 'form' %>
   </div>
-</div>
+  </div>
+<%= javascript_include_tag "vendor/edit-marker.js" %>

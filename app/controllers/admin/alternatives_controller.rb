@@ -14,11 +14,15 @@ class Admin::AlternativesController < Admin::BaseController
   end
 
   def create
-    debugger
+    if params[:commit]
+      params[:alternative][:solution] = 1
+    end
     @alternative = Alternative.new(params[:alternative])
+    @polygon = Polygon.find(params[:polygon_id])
+    @problem = Problem.find(params[:problem_id])
     if @alternative.save
       polygon = Polygon.find(params[:polygon_id])
-      redirect_to edit_admin_polygon_path(polygon), :notice => "Successfully created alternative."
+      redirect_to edit_admin_polygon_problem_path(@polygon, @problem), :notice => "Successfully created alternative."
     else
       render :action => 'new'
     end
@@ -29,11 +33,16 @@ class Admin::AlternativesController < Admin::BaseController
   end
 
   def update
+    if params[:commit]
+      params[:alternative][:solution] = 1
+    end
+    @polygon = Polygon.find(params[:polygon_id])
+    @problem = Problem.find(params[:problem_id])
     @alternative = Alternative.find(params[:id])
     if @alternative.update_attributes(params[:alternative])
       if params[:actors]
       end
-      redirect_to [:admin, @alternative], :notice  => "Successfully updated alternative."
+      redirect_to edit_admin_polygon_problem_path(@polygon, @problem), :notice  => "Successfully updated alternative."
     else
       render :action => 'edit'
     end

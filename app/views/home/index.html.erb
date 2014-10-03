@@ -282,7 +282,7 @@
         <div class="solution-list">
           <div class="solucion-header">
             <div style="float:left">
-              <p class="loc"><%= Alternative.all.count%> Soluciones</p>
+              <p class="loc"><%= problem.alternatives.count%> Soluciones</p>
             </div>
             <div style="float:right">
               <div class="report">
@@ -301,6 +301,36 @@
                 </p>
                 <p class="explicacion">ACCIONES PRINCIPALES</p>
                 <p><%= alternative.description %></p>
+                <% if alternative.solution %>
+                <div class="project-info">
+                  <h2>Presupuesto</h2>
+                  <div style="display:block">
+                    <div style="float:left;width: 50%;text-align: center;">
+                      <p class="explicacion">PRESUPUESTO CONTEMPLADO</p>
+                      <%= number_to_currency(alternative.budget_expected) %>
+                      <p class="explicacion">FECHA DE INICIO</p>
+                      <%= l alternative.end_date, :format => :short_datetime %>
+                    </div>
+                    <div style="float:right;width: 50%;text-align: center;">
+                      <p class="explicacion">PRESUPUESTO ASIGNADO</p>
+                      <%= number_to_currency(alternative.assigned_budget) %>
+                      <p class="explicacion">FECHA DE TERMINO ESTIMADA</p>
+                      <%= l alternative.end_date, :format => :short_datetime %>
+                    </div>   
+                  </div>  
+                  <h2>La institución responsable de implementar el proyecto</h2>
+                  <p class="explicacion">ACTOR PRINCIPAL</p>
+                  <%= alternative.actor.name %>
+                  <% if alternative.actors.present? %>
+                    <p class="explicacion">ACTORES RELACIONADOS</p>
+                  <% end %>  
+                  <ul>
+                    <% alternative.actors.each do |actor| %>
+                      <li><%= actor.name%></li>
+                    <% end %>
+                  </ul>  
+                </div>  
+                <% end %>
               </div>
               <div class="social">
                 <div class="social-align">
@@ -347,13 +377,28 @@
          }
       },
       <% end %>
-    ]
-    var tours = [
-      <% @polygon.tours.each_with_index do |tour, index| %>
+    ];
+  var actorsdata = <%= raw @polygon.actors.where("coords is not null AND coords <> '--- \n...\n'").map{|actor| actor.coords.html_safe } %>;  
+  var actores = [ // map data
+      <% @polygon.actors.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |actor, index| %>
+      
       {
-        'id':<%=tour.id%>,
-        'coords':  <%=raw tour.coordinates %>,
-      },   
+        'id':<%=actor.id%>,
+        'content':'<div class="infobox-wrapper"><div class="info-content" itemscope itemtype="http://schema.org/Place" id="infobox"><div class="info-data"><a href="" class="info-data__name" itemprop="name"><%= actor.name%></a><p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span class="info-data__address_street" itemprop="streetAddress"><%= actor.address%></span><span class="info-data__address_locality" itemprop="addressLocality"><%= actor.city%></span><span class="info-data__address_region" itemprop="addressRegion">JAL</span><span class="info-data__address_street" itemprop="streetAddress"><%= actor.phone%></span></span></p></div></div></div>',
+        'category': 1,
+        'position': {
+          'lat':JSON.parse(actorsdata[<%=index%>])["k"],
+          'lng':JSON.parse(actorsdata[<%=index%>])["A"] || JSON.parse(actorsdata[<%=index%>])["B"]
+         }
+      },
       <% end %>
-    ]
+    ]  
+  var tours = [
+    <% @polygon.tours.each_with_index do |tour, index| %>
+    {
+      'id':<%=tour.id%>,
+      'coords':  <%=raw tour.coordinates %>,
+    },   
+    <% end %>
+  ]
 </script>

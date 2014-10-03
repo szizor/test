@@ -8,6 +8,7 @@ class Admin::ActorsController < Admin::BaseController
   end
 
   def new
+    @polygon = Polygon.find(params[:polygon_id])
     @actor = Actor.new
   end
 
@@ -25,6 +26,7 @@ class Admin::ActorsController < Admin::BaseController
   end
 
   def edit
+    @polygon = Polygon.find(params[:polygon_id])
     @actor = Actor.find(params[:id])
   end
 

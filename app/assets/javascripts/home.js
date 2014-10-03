@@ -14,6 +14,7 @@ var colors = [
     '#3b7799'
 ];
 var markers = []; // makers array
+var markersActors = [];
 var selectedColor;
 var colorButtons = {};
 
@@ -229,6 +230,29 @@ InfoBox.prototype.panMap = function () {
       markers.push(marker);
   
       google.maps.event.addListener(markers[i], "click", function (e) {
+        $('.infobox').children('.close').click()
+        var infoBox = new InfoBox({
+            latlng: this.getPosition(),
+            map: map,
+            content: this.content
+        });
+      });
+    }
+    //Actors
+    for (var i = 0; i < actores.length; i++) {
+    var marker_image = 'images/markers/actor.png'
+      var current = actores[i];
+  
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(current.position.lat, current.position.lng),
+        map: map,
+        content: current.content,
+        icon: marker_image
+      });
+  
+      markersActors.push(marker);
+  
+      google.maps.event.addListener(markersActors[i], "click", function (e) {
         $('.infobox').children('.close').click()
         var infoBox = new InfoBox({
             latlng: this.getPosition(),
