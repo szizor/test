@@ -18,8 +18,8 @@ class Admin::AlternativesController < Admin::BaseController
       params[:alternative][:solution] = 1
     end
     @alternative = Alternative.new(params[:alternative])
-    @polygon = Polygon.find(params[:polygon_id])
-    @problem = Problem.find(params[:problem_id])
+    @polygon = Polygon.find(params[:alternative][:polygon_id])
+    @problem = Problem.find(params[:alternative][:problem_id])
     if @alternative.save
       polygon = Polygon.find(params[:polygon_id])
       redirect_to edit_admin_polygon_problem_path(@polygon, @problem), :notice => "Successfully created alternative."
