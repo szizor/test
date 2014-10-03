@@ -50,12 +50,9 @@ function selectColor(color) {
 }
 
 function setSelectedShapeColor(color) {
+    debugger
     if (selectedShape) {
-        if (selectedShape.type == google.maps.drawing.OverlayType.POLYLINE) {
             selectedShape.set('strokeColor', color);
-        } else {
-            selectedShape.set('fillColor', color);
-        }
     }
 }
 
@@ -157,6 +154,7 @@ function initialize() {
         zIndex: 1
     })
   currentPolyline.setMap(map);
+  setSelection(currentPolyline);
   google.maps.event.addListener(drawingManager, 'overlaycomplete', function(e) {
         if (e.type != google.maps.drawing.OverlayType.MARKER) {
             // Switch back to non-drawing mode after drawing a shape.

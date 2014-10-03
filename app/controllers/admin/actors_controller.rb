@@ -32,13 +32,15 @@ class Admin::ActorsController < Admin::BaseController
 
   def update
     @actor = Actor.find(params[:id])
+    @polygon = Polygon.find(params[:actor][:polygon_id])
     if @actor.update_attributes(params[:actor])
       respond_to do |format|
-        polygon = Polygon.find(params[:actor][:polygon_id])
-        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El Actor fue editado.' }
+        format.html { redirect_to edit_admin_polygon_path(@polygon), notice: 'El Actor fue editado.' }
       end
     else
-      render :action => 'edit'
+      respond_to do |format|
+        format.html { redirect_to edit_admin_polygon_path(@polygon), notice: @actor.errors.full_messages }
+      end
     end
   end
 

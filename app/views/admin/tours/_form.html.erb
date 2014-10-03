@@ -27,7 +27,7 @@
 
         <%= f.label :start_date, "Fecha" %>
         <div id="datetimepickertour" class="input-append">
-          <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd hh:mm", :style=>"max-width:150px", :value => @tour.start_date.strftime("%Y-%m-%d %I:%M")%>
+          <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd hh:mm", :style=>"max-width:150px", :value => @tour.start_date.present? ? @tour.start_date.strftime("%Y-%m-%d %I:%M") : ""%>
           <span class="add-on">
             <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
           </span>

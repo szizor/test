@@ -1934,3 +1934,15 @@ color: #666666;
 .project-info {
     background-color: #f5f5f5;
 }
+.calen .close {
+    position: absolute;
+    top: 20px;
+    display: block;
+    right: 20px;
+    background: url(../images/ico_close.png) no-repeat;
+    width: 14px;
+    height: 14px;
+}
+.calen .close {
+    background: url('../images/ico_close.png') no-repeat scroll 0% 0% transparent;
+}

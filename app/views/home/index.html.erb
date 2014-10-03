@@ -129,7 +129,7 @@
           <img src="images/ico_m_2.png" alt="">
           <!-- <div class="count">2</div> -->
         </div>
-        <p style="margin-top: 10px;"><a href="#">Programa</a></p>
+        <p style="margin-top: 10px;"><a href="#" id="trigger-calendar">Programa</a></p>
       </div>
     </div>
     <div class="item pl">
@@ -355,9 +355,19 @@
     </div>
   </div>
 </div>
+<div class="details-2 calen" id="calendar-container" style="display: none">
+  <a class="close" href="#">X</a>
+  <div class="documents_container">
+    <div class="page-header">
+      <h1>Calendario <small>de Eventos</small></h1>
+    </div>
+    <div id="calendar"></div>
+  </div>
+</div>
 <script>
   var polyCoords;
   var polyColor = "<%= @polygon[:colors] %>";
+  var allEvents = <%= @events.to_json.html_safe %>;
   var polyinfo  = '<div class="error"><h2><%=h truncate(@polygon.name, :length => 26) %></h2><p id="verInfo" onclick="$(&quot;.poligon-info&quot;).show()">Ver Más Información</p></div>';
   var coordsVal = <%= raw @polygon.coords %>;
   if ( typeof coordsVal === 'string') {
