@@ -282,7 +282,7 @@
         <div class="solution-list">
           <div class="solucion-header">
             <div style="float:left">
-              <p class="loc"><%= problem.alternatives.count%> Soluciones</p>
+              <p class="loc"><%= problem.alternatives.count%> Alternativas</p>
             </div>
             <div style="float:right">
               <div class="report">
@@ -379,7 +379,7 @@
       
       {
         'id':<%=problem.id%>,
-        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 35) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= problem.alternatives.count %> Soluciones </div><div class="like">0</div></div>',
+        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 35) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= problem.alternatives.count %> Alternativas </div><div class="like">0</div></div>',
         'category': <%=problem.category_id%>,
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],
