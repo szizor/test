@@ -225,16 +225,15 @@
                           </td>
                           <td><%= number_to_human_size(File.size("#{Rails.public_path}#{doc.file}")) if File.exists?(("#{Rails.public_path}#{doc.file}"))%></td>
                           <td class="text-center">
-                            <button class="btn btn-xs btn-default">
+                            
                               <%= link_to(edit_admin_polygon_document_path(@polygon, doc)) do %>
                                 <i class="fa fa-pencil"></i> </a>
                               <% end %>  
-                            </button>
-                            <button class="btn btn-xs btn-default">
+                            
                               <%= link_to(admin_polygon_document_path(@polygon, doc), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
                                 <i class="fa fa-times"></i>
                               <% end %>  
-                            </button>
+                            
                           </td>
                         </tr>
                       <% end %>
@@ -274,16 +273,15 @@
                             <span class="label label-<%= video.visible == "publico" ? "success" : "danger" %>"><%= video.visible %></span>
                           </td>
                           <td class="text-center">
-                            <button class="btn btn-xs btn-default">
+                            
                               <%= link_to(edit_admin_polygon_video_path(@polygon, video)) do %>
                                 <i class="fa fa-pencil"></i> </a>
                               <% end %>  
-                            </button>
-                            <button class="btn btn-xs btn-default">
+                            
                               <%= link_to(admin_polygon_video_path(@polygon, video), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
                                 <i class="fa fa-times"></i>
                               <% end %>  
-                            </button>
+                            
                           </td>
                         </tr>
                       <% end %>
@@ -332,17 +330,15 @@
                             <span class="label label-<%= tree.visible == "publico" ? "success" : "danger" %>"><%= tree.visible %></span>
                           </td>
                           <td class="text-center">
-                            <button class="btn btn-xs btn-default">
+                            
                             <%= link_to(edit_admin_polygon_tree_path(@polygon, tree)) do %>
                                 <i class="fa fa-pencil"></i> </a>
                               <% end %>  
-                            </button>
                             
-                            <button class="btn btn-xs btn-default">
                               <%= link_to(admin_polygon_tree_path(@polygon, tree), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
                                 <i class="fa fa-times"></i>
                               <% end %>  
-                            </button>    
+                                
                           </td>
                         </tr>
                       <% end %>
