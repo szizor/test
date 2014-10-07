@@ -1610,11 +1610,13 @@ background-color: #fff;
 .solution-detail {
     display: inline-block;
 }
+.alternative-container{
+    border-bottom: 1px solid gray;
+}
 .solution-item{
     float: left;
     width: 60%;
     padding-bottom: 10px;
-    border-bottom: 1px solid gray;
 }
 .solution-user{
     color:#790C0C;

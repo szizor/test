@@ -291,18 +291,93 @@
             </div>  
           </div>  
           <% problem.alternatives.each do |alternative| %>
-            <div class="solution-detail">
-              <div class="solution-item">
-                <h1><%= alternative.name %></h1>
-                <p class="location">
-                  <span class="solution-user">
-                    <%= alternative.user.username if alternative.user %>
-                  </span> &middot; <%= time_ago_in_words(alternative.created_at) %>
-                </p>
-                <p class="explicacion">ACCIONES PRINCIPALES</p>
-                <p><%= alternative.description %></p>
-                <% if alternative.solution %>
+            <div class="alternative-container">
+              <div class="solution-detail">
+                <div class="solution-item">
+                  <h1><%= alternative.name %></h1>
+                  <p class="location">
+                    <span class="solution-user">
+                      <%= alternative.user.username if alternative.user %>
+                    </span> &middot; <%= time_ago_in_words(alternative.created_at) %>
+                  </p>
+                  <p class="explicacion">ACCIONES PRINCIPALES</p>
+                  <p><%= alternative.description %></p>
+                </div>
+                <div class="social">
+                  <div class="social-align">
+                    <p class="explicacion">POBLACION BENEFICIADA</p>
+                    <p class="quantity-alt"><%= number_with_delimiter(alternative.quantity_benefited) || "N/D" %></p>
+                    <p class="quantity-group"><%= alternative.group_benefited || "N/D" %></p>
+                    <img src="images/social.png" alt="">
+                  </div>
+                </div>
+              </div>  
+              <% if alternative.solution %>
                 <div class="project-info">
+                  <h2>Información de la Matriz</h2>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <div style="float:left;width: 100%;text-align: center;">
+                            <p class="explicacion">APORTACIÓN A LA ESTRATEGIA SECTORIAL O NACIONAL</p>
+                            <%= alternative.end %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <div style="float:left;width: 100%;text-align: center;"> 
+                            <p class="explicacion">OBJETIVO GENERAL</p>
+                            <%= alternative.porpuse %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <div style="float:left;width: 100%;text-align: center;">
+                            <p class="explicacion">OBJETIVO ESPECIFICO</p>
+                            <%= alternative.components %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <h2>Fuentes de financiamiento</h2>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div style="float:left;width: 100%;text-align: center;">
+                          <p class="explicacion">NOMBRE</p>
+                          <%= alternative.fin_name %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div style="float:left;width: 100%;text-align: center;">
+                          <p class="explicacion">TELEFONO</p>
+                          <%= alternative.fin_tel %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div style="float:left;width: 100%;text-align: center;">
+                          <p class="explicacion">EMAIL</p>
+                          <%= alternative.fin_mail %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div style="float:left;width: 100%;text-align: center;">
+                          <p class="explicacion">WEBPAGE</p>
+                          <%= alternative.fin_web %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <h2>Presupuesto</h2>
                   <div style="display:block">
                     <div style="float:left;width: 50%;text-align: center;">
@@ -328,18 +403,50 @@
                     <% alternative.actors.each do |actor| %>
                       <li><%= actor.name%></li>
                     <% end %>
-                  </ul>  
-                </div>  
-                <% end %>
-              </div>
-              <div class="social">
-                <div class="social-align">
-                  <p class="explicacion">POBLACION BENEFICIADA</p>
-                  <p class="quantity-alt"><%= number_with_delimiter(alternative.quantity_benefited) || "N/D" %></p>
-                  <p class="quantity-group"><%= alternative.group_benefited || "N/D" %></p>
-                  <img src="images/social.png" alt="">
-                </div>
-              </div>
+                  </ul>
+                  <h2>Archivos</h2>
+                  <% if alternative.budget_expected_pdf.present? %>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Desglose del presupuesto esperado</h3>
+                      </div>
+                      <div class="panel-body">
+                        <%= link_to alternative.budget_expected_pdf.file.filename, alternative.budget_expected_pdf_url, :target => "_blank" %>
+                      </div>
+                    </div>
+                  <% end %>
+                  <% if alternative.assigned_budget_pdf.present? %>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Desglose del presupuesto asignado</h3>
+                      </div>
+                      <div class="panel-body">
+                        <%= link_to alternative.assigned_budget_pdf.file.filename, alternative.assigned_budget_pdf_url, :target => "_blank" %>
+                      </div>
+                    </div>
+                  <% end %>  
+                  <% if alternative.resume.present? %>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Resumen ejecutivo</h3>
+                      </div>
+                      <div class="panel-body">
+                        <%= link_to alternative.resume.file.filename, alternative.resume_url, :target => "_blank" %>
+                      </div>
+                    </div>
+                  <% end %>
+                  <% if alternative.crono.present? %>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">Cronograma</h3>
+                      </div>
+                      <div class="panel-body">
+                        <%= link_to alternative.crono.file.filename, alternative.crono_url, :target => "_blank" %>
+                      </div>
+                    </div>
+                  <% end %>      
+                </div> 
+              <% end %>
             </div>  
           <% end %>
         </div>  

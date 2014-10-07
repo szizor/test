@@ -10,3 +10,4 @@ db/schema.rb
 .DS_Store
 *.sql
 .sass-cache
+public/uploads

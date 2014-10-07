@@ -6,7 +6,7 @@
         <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
           <div class="widget">
             <div class="widget-head">
-              <div class="pull-left">Informacion Basica de la solución</div>
+              <div class="pull-left">Informacion Basica de la Alternativa</div>
               <div class="widget-icons pull-right">
                 <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
               </div>
@@ -23,7 +23,7 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                     <%= f.label :category_id, "Categoria de la Solucion" %>
+                     <%= f.label :category_id, "Categoria de la Alternativa" %>
                     <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
           </div>
           <div class="widget">
             <div class="widget-head">
-              <div class="pull-left">Características de la Solucion</div>
+              <div class="pull-left">Características de Proyecto</div>
               <div class="widget-icons pull-right">
                 <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
               </div>
@@ -49,22 +49,63 @@
             </div>
             <div class="widget-content">
               <div class="padd">
+
+                  <h4>Información de la Matriz</h4>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :end, "Aportacion a la estrategia" %>
+                        <%= f.text_field :end, :class => "form-control input-lg", :placeholder => "Aportacion a la estrategia sectorial o nacional" %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :porpuse, "objetivo general" %>
+                        <%= f.text_field :porpuse, :class => "form-control input-lg", :placeholder => "objetivo general" %>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <%= f.label :components, "objetivos específicos" %>
+                        <%= f.text_field :components, :class => "form-control input-lg", :placeholder => "objetivos específicos" %>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <h4>Fuentes de financiamiento </h4>
+
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <%= f.label :group_benefited, "Grupo de edad beneficiado" %>
-                        <%= f.text_field :group_benefited, :class => "form-control input-lg", :placeholder => "Grupo de edad beneficiado" %>
+                        <%= f.label :fin_name, "Nombre" %>
+                        <%= f.text_field :fin_name, :class => "form-control input-lg", :placeholder => "Nombre" %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <%= f.label :quantity_benefited, "Cantidad de la Población beneficiaria" %>
-                        <%= f.text_field :quantity_benefited, :class => "form-control input-lg", :placeholder => "Cantidad de la Población beneficiaria" %>
+                        <%= f.label :fin_tel, "Telefono" %>
+                        <%= f.text_field :fin_tel, :class => "form-control input-lg", :placeholder => "Telefono" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :fin_mail, "Email" %>
+                        <%= f.text_field :fin_mail, :class => "form-control input-lg", :placeholder => "Email" %>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :fin_web, "Webpage" %>
+                        <%= f.text_field :fin_web, :class => "form-control input-lg", :placeholder => "Webpage" %>
                       </div>
                     </div>
                   </div>
 
                   <h4>Presupuesto</h4>
+
 
                   <div class="row">
                     <div class="col-md-6">
@@ -81,6 +122,35 @@
                     </div>
                   </div>
 
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :budget_expected_pdf, "Desglose del presupuesto" %>
+                        <%= f.file_field :budget_expected_pdf, :class => "form-control input-lg", :placeholder => "Desglose del presupuesto" %>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :assigned_budget, "Desglose del presupuesto" %>
+                        <%= f.file_field :assigned_budget_pdf, :class => "form-control input-lg", :placeholder => "Desglose del presupuesto" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :group_benefited, "Grupo de edad beneficiado" %>
+                        <%= f.text_field :group_benefited, :class => "form-control input-lg", :placeholder => "Grupo de edad beneficiado" %>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :quantity_benefited, "Cantidad de la Población beneficiaria" %>
+                        <%= f.text_field :quantity_benefited, :class => "form-control input-lg", :placeholder => "Cantidad de la Población beneficiaria" %>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
@@ -104,6 +174,21 @@
                             <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
                           </span>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :crono, "Cronograma" %>
+                        <%= f.file_field :crono, :class => "form-control input-lg", :placeholder => "Cronograma" %>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <%= f.label :resume, "Resumen ejecutivo" %>
+                        <%= f.file_field :resume, :class => "form-control input-lg", :placeholder => "Resumen ejecutivo" %>
                       </div>
                     </div>
                   </div>
