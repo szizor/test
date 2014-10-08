@@ -395,7 +395,7 @@
                   </div>  
                   <h2>La institución responsable de implementar el proyecto</h2>
                   <p class="explicacion">ACTOR PRINCIPAL</p>
-                  <%= alternative.actor.name %>
+                  <%= alternative.actor.name if alternative.actor %>
                   <% if alternative.actors.present? %>
                     <p class="explicacion">ACTORES RELACIONADOS</p>
                   <% end %>  
