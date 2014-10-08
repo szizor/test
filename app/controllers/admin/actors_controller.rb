@@ -13,6 +13,7 @@ class Admin::ActorsController < Admin::BaseController
   end
 
   def create
+    @polygon = Polygon.find(params[:polygon_id])
     @actor = Actor.new(params[:actor])
     if @actor.save
       respond_to do |format|
