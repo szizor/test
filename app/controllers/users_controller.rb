@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       debugger
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, :notice => "Gracias por Registrarse"
+      redirect_to root_url, :notice => "Gracias por registrarse"
       # return render :json => {:success => true, :notice => "Gracias por firmarse! A sido conectado."}
     else
       render :action => 'new'

@@ -23,7 +23,7 @@ class Admin::UsersController < Admin::BaseController
       if current_user && current_user.is_admin?
         redirect_to :back, notice: "Usuario Creado con exito"
       else
-        redirect_to root_url, notice: "Gracias por Registrarse"
+        redirect_to root_url, notice: "Gracias por registrarse"
       end
     else
       render "new"
