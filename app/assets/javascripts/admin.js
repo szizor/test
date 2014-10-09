@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require vendor/bootstrap.min
 //= require plugins/fullcalendar.min
+//= require vendor/jquery.qtip.min
 //= require plugins/jquery.rateit.min
 //= require plugins/jquery.prettyPhoto
 //= require plugins/raphael-min

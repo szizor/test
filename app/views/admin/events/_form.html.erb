@@ -1,20 +1,117 @@
-<%= form_for [:admin, @event] do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
-  </p>
-  <p>
-    <%= f.label :end_date %><br />
-    <%= f.datetime_select :end_date %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
+<div class="form profile">
+  <%= form_for [:admin, @event] do |f| %>
+      <div class="row">
+        <% if @event.errors.any? %>
+          <div class="alert alert-danger">
+            <strong><%= pluralize(@event.errors.count, "Error") %></strong> prohibieron a este evento guardar la información!
+            <ul>
+              <% @event.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "Nombre del evento" %>
+        <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del evento", :required => "required" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :polygon_id, "Poligono Relacionado" %>
+        <%= f.select(:polygon_id, Polygon.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control", :required => "required"} ) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, "Descripción" %>
+        <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "Descripción") %>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :participants, "Expectativa de participantes" %>
+            <%= f.text_field :participants, :class => "form-control input-lg", :placeholder => "Expectativa de participantes" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+           <%= f.label :total, "Participantes que asistieron" %>
+           <%= f.text_field :total, :class => "form-control input-lg", :placeholder => "Participantes que asistieron" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :start_date, "Fecha de inicio" %>
+            <div id="datetimepicker1" class="input-append">
+              <% date = @event.start_date.present? ? @event.start_date.strftime("%Y-%m-%d") : ""%>
+              <%= f.text_field :start_date, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd", :value => date, :required => "required" %>
+              <span class="add-on">
+                <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :end_date, "Fecha de término estimada" %>
+            <div id="datetimepicker2" class="input-append">
+              <% date_end = @event.end_date.present? ? @event.end_date.strftime("%Y-%m-%d") : ""%>
+              <%= f.text_field :end_date, :class => "form-control dtpicker", :placeholder => "Fecha de término estimada", :"data-format"=>"yyyy-MM-dd", :value => date_end, :required => "required" %>
+              <span class="add-on">
+                <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :hour, "Hora" %>
+            <%= f.text_field :hour, :class => "form-control input-lg", :placeholder => "Hora" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+           <%= f.label :place, "Lugar" %>
+           <%= f.text_field :place, :class => "form-control input-lg", :placeholder => "Lugar" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :rango, "Rango de edad de participantes" %>
+            <%= f.text_field :rango, :class => "form-control input-lg", :placeholder => "Rango de edad de participantes" %>
+          </div>
+        </div>
+        
+      </div>
+        <div class="col-md-12">
+          <h4>La institución responsable de implementar el proyecto</h4>
+          <div class="form-group">
+            <label for="">Actor Principal</label>
+            <!-- Actores en el mismo Municipio -->
+            <%= f.select(:actor_id, Actor.all.collect {|p| [ p.name, p.id ] }, { include_blank: "-- Selecciona" }, {:class => "form-control"} ) %>
+            <h4>Actores Relacionados</h4>
+
+            <div class="row">
+              <div class="col-md-6">
+                <ol class="form-inline">
+                  <%= hidden_field_tag "event[actor_ids][]", nil %>
+                  <% Actor.all.each do |actor| %>
+                    <%= check_box_tag "event[actor_ids][]", actor.id, @event.actor_ids.include?(actor.id), id: dom_id(actor) %>
+                    <%= label_tag dom_id(actor), actor.name %><br>
+                  <% end %>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>  
+      
+      <div class="form-group">
+        <%= f.submit params[:id].present? ? "Actualizar" : "Añadir", :class => 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

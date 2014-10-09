@@ -137,73 +137,95 @@ $('.wminimize').click(function(e) {
 /* Calendar */
 
 $(document).ready(function() {
-
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-
+    
     var calendar = $('#calendar').fullCalendar({
+        closeText: "Cerrar",
+        prevText: "&#x3C;Ant",
+        nextText: "Sig&#x3E;",
+        currentText: "Hoy",
+        monthNames: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+        monthNamesShort: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ogo", "sep", "oct", "nov", "dic"],
+        dayNames: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+        dayNamesShort: ["dom", "lun", "mar", "mié", "juv", "vie", "sáb"],
+        dayNamesMin: ["D", "L", "M", "X", "J", "V", "S"],
+        weekHeader: "Sm",
+        dateFormat: "dd/mm/yy",
+        firstDay: 1,
+        isRTL: !1,
+        showMonthAfterYear: !1,
+        yearSuffix: "",
+        titleFormat: {
+          month: 'MMMM yyyy',
+          week: "d[ MMMM][ yyyy]{ - d MMMM yyyy}",
+          day: 'dddd d MMMM yyyy'
+        },
+        columnFormat: {
+          month: 'ddd',
+          week: 'ddd d',
+          day: ''
+        },
+        axisFormat: 'H:mm',
+        timeFormat: {
+          '': 'H:mm',
+          agenda: 'H:mm{ - H:mm}'
+        },
+        buttonText: {
+            today: "Hoy",
+            month: "Mes",
+            week: "Semana",
+            day: "Día",
+            list: "Agenda"
+        },
+        allDayText: "Todo el día",
         header: {
-            left: 'prev',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay,next'
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
         },
-        selectable: true,
-        selectHelper: true,
-        select: function(start, end, allDay) {
-            var title = prompt('Nombre del Evento:');
-            if (title) {
-                calendar.fullCalendar('renderEvent', {
-                        title: title,
-                        start: start,
-                        end: end,
-                        allDay: allDay
-                    },
-                    true // make the event "stick"
-                );
-            }
-            calendar.fullCalendar('unselect');
+        defaultDate: new Date(),
+        buttonIcons: false, // show the prev/next text
+        weekNumbers: true,
+        editable: false,
+        eventClick: function(data, event, view) {
+          var content = '<h3>'+data.title+'</h3>' + 
+            '<p><b>Desc:</b> '+data.description+'<br />' +
+            '<p><b>Empieza:</b> '+($.fullCalendar.formatDate(data.start, 'hh:mmtt'))+'<br />' + 
+            (data.end && '<p><b>Acaba:</b> '+($.fullCalendar.formatDate(data.end, 'hh:mmtt'))+'</p>' || '');
+
+          tooltip.set({
+            'content.text': content
+          })
+          .reposition(event).show(event);
         },
-        editable: true,
-        events: [{
-            title: 'All Day Event',
-            start: new Date(y, m, 1)
-        }, {
-            title: 'Long Event',
-            start: new Date(y, m, d - 5),
-            end: new Date(y, m, d - 2)
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: new Date(y, m, d - 3, 16, 0),
-            allDay: false
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: new Date(y, m, d + 4, 16, 0),
-            allDay: false
-        }, {
-            title: 'Meeting',
-            start: new Date(y, m, d, 10, 30),
-            allDay: false
-        }, {
-            title: 'Lunch',
-            start: new Date(y, m, d, 12, 0),
-            end: new Date(y, m, d, 14, 0),
-            allDay: false
-        }, {
-            title: 'Birthday Party',
-            start: new Date(y, m, d + 1, 19, 0),
-            end: new Date(y, m, d + 1, 22, 30),
-            allDay: false
-        }, {
-            title: 'Click for Google',
-            start: new Date(y, m, 28),
-            end: new Date(y, m, 29),
-            url: 'http://google.com/'
-        }]
+        dayClick: function() { tooltip.hide() },
+        eventResizeStart: function() { tooltip.hide() },
+        eventDragStart: function() { tooltip.hide() },
+        viewDisplay: function() { tooltip.hide() },
+        events: allEvents
     });
+    var tooltip = $('<div/>').qtip({
+        id: 'calendar',
+        prerender: true,
+        content: {
+          text: ' ',
+          title: {
+            button: true
+          }
+        },
+        position: {
+          my: 'bottom center',
+          at: 'top center',
+          target: 'mouse',
+          viewport: $('#calendar'),
+          adjust: {
+            mouse: false,
+            scroll: false
+          }
+        },
+        show: false,
+        hide: false,
+        style: 'qtip-light'
+      }).qtip('api');
 
 });
 

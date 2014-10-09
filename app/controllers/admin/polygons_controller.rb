@@ -22,6 +22,20 @@ class Admin::PolygonsController < Admin::BaseController
 
   def edit
     @polygon = Polygon.find(params[:id])
+    events = @polygon.events
+    @events = events.order('start_date DESC').all.map do |u|
+        # if !u.user.nil? && !u.listing.name.nil?
+          {
+              "id"          => u.id,
+              "title"       => u.name,
+              "start"       => u.start_date,
+              "end"         => u.end_date,
+              # "listing"     => u.listing.name,
+              # "url"         => u.listing.slug+'?event='+u.id.to_s,
+              "description"  => u.description
+          }
+        # end
+      end
   end
 
   def update

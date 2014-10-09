@@ -14,7 +14,7 @@ class Admin::EventsController < Admin::BaseController
   def create
     @event = Event.new(params[:event])
     if @event.save
-      redirect_to [:admin, @event], :notice => "Successfully created event."
+      redirect_to admin_events_url, :notice => "Successfully created event."
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class Admin::EventsController < Admin::BaseController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      redirect_to [:admin, @event], :notice  => "Successfully updated event."
+      redirect_to admin_events_url, :notice  => "Successfully updated event."
     else
       render :action => 'edit'
     end

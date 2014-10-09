@@ -84,7 +84,7 @@ $(document).ready(function() {
           })
           .reposition(event).show(event);
         },
-            dayClick: function() { tooltip.hide() },
+        dayClick: function() { tooltip.hide() },
         eventResizeStart: function() { tooltip.hide() },
         eventDragStart: function() { tooltip.hide() },
         viewDisplay: function() { tooltip.hide() },

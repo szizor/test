@@ -62,5 +62,6 @@
   if ( typeof coordsVal === 'string' && coordsVal.length > 0) {
     polyCoords = JSON.parse(coordsVal);
   }
+  var allEvents = <%= @events.to_json.html_safe %>
 </script>
 <%= javascript_include_tag "vendor/edit-polygon" %>
