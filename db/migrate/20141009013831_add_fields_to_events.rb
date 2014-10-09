@@ -6,6 +6,6 @@ class AddFieldsToEvents < ActiveRecord::Migration
     add_column :events, :hour, :string
     add_column :events, :place, :string
     add_column :events, :rango, :string
-    add_column :events, :polygon_id, :inteer
+    add_column :events, :polygon_id, :integer
   end
 end

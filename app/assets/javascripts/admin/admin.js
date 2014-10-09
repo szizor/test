@@ -137,7 +137,7 @@ $('.wminimize').click(function(e) {
 /* Calendar */
 
 $(document).ready(function() {
-    
+    var allEvents = allEvents || []
     var calendar = $('#calendar').fullCalendar({
         closeText: "Cerrar",
         prevText: "&#x3C;Ant",
