@@ -36,8 +36,8 @@ class Admin::AlternativesController < Admin::BaseController
     if params[:commit]
       params[:alternative][:solution] = 1
     end
-    @polygon = Polygon.find(params[:polygon_id])
-    @problem = Problem.find(params[:problem_id])
+    @polygon = Polygon.find(params[:alternative][:polygon_id])
+    @problem = Problem.find(params[:alternative][:problem_id])
     @alternative = Alternative.find(params[:id])
     if @alternative.update_attributes(params[:alternative])
       if params[:actors]
@@ -49,8 +49,10 @@ class Admin::AlternativesController < Admin::BaseController
   end
 
   def destroy
+    @polygon = Polygon.find(params[:polygon_id])
+    @problem = Problem.find(params[:problem_id])
     @alternative = Alternative.find(params[:id])
     @alternative.destroy
-    redirect_to admin_alternatives_url, :notice => "Successfully destroyed alternative."
+    redirect_to edit_admin_polygon_problem_path(@polygon, @problem), :notice => "Successfully destroyed alternative."
   end
 end

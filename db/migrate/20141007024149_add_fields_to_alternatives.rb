@@ -11,6 +11,6 @@ class AddFieldsToAlternatives < ActiveRecord::Migration
     add_column :alternatives, :budget_expected_pdf, :string
     add_column :alternatives, :assigned_budget_pdf, :string
     add_column :alternatives, :resume, :string
-    add_column :alternatives, :polygon_id, :id
+    add_column :alternatives, :polygon_id, :integer
   end
 end
