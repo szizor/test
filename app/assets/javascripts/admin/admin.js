@@ -137,7 +137,36 @@ $('.wminimize').click(function(e) {
 /* Calendar */
 
 $(document).ready(function() {
-    var allEvents = allEvents || []
+    function checkEvnets() {
+        if (typeof allEvents === 'undefined') {
+            return [];
+        } else {
+            return allEvents;
+        }
+    } 
+    var tooltip = $('<div/>').qtip({
+        id: 'calendar',
+        prerender: true,
+        content: {
+          text: ' ',
+          title: {
+            button: true
+          }
+        },
+        position: {
+          my: 'bottom center',
+          at: 'top center',
+          target: 'mouse',
+          viewport: $('#calendar'),
+          adjust: {
+            mouse: false,
+            scroll: false
+          }
+        },
+        show: false,
+        hide: false,
+        style: 'qtip-light'
+      }).qtip('api');
     var calendar = $('#calendar').fullCalendar({
         closeText: "Cerrar",
         prevText: "&#x3C;Ant",
@@ -201,31 +230,9 @@ $(document).ready(function() {
         eventResizeStart: function() { tooltip.hide() },
         eventDragStart: function() { tooltip.hide() },
         viewDisplay: function() { tooltip.hide() },
-        events: allEvents
+        events: checkEvnets()
     });
-    var tooltip = $('<div/>').qtip({
-        id: 'calendar',
-        prerender: true,
-        content: {
-          text: ' ',
-          title: {
-            button: true
-          }
-        },
-        position: {
-          my: 'bottom center',
-          at: 'top center',
-          target: 'mouse',
-          viewport: $('#calendar'),
-          adjust: {
-            mouse: false,
-            scroll: false
-          }
-        },
-        show: false,
-        hide: false,
-        style: 'qtip-light'
-      }).qtip('api');
+    
 
 });
 
