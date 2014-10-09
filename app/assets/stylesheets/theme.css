@@ -1421,7 +1421,8 @@ background-color: #fff;
 .problem-detail.collapsed .excerpt-brief a.collapse,
 .problem-detail .excerpt-brief a.expand,
 .problem-detail.collapsed .info-column,
-.problem-detail.collapsed .excerpt-stats {
+.problem-detail.collapsed .excerpt-stats,
+.project.collapse {
     display: none;
 }
 .problem-detail .close {
@@ -1947,4 +1948,9 @@ color: #666666;
 }
 .calen .close {
     background: url('../images/ico_close.png') no-repeat scroll 0% 0% transparent;
+}
+.project{
+    display: inline-block;
+    color: #F71C53;
+    text-decoration: none;
 }

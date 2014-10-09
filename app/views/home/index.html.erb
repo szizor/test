@@ -305,15 +305,20 @@
                 </div>
                 <div class="social">
                   <div class="social-align">
-                    <p class="explicacion">POBLACION BENEFICIADA</p>
-                    <p class="quantity-alt"><%= number_with_delimiter(alternative.quantity_benefited) || "N/D" %></p>
-                    <p class="quantity-group"><%= alternative.group_benefited || "N/D" %></p>
-                    <img src="images/social.png" alt="">
+                    <div class="excerpt-info">
+                      <div class="excerpt-brief">
+                        <% if alternative.solution %>
+                          <a class="project info-toggle expand" onclick="$(&quot;.project-info-<%= alternative.id %>&quot;).show(); $(this).hide()">Más información <i class="toggle-control"></i></a>
+                          <a href="#" class="project info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
+                        <% end %>  
+                        <img src="images/social.png" alt="">
+                      </div>
+                    </div>  
                   </div>
                 </div>
               </div>  
               <% if alternative.solution %>
-                <div class="project-info">
+                <div class="project-info-<%= alternative.id %>" style="display:none">
                   <h2>Información de la Matriz</h2>
                     <div class="row">
                       <div class="col-md-4">
@@ -391,6 +396,17 @@
                       <%= number_to_currency(alternative.assigned_budget) %>
                       <p class="explicacion">FECHA DE TERMINO ESTIMADA</p>
                       <%= l alternative.end_date, :format => :short_datetime %>
+                    </div>   
+                  </div>  
+                  <h2>Beneficiarios</h2>
+                  <div style="display:block">
+                    <div style="float:left;width: 50%;text-align: center;">
+                      <p class="explicacion">POBLACION BENEFICIADA</p>
+                      <%= number_with_delimiter(alternative.quantity_benefited) || "N/D" %>
+                    </div>
+                    <div style="float:right;width: 50%;text-align: center;">
+                      <p class="explicacion">GRUPO DE EDAD BENEFICIADO  </p>
+                      <%= alternative.group_benefited || "N/D" %>
                     </div>   
                   </div>  
                   <h2>La institución responsable de implementar el proyecto</h2>
