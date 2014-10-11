@@ -13,8 +13,8 @@
         <% end %>
       </div>
       <div class="form-group">
-        <%= f.label :name, "Nombre de la institución" %>
-        <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la institución" %>
+        <%= f.label :name, "Nombre de la institución *" %>
+        <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la institución", :required => "required" %>
       </div>
       <div class="form-group">
         <%= f.label :actor_type_id, "Tipo de institución" %>
@@ -24,8 +24,8 @@
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
-            <%= f.label :address, "Dirección" %>
-            <%= f.text_field :address, :class => "form-control", :placeholder => "Calle, Colonia" %>
+            <%= f.label :address, "Dirección *" %>
+            <%= f.text_field :address, :class => "form-control", :placeholder => "Calle, Colonia", :required => "required"  %>
           </div>
         </div>
         <div class="col-md-4">
@@ -36,17 +36,17 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <%= f.label :city, "Ciudad" %>
-            <%= f.text_field :city, :class => "form-control", :placeholder => "Ciudad" %>
+            <%= f.label :city, "Ciudad *" %>
+            <%= f.text_field :city, :class => "form-control", :placeholder => "Ciudad", :required => "required"  %>
           </div>
         </div>
       </div>
-      <%= f.hidden_field :coords, :id=> "mapCoords"%>
+      <%= f.hidden_field :coords, :id=> "mapCoords", :required => "required" %>
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
-            <%= f.label :phone, "Teléfono de oficina" %>
-            <%= f.text_field :phone, :class => "form-control", :placeholder => "Teléfono de oficina" %>
+            <%= f.label :phone, "Teléfono de oficina *" %>
+            <%= f.text_field :phone, :class => "form-control", :placeholder => "Teléfono de oficina", :required => "required"  %>
           </div>
         </div>
         <div class="col-md-4">
@@ -57,8 +57,8 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <%= f.label :email, "Email" %>
-            <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %>
+            <%= f.label :email, "Email *" %>
+            <%= f.text_field :email, :class => "form-control", :placeholder => "Email", :required => "required"  %>
           </div>
         </div>
       </div>

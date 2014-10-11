@@ -7,31 +7,6 @@
       </div>
       <form action="" role="form" class="filter-form">
         <div class="row">
-          <div class="col-md-4 col-xs-12 toolbar__form-group">
-            <div class="toolbar__label">Reportes y Proyectos de</div>
-            <div class="row">
-              <div class="col-md-6 col-xs-6 toolbar__form-group-field">
-                <select name="mapProjects" id="mapProjects" class="form-control select2-control" required="required">
-                  <option></option>
-                  <option value="Gobierno" selected>Gobierno</option>
-                  <option value="Ciudadano‎">Ciudadano‎</option>
-                </select>
-              </div>
-              <div class="col-md-6 col-xs-6 toolbar__form-group-field">
-                <div class="checkbox">
-                  <div class="bootstrap-switchy-container bootstrap-switchy-off pull-right">
-                    <span class="bootstrap-switchy-status"></span>
-                    <input type="checkbox" name="ModeratorFlag" id="ModeratorFlag" class="pull-right">
-                  </div>
-                  <label>Vista de Moderador</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
-            <div class="toolbar__label">Categorias</div>
-            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name, nil), :class=>"form-control select2-control", :id=>"problem_category_id"%>
-          </div>
           <div class="col-md-5 col-xs-12 toolbar__form-group">
             <div class="row">
               <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
@@ -43,6 +18,25 @@
                 <select id="polygon_select" class="form-control select2-control-exec">
                   <option value=''>Selecciona el Estado</option>
                 </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
+            <div class="toolbar__label">Categorias</div>
+            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name, nil), :include_blank => "Please select...", :class=>"form-control select2-control", :id=>"problem_category_id"%>
+          </div>
+          <div class="col-md-4 col-xs-12 toolbar__form-group">
+            <div class="toolbar__label">Reportes y Proyectos de</div>
+            <div class="row map-options">
+              <div class="col-md-6  toolbar__form-group-field">
+                <label class="btn btn-adopted">
+                  <input type="checkbox" checked="" name="ciudadano"> <b>Ciudadano</b>
+                </label>
+              </div>
+              <div class="col-md-6  toolbar__form-group-field">
+                <label class="btn btn-adopted">
+                  <input type="checkbox" checked="" name="admin"> <b>Administrador</b> 
+                </label>
               </div>
             </div>
           </div>
@@ -507,7 +501,8 @@
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],
           'lng':JSON.parse(test[<%=index%>])["A"] || JSON.parse(test[<%=index%>])["B"]
-         }
+         },
+        'public' : <%= problem.public %>
       },
       <% end %>
     ];

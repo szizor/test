@@ -130,32 +130,32 @@ function initialize() {
 
     google.maps.event.addListener(drawingManager, 'markercomplete', function( marker ) {
         markers = marker;
-        // var markerCoords = marker.getPosition();
-        // if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-        //     alert('No se puede agregar una problema fuera del poligno!');
-        //     drawingManager.setDrawingMode(null);
-        //     clearMarkers();
-        // } else {
+        var markerCoords = marker.getPosition();
+        if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
+            alert('No se puede agregar una problema fuera del poligno!');
+            drawingManager.setDrawingMode(null);
+            clearMarkers();
+        } else {
             drawingManager.setOptions({
                 drawingControl: false
             })
             drawingManager.setDrawingMode(null);
             $('#mapCoords').val(JSON.stringify(markerCoords));
-        // }
+        }
 
         google.maps.event.addListener(marker, "dragend", function() {
             var markerCoords = marker.getPosition();
 
-            // if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-            //     alert('No se puede agregar una problema fuera del poligno!');
-            //     drawingManager.setDrawingMode(null);
-            //     drawingManager.setOptions({
-            //         drawingControl: true
-            //     });
-            //     clearMarkers();
-            // } else {
+            if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
+                alert('No se puede agregar una problema fuera del poligno!');
+                drawingManager.setDrawingMode(null);
+                drawingManager.setOptions({
+                    drawingControl: true
+                });
+                clearMarkers();
+            } else {
                 $('#mapCoords').val(JSON.stringify(markerCoords));
-            // }
+            }
         });
 
     });

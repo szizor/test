@@ -23,20 +23,21 @@
         <div class="widget-content">
           <%= form_for [:admin, :polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
           <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
+          <%= f.hidden_field :public, :value => false %>
           <div class="padd">
             <div class="form-group">
-              <%= f.label :name, "Nombre del Problema" %>
+              <%= f.label :name, "Nombre del Problema *" %>
               <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre del Problema" %>
             </div>
             <div class="form-group">
-              <%= f.label :category_id, "Categoria del Problema" %>
+              <%= f.label :category_id, "Categoria del Problema *" %>
               <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
             </div>
             <div class="form-group">
               <%= f.label :description, "Descripción del problema" %>
               <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "descripción del problema") %>
             </div>
-            <%= f.hidden_field :coords, :id=> "mapCoords"%>
+            <%= f.hidden_field :coords, :id=> "mapCoords", :required=>"required"%>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">

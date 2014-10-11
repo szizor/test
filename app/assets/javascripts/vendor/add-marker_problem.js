@@ -4,6 +4,7 @@ var initailCoords;
 var mapClick;
 var markers;
 
+
 var initialPolygonCoords = [];
 var i;
 
@@ -11,15 +12,9 @@ var i;
         initialPolygonCoords.push( new google.maps.LatLng(coordsVal[i].k, coordsVal[i].A || coordsVal[i].B) );
     };  
 
-var myLatlng = new google.maps.LatLng(20.689824621443048,-103.36192846298218);
-
 function setAllMap(map) {
     markers.setMap(map);
-    drawingManager.setOptions({
-        drawingControl: true
-    });
 }
-
 
 function clearMarkers() {
   setAllMap(null);
@@ -101,65 +96,37 @@ function initialize() {
         zIndex: 1
     });
 
-    marker = new google.maps.Marker({
-        position: markerLatlng,
-        map: map,
-        draggable:true
-    });
-    markers = marker;
-
-    drawingManager.setOptions({
-        drawingControl: false
-    });
-
-    google.maps.event.addListener(marker, 'dragend', function() {
-      markers = marker;
-      var markerCoords = marker.getPosition();
-
-      if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-          alert('No se puede agregar una problema fuera del poligno!');
-          drawingManager.setDrawingMode(null);
-          drawingManager.setOptions({
-              drawingControl: true
-          });
-          clearMarkers();
-      } else {
-        $('#mapCoords').val(JSON.stringify(markerCoords));
-      }
-    });
-
     google.maps.event.addListener(drawingManager, 'markercomplete', function( marker ) {
         markers = marker;
-        // var markerCoords = marker.getPosition();
-        // if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-        //     alert('No se puede agregar una problema fuera del poligno!');
-        //     drawingManager.setDrawingMode(null);
-        //     clearMarkers();
-        // } else {
+        var markerCoords = marker.getPosition();
+        if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
+            alert('No se puede agregar una problema fuera del poligno!');
+            drawingManager.setDrawingMode(null);
+            clearMarkers();
+        } else {
             drawingManager.setOptions({
                 drawingControl: false
             })
             drawingManager.setDrawingMode(null);
             $('#mapCoords').val(JSON.stringify(markerCoords));
-        // }
+        }
 
         google.maps.event.addListener(marker, "dragend", function() {
             var markerCoords = marker.getPosition();
 
-            // if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-            //     alert('No se puede agregar una problema fuera del poligno!');
-            //     drawingManager.setDrawingMode(null);
-            //     drawingManager.setOptions({
-            //         drawingControl: true
-            //     });
-            //     clearMarkers();
-            // } else {
+            if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
+                alert('No se puede agregar una problema fuera del poligno!');
+                drawingManager.setDrawingMode(null);
+                drawingManager.setOptions({
+                    drawingControl: true
+                });
+                clearMarkers();
+            } else {
                 $('#mapCoords').val(JSON.stringify(markerCoords));
-            // }
+            }
         });
 
     });
-    google.maps.event.addDomListener(document.getElementById('delete-button'), "click", clearMarkers);
     initailCoords.setMap(map);
     drawingManager.setMap(map);
     map.fitBounds(initailCoords.getBounds());

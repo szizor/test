@@ -12,47 +12,6 @@ var i;
         initialPolygonCoords.push( new google.maps.LatLng(coordsVal[i].k, coordsVal[i].A || coordsVal[i].B) );
     };  
 
-// function initialize() {
-//   geocoder = new google.maps.Geocoder();
-
-//     map = new google.maps.Map(document.getElementById('map-canvas'),
-//     mapOptions);
-
-  // var drawingManager = new google.maps.drawing.DrawingManager({
-  //   paths: initialPolygon,
-  //   drawingControl: true,
-  //   drawingControlOptions: {
-  //     position: google.maps.ControlPosition.TOP_CENTER,
-  //     drawingModes: [
-  //       google.maps.drawing.OverlayType.MARKER
-  //     ]
-  //   },
-  //   polygonOptions: {
-  //     strokeColor: '#FF0000',
-  //     strokeOpacity: 0.8,
-  //     strokeWeight: 2,
-  //     fillColor: '#FF0000',
-  //     fillOpacity: 0.35,
-  //     clickable: true,
-  //     draggable: false,
-  //     editable: true,
-  //     zIndex: 1
-  //   }
-  // });
-
-// drawingManager.setOptions({
-//     drawingControlOptions: {
-//         position: google.maps.ControlPosition.TOP_CENTER,
-//         drawingModes: [google.maps.drawing.OverlayType.POLYGON]
-//     }
-// });
-
-//   drawingManager.setMap(map);
-
-// }
-
-// google.maps.event.addDomListener(window, 'load', initialize);
-
 function setAllMap(map) {
     markers.setMap(map);
 }
@@ -140,31 +99,31 @@ function initialize() {
     google.maps.event.addListener(drawingManager, 'markercomplete', function( marker ) {
         markers = marker;
         var markerCoords = marker.getPosition();
-        if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-            alert('No se puede agregar una problema fuera del poligno!');
-            drawingManager.setDrawingMode(null);
-            clearMarkers();
-        } else {
+        // if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
+        //     alert('No se puede agregar una problema fuera del poligno!');
+        //     drawingManager.setDrawingMode(null);
+        //     clearMarkers();
+        // } else {
             drawingManager.setOptions({
                 drawingControl: false
             })
             drawingManager.setDrawingMode(null);
             $('#mapCoords').val(JSON.stringify(markerCoords));
-        }
+        // }
 
         google.maps.event.addListener(marker, "dragend", function() {
             var markerCoords = marker.getPosition();
 
-            if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
-                alert('No se puede agregar una problema fuera del poligno!');
-                drawingManager.setDrawingMode(null);
-                drawingManager.setOptions({
-                    drawingControl: true
-                });
-                clearMarkers();
-            } else {
+            // if ( !google.maps.geometry.poly.containsLocation(markerCoords, initailCoords) ) {
+            //     alert('No se puede agregar una problema fuera del poligno!');
+            //     drawingManager.setDrawingMode(null);
+            //     drawingManager.setOptions({
+            //         drawingControl: true
+            //     });
+            //     clearMarkers();
+            // } else {
                 $('#mapCoords').val(JSON.stringify(markerCoords));
-            }
+            // }
         });
 
     });
