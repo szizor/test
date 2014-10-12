@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
             <div class="toolbar__label">Categorias</div>
-            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name, nil), :include_blank => "Please select...", :class=>"form-control select2-control", :id=>"problem_category_id"%>
+            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name_with_count, nil), :include_blank => "Please select...", :class=>"form-control select2-control", :id=>"problem_category_id"%>
           </div>
           <div class="col-md-4 col-xs-12 toolbar__form-group">
             <div class="toolbar__label">Reportes y Proyectos de</div>
@@ -138,9 +138,28 @@
             <h3>Recorriodos</h3>
             <div class="content">
               <h6>Pasados</h6>
-              <ul>
+              <ul class="ruta-ul">
                 <% @polygon.tours.where("created_at < '#{Date.today}'").each do |tour|%>
-                  <li id="ruta_<%=tour.id%>" style="color:<%=tour.colors || "white"%>"><%= tour.name %></li>
+                  <style>   
+                    .ruta-ul {
+                        list-style: none;
+                        padding:0;
+                        margin:0;
+                    }
+
+                    .ruta-color { 
+                        padding-left: 1em; 
+                        text-indent: -.7em;
+                    }
+                    .ruta-color:before {
+                        content:"·";
+                        font-size:50px;
+                        vertical-align: text-bottom;
+                        line-height: 23px;
+                        color: <%=tour.colors || "white"%>; /* or whatever color you prefer */
+                    }
+                  </style>
+                  <li id="ruta_<%=tour.id%>" class="ruta-color"><%= tour.name %></li>
                 <% end %>  
               </ul>
               <h6>Futuros</h6>
@@ -172,13 +191,13 @@
           </div>
       </div>
     </div>
-    <!-- <div class="item">
-      <h4>galeria</h4>
+    <div class="item">
+      <h4>Documentos</h4>
       <div class="ico">
         <img src="images/ico_m_5.png" alt="">
       </div>
-      <p><a href="#">Fotos y video</a></p>
-    </div> -->
+      <p><a href="#">Archivos e Imagenes</a></p>
+    </div>
   </div>
   </div>
   <div class="map-view" id="mainMap">
@@ -276,7 +295,7 @@
         <div class="solution-list">
           <div class="solucion-header">
             <div style="float:left">
-              <p class="loc"><%= problem.alternatives.count%> Alternativas</p>
+              <p class="loc"><%= problem.alternatives.count%> Alternativa(s) | <%= problem.alternatives.where(:solution => true).count%> Proyecto(s)</p>
             </div>
             <div style="float:right">
               <div class="report">
