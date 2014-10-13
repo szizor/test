@@ -55,7 +55,7 @@
       <h5><%= @polygon.population %></h5>
       <p>Habitantes</p>
     </div>
-    <div class="set">
+    <div class="set" style="position:relative">
       <h4>género</h4>
       <div class="item">
         <h5><%= @polygon.women_perc %>%</h5>
@@ -65,24 +65,55 @@
         <h5><%= @polygon.men_perc %>%</h5>
         <p>Mujeres</p>
       </div>
+      <div class="more-info">
+        <a href="#" class="close"></a>
+        <h3>Población por género</h3>
+        <div class="content">
+          <h6>Hombres</h6>
+          <ul>
+            <li><%= number_with_delimiter(@polygon.men_pop) %></li>
+          </ul>
+          <h6>Mujeres</h6>
+          <ul>
+            <li><%= number_with_delimiter(@polygon.women_pop) %></li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="set">
       <h4>Rangos de edad</h4>
       <div class="item">
         <h5><%= @polygon.rangos_low %>%</h5>
-        <p><a href="#">12-29 años</a></p>
+        <p><a href="#">0-29 años</a></p>
       </div>
       <div class="item">
         <h5><%= @polygon.rangos_high %>%</h5>
         <p><a href="#">30-60+ años</a></p>
       </div>
-      <!-- <div class="more-info">
+      <div class="more-info" style="width:350px;left:30%">
         <a href="#" class="close"></a>
         <h3>Rangos de Edad</h3>
-        <div class="chart">
-          <img src="images/chart.png" alt="">
-        </div>
-      </div> -->
+        <table class="table table-bordered rangos-ed">
+          <tr>
+            <th><%= ((@polygon.cero_doce * 100).to_f.to_f / @polygon.population).round %>%</th>
+            <th><%= ((@polygon.doce_catorce * 100).to_f / @polygon.population).round %>%</th>
+            <th><%= ((@polygon.quince_diecinueve * 100).to_f / @polygon.population).round %>%</th>
+            <th><%= ((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population).round%>%</th>
+            <th><%= ((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population).round %>%</th>
+            <th><%= ((@polygon.treinta_cincuentainueve * 100).to_f / @polygon.population).round %>%</th>
+            <th><%= ((@polygon.sesenta * 100).to_f / @polygon.population).round %>%</th>
+          </tr>
+          <tr>
+            <td nowrap>0-12</td>
+            <td nowrap>12-24</td>
+            <td nowrap>15-19</td>
+            <td nowrap>20-24</td>
+            <td nowrap>25-29</td>
+            <td nowrap>30-59</td>
+            <td nowrap>60+</td>
+          </tr>  
+        </table>  
+      </div>
     </div>
     <div class="item">
       <h4>Nivel Socioeconomico</h4>
@@ -126,13 +157,13 @@
         <p style="margin-top: 10px;"><a href="#" id="trigger-calendar">Programa</a></p>
       </div>
     </div>
-    <div class="item pl">
+    <div class="item pl" style="position:relative">
       <h4>recorridos</h4>
       <div class="ico">
         <img src="images/ico_m_3.png" alt="">
         <div class="count"><%= @polygon.tours.count %></div>
       </div>
-      <p style="margin-top: 10px;">Programa</p>
+      <p style="margin-top: 10px;">Trazos</p>
       <div class="more-info-tour">
             <a href="#" class="close"></a>
             <h3>Recorriodos</h3>
@@ -159,7 +190,7 @@
                         color: <%=tour.colors || "white"%>; /* or whatever color you prefer */
                     }
                   </style>
-                  <li id="ruta_<%=tour.id%>" class="ruta-color"><%= tour.name %></li>
+                  <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)"><%= tour.name %></li>
                 <% end %>  
               </ul>
               <h6>Futuros</h6>
@@ -171,7 +202,7 @@
             </div>
       </div>
     </div>
-    <div class="item pl">
+    <div class="item pl style="position:relative"">
       <h4>transporte</h4>
       <div class="ico">
         <img src="images/ico_m_4.png" alt="">
@@ -206,7 +237,8 @@
 </div>
     <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
       <div class="details-2 problem-<%= problem.id %>" style="display: none">
-        <div class="problem-detail collapsed" style="background-image: url('images/backgrounds/violencia-callejera.jpg');">
+        <% imagebg = problem.image.present? ? problem.image.url : "images/backgrounds/violencia-callejera.jpg" %>
+        <div class="problem-detail collapsed" style="background-image: url('<%= imagebg %>');">
             <a class="close" href="#"></a>
             <div class="excerpt-container">
                 <div class="detail-heading">

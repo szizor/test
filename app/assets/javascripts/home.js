@@ -265,7 +265,7 @@ function initialize() {
             var i, elTour;
             var index= e.target.id.replace(/ruta_/, '');
             tours.forEach(function(plan) {
-             if (plan.id === parseInt(index)) {elTour=plan}
+             if (plan.id === parseInt(index)) { elTour = plan }
             })
             for (i = 0; i < elTour.coords.length; i++) {
                 drawPolyline.push( new google.maps.LatLng(elTour.coords[i].k, elTour.coords[i].A || elTour.coords[i].B) );
@@ -280,7 +280,11 @@ function initialize() {
                 editable: false,
                 zIndex: 1
             })
-            currentPolyline.setMap(map);
+            if (e.toElement.className == "ruta-color act"){
+              currentPolyline.setMap(map);
+            } else {
+              currentPolyline.setMap(null);
+            }
         });  
     }
     // Other Markers

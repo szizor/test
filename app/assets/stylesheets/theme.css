@@ -885,7 +885,7 @@ html, body {
 .poligon-info .more-info {
     position: absolute;
     top: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
     left: 50%;
     text-align: left;
     width: 276px;
@@ -953,7 +953,7 @@ html, body {
     position: absolute;
     top: 100%;
     margin-top: 10px;
-    left: 78%;
+    left: 75%;
     text-align: left;
     width: 276px;
     border-radius: 1px;
@@ -1021,8 +1021,8 @@ html, body {
 .poligon-info .more-info-tour {
     position: absolute;
     top: 100%;
-    margin-top: 10px;
-    left: 75%;
+    margin-top: 33px;
+    left: 60%;
     text-align: left;
     width: 276px;
     border-radius: 1px;
@@ -1953,4 +1953,12 @@ color: #666666;
     display: inline-block;
     color: #F71C53;
     text-decoration: none;
+}
+.rangos-ed{
+    text-align: center !important;
+    color: white;
+}
+.rangos-ed th{
+    text-align: center !important;
+    color: white;
 }
