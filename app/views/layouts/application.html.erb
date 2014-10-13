@@ -131,11 +131,11 @@
       <h3>Reporte de problema</h3>
       <%= form_for Problem.new, :url => save_problem_path(), :html => { :class => "", :role => "form" } do |f| %>
         <%= f.hidden_field :polygon_id, :value => @polygon.id %>
-        <%= f.hidden_field :coords, :id=>"user_problem" %>
+        <%= f.hidden_field :coords, :id=>"user_problem", :required=>"required" %>
         <%= f.hidden_field :public, :value => false %>
         <fieldset>
           <label>nombre del problema </label>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, :required=>"required" %>
           <div class="public">
             <input type="checkbox">
             <label>Publicar como anónimo</label>
@@ -143,7 +143,7 @@
         </fieldset>
         <fieldset>
           <label>Describe el problema </label>
-           <%= f.text_area(:description) %>
+           <%= f.text_area :description, :required=>"required" %>
         </fieldset>
         <fieldset>
           <label>Selecciona el tipo del problema</label>
