@@ -1962,3 +1962,77 @@ color: #666666;
     text-align: center !important;
     color: white;
 }
+.report-problem-bar form {
+    float: left;
+    margin-top: 12px;
+    width: 702px;
+    height: 33px;
+    position: relative;
+    border: 1px solid #393837;
+    border-radius: 2px;
+    background-color: #000;
+}
+
+.report-problem-bar form button {
+    float: left;
+    width: 30px;
+    height: 31px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../images/ico_s.png) no-repeat 50% 50%;
+    border: 0;
+}
+
+.report-problem-bar form input {
+    float: left;
+    background: none;
+    padding: 0 0 0 30px;
+    margin: 0;
+    border: 0;
+    height: 31px;
+    width: 100%;
+    color: #585858;
+    line-height: 31px;
+}
+
+.report-problem-bar form input::-webkit-input-placeholder {
+    color: #585858;
+}
+
+.report-problem-bar form input::-moz-placeholder {
+    color: #585858;
+    opacity: 1;
+}
+
+.report-problem-bar h3 {
+    line-height: 53px;
+    padding-right: 17px;
+    float: left;
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 15px;
+}
+
+.report-problem-bar {
+    position: absolute;
+    top: 84px;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    padding-left: 52px;
+    height: 53px;
+    background-color: rgba(9,9,9,.89);
+    box-shadow: 0 2px 2px rgba(0,1,1,.2);
+}
+
+.report-problem-bar:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    background: #cd0537 url(../images/poligon.png) no-repeat 50% 16px;
+    content: "";
+}

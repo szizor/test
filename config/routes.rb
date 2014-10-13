@@ -32,6 +32,7 @@ Imjuve::Application.routes.draw do
   get "home/index"
 
   post 'signup', to: 'users#create', as: 'signup'
+  post 'save_problem' => "home#save_problem"
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post "dynamic_polygons/:id" => "home#dynamic_polygons"

@@ -29,7 +29,11 @@ $(document).ready(function() {
       data: data,
     });
   });
-  $(".report a").fancybox();
+  $(".reporte a").fancybox();
+  $(".report-trigger").on('click', function(){
+    $('.poligon-info').hide();
+    $('.report-problem-bar').show();
+  });
   var detailBox = $('.problem-detail');
 	var closeBtn = detailBox.find('.close');
 	var toggleControl = detailBox.find('.info-toggle');

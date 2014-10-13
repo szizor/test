@@ -2,6 +2,7 @@ var geocoder, map, selectedShape, drawingManager;
 var drawPolygon = [];
 var drawPolyline=[];
 var bounds;
+var markermap;
 var boxes;
 var address = "San Gabriel 2975, Guadalajara, JAL";
 var colors = [
@@ -258,6 +259,24 @@ function initialize() {
             map: map,
             content: this.content
         });
+      });
+      google.maps.event.addListener(map, "click", function(event) {
+
+          if(markermap) {
+              markermap.setMap(null);
+          }
+
+          markermap = new google.maps.Marker({
+              position: event.latLng,
+              draggable: true,
+              map: map,
+              title: "myTitle",
+          });
+          var markerCoords = markermap.getPosition();
+          google.maps.event.addListener(markermap, 'click', function() {
+              $('#user_problem').val(JSON.stringify(markerCoords));
+              $(".reporte a").click();
+          });
       });
     }
     for (var idx = 0; idx < tours.length; idx++) {

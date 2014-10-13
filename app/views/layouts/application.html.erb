@@ -26,7 +26,10 @@
               <div class="container">
                 <div class="right">
                   <div class="report">
-                    <a href="#report">Reportar un Problema</a>
+                    <a href="#" class="report-trigger">Reportar un Problema</a>
+                  </div>
+                  <div class="reporte" style="display:none">
+                    <a href="#reporte" class="report-trigger">Reportar un Problema</a>
                   </div>
                   <div class="user">
                     <a href="#"><img src="images/1.png" alt=""></a>
@@ -124,10 +127,12 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    <div class="popup" id="report">
+    <div class="popup fancybox-problem" id="reporte">
       <h3>Reporte de problema</h3>
-      <%= form_for [:admin, @polygon, @problem], :html => { :class => "", :role => "form" } do |f| %>
+      <%= form_for Problem.new, :url => save_problem_path(), :html => { :class => "", :role => "form" } do |f| %>
         <%= f.hidden_field :polygon_id, :value => @polygon.id %>
+        <%= f.hidden_field :coords, :id=>"user_problem" %>
+        <%= f.hidden_field :public, :value => false %>
         <fieldset>
           <label>nombre del problema </label>
           <%= f.text_field :name %>

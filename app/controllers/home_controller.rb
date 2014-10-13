@@ -28,4 +28,16 @@ class HomeController < ApplicationController
     end
   end
 
+  def save_problem
+    @problem = Problem.new(params[:problem])
+    if @problem.save
+      respond_to do |format|
+        format.html { redirect_to root_path(p: params[:problem][:polygon_id]), notice: 'Problema creado satisfactoriamente.' }
+        format.json { render json: @problem, status: :created, location: @problem }
+      end
+    else
+      render :action => 'new'
+    end
+  end
+
 end
