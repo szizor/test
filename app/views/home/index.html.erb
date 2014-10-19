@@ -10,20 +10,20 @@
           <div class="col-md-5 col-xs-12 toolbar__form-group">
             <div class="row">
               <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
-                <div class="toolbar__label">Seleccione un Estado</div>
-                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                <div class="toolbar__label">Estado</div>
+                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
                 </div>
               <div class="col-md-6 col-xs-6">
-                <div class="toolbar__label">Seleccione un polígono</div>
+                <div class="toolbar__label">Polígono</div>
                 <select id="polygon_select" class="form-control select2-control-exec">
-                  <option value=''>Selecciona el Estado</option>
+                  <option value=''>Selecciona el Polígono</option>
                 </select>
               </div>
             </div>
           </div>
           <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
             <div class="toolbar__label">Categorias</div>
-            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name_with_count, nil), :include_blank => "Please select...", :class=>"form-control select2-control", :id=>"problem_category_id"%>
+            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name_with_count, nil), :prompt => "Selecciona", :class=>"form-control select2-control", :id=>"problem_category_id"%>
           </div>
           <div class="col-md-4 col-xs-12 toolbar__form-group">
             <div class="toolbar__label">Reportes y Proyectos de</div>
@@ -49,7 +49,7 @@
 
     <div class="poligon-info" style="display: none">
       <a href="#" class="close" onclick="$('.poligon-info').hide()"></a>
-      <h3><%= @polygon.name %> · <span><%= @polygon.city_id %></span></h3>
+      <h3><%= @polygon.name %> · <span><%= @polygon.state.name %></span></h3>
       <div class="item first">
         <h4>Población</h4>
         <h5><%= @polygon.population %></h5>
@@ -241,12 +241,11 @@
 </div>
     <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
       <div class="details-2 problem-<%= problem.id %>" style="display: none">
-        <% imagebg = problem.image.present? ? problem.image.url : "images/backgrounds/violencia-callejera.jpg" %>
-        <div class="problem-detail collapsed" style="background-image: url('<%= imagebg %>');">
+        <% imagebg = problem.image.present? ? "background-image: url('#{problem.image.url }');" : "background-color: #A9A9A9;" %>
+        <div class="problem-detail collapsed" style="<%= imagebg %>">  
             <a class="close" href="#"></a>
             <div class="excerpt-container">
                 <div class="detail-heading">
-                    <i class="detail-icon"><img src="images/icons/icn-gun.png" alt="Gun"></i>
                     <span class="category-title"><%= problem.category.name %></span>
                 </div>
                 <div class="title">

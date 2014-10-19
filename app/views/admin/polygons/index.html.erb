@@ -61,7 +61,7 @@
                             <th class="text-center" colspan="2">Acciones</th>
                           </tr>
                           <% for problem in polygon.problems %>
-                          <%= polycolor = cycle('#f5f5f5', '#FFFFCC') %>
+                          <% polycolor = cycle('#f5f5f5', '#FFFFCC') %>
                             <tr class="problem_<%= polygon.id %>" style="background-color: <%= polycolor %>;display:none">
                               <td colspan="3"><a href="#" onclick="$(&quot;.alternative_<%=problem.id%>&quot;).toggle(&quot;slow&quot;);"><%= problem.name %></td>
                               <td><%= problem.category.try(:name) %></td>
