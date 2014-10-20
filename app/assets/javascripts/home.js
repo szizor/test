@@ -238,9 +238,10 @@ function initialize() {
         });
       });
     }
+
     //Actors
     for (var i = 0; i < actores.length; i++) {
-    var marker_image = 'images/markers/actor.png'
+      var marker_image = 'images/markers/actor.png';
       var current = actores[i];
   
       var marker = new google.maps.Marker({
@@ -279,9 +280,12 @@ function initialize() {
           });
       });
     }
+
     for (var idx = 0; idx < tours.length; idx++) {
+      console.log(idx, '1');
         google.maps.event.addDomListener(document.getElementById("ruta_"+tours[idx].id), "click", function (e) {
             var i, elTour;
+            var routeIndex = idx;
             var index= e.target.id.replace(/ruta_/, '');
             tours.forEach(function(plan) {
              if (plan.id === parseInt(index)) { elTour = plan }
@@ -299,12 +303,14 @@ function initialize() {
                 editable: false,
                 zIndex: 1
             })
+            console.log(routeIndex);
             if (e.toElement.className == "ruta-color act"){
               currentPolyline.setMap(map);
             } else {
               currentPolyline.setMap(null);
             }
         });  
+console.log(idx, '2');
     }
     // Other Markers
 }

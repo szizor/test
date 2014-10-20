@@ -434,7 +434,7 @@
                       <% for tour in @polygon.tours %>
                         <tr>
                           <td><%= tour.name %></td>
-                          <td><%= tour.start_date.in_time_zone('America/Mexico_City').strftime("%d de %b %H:%M") %></td>
+                          <td><%= tour.start_date.in_time_zone('America/Mexico_City').strftime("%d de %b %H:%M") if tour.start_date %></td>
                           <td><%= link_to "Edit", edit_admin_polygon_tour_path(@polygon, tour) %></td>
                           <td><%= link_to "Destroy", admin_polygon_tour_path(@polygon, tour), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>

@@ -550,7 +550,19 @@
       
       {
         'id':<%=problem.id%>,
-        'content':'<div class="itemb"><div class="red">  <h2><%=h truncate(problem.name, :length => 35) %></h2><p><%= @polygon.name %>, <%= @polygon.city_id %></p></div><div class="left" onclick="$(&quot;.problem-<%=problem.id%>&quot;).show();"><%= problem.alternatives.count %> Alternativas </div><div class="like">0</div></div>',
+        'content':'\
+          <div class="itemb">\
+            <div class="red">\
+              <h2><%=h truncate(problem.name, :length => 35) %></h2>\
+              <p class="problem-location"><%= @polygon.name %>, <%= @polygon.city_id %></p>\
+              <a href="#" class="info-toggle expand" onclick="$(\'.problem-<%=problem.id%>\').show();">Más información <i class="toggle-control"></i></a>\
+            </div>\
+            <div class="bottom-content">\
+              <div class="left"><%= problem.alternatives.count %> Alternativas </div>\
+              <div class="like">0</div>\
+            </div>\
+          </div>\
+          <i class="tooltip-bottom-tip"></i>',
         'category': <%=problem.category_id%>,
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],
@@ -566,7 +578,20 @@
       
       {
         'id':<%=actor.id%>,
-        'content':'<div class="infobox-wrapper"><div class="info-content" itemscope itemtype="http://schema.org/Place" id="infobox"><div class="info-data"><a href="" class="info-data__name" itemprop="name"><%= actor.name%></a><p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span class="info-data__address_street" itemprop="streetAddress"><%= actor.address%></span><span class="info-data__address_locality" itemprop="addressLocality"><%= actor.city%></span><span class="info-data__address_region" itemprop="addressRegion">JAL</span><span class="info-data__address_street" itemprop="streetAddress"><%= actor.phone%></span></span></p></div></div></div>',
+        'content':'\
+          <div class="infobox-wrapper">\
+            <div class="info-content" itemscope itemtype="http://schema.org/Place" id="infobox">\
+              <div class="info-data">\
+                <a href="" class="info-data__name" itemprop="name"><%= actor.name%></a>\
+                <p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">\
+                  <span class="info-data__address_street" itemprop="streetAddress"><%= actor.address%></span>\
+                  <span class="info-data__address_locality" itemprop="addressLocality"><%= actor.city%></span>\
+                  <span class="info-data__address_region" itemprop="addressRegion">JAL</span>\
+                  <span class="info-data__address_street" itemprop="streetAddress"><%= actor.phone%></span>\
+                </p>\
+              </div>\
+            </div>\
+          </div>',
         'category': 1,
         'position': {
           'lat':JSON.parse(actorsdata[<%=index%>])["k"],

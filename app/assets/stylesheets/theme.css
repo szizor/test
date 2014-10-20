@@ -492,17 +492,31 @@ html, body {
 .infobox {
     position: absolute;
     z-index: 999;
-    height: 65px !important;
+    /*height: 65px !important;*/
 }
 
 .infobox .itemb {
-    background: url(../images/bg_box.png) no-repeat;
+    background: #fff;
     color: #848484;
     font-size: 14px;
     position: absolute;
     height: 123px;
     padding: 2px !important;
     width: 380px;
+    border: solid 1px #848484;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px 0px #848484;
+}
+
+.infobox .tooltip-bottom-tip {
+    display: block;
+    width: 15px;
+    height: 10px;
+    background: url('/assets/bg_box_tip_bottom.png') top left no-repeat;
+    position: absolute;
+    top: auto;
+    bottom: -9px;
+    left: 16px;
 }
 
 .infobox .error h2 {
@@ -640,14 +654,6 @@ html, body {
     padding: 5px 15px;
 }
 
-.infobox .red p {
-    margin: 0;
-    padding: 0;
-    color: #ce0538;
-    font-size: 11px;
-    text-shadow: 0 1px 1px rgba(237,255,231,.75);
-}
-
 .infobox h2 {
     color: #292929;
     padding: 3px 0 4px;
@@ -657,15 +663,17 @@ html, body {
 }
 
 .infobox .close {
+    font-weight: normal;
     position: absolute;
-    top: 0;
-    text-indent: -999em;
-    background: none;
-    bottom: 0;
-    left: 0;
+    top: 2px;
+    left: auto;
+    right: 2px;
+    width: 30px;
+    height: 30px;
+    text-indent: 0;
+    text-align: center;
+    opacity: 0.5;
     z-index: 99;
-    right: 0;
-    display: block;
 }
 .poligon-info-arrow {
     position: absolute;
@@ -988,6 +996,7 @@ html, body {
     font-weight: bold;
     line-height: 30px;
     color: #ffffff;
+    cursor: pointer;
 }
 
 .poligon-info .more-info-tour ul + h6 {
@@ -1435,6 +1444,7 @@ background-color: #fff;
     height: 15px;
 }
 .problem-detail .excerpt-container {
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
     position: relative;
     max-width: 680px;
     /*margin: 30px 0px;*/
@@ -1526,10 +1536,8 @@ background-color: #fff;
     background-size: 100% auto;
 }
 .problem-detail .close {
-    background: url('../images/ico_close.png') no-repeat scroll 0% 0% transparent;
-}
-.problem-detail .excerpt-container {
-    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.5);
+    background: url('../images/ico_close_dark.png') no-repeat scroll 0% 0% transparent;
+    opacity: 0.8;
 }
 .problem-detail .category-title {
     color: #7f7e7e;
@@ -1644,16 +1652,6 @@ background-color: #fff;
 
 .infobox {
     position: absolute;
-}
-
-.infobox .itemb {
-    background: url(../images/bg_box.png) no-repeat;
-    color: #848484;
-    font-size: 14px;
-    position: absolute;
-    height: 123px;
-    padding: 2px !important;
-    width: 380px;
 }
 
 .infobox .error h2 {
@@ -1792,11 +1790,18 @@ background-color: #fff;
 }
 
 .infobox .red p {
-    margin: 0;
-    padding: 0;
     color: #ce0538;
     font-size: 11px;
     text-shadow: 0 1px 1px rgba(237,255,231,.75);
+    float: left;
+    margin: 0;
+    padding: 0;
+    max-width: 165px;
+}
+.infobox .red .info-toggle {
+    color: #ce0538;
+    font-size: 12px;
+    float: right;
 }
 
 .infobox h2 {
@@ -1807,17 +1812,11 @@ background-color: #fff;
     line-height: normal;
 }
 
-.infobox .close {
-    position: absolute;
-    top: 0;
-    text-indent: -999em;
-    background: none;
-    bottom: 0;
-    left: 0;
-    z-index: 99;
-    right: 0;
-    display: block;
+.infobox .bottom-content {
+    height: 40px;
+    position: relative;
 }
+
 .infobox-wrapper {
     /*display: none;*/
 }
