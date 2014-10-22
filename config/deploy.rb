@@ -10,7 +10,7 @@ set :use_sudo, false
 set :app_env, 'production'
 
 set :scm, "git"
-set :repository,  "git@github.com:MohamedAlaa/imjuve.git"
+set :repository,  "git@github.com:szizor/test.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
