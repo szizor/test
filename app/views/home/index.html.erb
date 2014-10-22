@@ -174,37 +174,33 @@
         <p style="margin-top: 10px;">Trazos</p>
         <div class="more-info-tour">
               <a href="#" class="close"></a>
-              <h3>Recorriodos</h3>
+              <h3>Recorridos</h3>
               <div class="content">
                 <h6>Pasados</h6>
                 <ul class="ruta-ul">
                   <% @polygon.tours.where("created_at < '#{Date.today}'").each do |tour|%>
                     <style>
-                      .ruta-ul {
-                          list-style: none;
-                          padding:0;
-                          margin:0;
-                      }
-
-                      .ruta-color {
-                          padding-left: 1em;
-                          text-indent: -.7em;
-                      }
-                      .ruta-color:before {
-                          content:"·";
-                          font-size:50px;
-                          vertical-align: text-bottom;
-                          line-height: 23px;
+                      #ruta_<%= tour.id %>:before {
                           color: <%=tour.colors || "white"%>; /* or whatever color you prefer */
                       }
                     </style>
-                    <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)"><%= tour.name %></li>
+                    <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)">
+                      <label for="ruta_<%= tour.id %>_checkbox">
+                        <%= tour.name %>
+                        <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
+                      </label>
+                    </li>
                   <% end %>
                 </ul>
                 <h6>Futuros</h6>
                 <ul>
                   <% @polygon.tours.where("created_at >= '#{Date.today}'").each do |tour|%>
-                    <li id="ruta_<%=tour.id%>"><%= tour.name %></li>
+                    <li id="ruta_<%=tour.id%>">
+                      <label for="ruta_<%= tour.id %>_checkbox">
+                        <%= tour.name %>
+                        <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
+                      </label>
+                    </li>
                   <% end %>
                 </ul>
               </div>

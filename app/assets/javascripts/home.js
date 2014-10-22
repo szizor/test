@@ -309,11 +309,14 @@ function initialize() {
         google.maps.event.addDomListener(document.getElementById("ruta_"+tours[idx].id), "click", function () {
             var idx     = arguments[0];
             var e       = arguments[1];
+            var element = document.getElementById("ruta_"+tours[idx].id);
 
-            if (e.target.className == "ruta-color act"){
-                polyLines[idx].setMap(map);
-            } else {
+            if (e.target.classList.contains("act")){
+                e.target.classList.remove("act");
                 polyLines[idx].setMap(null);
+            } else {
+                e.target.classList.add("act");
+                polyLines[idx].setMap(map);
             }
         }.bind(null, idx));
     }
