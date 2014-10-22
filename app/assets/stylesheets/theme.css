@@ -792,7 +792,7 @@ html, body {
 .poligon-info h3 {
     color: #fff;
     font-weight: normal;
-    padding: 19px 0 25px;
+    padding: 19px 0 21px;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 23px;
 }
@@ -1997,6 +1997,37 @@ color: #666666;
     text-align: center !important;
     color: white;
 }
+
+.table .cb-t{
+    border-top-width: 1px;
+    border-top-color: #f71c53;
+}
+.table .cb-l{
+    border-left-width: 1px;
+    border-left-color: #f71c53;
+}
+.table .cb-r{
+    border-right-width: 1px;
+    border-right-color: #f71c53;
+}
+.table .cb-b{
+    border-bottom-width: 1px;
+    border-bottom-color: #f71c53;
+}
+
+.table .nb-t{
+    border-top-width: 0;
+}
+.table .nb-l{
+    border-left-width: 0;
+}
+.table .nb-r{
+    border-right-width: 0;
+}
+.table .nb-b{
+    border-bottom-width: 0;
+}
+
 .report-problem-bar form {
     float: left;
     margin-top: 12px;

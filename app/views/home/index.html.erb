@@ -103,22 +103,31 @@
           <h3>Rangos de Edad</h3>
           <table class="table table-bordered rangos-ed">
             <tr>
-              <th><%= ((@polygon.cero_doce * 100).to_f.to_f / @polygon.population).round %>%</th>
-              <th><%= ((@polygon.doce_catorce * 100).to_f / @polygon.population).round %>%</th>
-              <th><%= ((@polygon.quince_diecinueve * 100).to_f / @polygon.population).round %>%</th>
-              <th><%= ((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population).round%>%</th>
-              <th><%= ((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population).round %>%</th>
+              <th class="nb-r"><%= ((@polygon.cero_doce * 100).to_f.to_f / @polygon.population).round %>%</th>
+              <th class="cb-l cb-t"><%= ((@polygon.doce_catorce * 100).to_f / @polygon.population).round %>%</th>
+              <th class="cb-t"><%= ((@polygon.quince_diecinueve * 100).to_f / @polygon.population).round %>%</th>
+              <th class="cb-t"><%= ((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population).round%>%</th>
+              <th class="cb-t cb-r"><%= ((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population).round %>%</th>
               <th><%= ((@polygon.treinta_cincuentainueve * 100).to_f / @polygon.population).round %>%</th>
               <th><%= ((@polygon.sesenta * 100).to_f / @polygon.population).round %>%</th>
             </tr>
             <tr>
-              <td nowrap>0-12</td>
-              <td nowrap>12-24</td>
-              <td nowrap>15-19</td>
-              <td nowrap>20-24</td>
-              <td nowrap>25-29</td>
+              <td class="nb-r" nowrap>0-12</td>
+              <td class="cb-l cb-b" nowrap>12-24</td>
+              <td class="cb-b" nowrap>15-19</td>
+              <td class="cb-b" nowrap>20-24</td>
+              <td class="cb-r cb-b" nowrap>25-29</td>
               <td nowrap>30-59</td>
               <td nowrap>60+</td>
+            </tr>
+            <tr>
+              <td nowrap>2</td>
+              <td nowrap>24</td>
+              <td nowrap>19</td>
+              <td nowrap>24</td>
+              <td nowrap>29</td>
+              <td nowrap>59</td>
+              <td nowrap>60</td>
             </tr>
           </table>
         </div>
