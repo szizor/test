@@ -19,6 +19,7 @@ var markers = []; // makers array
 var markersActors = [];
 var selectedColor;
 var colorButtons = {};
+var polyLines = [];
 
 
 
@@ -32,7 +33,7 @@ function initialize() {
     google.maps.Polygon.prototype.getBounds = function() {
       var bounds = new google.maps.LatLngBounds();
       var paths = this.getPaths();
-      var path;        
+      var path;
       for (var i = 0; i < paths.getLength(); i++) {
           path = paths.getAt(i);
           for (var ii = 0; ii < path.getLength(); ii++) {
@@ -178,7 +179,7 @@ function initialize() {
         }
     });
 
-    categories.on("select2-selecting", function(e) { 
+    categories.on("select2-selecting", function(e) {
         showCategories(e.target, e.val)
     });
 
@@ -215,7 +216,7 @@ function initialize() {
     currentPolygon.setMap(map);
     var img;
     for (var i = 0; i < data.length; i++) {
-      if (data[i].public) {img = 'images/markers/' + data[i].category +'_p.png'} else {img = 'images/markers/' + data[i].category +'.png'}  
+      if (data[i].public) {img = 'images/markers/' + data[i].category +'_p.png'} else {img = 'images/markers/' + data[i].category +'.png'}
       var marker_image = img;
       var current = data[i];
       var marker = new google.maps.Marker({
@@ -226,9 +227,9 @@ function initialize() {
         category: current.category,
         icon: marker_image
       });
-  
+
       markers.push(marker);
-  
+
       google.maps.event.addListener(markers[i], "click", function (e) {
         $('.infobox').children('.close').click()
         var infoBox = new InfoBox({
@@ -243,16 +244,16 @@ function initialize() {
     for (var i = 0; i < actores.length; i++) {
       var marker_image = 'images/markers/actor.png';
       var current = actores[i];
-  
+
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(current.position.lat, current.position.lng),
         map: map,
         content: current.content,
         icon: marker_image
       });
-  
+
       markersActors.push(marker);
-  
+
       google.maps.event.addListener(markersActors[i], "click", function (e) {
         $('.infobox').children('.close').click()
         var infoBox = new InfoBox({
@@ -281,36 +282,40 @@ function initialize() {
       });
     }
 
+
     for (var idx = 0; idx < tours.length; idx++) {
-      console.log(idx, '1');
-        google.maps.event.addDomListener(document.getElementById("ruta_"+tours[idx].id), "click", function (e) {
-            var i, elTour;
-            var routeIndex = idx;
-            var index= e.target.id.replace(/ruta_/, '');
-            tours.forEach(function(plan) {
-             if (plan.id === parseInt(index)) { elTour = plan }
-            })
-            for (i = 0; i < elTour.coords.length; i++) {
-                drawPolyline.push( new google.maps.LatLng(elTour.coords[i].k, elTour.coords[i].A || elTour.coords[i].B) );
-            };
-            currentPolyline = new google.maps.Polyline({
-                path: drawPolyline,
-                strokeWeight: 3,
-                strokeColor: elTour.color,
-                fillOpacity: 0.35,
-                clickable: true,
-                draggable: false,
-                editable: false,
-                zIndex: 1
-            })
-            console.log(routeIndex);
-            if (e.toElement.className == "ruta-color act"){
-              currentPolyline.setMap(map);
+        var i               = 0;
+        var elTour          = tours[idx];
+        var drawPolyline    = [];
+        var currentPolyline = null;
+
+        for (i; i < elTour.coords.length; i++) {
+            drawPolyline.push( new google.maps.LatLng(elTour.coords[i].k, elTour.coords[i].A || elTour.coords[i].B) );
+        };
+
+        currentPolyline = new google.maps.Polyline({
+            path: drawPolyline,
+            strokeWeight: 3,
+            strokeColor: elTour.color,
+            fillOpacity: 0.35,
+            clickable: true,
+            draggable: false,
+            editable: false,
+            zIndex: 1,
+        });
+
+        polyLines.push(currentPolyline);
+
+        google.maps.event.addDomListener(document.getElementById("ruta_"+tours[idx].id), "click", function () {
+            var idx     = arguments[0];
+            var e       = arguments[1];
+
+            if (e.target.className == "ruta-color act"){
+                polyLines[idx].setMap(map);
             } else {
-              currentPolyline.setMap(null);
+                polyLines[idx].setMap(null);
             }
-        });  
-console.log(idx, '2');
+        }.bind(null, idx));
     }
     // Other Markers
 }
@@ -385,8 +390,8 @@ $(document).ready(function() {
   $(".select2-control-exec").select2({
     placeholder: "Selecciona...",
     allowClear: true
-  }).on("select2-selecting", function(e) { 
-    window.location.href="/?p="+ e.val; 
+  }).on("select2-selecting", function(e) {
+    window.location.href="/?p="+ e.val;
   });
 
   $('.element-toggle').bind('click', function (e) {

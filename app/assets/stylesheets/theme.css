@@ -8,7 +8,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
+article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -483,7 +483,7 @@ html, body {
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-}    
+}
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -718,6 +718,17 @@ html, body {
 .poligon-info a {
     color: #7f7e7e;
     text-decoration: underline;
+}
+
+.poligon-info-header a {
+    float: right;
+    color: #f71c53;
+    font-size: 15px;
+    padding: 10px 10px 0;
+}
+
+.poligon-info-header a:nth-child(2) {
+    margin: 0 60px 0 0;
 }
 
 .poligon-info h5 {

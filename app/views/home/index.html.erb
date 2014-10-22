@@ -35,7 +35,7 @@
               </div>
               <div class="col-md-6  toolbar__form-group-field">
                 <label class="btn btn-adopted">
-                  <input type="checkbox" checked="" name="admin"> <b>Administrador</b> 
+                  <input type="checkbox" checked="" name="admin"> <b>Administrador</b>
                 </label>
               </div>
             </div>
@@ -49,7 +49,15 @@
 
     <div class="poligon-info" style="display: none">
       <a href="#" class="close" onclick="$('.poligon-info').hide()"></a>
-      <h3><%= @polygon.name %> · <span><%= @polygon.state.name %></span></h3>
+      <div class="poligon-info-header">
+        <h3><%= @polygon.name %> ·
+          <span><%= @polygon.state.name %></span>
+          <a href="#">Documentos</a>
+          <a href="#">Videos</a>
+          <a href="#">Fotos</a>
+          <a href="#">Árboles</a>
+        </h3>
+      </div>
       <div class="item first">
         <h4>Población</h4>
         <h5><%= @polygon.population %></h5>
@@ -111,8 +119,8 @@
               <td nowrap>25-29</td>
               <td nowrap>30-59</td>
               <td nowrap>60+</td>
-            </tr>  
-          </table>  
+            </tr>
+          </table>
         </div>
       </div>
       <div class="item">
@@ -171,15 +179,15 @@
                 <h6>Pasados</h6>
                 <ul class="ruta-ul">
                   <% @polygon.tours.where("created_at < '#{Date.today}'").each do |tour|%>
-                    <style>   
+                    <style>
                       .ruta-ul {
                           list-style: none;
                           padding:0;
                           margin:0;
                       }
 
-                      .ruta-color { 
-                          padding-left: 1em; 
+                      .ruta-color {
+                          padding-left: 1em;
                           text-indent: -.7em;
                       }
                       .ruta-color:before {
@@ -191,13 +199,13 @@
                       }
                     </style>
                     <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)"><%= tour.name %></li>
-                  <% end %>  
+                  <% end %>
                 </ul>
                 <h6>Futuros</h6>
                 <ul>
                   <% @polygon.tours.where("created_at >= '#{Date.today}'").each do |tour|%>
                     <li id="ruta_<%=tour.id%>"><%= tour.name %></li>
-                  <% end %>  
+                  <% end %>
                 </ul>
               </div>
         </div>
@@ -216,19 +224,19 @@
               <ul>
                 <% @polygon.rutas.split(",").each do |ruta|%>
                   <li><%= ruta %></li>
-                <% end %>  
+                <% end %>
               </ul>
-              
+
             </div>
         </div>
       </div>
-      <div class="item">
+      <!-- <div class="item">
         <h4>Documentos</h4>
         <div class="ico">
           <img src="images/ico_m_5.png" alt="">
         </div>
         <p><a href="#">Archivos e Imagenes</a></p>
-      </div>
+      </div> -->
     </div>
     <div class="report-problem-bar" style="display: none">
       <h3>Ubicación del Problema</h3>
@@ -242,7 +250,7 @@
     <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
       <div class="details-2 problem-<%= problem.id %>" style="display: none">
         <% imagebg = problem.image.present? ? "background-image: url('#{problem.image.url }');" : "background-color: #A9A9A9;" %>
-        <div class="problem-detail collapsed" style="<%= imagebg %>">  
+        <div class="problem-detail collapsed" style="<%= imagebg %>">
             <a class="close" href="#"></a>
             <div class="excerpt-container">
                 <div class="detail-heading">
@@ -336,8 +344,8 @@
               <div class="report">
                 <a href="#report">Participar</a>
               </div>
-            </div>  
-          </div>  
+            </div>
+          </div>
           <% problem.alternatives.each do |alternative| %>
             <div class="alternative-container">
               <div class="solution-detail">
@@ -358,13 +366,13 @@
                         <% if alternative.solution %>
                           <a class="project info-toggle expand" onclick="$(&quot;.project-info-<%= alternative.id %>&quot;).show(); $(this).hide()">Más información <i class="toggle-control"></i></a>
                           <a href="#" class="project info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
-                        <% end %>  
+                        <% end %>
                         <img src="images/social.png" alt="">
                       </div>
-                    </div>  
+                    </div>
                   </div>
                 </div>
-              </div>  
+              </div>
               <% if alternative.solution %>
                 <div class="project-info-<%= alternative.id %>" style="display:none">
                   <h2>Información de la Matriz</h2>
@@ -379,7 +387,7 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                          <div style="float:left;width: 100%;text-align: center;"> 
+                          <div style="float:left;width: 100%;text-align: center;">
                             <p class="explicacion">OBJETIVO GENERAL</p>
                             <%= alternative.porpuse %>
                           </div>
@@ -444,8 +452,8 @@
                       <%= number_to_currency(alternative.assigned_budget) %>
                       <p class="explicacion">FECHA DE TERMINO ESTIMADA</p>
                       <%= l alternative.end_date, :format => :short_datetime %>
-                    </div>   
-                  </div>  
+                    </div>
+                  </div>
                   <h2>Beneficiarios</h2>
                   <div style="display:block">
                     <div style="float:left;width: 50%;text-align: center;">
@@ -455,14 +463,14 @@
                     <div style="float:right;width: 50%;text-align: center;">
                       <p class="explicacion">GRUPO DE EDAD BENEFICIADO  </p>
                       <%= alternative.group_benefited || "N/D" %>
-                    </div>   
-                  </div>  
+                    </div>
+                  </div>
                   <h2>La institución responsable de implementar el proyecto</h2>
                   <p class="explicacion">ACTOR PRINCIPAL</p>
                   <%= alternative.actor.name if alternative.actor %>
                   <% if alternative.actors.present? %>
                     <p class="explicacion">ACTORES RELACIONADOS</p>
-                  <% end %>  
+                  <% end %>
                   <ul>
                     <% alternative.actors.each do |actor| %>
                       <li><%= actor.name%></li>
@@ -488,7 +496,7 @@
                         <%= link_to alternative.assigned_budget_pdf.file.filename, alternative.assigned_budget_pdf_url, :target => "_blank" %>
                       </div>
                     </div>
-                  <% end %>  
+                  <% end %>
                   <% if alternative.resume.present? %>
                     <div class="panel panel-default">
                       <div class="panel-heading">
@@ -508,12 +516,12 @@
                         <%= link_to alternative.crono.file.filename, alternative.crono_url, :target => "_blank" %>
                       </div>
                     </div>
-                  <% end %>      
-                </div> 
+                  <% end %>
+                </div>
               <% end %>
-            </div>  
+            </div>
           <% end %>
-        </div>  
+        </div>
       </div>
     <% end %>
 <div class="unsuppoted hide">
@@ -547,7 +555,7 @@
   var test = <%= raw @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").map{|problem| problem.coords.html_safe } %>;
   var data = [ // map data
       <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
-      
+
       {
         'id':<%=problem.id%>,
         'content':'\
@@ -572,10 +580,10 @@
       },
       <% end %>
     ];
-  var actorsdata = <%= raw @polygon.actors.where("coords is not null AND coords <> '--- \n...\n'").map{|actor| actor.coords.html_safe } %>;  
+  var actorsdata = <%= raw @polygon.actors.where("coords is not null AND coords <> '--- \n...\n'").map{|actor| actor.coords.html_safe } %>;
   var actores = [ // map data
       <% @polygon.actors.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |actor, index| %>
-      
+
       {
         'id':<%=actor.id%>,
         'content':'\
@@ -599,14 +607,14 @@
          }
       },
       <% end %>
-    ]  
+    ]
   var tours = [
     <% @polygon.tours.each_with_index do |tour, index| %>
     {
       'id':<%=tour.id%>,
       'coords':  <%=raw tour.coordinates %>,
       'color': '<%= tour.colors || "#FFFFFF"%>',
-    },   
+    },
     <% end %>
   ]
 </script>

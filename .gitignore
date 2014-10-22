@@ -11,3 +11,5 @@ db/schema.rb
 *.sql
 .sass-cache
 public/uploads
+.ruby-version
+.ruby-gemset
