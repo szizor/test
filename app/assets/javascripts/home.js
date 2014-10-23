@@ -440,3 +440,38 @@ $( window ).resize(function() {
 });
 
 window.onload = loadScript;
+
+
+// Move this logic into a separate file
+// Polygon info sliders
+$(document).ready(function (argument) {
+    var polygonInfoSlider   = $('.poligon-info .items-container');
+    var leftArrow           = $('.poligon-info .slider-control.left');
+    var rightArrow          = $('.poligon-info .slider-control.right');
+    var amount              = 80;
+    var $window             = $(window);
+
+    var slideLeft = function(){
+        var sliderWidth     = polygonInfoSlider.width();
+        var windowWidth     = $window.width();
+        var padding         = 30; // the arrow width
+        var treshold        = (sliderWidth - windowWidth + padding) * -1;
+        var currentPosition = ~~polygonInfoSlider.position().left;
+        var targetPosition  = currentPosition - amount;
+        var newPosition     = targetPosition <= treshold ? treshold : targetPosition;
+
+        polygonInfoSlider.stop(true).animate({left: newPosition }, 300);
+    }
+
+    var slideRight = function(){
+        var currentPosition = ~~polygonInfoSlider.position().left;
+        var targetPosition  = currentPosition + amount;
+        var newPosition     = targetPosition >= 0 ? 0 : targetPosition;
+
+        polygonInfoSlider.stop(true).animate({left: newPosition }, 300);
+    }
+
+    // binding
+    leftArrow.click(slideRight);
+    rightArrow.click(slideLeft);
+});

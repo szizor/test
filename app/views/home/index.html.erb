@@ -46,202 +46,208 @@
     <div class="poligon-info-arrow excerpt-brief">
       <a href="#" class="info-toggle expand" onclick="$(&quot;.poligon-info&quot;).show()">Más información <i class="toggle-control"></i></a>
     </div>
-
     <div class="poligon-info" style="display: none">
+      <i class="slider-control left"></i>
+      <i class="slider-control right"></i>
+      <div class="bar-label"></div>
       <a href="#" class="close" onclick="$('.poligon-info').hide()"></a>
       <div class="poligon-info-header">
         <h3><%= @polygon.name %> ·
           <span><%= @polygon.state.name %></span>
-          <a href="#">Documentos</a>
-          <a href="#">Videos</a>
-          <a href="#">Fotos</a>
-          <a href="#">Árboles</a>
         </h3>
       </div>
-      <div class="item first">
-        <h4>Población</h4>
-        <h5><%= @polygon.population %></h5>
-        <p>Habitantes</p>
+      <div class="media-links">
+        <a href="#">Árboles</a>
+        <a href="#">Fotos</a>
+        <a href="#">Videos</a>
+        <a href="#">Documentos</a>
       </div>
-      <div class="set" style="position:relative">
-        <h4>género</h4>
-        <div class="item">
-          <h5><%= @polygon.women_perc %>%</h5>
-          <p>Hombres</p>
+      <div class="items-container">
+        <div class="item first">
+          <h4>Población</h4>
+          <h5><%= @polygon.population %></h5>
+          <p>Habitantes</p>
         </div>
-        <div class="item">
-          <h5><%= @polygon.men_perc %>%</h5>
-          <p>Mujeres</p>
-        </div>
-        <div class="more-info">
-          <a href="#" class="close"></a>
-          <h3>Población por género</h3>
-          <div class="content">
-            <h6>Hombres</h6>
-            <ul>
-              <li><%= number_with_delimiter(@polygon.men_pop) %></li>
-            </ul>
-            <h6>Mujeres</h6>
-            <ul>
-              <li><%= number_with_delimiter(@polygon.women_pop) %></li>
-            </ul>
+        <div class="set" style="position:relative">
+          <h4>género</h4>
+          <div class="item">
+            <h5><%= @polygon.women_perc %>%</h5>
+            <p>Hombres</p>
           </div>
-        </div>
-      </div>
-      <div class="set">
-        <h4>Rangos de edad</h4>
-        <div class="item">
-          <h5><%= @polygon.rangos_low %>%</h5>
-          <p><a href="#">0-29 años</a></p>
-        </div>
-        <div class="item">
-          <h5><%= @polygon.rangos_high %>%</h5>
-          <p><a href="#">30-60+ años</a></p>
-        </div>
-        <div class="more-info" style="width:350px;left:30%">
-          <a href="#" class="close"></a>
-          <h3>Rangos de Edad</h3>
-          <table class="table table-bordered rangos-ed">
-            <tr>
-              <th class="nb-r"><%= ((@polygon.cero_doce * 100).to_f.to_f / @polygon.population).round %>%</th>
-              <th class="cb-l cb-t"><%= ((@polygon.doce_catorce * 100).to_f / @polygon.population).round %>%</th>
-              <th class="cb-t"><%= ((@polygon.quince_diecinueve * 100).to_f / @polygon.population).round %>%</th>
-              <th class="cb-t"><%= ((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population).round%>%</th>
-              <th class="cb-t cb-r"><%= ((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population).round %>%</th>
-              <th><%= ((@polygon.treinta_cincuentainueve * 100).to_f / @polygon.population).round %>%</th>
-              <th><%= ((@polygon.sesenta * 100).to_f / @polygon.population).round %>%</th>
-            </tr>
-            <tr>
-              <td class="nb-r" nowrap>0-12</td>
-              <td class="cb-l cb-b" nowrap>12-24</td>
-              <td class="cb-b" nowrap>15-19</td>
-              <td class="cb-b" nowrap>20-24</td>
-              <td class="cb-r cb-b" nowrap>25-29</td>
-              <td nowrap>30-59</td>
-              <td nowrap>60+</td>
-            </tr>
-            <tr>
-              <td nowrap>2</td>
-              <td nowrap>24</td>
-              <td nowrap>19</td>
-              <td nowrap>24</td>
-              <td nowrap>29</td>
-              <td nowrap>59</td>
-              <td nowrap>60</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="item">
-        <h4>Nivel Socioeconomico</h4>
-        <h5><%= @polygon.ses %></h5>
-        <p>(Prom.)</p>
-      </div>
-      <div class="item">
-        <h4>escolaridad</h4>
-        <h5><%= @polygon.scholarity %></h5>
-        <p>(Prom.)</p>
-      </div>
-      <div class="set nos">
-        <div class="item">
-          <h4>Economía</h4>
-          <div class="ico">
-            <img src="images/ico_m_1.png" alt="">
-            <!-- <div class="count rr">7</div> -->
+          <div class="item">
+            <h5><%= @polygon.men_perc %>%</h5>
+            <p>Mujeres</p>
           </div>
-          <p style="margin-top: 10px;"><a href="#">Actividades</a></p>
-          <div class="more-info">
+          <div class="more-info more-info-generos">
             <a href="#" class="close"></a>
-            <h3>Principales Actividades</h3>
+            <h3>Población por género</h3>
             <div class="content">
-              <h6>Productivas</h6>
+              <h6>Hombres</h6>
               <ul>
-                <li><%= @polygon.prod_act %></li>
+                <li><%= number_with_delimiter(@polygon.men_pop) %></li>
               </ul>
-              <h6>económicas</h6>
+              <h6>Mujeres</h6>
               <ul>
-                <li><%= @polygon.econ_act %></li>
+                <li><%= number_with_delimiter(@polygon.women_pop) %></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="item pl">
-          <h4>eventos</h4>
-          <div class="ico">
-            <img src="images/ico_m_2.png" alt="">
-            <!-- <div class="count">2</div> -->
+        <div class="set">
+          <h4>Rangos de edad</h4>
+          <div class="item">
+            <h5><%= @polygon.rangos_low %>%</h5>
+            <p><a href="#">0-29 años</a></p>
           </div>
-          <p style="margin-top: 10px;"><a href="#" id="trigger-calendar">Programa</a></p>
+          <div class="item">
+            <h5><%= @polygon.rangos_high %>%</h5>
+            <p><a href="#">30-60+ años</a></p>
+          </div>
+          <div class="more-info more-info-rangos">
+            <a href="#" class="close"></a>
+            <h3>Rangos de Edad</h3>
+            <table class="table table-bordered rangos-ed">
+              <tr>
+                <th class="nb-r"><%= ((@polygon.cero_doce * 100).to_f.to_f / @polygon.population).round %>%</th>
+                <th class="cb-l cb-t"><%= ((@polygon.doce_catorce * 100).to_f / @polygon.population).round %>%</th>
+                <th class="cb-t"><%= ((@polygon.quince_diecinueve * 100).to_f / @polygon.population).round %>%</th>
+                <th class="cb-t"><%= ((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population).round%>%</th>
+                <th class="cb-t cb-r"><%= ((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population).round %>%</th>
+                <th><%= ((@polygon.treinta_cincuentainueve * 100).to_f / @polygon.population).round %>%</th>
+                <th><%= ((@polygon.sesenta * 100).to_f / @polygon.population).round %>%</th>
+              </tr>
+              <tr>
+                <td class="nb-r" nowrap>0-12</td>
+                <td class="cb-l cb-b" nowrap>12-24</td>
+                <td class="cb-b" nowrap>15-19</td>
+                <td class="cb-b" nowrap>20-24</td>
+                <td class="cb-r cb-b" nowrap>25-29</td>
+                <td nowrap>30-59</td>
+                <td nowrap>60+</td>
+              </tr>
+              <tr>
+                <td nowrap>2</td>
+                <td nowrap>24</td>
+                <td nowrap>19</td>
+                <td nowrap>24</td>
+                <td nowrap>29</td>
+                <td nowrap>59</td>
+                <td nowrap>60</td>
+              </tr>
+            </table>
+          </div>
         </div>
-      </div>
-      <div class="item pl" style="position:relative">
-        <h4>recorridos</h4>
-        <div class="ico">
-          <img src="images/ico_m_3.png" alt="">
-          <div class="count"><%= @polygon.tours.count %></div>
+        <div class="item">
+          <h4>Nivel Socioeconomico</h4>
+          <h5><%= @polygon.ses %></h5>
+          <p>(Prom.)</p>
         </div>
-        <p style="margin-top: 10px;">Trazos</p>
-        <div class="more-info-tour">
+        <div class="item">
+          <h4>escolaridad</h4>
+          <h5><%= @polygon.scholarity %></h5>
+          <p>(Prom.)</p>
+        </div>
+        <div class="set nos">
+          <div class="item">
+            <h4>Economía</h4>
+            <div class="ico">
+              <img src="images/ico_m_1.png" alt="">
+              <!-- <div class="count rr">7</div> -->
+            </div>
+            <p style="margin-top: 10px;"><a href="#">Actividades</a></p>
+            <div class="more-info">
               <a href="#" class="close"></a>
-              <h3>Recorridos</h3>
+              <h3>Principales Actividades</h3>
               <div class="content">
-                <h6>Pasados</h6>
-                <ul class="ruta-ul">
-                  <% @polygon.tours.where("created_at < '#{Date.today}'").each do |tour|%>
-                    <style>
-                      #ruta_<%= tour.id %>:before {
-                          color: <%=tour.colors || "white"%>; /* or whatever color you prefer */
-                      }
-                    </style>
-                    <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)">
-                      <label for="ruta_<%= tour.id %>_checkbox">
-                        <%= tour.name %>
-                        <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
-                      </label>
-                    </li>
-                  <% end %>
-                </ul>
-                <h6>Futuros</h6>
+                <h6>Productivas</h6>
                 <ul>
-                  <% @polygon.tours.where("created_at >= '#{Date.today}'").each do |tour|%>
-                    <li id="ruta_<%=tour.id%>">
-                      <label for="ruta_<%= tour.id %>_checkbox">
-                        <%= tour.name %>
-                        <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
-                      </label>
-                    </li>
-                  <% end %>
+                  <li><%= @polygon.prod_act %></li>
+                </ul>
+                <h6>económicas</h6>
+                <ul>
+                  <li><%= @polygon.econ_act %></li>
                 </ul>
               </div>
-        </div>
-      </div>
-      <div class="item pl style="position:relative"">
-        <h4>transporte</h4>
-        <div class="ico">
-          <img src="images/ico_m_4.png" alt="">
-          <div class="count rr"><%= @polygon.rutas.split(",").count %></div>
-        </div>
-        <p style="margin-top: 10px;"><a href="#">Rutas</a></p>
-        <div class="more-info-rutas">
-            <a href="#" class="close"></a>
-            <h3>Rutas</h3>
-            <div class="content">
-              <ul>
-                <% @polygon.rutas.split(",").each do |ruta|%>
-                  <li><%= ruta %></li>
-                <% end %>
-              </ul>
-
             </div>
+          </div>
+          <div class="item pl">
+            <h4>eventos</h4>
+            <div class="ico">
+              <img src="images/ico_m_2.png" alt="">
+              <!-- <div class="count">2</div> -->
+            </div>
+            <p style="margin-top: 10px;"><a href="#" id="trigger-calendar">Programa</a></p>
+          </div>
         </div>
+        <div class="item pl" style="position:relative">
+          <h4>recorridos</h4>
+          <div class="ico">
+            <img src="images/ico_m_3.png" alt="">
+            <div class="count"><%= @polygon.tours.count %></div>
+          </div>
+          <p style="margin-top: 10px;">Trazos</p>
+          <div class="more-info-tour">
+                <a href="#" class="close"></a>
+                <h3>Recorridos</h3>
+                <div class="content">
+                  <h6>Pasados</h6>
+                  <ul class="ruta-ul">
+                    <% @polygon.tours.where("created_at < '#{Date.today}'").each do |tour|%>
+                      <style>
+                        #ruta_<%= tour.id %>:before {
+                            color: <%=tour.colors || "white"%>; /* or whatever color you prefer */
+                        }
+                      </style>
+                      <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)">
+                        <label for="ruta_<%= tour.id %>_checkbox">
+                          <%= tour.name %>
+                          <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
+                        </label>
+                      </li>
+                    <% end %>
+                  </ul>
+                  <h6>Futuros</h6>
+                  <ul>
+                    <% @polygon.tours.where("created_at >= '#{Date.today}'").each do |tour|%>
+                      <li id="ruta_<%=tour.id%>">
+                        <label for="ruta_<%= tour.id %>_checkbox">
+                          <%= tour.name %>
+                          <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
+                        </label>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+          </div>
+        </div>
+        <div class="item pl" style="position:relative">
+          <h4>transporte</h4>
+          <div class="ico">
+            <img src="images/ico_m_4.png" alt="">
+            <div class="count rr"><%= @polygon.rutas.split(",").count %></div>
+          </div>
+          <p style="margin-top: 10px;"><a href="#">Rutas</a></p>
+          <div class="more-info-rutas">
+              <a href="#" class="close"></a>
+              <h3>Rutas</h3>
+              <div class="content">
+                <ul>
+                  <% @polygon.rutas.split(",").each do |ruta|%>
+                    <li><%= ruta %></li>
+                  <% end %>
+                </ul>
+
+              </div>
+          </div>
+        </div>
+        <!-- <div class="item">
+          <h4>Documentos</h4>
+          <div class="ico">
+            <img src="images/ico_m_5.png" alt="">
+          </div>
+          <p><a href="#">Archivos e Imagenes</a></p>
+        </div> -->
       </div>
-      <!-- <div class="item">
-        <h4>Documentos</h4>
-        <div class="ico">
-          <img src="images/ico_m_5.png" alt="">
-        </div>
-        <p><a href="#">Archivos e Imagenes</a></p>
-      </div> -->
     </div>
     <div class="report-problem-bar" style="display: none">
       <h3>Ubicación del Problema</h3>

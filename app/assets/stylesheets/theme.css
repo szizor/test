@@ -698,25 +698,41 @@ html, body {
     z-index: 9;
     left: 0;
     right: 0;
-    padding-left: 52px;
+    padding-left: 0;
     height: 143px;
     background-color: rgba(9,9,9,.89);
     box-shadow: 0 2px 2px rgba(0,1,1,.2);
 }
 
-.poligon-info:before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 40px;
+.poligon-info .bar-label {
+    background: url("../images/poligon.png") no-repeat scroll 50% 16px #cd0537;
+    float: left;
     height: 100%;
-    background: #cd0537 url(../images/poligon.png) no-repeat 50% 16px;
-    content: "";
+    left: 0;
+    margin-right: 10px;
+    position: relative;
+    width: 40px;
+    z-index: 1;
 }
 
 .poligon-info a {
     color: #7f7e7e;
+    text-decoration: underline;
+}
+
+.poligon-info .media-links {
+    left: auto;
+    position: absolute;
+    right: 50px;
+    top: 25px;
+}
+.poligon-info .media-links a {
+    font-size: 15px;
+    padding-left: 10px;
+    color: #f71c53;
+    text-decoration: none;
+}
+.poligon-info .media-links a:hover {
     text-decoration: underline;
 }
 
@@ -727,10 +743,33 @@ html, body {
     padding: 10px 10px 0;
 }
 
-.poligon-info-header a:nth-child(2) {
-    margin: 0 60px 0 0;
+
+.poligon-info .items-container {
+    height: 80px;
+    width: 1170px;
 }
 
+.poligon-info .slider-control {
+    display: none;
+    background-image: url('/assets/prettyPhoto/default/sprite.png');
+    top: 60px;
+    width: 23px;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+}
+.poligon-info .slider-control:hover {
+    opacity: 0.6;
+}
+.poligon-info .slider-control.left {
+    background-position: -30px 3px;
+    left: 5px;
+}
+.poligon-info .slider-control.right {
+    background-position: -80px 3px;
+    right: 5px;
+}
 .poligon-info h5 {
     padding: 12px 0 6px;
     color: #fff;
@@ -792,7 +831,7 @@ html, body {
 .poligon-info h3 {
     color: #fff;
     font-weight: normal;
-    padding: 19px 0 21px;
+    padding: 19px 0;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 23px;
 }
@@ -915,6 +954,14 @@ html, body {
     box-shadow: 0 1px 3px rgba(0,1,1,.75);
 }
 
+.poligon-info .more-info-rangos {
+    width:350px;
+    left:30%;
+}
+.poligon-info .more-info-generos {
+    margin-left: -126px;
+}
+
 .poligon-info .more-info-rutas:before {
     content: "";
     position: absolute;
@@ -972,7 +1019,7 @@ html, body {
     position: absolute;
     top: 100%;
     margin-top: 10px;
-    left: 75%;
+    left: 0;
     text-align: left;
     width: 276px;
     border-radius: 1px;
@@ -1041,7 +1088,7 @@ html, body {
 .poligon-info .more-info-tour {
     position: absolute;
     top: 100%;
-    margin-top: 33px;
+    margin-top: 10px;
     left: 60%;
     text-align: left;
     width: 276px;
@@ -1091,6 +1138,7 @@ html, body {
     position: relative;
     margin-top: 12px;
     padding: 0 10px;
+    height: 57px;
 }
 
 .poligon-info .set .item + .item {
@@ -1101,7 +1149,7 @@ html, body {
     float: left;
     color: #7f7e7e;
     font-size: 12px;
-    height: 50px;
+    height: 78px;
     text-align: center;
     padding: 0 15px;
     font-weight: bold;
@@ -2101,4 +2149,43 @@ color: #666666;
     height: 100%;
     background: #cd0537 url(../images/poligon.png) no-repeat 50% 16px;
     content: "";
+}
+
+@media (max-width: 1140px){
+    .poligon-info .items-container {
+        position: relative;
+        left: 0;
+    }
+    .poligon-info .slider-control {
+        display: block;
+    }
+}
+@media (max-width: 1024px){
+    .poligon-info-arrow,
+    .poligon-info {
+        top: 36px;
+    }
+}
+@media (max-width: 768px){
+    .poligon-info {
+        height: 173px;
+    }
+    .poligon-info .media-links{
+        top: 55px;
+    }
+    .poligon-info .items-container {
+        top: 30px;
+    }
+}
+@media (max-width: 440px){
+    .poligon-info .media-links {
+        right: 36px;
+        top: 78px;
+    }
+    .poligon-info .media-links a {
+        font-size: 14px;
+    }
+    .poligon-info {
+        height: 200px;
+    }
 }
