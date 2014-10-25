@@ -52,7 +52,7 @@
       <div class="bar-label"></div>
       <a href="#" class="close" onclick="$('.poligon-info').hide()"></a>
       <div class="poligon-info-header">
-        <h3><%= @polygon.name %> ·
+        <h3><%= @polygon.name %>, <%= @polygon.city_id %> ·
           <span><%= @polygon.state.name %></span>
         </h3>
       </div>
@@ -126,13 +126,13 @@
                 <td nowrap>60+</td>
               </tr>
               <tr>
-                <td nowrap>2</td>
-                <td nowrap>24</td>
-                <td nowrap>19</td>
-                <td nowrap>24</td>
-                <td nowrap>29</td>
-                <td nowrap>59</td>
-                <td nowrap>60</td>
+                <td nowrap><%= number_with_delimiter(@polygon.cero_doce) %></td>
+                <td nowrap><%= number_with_delimiter(@polygon.doce_catorce) %></td>
+                <td nowrap><%= number_with_delimiter(@polygon.quince_diecinueve) %></td>
+                <td nowrap><%= number_with_delimiter(@polygon.veinte_veinticuatro) %></td>
+                <td nowrap><%= number_with_delimiter(@polygon.veinticinco_veintinueve) %></td>
+                <td nowrap><%= number_with_delimiter(@polygon.treinta_cincuentainueve) %></td>
+                <td nowrap><%= number_with_delimiter(@polygon.sesenta) %></td>
               </tr>
             </table>
           </div>
@@ -286,7 +286,11 @@
                             Posibles causas
                         </div>
                         <div class="column-detail">
-                           <%= problem.cause %>
+                           <ul>
+                              <% problem.cause.split("|").each do |causa|%>
+                                <li><%= causa %></li>
+                              <% end if problem.cause %>
+                            </ul>
                         </div>
                     </div>
                     <div class="info-column column-2">
@@ -294,7 +298,11 @@
                             Efectos que provoca
                         </div>
                         <div class="column-detail">
-                            <%= problem.effects %>
+                            <ul>
+                              <% problem.effects.split("|").each do |causa|%>
+                                <li><%= causa %></li>
+                              <% end if problem.effects%>
+                            </ul>
                         </div>
                     </div>
                     <div class="excerpt-stats">

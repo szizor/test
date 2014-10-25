@@ -17,6 +17,10 @@
         <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la institución", :required => "required" %>
       </div>
       <div class="form-group">
+        <%= f.label :description, "Descripción general de su trabajo" %>
+        <%= f.text_area(:description, rows: 5, class: 'form-control', placeholder: "Descripción general de su trabajo") %>
+      </div>
+      <div class="form-group">
         <%= f.label :actor_type_id, "Tipo de institución" %>
         <%= f.text_field :actor_type_id, :class => "form-control input-lg", :placeholder => "Tipo de  institución" %>
       </div>

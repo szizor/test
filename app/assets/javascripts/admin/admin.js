@@ -424,6 +424,14 @@ $(function() {
 });
 
 $(function() {
+    $('#timepicker1').datetimepicker({
+        pickDate: false,
+        pickTime: true,
+        useCurrent: true
+    });
+});
+
+$(function() {
     $('#datetimepicker2').datetimepicker({
         pickTime: false
     });

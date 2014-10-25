@@ -37,7 +37,7 @@
                       <li class="dropdown" id="menuUser">
                         <a href="#" class="drop dropdown-toggle" data-toggle="dropdown" id="navUser"></a>
                         <div class="dropdown-menu">
-                          <%= link_to "Tablero de Control", "/admin" %><br/>
+                          <%= link_to "Tablero de Control", "/admin"  if current_user.is_admin %><br/>
                           <%= link_to "Salir", logout_path %>
                         </div>
                       </li>
@@ -148,6 +148,17 @@
         <fieldset>
           <label>Selecciona el tipo del problema</label>
           <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
+        </fieldset>
+        <fielset>
+          <%= f.text_field :fecha, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd", :style=>"max-width:150px", :value => @problem.fecha.present? ? @problem.fecha.strftime("%Y-%m-%d") : ""%>
+          <span class="add-on">
+            <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+          </span>
+        </fieldset>
+        <fielset>
+          <%= f.text_field :hora, :class => "form-control dtpicker", :placeholder => "Hora del incidente", :"data-format"=>"hh:mm", :style=>"max-width:150px", :value => @problem.hora.present? ? @problem.hora.strftime("%I:%M") : ""%>
+            <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
+          </span>
         </fieldset>
         <button type="submit" class="btn-red">Publicar</button>
       <% end %>
