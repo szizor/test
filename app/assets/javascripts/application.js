@@ -21,8 +21,19 @@
 // require_tree .
 
 $(document).ready(function() {
+  window.reportingMode  = false;
+  var reportTrigger     = $(".report-trigger");
+  var poligonInfo       = $('.poligon-info');
+  var poligonInfoToggle = $('.info-toggle.expand');
+  var poligonToggleWrap = $('.poligon-info-arrow.excerpt-brief');
+  var poligonInfoClose  = poligonInfo.find('.close');
+  var reportProblemBar  = $('.report-problem-bar');
+  var detailBox         = $('.problem-detail');
+	var closeBtn          = detailBox.find('.close');
+	var toggleControl     = detailBox.find('.info-toggle');
+
   $('#polygon_state_id').change(function() {
-    var data=$('#polygon_state_id').val();
+    var data = $('#polygon_state_id').val();
     $.ajax({
       type: "POST",
       url: "http://"+location.host+"/dynamic_polygons/"+data,
@@ -30,18 +41,37 @@ $(document).ready(function() {
     });
   });
   $(".reporte a").fancybox();
-  $(".report-trigger").on('click', function(){
-    $('.poligon-info').hide();
-    $('.report-problem-bar').show();
+// Bindings
+  reportTrigger.on('click', function(){
+    if (reportTrigger.hasClass('toggled')) {
+      reportProblemBar.hide();
+      window.reportingMode = false;
+    }else{
+      window.reportingMode = true;
+      poligonInfo.hide();
+      reportProblemBar.show();
+      $('.marker-instructional-text').text('Selecciona un punto en el mapa');
+    }
+    reportTrigger.toggleClass('toggled');
   });
-  var detailBox = $('.problem-detail');
-	var closeBtn = detailBox.find('.close');
-	var toggleControl = detailBox.find('.info-toggle');
+
+  poligonInfoToggle.on('click', function(){
+    reportProblemBar.hide();
+    reportTrigger.removeClass('toggled');
+    poligonToggleWrap.hide();
+    poligonInfo.slideDown();
+  });
+
+  poligonInfoClose.on('click', function(){
+    poligonInfo.slideUp();
+    poligonToggleWrap.show();
+  });
 
 	closeBtn.on('click', function(){
-	    detailBox.addClass('collapsed').parent().hide();
+    detailBox.addClass('collapsed').parent().hide();
 	});
+
 	toggleControl.on('click', function(){
-        detailBox.toggleClass('collapsed');
-    });
-}); 
+    detailBox.toggleClass('collapsed');
+  });
+});

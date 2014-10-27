@@ -52,9 +52,21 @@ html, body {
     padding: 30px 30px 10px;
 }
 #menuUser .dropdown-menu {
-    width: 350px;
-    margin-top: 8px;
-    padding: 30px 30px 10px;
+    width: 160px;
+    margin-top: 0;
+    padding: 0;
+}
+#menuUser .dropdown-menu a{
+    display: block;
+    padding: 5px 10px;
+    width: auto;
+    color: #292929;
+    font-size: 12px;
+}
+#menuUser .dropdown-menu a:hover{
+    background: #292929;
+    color: #fff;
+    text-decoration: none;
 }
 .form-title {
     color: #7d7d7d;
@@ -1298,6 +1310,13 @@ html, body {
     padding-left: 24px;
 }
 
+#header .right .report a.toggled {
+    color: #292929;
+    background: url(../images/icons/sandwich_btn_base.png) no-repeat 0 50%;
+    display: block;
+    padding-left: 24px;
+}
+
 #header .right .report {
     color: #292929;
     font-weight: bold;
@@ -1706,10 +1725,17 @@ background-color: #fff;
 .alternative-container{
     border-bottom: 1px solid gray;
 }
+.alternative-container .project-info-detailed{
+    background: #efefef;
+    padding: 15px;
+}
 .solution-item{
     float: left;
     width: 60%;
     padding-bottom: 10px;
+}
+.solution-item h1{
+    margin-top: 20px;
 }
 .solution-user{
     color:#790C0C;

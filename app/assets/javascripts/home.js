@@ -263,22 +263,27 @@ function initialize() {
         });
       });
       google.maps.event.addListener(map, "click", function(event) {
+          console.log('map click', window.reportingMode);
+          if (window.reportingMode) {
+            if(markermap) {
+                markermap.setMap(null);
+            }
 
-          if(markermap) {
-              markermap.setMap(null);
+            markermap = new google.maps.Marker({
+                position: event.latLng,
+                draggable: true,
+                map: map,
+                title: "myTitle",
+            });
+            var markerCoords = markermap.getPosition();
+            google.maps.event.addListener(markermap, 'click', function() {
+                $('#user_problem').val(JSON.stringify(markerCoords));
+                $(".reporte a").click();
+            });
+            $('.marker-instructional-text').text('Al finalizar, haz click en el marcador');
+          }else{
+            return;
           }
-
-          markermap = new google.maps.Marker({
-              position: event.latLng,
-              draggable: true,
-              map: map,
-              title: "myTitle",
-          });
-          var markerCoords = markermap.getPosition();
-          google.maps.event.addListener(markermap, 'click', function() {
-              $('#user_problem').val(JSON.stringify(markerCoords));
-              $(".reporte a").click();
-          });
       });
     }
 
@@ -474,4 +479,24 @@ $(document).ready(function (argument) {
     // binding
     leftArrow.click(slideRight);
     rightArrow.click(slideLeft);
+});
+
+// Move this logic into a separate file
+// Alternatives info toggle
+$(document).ready(function(){
+    $('.alternative-container').each(function(i, element){
+        var alternativeElement  = $(element);
+        var infotoggle          = alternativeElement.find('.social .info-toggle');
+        var toggleTarget        = $('.'+infotoggle.data('toggleTarget'));
+        var toggleControlHtml   = '<i class="toggle-control"></i>';
+
+        infotoggle.click(function(){
+            if(toggleTarget.is(':visible')){
+                infotoggle.html('Más información '+toggleControlHtml);
+            }else{
+                infotoggle.html('Ocultar '+toggleControlHtml);
+            }
+            toggleTarget.slideToggle();
+        });
+    });
 });
