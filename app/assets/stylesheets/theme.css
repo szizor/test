@@ -1310,6 +1310,13 @@ html, body {
     padding-left: 24px;
 }
 
+#header .right .report a.toggled {
+    color: #292929;
+    background: url(../images/icons/sandwich_btn_base.png) no-repeat 0 50%;
+    display: block;
+    padding-left: 24px;
+}
+
 #header .right .report {
     color: #292929;
     font-weight: bold;
