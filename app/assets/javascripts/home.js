@@ -475,3 +475,23 @@ $(document).ready(function (argument) {
     leftArrow.click(slideRight);
     rightArrow.click(slideLeft);
 });
+
+// Move this logic into a separate file
+// Alternatives info toggle
+$(document).ready(function(){
+    $('.alternative-container').each(function(i, element){
+        var alternativeElement  = $(element);
+        var infotoggle          = alternativeElement.find('.social .info-toggle');
+        var toggleTarget        = $('.'+infotoggle.data('toggleTarget'));
+        var toggleControlHtml   = '<i class="toggle-control"></i>';
+
+        infotoggle.click(function(){
+            if(toggleTarget.is(':visible')){
+                infotoggle.html('Más información '+toggleControlHtml);
+            }else{
+                infotoggle.html('Ocultar '+toggleControlHtml);
+            }
+            toggleTarget.slideToggle();
+        });
+    });
+});

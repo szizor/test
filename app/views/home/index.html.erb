@@ -383,8 +383,7 @@
                     <div class="excerpt-info">
                       <div class="excerpt-brief">
                         <% if alternative.solution %>
-                          <a class="project info-toggle expand" onclick="$(&quot;.project-info-<%= alternative.id %>&quot;).show(); $(this).hide()">Más información <i class="toggle-control"></i></a>
-                          <a href="#" class="project info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
+                          <a class="project info-toggle expand" data-toggle-target='project-info-<%= alternative.id %>' href="javascript:void(0);">Más información <i class="toggle-control"></i></a>
                         <% end %>
                         <img src="images/social.png" alt="">
                       </div>
@@ -393,7 +392,7 @@
                 </div>
               </div>
               <% if alternative.solution %>
-                <div class="project-info-<%= alternative.id %>" style="display:none">
+                <div class="project-info-<%= alternative.id %> project-info-detailed" style="display:none">
                   <h2>Información de la Matriz</h2>
                     <div class="row">
                       <div class="col-md-4">
