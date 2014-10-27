@@ -25,11 +25,15 @@
 
   <body>
     <div class="container">
+      <div class="logo">
+        <%= link_to image_tag("logo.png"), root_path %>
+      </div>
        <% if params[:action] == "index"%>
       <p>
         Download:
         <%= link_to "CSV", export_surveys_path(format: "csv") %> |
         <%#= link_to "Excel", export_surveys_path(format: "xls") %>
+        <%= link_to "Tablero de control", "/admin" %>
       </p>
     <%end%>
     <%= javascript_include_tag "application" %>
