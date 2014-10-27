@@ -612,19 +612,20 @@
       {
         'id':<%=actor.id%>,
         'content':'\
-          <div class="infobox-wrapper">\
-            <div class="info-content" itemscope itemtype="http://schema.org/Place" id="infobox">\
-              <div class="info-data">\
-                <a href="" class="info-data__name" itemprop="name"><%= actor.name%></a>\
-                <p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">\
-                  <span class="info-data__address_street" itemprop="streetAddress"><%= actor.address%></span>\
-                  <span class="info-data__address_locality" itemprop="addressLocality"><%= actor.city%></span>\
-                  <span class="info-data__address_region" itemprop="addressRegion">JAL</span>\
-                  <span class="info-data__address_street" itemprop="streetAddress"><%= actor.phone%></span>\
-                </p>\
-              </div>\
+        <div class="itemb">\
+            <div class="red">\
+              <h2><%= actor.name%></h2>\
             </div>\
-          </div>',
+            <div class="bottom-content">\
+              <p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">\
+                  <span class="info-data-text info-data__address_street" itemprop="streetAddress"><%= actor.address%></span>\
+                  <span class="info-data-text info-data__address_locality" itemprop="addressLocality"><%= actor.city%></span>\
+                  <span class="info-data-text info-data__address_region" itemprop="addressRegion">JAL</span>\
+                  <span class="info-data-text info-data__address_street" itemprop="streetAddress"><%= actor.phone%></span>\
+                </p>\
+            </div>\
+          </div>\
+          <i class="tooltip-bottom-tip"></i>',
         'category': 1,
         'position': {
           'lat':JSON.parse(actorsdata[<%=index%>])["k"],
