@@ -263,7 +263,6 @@ function initialize() {
         });
       });
       google.maps.event.addListener(map, "click", function(event) {
-          console.log('map click', window.reportingMode);
           if (window.reportingMode) {
             if(markermap) {
                 markermap.setMap(null);

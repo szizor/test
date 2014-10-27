@@ -16,6 +16,7 @@
 //= require vendor/underscore-min.js
 //= require vendor/fancybox.js
 //= require plugins/bootstrap-switch.min.js
+//= require plugins/bootstrap-datetimepicker.min
 //= require plugins/select2.js
 //= require home.js
 // require_tree .
@@ -74,4 +75,15 @@ $(document).ready(function() {
 	toggleControl.on('click', function(){
     detailBox.toggleClass('collapsed');
   });
+
+  $('#datetimepicker1').datetimepicker({
+      pickTime: false
+  });
+
+  $('#timepicker1').datetimepicker({
+      pickDate: false,
+      pickTime: true,
+      useCurrent: true
+  });
+  
 });
