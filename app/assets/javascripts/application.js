@@ -21,6 +21,7 @@
 // require_tree .
 
 $(document).ready(function() {
+  window.reportingMode  = false;
   var reportTrigger     = $(".report-trigger");
   var poligonInfo       = $('.poligon-info');
   var poligonInfoToggle = $('.info-toggle.expand');
@@ -44,9 +45,12 @@ $(document).ready(function() {
   reportTrigger.on('click', function(){
     if (reportTrigger.hasClass('toggled')) {
       reportProblemBar.hide();
+      window.reportingMode = false;
     }else{
+      window.reportingMode = true;
       poligonInfo.hide();
       reportProblemBar.show();
+      $('.marker-instructional-text').text('Selecciona un punto en el mapa');
     }
     reportTrigger.toggleClass('toggled');
   });

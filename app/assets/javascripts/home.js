@@ -263,22 +263,27 @@ function initialize() {
         });
       });
       google.maps.event.addListener(map, "click", function(event) {
+          console.log('map click', window.reportingMode);
+          if (window.reportingMode) {
+            if(markermap) {
+                markermap.setMap(null);
+            }
 
-          if(markermap) {
-              markermap.setMap(null);
+            markermap = new google.maps.Marker({
+                position: event.latLng,
+                draggable: true,
+                map: map,
+                title: "myTitle",
+            });
+            var markerCoords = markermap.getPosition();
+            google.maps.event.addListener(markermap, 'click', function() {
+                $('#user_problem').val(JSON.stringify(markerCoords));
+                $(".reporte a").click();
+            });
+            $('.marker-instructional-text').text('Al finalizar, haz click en el marcador');
+          }else{
+            return;
           }
-
-          markermap = new google.maps.Marker({
-              position: event.latLng,
-              draggable: true,
-              map: map,
-              title: "myTitle",
-          });
-          var markerCoords = markermap.getPosition();
-          google.maps.event.addListener(markermap, 'click', function() {
-              $('#user_problem').val(JSON.stringify(markerCoords));
-              $(".reporte a").click();
-          });
       });
     }
 
