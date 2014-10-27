@@ -11,12 +11,19 @@
             <div class="row">
               <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
                 <div class="toolbar__label">Estado</div>
-                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name", @polygon.state_id), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
                 </div>
               <div class="col-md-6 col-xs-6">
                 <div class="toolbar__label">Polígono</div>
                 <select id="polygon_select" class="form-control select2-control-exec">
-                  <option value=''>Selecciona el Polígono</option>
+                  <% if params[:p] %>
+                    <option value=''>Selecciona el Polígono</option>
+                    <% for polygon in @polygons %>
+                      <option value="<%= polygon.id %>" <%= "selected" if polygon.id.to_s == params[:p] %>><%= polygon.name %></option>
+                    <% end %>
+                  <% else %>
+                    <option value=''>Selecciona el Polígono</option>
+                  <% end %>  
                 </select>
               </div>
             </div>
