@@ -27,6 +27,20 @@ $(document).ready(function() {
     closeBtn.on('click', function(){
         calendarBox.hide();
     });
+
+    // $('#trigger-arbol').on('click', function(){
+    //     $('#arbol-container').show();
+    // });
+    // var arbolBox = $('#arbol-container');
+    // var closeBtn2 = arbolBox.find('.close');
+    // closeBtn2.on('click', function(){
+    //     arbolBox.hide();
+    // });
+
+    $('#trigger-arbol').on('click', function (event) {
+        event.preventDefault();
+        blueimp.Gallery($('#links-arbol a'), $('#blueimp-gallery').data());
+    });
 //     var date = new Date();
 //     var d = date.getDate();
 //     var m = date.getMonth();

@@ -4,6 +4,8 @@
     <title>Imjuve</title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    "application", "events", :media => "all" %>
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -180,6 +182,7 @@
       <%= yield %>
     <!-- </div> -->
     <%= javascript_include_tag "application", "eventos" %>
-
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
   </body>
 </html>
