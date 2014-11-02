@@ -2047,6 +2047,24 @@ background-color: #fff;
     top: 20px;
     display: block;
     right: 20px;
+    background: url('../images/ico_close.png') no-repeat scroll 0% 0% transparent;
+    width: 14px;
+    height: 14px;
+}
+.docs .close {
+    position: absolute;
+    top: 20px;
+    display: block;
+    right: 20px;
+    background: url('../images/ico_close.png') no-repeat scroll 0% 0% transparent;
+    width: 14px;
+    height: 14px;
+}
+.video .close {
+    position: absolute;
+    top: 20px;
+    display: block;
+    right: 20px;
     background: url(../images/ico_close.png) no-repeat;
     width: 14px;
     height: 14px;

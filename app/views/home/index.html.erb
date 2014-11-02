@@ -64,9 +64,9 @@
       </div>
       <div class="media-links">
         <a href="#" id="trigger-arbol">Árboles</a>
-        <a href="#">Fotos</a>
-        <a href="#">Videos</a>
-        <a href="#">Documentos</a>
+        <a href="#" id="trigger-fotos">Fotos</a>
+        <a href="#" id="trigger-videos">Videos</a>
+        <a href="#" id="trigger-docs">Documentos</a>
       </div>
       <div class="items-container">
         <div class="item first">
@@ -567,7 +567,51 @@
     <div id="calendar"></div>
   </div>
 </div>
-<div class="details-2 calen" id="arbol-container" style="display: none">
+<div class="details-2 video" id="video-container" style="display: none">
+  <a class="close" href="#">X</a>
+  <div class="videos_container" style="margin: 50px">
+    <div class="page-header">
+      <h1>Videos</h1>
+    </div>
+    <div id="video">
+      <table class="table table-hover">
+        <tr>
+          <th>Nombre</th>
+          <th>Url</th>
+        </tr>
+        <% @polygon.videos.each do |video| %>
+          <tr>
+            <td><%= video.name %></td>
+            <td><a href="<%= video.url %>" target="_blank"><%= video.url %></a></td>
+          </tr>  
+        <% end %> 
+      </table>   
+    </div>    
+  </div>
+</div>
+<div class="details-2 docs" id="docs-container" style="display: none">
+  <a class="close" href="#">X</a>
+  <div class="docs_container" style="margin: 50px">
+    <div class="page-header">
+      <h1>Documentos</h1>
+    </div>
+    <div id="doc">
+      <table class="table table-hover">
+        <tr>
+          <th>Nombre</th>
+          <th>Url</th>
+        </tr>
+        <% @polygon.documents.each do |doc| %>
+          <tr>
+            <td><%= doc.name %></td>
+            <td><%= link_to doc.name, doc.file.url, :target => "_blank"%></td>
+          </tr>  
+        <% end %> 
+      </table>   
+    </div>
+  </div>
+</div>   
+<div class="details-2 galleries" id="arbol-container" style="display: none">
   <a class="close" href="#">X</a>
   <div class="documents_container">
     <div class="page-header">
@@ -575,8 +619,20 @@
     </div>
     <div id="links-arbol">
       <% @polygon.trees.each do |tree| %>
-        <%= link_to tree.file_url do %>
+        <%= link_to tree.file_url, :title => tree.name do %>
             <%= image_tag tree.file_url(:thumb) %>
+        <% end %>
+      <% end %>  
+    </div>
+  </div>
+  <div class="documents_container">
+    <div class="page-header">
+      <h1>Fotos</h1>
+    </div>
+    <div id="links-fotos">
+      <% @polygon.images.each do |image| %>
+        <%= link_to image.image_url, :title => image.name do %>
+            <%= image_tag image.image_url(:thumb) %>
         <% end %>
       <% end %>  
     </div>

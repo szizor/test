@@ -28,18 +28,32 @@ $(document).ready(function() {
         calendarBox.hide();
     });
 
-    // $('#trigger-arbol').on('click', function(){
-    //     $('#arbol-container').show();
-    // });
-    // var arbolBox = $('#arbol-container');
-    // var closeBtn2 = arbolBox.find('.close');
-    // closeBtn2.on('click', function(){
-    //     arbolBox.hide();
-    // });
+    $('#trigger-videos').on('click', function(){
+        $('#video-container').show();
+    });
+    var videoBox = $('#video-container');
+    var closeBtn = videoBox.find('.close');
+    closeBtn.on('click', function(){
+        videoBox.hide();
+    });
+
+    $('#trigger-docs').on('click', function(){
+        $('#docs-container').show();
+    });
+    var docBox = $('#docs-container');
+    var closeBtn = docBox.find('.close');
+    closeBtn.on('click', function(){
+        docBox.hide();
+    });
 
     $('#trigger-arbol').on('click', function (event) {
         event.preventDefault();
         blueimp.Gallery($('#links-arbol a'), $('#blueimp-gallery').data());
+    });
+
+    $('#trigger-fotos').on('click', function (event) {
+        event.preventDefault();
+        blueimp.Gallery($('#links-fotos a'), $('#blueimp-gallery').data());
     });
 //     var date = new Date();
 //     var d = date.getDate();
