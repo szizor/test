@@ -469,13 +469,13 @@
                       <p class="explicacion">PRESUPUESTO CONTEMPLADO</p>
                       <%= number_to_currency(alternative.budget_expected) %>
                       <p class="explicacion">FECHA DE INICIO</p>
-                      <%= l alternative.end_date, :format => :short_datetime %>
+                      <%= l alternative.start_date, :format => :short_datetime if alternative.start_date %>
                     </div>
                     <div style="float:right;width: 50%;text-align: center;">
                       <p class="explicacion">PRESUPUESTO ASIGNADO</p>
                       <%= number_to_currency(alternative.assigned_budget) %>
                       <p class="explicacion">FECHA DE TERMINO ESTIMADA</p>
-                      <%= l alternative.end_date, :format => :short_datetime %>
+                      <%= l alternative.end_date, :format => :short_datetime if alternative.end_date %>
                     </div>
                   </div>
                   <h2>Beneficiarios</h2>
