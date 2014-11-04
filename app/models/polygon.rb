@@ -26,7 +26,7 @@ class Polygon < ActiveRecord::Base
   end
 
   def rangos_low
-    ((cero_doce + doce_catorce+ quince_diecinueve + veinte_veinticuatro + veinticinco_veintinueve).to_f * 100  / population).round
+    ((doce_catorce+ quince_diecinueve + veinte_veinticuatro + veinticinco_veintinueve).to_f * 100  / population).round
   end
 
   def rangos_high

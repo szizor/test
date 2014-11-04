@@ -5,8 +5,8 @@ class Alternative < ActiveRecord::Base
   has_many :actors, :through => :actors_alternatives
   has_many :actors_alternatives
   belongs_to :problem
-  mount_uploader :budget_expected_pdf, ImageUploader
-  mount_uploader :assigned_budget_pdf, ImageUploader
-  mount_uploader :crono, ImageUploader
-  mount_uploader :resume, ImageUploader
+  mount_uploader :budget_expected_pdf, GenericUploader
+  mount_uploader :assigned_budget_pdf, GenericUploader
+  mount_uploader :crono, GenericUploader
+  mount_uploader :resume, GenericUploader
 end

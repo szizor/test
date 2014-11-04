@@ -15,10 +15,10 @@
               <div class="col-md-6 col-xs-6">
                 <div class="toolbar__label">Polígono</div>
                 <select id="polygon_select" class="form-control select2-control-exec">
-                  <% if params[:p] %>
+                  <% if @polygon %>
                     <option value=''>Selecciona el Polígono</option>
                     <% for polygon in @polygons %>
-                      <option value="<%= polygon.id %>" <%= "selected" if polygon.id.to_s == params[:p] %>><%= polygon.name %></option>
+                      <option value="<%= polygon.id %>" <%= "selected" if polygon.id == @polygon.id %>><%= polygon.name %></option>
                     <% end %>
                   <% else %>
                     <option value=''>Selecciona el Polígono</option>
@@ -63,10 +63,10 @@
         </h3>
       </div>
       <div class="media-links">
-        <a href="#" id="trigger-arbol">Árboles</a>
-        <a href="#" id="trigger-fotos">Fotos</a>
-        <a href="#" id="trigger-videos">Videos</a>
-        <a href="#" id="trigger-docs">Documentos</a>
+        <a href="#" id="trigger-arbol">ÁRBOLES</a>
+        <a href="#" id="trigger-fotos">FOTOS</a>
+        <a href="#" id="trigger-videos">VIDEOS</a>
+        <a href="#" id="trigger-docs">DOCUMENTOS</a>
       </div>
       <div class="items-container">
         <div class="item first">
@@ -103,7 +103,7 @@
           <h4>Rangos de edad</h4>
           <div class="item">
             <h5><%= @polygon.rangos_low %>%</h5>
-            <p><a href="#">0-29 años</a></p>
+            <p><a href="#">12-29 años</a></p>
           </div>
           <div class="item">
             <h5><%= @polygon.rangos_high %>%</h5>
@@ -213,9 +213,14 @@
                     <% end %>
                   </ul>
                   <h6>Futuros</h6>
-                  <ul>
+                  <ul class="ruta-ul">
                     <% @polygon.tours.where("created_at >= '#{Date.today}'").each do |tour|%>
-                      <li id="ruta_<%=tour.id%>">
+                      <style>
+                        #ruta_<%= tour.id %>:before {
+                            color: <%=tour.colors || "white"%>; /* or whatever color you prefer */
+                        }
+                      </style>
+                      <li id="ruta_<%=tour.id%>" class="ruta-color" onclick="$(this).toggleClass(&quot;act&quot;)">
                         <label for="ruta_<%= tour.id %>_checkbox">
                           <%= tour.name %>
                           <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
@@ -421,7 +426,11 @@
                         <div class="form-group">
                           <div style="float:left;width: 100%;text-align: center;">
                             <p class="explicacion">OBJETIVO ESPECIFICO</p>
-                            <%= alternative.components %>
+                            <ul>
+                              <% alternative.components.split("|").each do |causa|%>
+                                <li style="text-align: left;"><%= causa %></li>
+                              <% end if alternative.components %>
+                            </ul>
                           </div>
                         </div>
                       </div>
@@ -495,11 +504,16 @@
                   <% if alternative.actors.present? %>
                     <p class="explicacion">ACTORES RELACIONADOS</p>
                   <% end %>
-                  <ul>
+                  <table class="table">
                     <% alternative.actors.each do |actor| %>
-                      <li><%= actor.name%></li>
+                      <tr>
+                        <td><%= actor.name %></td>
+                        <td><%= actor.phone %></td>
+                        <td><%= actor.email %></td>
+                        <td><%= actor.website %></td>
+                      </tr>  
                     <% end %>
-                  </ul>
+                  </table>
                   <h2>Archivos</h2>
                   <% if alternative.budget_expected_pdf.present? %>
                     <div class="panel panel-default">
@@ -599,7 +613,7 @@
       <table class="table table-hover">
         <tr>
           <th>Nombre</th>
-          <th>Url</th>
+          <th>Archivo</th>
         </tr>
         <% @polygon.documents.each do |doc| %>
           <tr>

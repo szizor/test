@@ -153,7 +153,7 @@
         </fieldset>
         <fielset>
             <div id="datetimepicker1" class="input-append">
-            <%= f.text_field :fecha, :class => "form-control dtpicker", :placeholder => "Fecha de inicio", :"data-format"=>"yyyy-MM-dd", :style=>"max-width:150px; display: inline-block;", :value => @problem.fecha.present? ? @problem.fecha.strftime("%Y-%m-%d") : ""%>
+            <%= f.text_field :fecha, :class => "form-control dtpicker", :placeholder => "Fecha del incidente", :"data-format"=>"yyyy-MM-dd", :style=>"max-width:150px; display: inline-block;", :value => @problem.fecha.present? ? @problem.fecha.strftime("%Y-%m-%d") : ""%>
             <span class="add-on">
               <i data-time-icon="fa fa-time" data-date-icon="fa fa-calendar" class="btn btn-info"></i>
             </span>

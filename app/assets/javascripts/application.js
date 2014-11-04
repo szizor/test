@@ -49,7 +49,10 @@ $(document).ready(function() {
       window.reportingMode = false;
     }else{
       window.reportingMode = true;
-      poligonInfo.hide();
+      if ( poligonInfo.is(":visible") ) {
+        poligonInfo.slideUp(); 
+        poligonToggleWrap.show();
+      }
       reportProblemBar.show();
       $('.marker-instructional-text').text('Selecciona un punto en el mapa');
     }

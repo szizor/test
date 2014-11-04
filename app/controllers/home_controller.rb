@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @parents = ParentCategory.all
     @states = State.all
     @polygon = params[:p] ? Polygon.find(params[:p]) : Polygon.first
-    @polygons = Polygon.find_all_by_state_id(@polygon.state_id) if params[:p]
+    @polygons = Polygon.find_all_by_state_id(@polygon.state_id)
     @problem = Problem.new
     @events =
       Event.order('start_date DESC').all.map do |u|

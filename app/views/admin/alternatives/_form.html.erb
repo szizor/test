@@ -55,20 +55,20 @@
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
-                        <%= f.label :end, "Fin (Aportacion a la estrategia)" %>
+                        <%= f.label :end, "Fin (aportacion a la estrategia)" %>
                         <%= f.text_field :end, :class => "form-control input-lg", :placeholder => "Aportacion a la estrategia sectorial o nacional" %>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <%= f.label :porpuse, "Proposito(objetivo general)" %>
+                        <%= f.label :porpuse, "Proposito (objetivo general)" %>
                         <%= f.text_field :porpuse, :class => "form-control input-lg", :placeholder => "objetivo general" %>
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <%= f.label :components, "Componentes(objetivos específicos)" %>
-                        <%= f.text_field :components, :class => "form-control input-lg", :placeholder => "objetivos específicos" %>
+                        <%= f.label :components, "Componentes (objetivos específicos)" %>
+                        <%= f.text_area(:components, rows: 5, class: 'form-control', placeholder: "objetivos específicos") %>
                       </div>
                     </div>
                   </div>
