@@ -48,12 +48,18 @@ $(document).ready(function() {
 
     $('#trigger-arbol').on('click', function (event) {
         event.preventDefault();
+
         blueimp.Gallery($('#links-arbol a'), $('#blueimp-gallery').data());
     });
 
     $('#trigger-fotos').on('click', function (event) {
         event.preventDefault();
-        blueimp.Gallery($('#links-fotos a'), $('#blueimp-gallery').data());
+        blueimp.Gallery($('#links-fotos a'), 
+            {
+        container: $('#blueimp-gallery'),
+        carousel: false,
+        continuous: false
+        })
     });
 //     var date = new Date();
 //     var d = date.getDate();

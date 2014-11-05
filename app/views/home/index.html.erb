@@ -209,6 +209,7 @@
                           <%= tour.name %>
                           <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
                         </label>
+                          <span class="glyphicon glyphicon-info-sign" style="margin-left: 15px;" id="info_<%= tour.id %>" onclick="$(&quot;.info-<%= tour.id %>&quot;).show()"></span>
                       </li>
                     <% end %>
                   </ul>
@@ -225,6 +226,7 @@
                           <%= tour.name %>
                           <input type="checkbox" class="ruta-checkbox" id="ruta_<%= tour.id %>_checkbox" autocomplete="off">
                         </label>
+                        <span class="glyphicon glyphicon-info-sign" style="margin-left: 15px;" id="info_<%= tour.id %>" onclick="$(&quot;.info-<%= tour.id %>&quot;).show()"></span>
                       </li>
                     <% end %>
                   </ul>
@@ -652,7 +654,25 @@
     </div>
   </div>
 </div>
-<div id="blueimp-gallery" class="blueimp-gallery">
+<!-- Routes Info -->
+<% @polygon.tours.each_with_index do |tour, index| %>
+  <div class="details-2 calen info-<%= tour.id %>" style="display: none">
+    <a class="close" href="#" onclick="$(this).parent().hide()">X</a>
+    <div class="page-header" style="margin: 40px 33px 20px;">
+      <div class="solution-detail">
+        <div class="solution-item" style="width:90%">
+          <h1><%= tour.name %></h1>
+          <p class="explicacion">DESCRIPCION</p>
+          <p><%= tour.description %></p>
+          <p class="explicacion">FECHA DE INICIO</p>
+          <p><%= l tour.start_date, :format => :short_datetime if tour.start_date %></p>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+<% end %>    
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
@@ -671,16 +691,16 @@
                     <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body next"></div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left prev">
-                        <<
-                        Anterior
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
                     </button>
                     <button type="button" class="btn btn-primary next">
-                        Siguiente
-                        >>
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

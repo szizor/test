@@ -17,8 +17,8 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <%= f.label :name, "Titlo" %>
-                      <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Titlo" %>
+                      <%= f.label :name, "Título" %>
+                      <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Título" %>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -53,22 +53,24 @@
                   <h4>Información de la Matriz</h4>
 
                   <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :end, "Fin (aportacion a la estrategia)" %>
                         <%= f.text_field :end, :class => "form-control input-lg", :placeholder => "Aportacion a la estrategia sectorial o nacional" %>
                       </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :porpuse, "Proposito (objetivo general)" %>
                         <%= f.text_field :porpuse, :class => "form-control input-lg", :placeholder => "objetivo general" %>
                       </div>
                     </div>
-                    <div class="col-md-4">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
                       <div class="form-group">
                         <%= f.label :components, "Componentes (objetivos específicos)" %>
-                        <%= f.text_area(:components, rows: 5, class: 'form-control', placeholder: "objetivos específicos") %>
+                        <%= f.text_area(:components, rows: 7, class: 'form-control', placeholder: "objetivos específicos") %>
                       </div>
                     </div>
                   </div>
@@ -127,12 +129,14 @@
                       <div class="form-group">
                         <%= f.label :budget_expected_pdf, "Desglose del presupuesto" %>
                         <%= f.file_field :budget_expected_pdf, :class => "form-control input-lg", :placeholder => "Desglose del presupuesto" %>
+                        <%= @alternative.budget_expected_pdf.file.filename if @alternative.budget_expected_pdf.present? %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :assigned_budget, "Desglose del presupuesto" %>
                         <%= f.file_field :assigned_budget_pdf, :class => "form-control input-lg", :placeholder => "Desglose del presupuesto" %>
+                        <%= @alternative.assigned_budget_pdf.file.filename if @alternative.assigned_budget_pdf.present? %>
                       </div>
                     </div>
                   </div>
@@ -183,12 +187,14 @@
                       <div class="form-group">
                         <%= f.label :crono, "Cronograma" %>
                         <%= f.file_field :crono, :class => "form-control input-lg", :placeholder => "Cronograma" %>
+                        <%= @alternative.crono.file.filename if @alternative.crono.present? %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :resume, "Resumen ejecutivo" %>
                         <%= f.file_field :resume, :class => "form-control input-lg", :placeholder => "Resumen ejecutivo" %>
+                        <%= @alternative.resume.file.filename if @alternative.resume.present? %>
                       </div>
                     </div>
                   </div>
