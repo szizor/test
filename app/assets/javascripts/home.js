@@ -180,7 +180,11 @@ function initialize() {
     });
 
     categories.on("select2-selecting", function(e) {
-        showCategories(e.target, e.val)
+        if (!!e.val) {
+            showCategories(e.target, e.val)
+        }else{
+            showAllCategoriesMarkers();
+        }
     });
 
     for (i = 0; i < coordsVal.length; i++) {
@@ -351,11 +355,24 @@ function hideMarker(obj, name) {
 
 function showCategories(obj,val) {
     for (var i = 0; i < markers.length; ++i) {
+        console.log('showCategories', val, markers[i].category);
         if (parseInt(val) == markers[i].category) {
             markers[i].setVisible(true);
         }else{
             markers[i].setVisible(false);
         }
+    }
+}
+
+function showAllCategoriesMarkers() {
+    for (var i = 0; i < markers.length; ++i) {
+        markers[i].setVisible(true);
+    }
+}
+
+function hideAllCategoriesMarkers() {
+    for (var i = 0; i < markers.length; ++i) {
+        markers[i].setVisible(false);
     }
 }
 

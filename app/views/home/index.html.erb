@@ -22,14 +22,14 @@
                     <% end %>
                   <% else %>
                     <option value=''>Selecciona el Polígono</option>
-                  <% end %>  
+                  <% end %>
                 </select>
               </div>
             </div>
           </div>
           <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
             <div class="toolbar__label">Categorias</div>
-            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name_with_count, nil), :prompt => "Selecciona", :class=>"form-control select2-control", :id=>"problem_category_id"%>
+            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name_with_count, nil), :prompt => "Todas", :class=>"form-control select2-control", :id=>"problem_category_id"%>
           </div>
           <div class="col-md-4 col-xs-12 toolbar__form-group">
             <div class="toolbar__label">Reportes y Proyectos de</div>
@@ -513,7 +513,7 @@
                         <td><%= actor.phone %></td>
                         <td><%= actor.email %></td>
                         <td><%= actor.website %></td>
-                      </tr>  
+                      </tr>
                     <% end %>
                   </table>
                   <h2>Archivos</h2>
@@ -599,10 +599,10 @@
           <tr>
             <td><%= video.name %></td>
             <td><a href="<%= video.url %>" target="_blank"><%= video.url %></a></td>
-          </tr>  
-        <% end %> 
-      </table>   
-    </div>    
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
 <div class="details-2 docs" id="docs-container" style="display: none">
@@ -621,12 +621,12 @@
           <tr>
             <td><%= doc.name %></td>
             <td><%= link_to doc.name, doc.file.url, :target => "_blank"%></td>
-          </tr>  
-        <% end %> 
-      </table>   
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
-</div>   
+</div>
 <div class="details-2 galleries" id="arbol-container" style="display: none">
   <a class="close" href="#">X</a>
   <div class="documents_container">
@@ -638,7 +638,7 @@
         <%= link_to tree.file_url, :title => tree.name do %>
             <%= image_tag tree.file_url(:thumb) %>
         <% end %>
-      <% end %>  
+      <% end %>
     </div>
   </div>
   <div class="documents_container">
@@ -650,7 +650,7 @@
         <%= link_to image.image_url, :title => image.name do %>
             <%= image_tag image.image_url(:thumb) %>
         <% end %>
-      <% end %>  
+      <% end %>
     </div>
   </div>
 </div>
@@ -671,7 +671,7 @@
       </div>
     </div>
   </div>
-<% end %>    
+<% end %>
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
