@@ -10,7 +10,7 @@
           <a href="/admin/dashboard"><i class="fa fa-home"></i> Inicio</a>
           <!-- Divider -->
           <span class="divider">/</span>
-          <a href="#" class="bread-current">Polígonos</a>
+          <a href="javascript:void(0);" class="bread-current">Polígonos</a>
         </div>
 
         <div class="clearfix"></div>
@@ -23,13 +23,13 @@
                 <div class="widget-head">
                   <div class="pull-left">Listado de Polígonos</div>
                   <div class="widget-icons pull-right">
-                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                    <a href="javascript:void(0);" class="wminimize"><i class="fa fa-chevron-up"></i></a>
                   </div>
                   <div class="clearfix"></div>
                 </div>
                 <div class="widget-content">
                   <div class="table-responsive">
-                    <table id="datatable" class="table table-bordered table-hover">
+                    <table id="datatable" class="table table-bordered">
                       <thead>
                         <tr>
                           <th>Nombre</th>
@@ -44,7 +44,7 @@
                       <tbody>
                         <% for polygon in @polygons %>
                           <tr>
-                            <td><a href="#" onclick="$(&quot;.problem_<%=polygon.id%>&quot;).toggle(&quot;slow&quot;);"><%= polygon.name %></a></td>
+                            <td><a href="javascript:void(0);" onclick="$(&quot;.problem_<%=polygon.id%>&quot;).toggle(&quot;slow&quot;);"><%= polygon.name %></a></td>
                             <td><%= polygon.state.try(:name) %></td>
                             <td><%= polygon.city_id %></td>
                             <td><%= polygon.problems.count %></td>
@@ -53,7 +53,7 @@
                             <td><%= link_to "Edit", edit_admin_polygon_path(polygon) %></td>
                             <td><%= link_to "Destroy", [:admin, polygon], :confirm => 'Are you sure?', :method => :delete %></td>
                           </tr>
-                          <tr class="problem_<%=polygon.id%>" style="background-color: #8FBC8F;display:none">
+                          <tr class="problem_<%=polygon.id%> problem-title-row">
                             <th colspan="3">Problema</th>
                             <th>Categoría</th>
                             <th>Frecuencia del problema</th>
@@ -61,25 +61,25 @@
                             <th class="text-center" colspan="2">Acciones</th>
                           </tr>
                           <% for problem in polygon.problems %>
-                          <% polycolor = cycle('#f5f5f5', '#FFFFCC') %>
-                            <tr class="problem_<%= polygon.id %>" style="background-color: <%= polycolor %>;display:none">
-                              <td colspan="3"><a href="#" onclick="$(&quot;.alternative_<%=problem.id%>&quot;).toggle(&quot;slow&quot;);"><%= problem.name %></td>
+                          <% polycolor = cycle('#f5f5f5', 'rgba(248, 247, 237, 1)') %>
+                            <tr id="problem_row_<%=problem.id%>" class="problem_<%= polygon.id %> problem-row" style="background-color: <%= polycolor %>;display:none">
+                              <td colspan="3"><a href="javascript:void(0);" onclick="$(&quot;.alternative_<%=problem.id%>&quot;).toggle(&quot;slow&quot;); $(&quot;#problem_row_<%=problem.id%>&quot;).toggleClass('expanded')"><%= problem.name %></td>
                               <td><%= problem.category.try(:name) %></td>
                               <td><%= problem.frecuency %></td>
                               <!-- TODO -->
                               <td>4</td>
-                              <td><%= link_to "Edit", edit_admin_polygon_problem_path(polygon, problem) %></td>
-                              <td><%= link_to "Destroy", admin_polygon_problem_path(polygon, problem), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
-                            </tr>  
+                              <td><%= link_to "Editar", edit_admin_polygon_problem_path(polygon, problem) %></td>
+                              <td><%= link_to "Eliminar", admin_polygon_problem_path(polygon, problem), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
                             </tr>
-                            <tr class="alternative_<%=problem.id%>" style="background-color: <%= polycolor %>;display:none">  
+                            </tr>
+                            <tr class="alternative_<%=problem.id%>" style="background-color: <%= polycolor %>;display:none">
                               <th>Usuario</th>
                               <th colspan="5">Alternativa</th>
                               <th>Tipo</th>
                               <th class="text-center">Opciones</th>
                             </tr>
                             <% for alternative in problem.alternatives %>
-                               <tr class="alternative_<%=problem.id%>" style="background-color: #f5f5f5;display:none">
+                               <tr class="alternative_<%=problem.id%>" style="background-color: <%= polycolor %>;display:none">
                                 <td><%= alternative.user.username if alternative.user%></td>
                                 <th colspan="5"><%= alternative.name %></td>
                                 <td><%= alternative.solution? ? "<span class='label label-success'>Proyecto</span>".html_safe : "<span class='label label-warning'>Idea</span>".html_safe %></td>

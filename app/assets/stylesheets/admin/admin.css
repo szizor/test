@@ -1963,6 +1963,28 @@ border:1px solid #eee;
 	color:#777;
 }
 
+/* data tables*/
+/*.problem-title-row,
+.table-hover > tbody > .problem-title-row:hover > th {
+    background-color: rgba(234, 234, 234, 1);
+}*/
+.problem-title-row{
+    display: none;
+    text-transform: uppercase;
+}
+
+.table .problem-title-row th:nth-child(1) {
+    padding-left: 20px;
+}
+.table .problem-row td:nth-child(1) {
+    padding-left: 20px;
+}
+
+/*.problem-row.expanded td,
+.problem-row.expanded:hover td {
+    background: rgba(242, 253, 254, 1);
+}*/
+
 /* Footer */
 
 footer{
