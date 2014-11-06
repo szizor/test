@@ -230,7 +230,7 @@
                                 <i class="fa fa-pencil"></i> </a>
                               <% end %>  
                             
-                              <%= link_to(admin_polygon_document_path(@polygon, doc), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
+                              <%= link_to(admin_polygon_document_path(@polygon, doc), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete) do %>
                                 <i class="fa fa-times"></i>
                               <% end %>  
                             
@@ -278,7 +278,7 @@
                                 <i class="fa fa-pencil"></i> </a>
                               <% end %>  
                             
-                              <%= link_to(admin_polygon_video_path(@polygon, video), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
+                              <%= link_to(admin_polygon_video_path(@polygon, video), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete) do %>
                                 <i class="fa fa-times"></i>
                               <% end %>  
                             
@@ -342,7 +342,7 @@
                                 <i class="fa fa-pencil"></i> </a>
                               <% end %>  
                             
-                              <%= link_to(admin_polygon_tree_path(@polygon, tree), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete) do %>
+                              <%= link_to(admin_polygon_tree_path(@polygon, tree), confirm: 'Esta seguro?', disable_with: 'borrando...', method: :delete) do %>
                                 <i class="fa fa-times"></i>
                               <% end %>  
                                 
@@ -374,8 +374,8 @@
                           <td><%= problem.frecuency %></td>
                           <!-- TODO -->
                           <td><%= problem.alternatives.count %></td>
-                          <td><%= link_to "Edit", edit_admin_polygon_problem_path(@polygon, problem) %></td>
-                          <td><%= link_to "Destroy", admin_polygon_problem_path(@polygon, problem), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
+                          <td><%= link_to "Editar", edit_admin_polygon_problem_path(@polygon, problem) %></td>
+                          <td><%= link_to "Borrar", admin_polygon_problem_path(@polygon, problem), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>
                       <% end %>
                     </tbody>
@@ -418,8 +418,8 @@
                               </a>
                             <% end %>
                           </td>
-                          <td><%= link_to "Edit", edit_admin_polygon_actor_path(@polygon, actor) %></td>
-                          <td><%= link_to "Destroy", admin_polygon_actor_path(@polygon, actor), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
+                          <td><%= link_to "Editar", edit_admin_polygon_actor_path(@polygon, actor) %></td>
+                          <td><%= link_to "Borrar", admin_polygon_actor_path(@polygon, actor), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>
                       <% end %>
                     </tbody>
@@ -442,8 +442,8 @@
                         <tr>
                           <td><%= tour.name %></td>
                           <td><%= tour.start_date.in_time_zone('America/Mexico_City').strftime("%d de %b %H:%M") if tour.start_date %></td>
-                          <td><%= link_to "Edit", edit_admin_polygon_tour_path(@polygon, tour) %></td>
-                          <td><%= link_to "Destroy", admin_polygon_tour_path(@polygon, tour), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
+                          <td><%= link_to "Editar", edit_admin_polygon_tour_path(@polygon, tour) %></td>
+                          <td><%= link_to "Borrar", admin_polygon_tour_path(@polygon, tour), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>
                       <% end %>
                     </tbody>

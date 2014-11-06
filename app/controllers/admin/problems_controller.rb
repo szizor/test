@@ -46,6 +46,10 @@ class Admin::ProblemsController < Admin::BaseController
   def destroy
     @problem = Problem.find(params[:id])
     @problem.destroy
-    redirect_to admin_problems_url, :notice => "Successfully destroyed problem."
+    respond_to do |format|
+        polygon = Polygon.find(params[:polygon_id])
+        format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'Problema eliminado satisfactoriamente.' }
+        format.json { render json: @problem, status: :created, location: @problem }
+    end
   end
 end
