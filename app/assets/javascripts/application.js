@@ -50,7 +50,7 @@ $(document).ready(function() {
     }else{
       window.reportingMode = true;
       if ( poligonInfo.is(":visible") ) {
-        poligonInfo.slideUp(); 
+        poligonInfo.slideUp();
         poligonToggleWrap.show();
       }
       reportProblemBar.show();
@@ -88,5 +88,15 @@ $(document).ready(function() {
       pickTime: true,
       useCurrent: true
   });
-  
+
+  window.resizePolygonInfoSlider = function resizePolygonInfoSlider(){
+    var polygonInfoSliderWidth    = 0;
+    var polygonInfoSlider         = $('.poligon-info .items-container');
+    var polygonInfoChildren       = polygonInfoSlider.find('> div');
+      polygonInfoChildren.each(function(i,el){
+            polygonInfoSliderWidth += $(el).outerWidth(true);
+    });
+    polygonInfoSlider.css('width', polygonInfoSliderWidth);
+  }
+
 });

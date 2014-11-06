@@ -758,7 +758,9 @@ html, body {
 
 .poligon-info .items-container {
     height: 80px;
-    width: 1170px;
+    width: 1173px;
+    position: absolute;
+    left: 50px;
 }
 
 .poligon-info .slider-control {
@@ -2191,6 +2193,11 @@ background-color: #fff;
     content: "";
 }
 
+@media (min-width: 1140px){
+    .poligon-info .items-container {
+        left: 50px !important;
+    }
+}
 @media (max-width: 1140px){
     .poligon-info .items-container {
         position: relative;
@@ -2206,7 +2213,7 @@ background-color: #fff;
         top: 36px;
     }
 }
-@media (max-width: 768px){
+@media (max-width: 940px){
     .poligon-info {
         height: 173px;
     }
@@ -2217,7 +2224,7 @@ background-color: #fff;
         top: 30px;
     }
 }
-@media (max-width: 440px){
+@media (max-width: 580px){
     .poligon-info .media-links {
         right: 36px;
         top: 78px;
@@ -2227,5 +2234,19 @@ background-color: #fff;
     }
     .poligon-info {
         height: 200px;
+    }
+}
+@media (max-width: 350px){
+    .poligon-info .bar-label {
+        display: none;
+    }
+    .poligon-info .media-links a {
+        font-size: 12px;
+    }
+    .poligon-info .slider-control {
+        top: 73px;
+    }
+    .poligon-info .items-container {
+        padding-left: 20px;
     }
 }
