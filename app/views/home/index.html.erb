@@ -732,8 +732,7 @@
               <div class="left"><%= problem.alternatives.count %> Alternativas </div>\
               <div class="like">0</div>\
             </div>\
-          </div>\
-          <i class="tooltip-bottom-tip"></i>',
+          </div>',
         'category': <%=problem.category_id%>,
         'position': {
           'lat':JSON.parse(test[<%=index%>])["k"],
@@ -752,18 +751,21 @@
         'content':'\
         <div class="itemb">\
             <div class="red">\
-              <h2><%= actor.name%></h2>\
+              <span class="actor-name"><%= actor.name%></span>\
             </div>\
             <div class="bottom-content">\
               <p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">\
                   <span class="info-data-text info-data__address_street" itemprop="streetAddress"><%= actor.address%></span>\
                   <span class="info-data-text info-data__address_locality" itemprop="addressLocality"><%= actor.city%></span>\
                   <span class="info-data-text info-data__address_region" itemprop="addressRegion">JAL</span>\
-                  <span class="info-data-text info-data__address_street" itemprop="streetAddress"><%= actor.phone%></span>\
+                  <span class="info-data-text info-data__address_phone" itemprop="streetAddress"><%= actor.phone%></span>\
+                </p>\
+                <p class="social-links">\
+                    <a href="" class="facebook"><img src="/assets/icons/facebook.jpg"></a>\
+                    <a href="" class="facebook"><img src="/assets/icons/twitter.jpg"></a>\
                 </p>\
             </div>\
-          </div>\
-          <i class="tooltip-bottom-tip"></i>',
+          </div>',
         'category': 1,
         'position': {
           'lat':JSON.parse(actorsdata[<%=index%>])["k"],

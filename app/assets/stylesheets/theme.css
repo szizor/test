@@ -512,12 +512,24 @@ html, body {
     color: #848484;
     font-size: 14px;
     position: absolute;
-    height: 123px;
+    /*height: 123px;*/
+    height: auto;
     padding: 2px !important;
     width: 380px;
     border: solid 1px #848484;
     border-radius: 4px;
     box-shadow: 0px 0px 3px 0px #848484;
+}
+.infobox .itemb:after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 10px;
+    background: url('/assets/bg_box_tip_bottom.png') no-repeat scroll left top transparent;
+    position: absolute;
+    top: auto;
+    bottom: -9px;
+    left: 16px;
 }
 
 .infobox .tooltip-bottom-tip {
@@ -676,6 +688,7 @@ html, body {
 
 .infobox .close {
     font-weight: normal;
+    font-size: 17px;
     position: absolute;
     top: 2px;
     left: auto;
@@ -1916,17 +1929,28 @@ background-color: #fff;
     float: right;
 }
 
-.infobox h2 {
+.infobox h2,
+.infobox .actor-name {
     color: #292929;
     padding: 3px 0 4px;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 23px;
     line-height: normal;
+    max-height: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.infobox .actor-name {
+    font-size: 18px;
 }
 
 .infobox .bottom-content {
-    height: 40px;
     position: relative;
+}
+
+.infobox .social-links {
+    text-align: center;
+    padding: 5px 0;
 }
 
 .infobox-wrapper {
