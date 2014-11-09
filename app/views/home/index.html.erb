@@ -274,7 +274,7 @@
     <% @polygon.problems.where("coords is not null AND coords <> '--- \n...\n'").each_with_index do |problem, index| %>
       <div class="details-2 problem-<%= problem.id %>" style="display: none">
         <% imagebg = problem.image.present? ? "background-image: url('#{problem.image.url }');" : "background-color: #A9A9A9;" %>
-        <div class="problem-detail collapsed" style="<%= imagebg %>">
+        <div class="problem-detail collapsed" style="<%= imagebg %>" id="problem_<%=problem.id%>">
             <a class="close" href="#"></a>
             <div class="excerpt-container">
                 <div class="detail-heading">
@@ -286,13 +286,13 @@
                 <div class="excerpt">
                     <p><%= problem.description %></p>
                 </div>
-                <div class="excerpt-info">
+                <div class="excerpt-info" id="problem_detail_<%=problem.id%>">
                     <div class="excerpt-brief">
                         <span class="info-1"><%= number_with_delimiter(problem.affected_population) %> Afectados</span>
                         <span class="info-separator">·</span>
                         <span class="info-2"><%= problem.matority %></span>
-                        <a href="#" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
-                        <a href="#" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
+                        <a href="#problem_detail_<%=problem.id%>" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
+                        <a href="#problem_<%=problem.id%>" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
                     </div>
                     <div class="info-column column-1">
                         <div class="sub-title">
@@ -392,20 +392,24 @@
                   <p><%= alternative.description %></p>
                 </div>
                 <div class="social">
-                  <div class="social-align">
-                    <div class="excerpt-info">
-                      <div class="excerpt-brief">
+                  <table>
+                    <tr>
+                      <td>
+                          <img src="images/social.png" alt="">
+                      </td>
+                    </tr>  
+                    <tr style="height: 75px;vertical-align: bottom;">
+                      <td>
                         <% if alternative.solution %>
-                          <a class="project info-toggle expand" data-toggle-target='project-info-<%= alternative.id %>' href="javascript:void(0);">Más información <i class="toggle-control"></i></a>
+                          <a class="project info-toggle expand" data-toggle-target='project-info-<%= alternative.id %>' href="#project-info-<%= alternative.id %>">Más información del proyecto<i class="toggle-control"></i></a>
                         <% end %>
-                        <img src="images/social.png" alt="">
-                      </div>
-                    </div>
-                  </div>
+                      </td>  
+                    </tr> 
+                  </table>   
                 </div>
               </div>
               <% if alternative.solution %>
-                <div class="project-info-<%= alternative.id %> project-info-detailed" style="display:none">
+                <div class="project-info-<%= alternative.id %> project-info-detailed" style="display:none" id="project-info-<%= alternative.id %>">
                   <h2>Información de la Matriz</h2>
                     <div class="row">
                       <div class="col-md-4">
