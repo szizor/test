@@ -67,7 +67,7 @@
                               <td><%= problem.category.try(:name) %></td>
                               <td><%= problem.frecuency %></td>
                               <!-- TODO -->
-                              <td>4</td>
+                              <td><%= problem.alternatives.count %></td>
                               <td><%= link_to "Editar", edit_admin_polygon_problem_path(polygon, problem) %></td>
                               <td><%= link_to "Eliminar", admin_polygon_problem_path(polygon, problem), confirm: 'Are you sure?', disable_with: 'deleting...', method: :delete %></td>
                             </tr>

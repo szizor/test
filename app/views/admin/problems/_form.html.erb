@@ -147,7 +147,8 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <%= f.label :image, "Imagen representativa del problema" %>
+                  <%= f.label :image, "Imagen representativa del problema" %><br/>
+                  <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, Max 25 Mgs</i>
                   <%= f.file_field :image, :class => "form-control" %>
                   <% if @problem.image.present? %>
                     <%= image_tag(@problem.image.url(:thumb), :class => "img-responsive") %>
@@ -156,7 +157,8 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <%= f.label :arbol, "Gráfico de árbol de problemas" %>
+                  <%= f.label :arbol, "Gráfico de árbol de problemas" %><br/>
+                  <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, Max 25 Mgs</i>
                   <%= f.file_field :arbol, :class => "form-control" %>
                   <% if @problem.arbol.present? %>
                     <%= image_tag(@problem.arbol.url(:thumb), :class => "img-responsive") %>

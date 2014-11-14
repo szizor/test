@@ -69,7 +69,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <%= f.label :components, "Componentes (objetivos específicos)" %>
+                        <%= f.label :components, "Componentes (objetivos específicos) (agregue salto de linea con | )" %>
                         <%= f.text_area(:components, rows: 7, class: 'form-control', placeholder: "objetivos específicos") %>
                       </div>
                     </div>
@@ -127,14 +127,16 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <%= f.label :budget_expected_pdf, "Desglose del presupuesto" %>
+                        <%= f.label :budget_expected_pdf, "Desglose del presupuesto contemplado" %>
+                        <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, Max 25 Mgs</i>
                         <%= f.file_field :budget_expected_pdf, :class => "form-control input-lg", :placeholder => "Desglose del presupuesto" %>
                         <%= @alternative.budget_expected_pdf.file.filename if @alternative.budget_expected_pdf.present? %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <%= f.label :assigned_budget, "Desglose del presupuesto" %>
+                        <%= f.label :assigned_budget, "Desglose del presupuesto asignado" %>
+                        <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, Max 25 Mgs</i>
                         <%= f.file_field :assigned_budget_pdf, :class => "form-control input-lg", :placeholder => "Desglose del presupuesto" %>
                         <%= @alternative.assigned_budget_pdf.file.filename if @alternative.assigned_budget_pdf.present? %>
                       </div>
@@ -186,6 +188,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :crono, "Cronograma" %>
+                        <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, Max 25 Mgs</i>
                         <%= f.file_field :crono, :class => "form-control input-lg", :placeholder => "Cronograma" %>
                         <%= @alternative.crono.file.filename if @alternative.crono.present? %>
                       </div>
@@ -193,6 +196,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= f.label :resume, "Resumen ejecutivo" %>
+                        <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, Max 25 Mgs</i>
                         <%= f.file_field :resume, :class => "form-control input-lg", :placeholder => "Resumen ejecutivo" %>
                         <%= @alternative.resume.file.filename if @alternative.resume.present? %>
                       </div>
