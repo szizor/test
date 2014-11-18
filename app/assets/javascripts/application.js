@@ -64,6 +64,7 @@ $(document).ready(function() {
     reportTrigger.removeClass('toggled');
     poligonToggleWrap.hide();
     poligonInfo.slideDown();
+    resizePolygonInfoSlider();
   });
 
   poligonInfoClose.on('click', function(){
@@ -96,7 +97,9 @@ $(document).ready(function() {
       polygonInfoChildren.each(function(i,el){
             polygonInfoSliderWidth += $(el).outerWidth(true);
     });
-    polygonInfoSlider.css('width', polygonInfoSliderWidth);
+    polygonInfoSlider.css('width', polygonInfoSliderWidth + 60);
   }
+
+  $(window).resize(resizePolygonInfoSlider);
 
 });
