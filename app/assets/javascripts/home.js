@@ -508,7 +508,7 @@ $(document).ready(function(){
 
         infotoggle.click(function(){
             if(toggleTarget.is(':visible')){
-                infotoggle.html('Más información '+toggleControlHtml);
+                infotoggle.html('Más información del proyecto'+toggleControlHtml);
             }else{
                 infotoggle.html('Ocultar '+toggleControlHtml);
             }
