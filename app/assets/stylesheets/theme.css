@@ -1547,8 +1547,8 @@ background-color: #fff;
 }
 .problem-detail.collapsed .excerpt-brief a.collapse,
 .problem-detail .excerpt-brief a.expand,
-.problem-detail.collapsed .info-column,
-.problem-detail.collapsed .excerpt-stats,
+/*.problem-detail.collapsed .info-column,*/
+/*.problem-detail.collapsed .excerpt-stats,*/
 .project.collapse {
     display: none;
 }

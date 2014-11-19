@@ -30,6 +30,7 @@ $(document).ready(function() {
   var poligonInfoClose  = poligonInfo.find('.close');
   var reportProblemBar  = $('.report-problem-bar');
   var detailBox         = $('.problem-detail');
+  var excerptDetail     = $('.excerpt-detail').hide();
 	var closeBtn          = detailBox.find('.close');
 	var toggleControl     = detailBox.find('.info-toggle');
 
@@ -41,6 +42,11 @@ $(document).ready(function() {
             polygonInfoSliderWidth += $(el).outerWidth(true);
     });
     polygonInfoSlider.css('width', polygonInfoSliderWidth + 60);
+  };
+
+  window.jumpToElement = function jumpToElement($element, gap){
+    var targetTop = $element.offset().top + gap;
+    $('html, body').delay(300).animate({'scrollTop':targetTop}, 600);
   };
 
   $('#polygon_state_id').change(function() {
@@ -83,11 +89,20 @@ $(document).ready(function() {
   });
 
 	closeBtn.on('click', function(){
-    detailBox.addClass('collapsed').parent().hide();
-	});
+    detailBox.parent().hide();
+    excerptDetail.slideUp();
+  });
 
-	toggleControl.on('click', function(){
+  toggleControl.on('click', function(ev){
+    var parent = $(ev.target).parent().parent();
+    var excerptBox = $(parent).find('.excerpt-detail');
     detailBox.toggleClass('collapsed');
+    if (!excerptDetail.is(':visible')){
+      excerptDetail.slideToggle();
+      jumpToElement(excerptBox, -100);
+    }else{
+      excerptDetail.slideToggle();
+    }
   });
 
   $('#datetimepicker1').datetimepicker({

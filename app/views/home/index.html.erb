@@ -291,78 +291,81 @@
                         <span class="info-1"><%= number_with_delimiter(problem.affected_population) %> Afectados</span>
                         <span class="info-separator">·</span>
                         <span class="info-2"><%= problem.matority %></span>
-                        <a href="#problem_detail_<%=problem.id%>" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
-                        <a href="#problem_<%=problem.id%>" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
+                        <a href="javascript:void(0);" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
+                        <a href="javascript:void(0);" class="info-toggle collapse">Ocultar <i class="toggle-control"></i></a>
                     </div>
-                    <div class="info-column column-1">
-                        <div class="sub-title">
-                            Posibles causas
-                        </div>
-                        <div class="column-detail">
-                           <ul>
-                              <% problem.cause.split("|").each do |causa|%>
-                                <li><%= causa %></li>
-                              <% end if problem.cause %>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="info-column column-2">
-                        <div class="sub-title">
-                            Efectos que provoca
-                        </div>
-                        <div class="column-detail">
-                            <ul>
-                              <% problem.effects.split("|").each do |causa|%>
-                                <li><%= causa %></li>
-                              <% end if problem.effects%>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="excerpt-stats">
-                        <div class="problem-detail-column">
-                            <span class="sub-title">
-                                Afecta
-                            </span>
-                            <div class="detail-container">
-                                <%= problem.houses %>
-                            </div>
-                            <span class="units">
-                                Casas
-                            </span>
-                        </div>
-                        <div class="problem-detail-column">
-                            <span class="sub-title">
-                                Frecuencia
-                            </span>
-                            <div class="detail-container">
-                                <img src="images/icons/icn-cycle.png" alt="Cíclica">
-                            </div>
-                            <span class="units">
-                                <%= problem.frecuency %>
-                            </span>
-                        </div>
-                        <div class="problem-detail-column">
-                            <span class="sub-title">
-                                Costo del problema
-                            </span>
-                            <div class="detail-container">
-                                <%= number_to_currency(problem.costs) %>
-                            </div>
-                            <span class="units">
-                                Pesos anuales (aprox.)
-                            </span>
-                        </div>
-                        <!-- <div class="problem-detail-column">
-                            <span class="sub-title">
-                                Galería
-                            </span>
-                            <div class="detail-container">
-                                <a href="#"><img src="images/icons/icn-gallery.png" alt="Galería"></a>
-                            </div>
-                            <span class="units">
-                                Fotos y video
-                            </span>
-                        </div> -->
+                    <div class="excerpt-detail">
+
+                      <div class="info-column column-1">
+                          <div class="sub-title">
+                              Posibles causas
+                          </div>
+                          <div class="column-detail">
+                             <ul>
+                                <% problem.cause.split("|").each do |causa|%>
+                                  <li><%= causa %></li>
+                                <% end if problem.cause %>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="info-column column-2">
+                          <div class="sub-title">
+                              Efectos que provoca
+                          </div>
+                          <div class="column-detail">
+                              <ul>
+                                <% problem.effects.split("|").each do |causa|%>
+                                  <li><%= causa %></li>
+                                <% end if problem.effects%>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="excerpt-stats">
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Afecta
+                              </span>
+                              <div class="detail-container">
+                                  <%= problem.houses %>
+                              </div>
+                              <span class="units">
+                                  Casas
+                              </span>
+                          </div>
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Frecuencia
+                              </span>
+                              <div class="detail-container">
+                                  <img src="images/icons/icn-cycle.png" alt="Cíclica">
+                              </div>
+                              <span class="units">
+                                  <%= problem.frecuency %>
+                              </span>
+                          </div>
+                          <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Costo del problema
+                              </span>
+                              <div class="detail-container">
+                                  <%= number_to_currency(problem.costs) %>
+                              </div>
+                              <span class="units">
+                                  Pesos anuales (aprox.)
+                              </span>
+                          </div>
+                          <!-- <div class="problem-detail-column">
+                              <span class="sub-title">
+                                  Galería
+                              </span>
+                              <div class="detail-container">
+                                  <a href="#"><img src="images/icons/icn-gallery.png" alt="Galería"></a>
+                              </div>
+                              <span class="units">
+                                  Fotos y video
+                              </span>
+                          </div> -->
+                      </div>
                     </div>
                 </div>
             </div>
@@ -397,15 +400,15 @@
                       <td>
                           <img src="images/social.png" alt="">
                       </td>
-                    </tr>  
+                    </tr>
                     <tr style="height: 75px;vertical-align: bottom;">
                       <td>
                         <% if alternative.solution %>
-                          <a class="project info-toggle expand" data-toggle-target='project-info-<%= alternative.id %>' href="#project-info-<%= alternative.id %>">Más información del proyecto<i class="toggle-control"></i></a>
+                          <a class="project info-toggle expand" data-toggle-target='project-info-<%= alternative.id %>' href="javascript:void(0);">Más información del proyecto<i class="toggle-control"></i></a>
                         <% end %>
-                      </td>  
-                    </tr> 
-                  </table>   
+                      </td>
+                    </tr>
+                  </table>
                 </div>
               </div>
               <% if alternative.solution %>

@@ -507,8 +507,8 @@ $(document).ready(function(){
         var toggleControlHtml   = '<i class="toggle-control"></i>';
 
         window.jumpToPoligonInfo = function jumpToPoligonInfo(){
-            var targetTop = toggleTarget.offset().top - 60;
-            $('html, body').animate({'scrollTop':targetTop}, 500);
+            var targetTop = toggleTarget.offset().top - 150;
+            $('html, body').animate({'scrollTop':targetTop}, 600);
         };
 
         infotoggle.click(function(){
