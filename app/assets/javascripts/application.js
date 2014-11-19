@@ -33,6 +33,16 @@ $(document).ready(function() {
 	var closeBtn          = detailBox.find('.close');
 	var toggleControl     = detailBox.find('.info-toggle');
 
+  window.resizePolygonInfoSlider  = function resizePolygonInfoSlider(){
+    var polygonInfoSliderWidth    = 0;
+    var polygonInfoSlider         = $('.poligon-info .items-container');
+    var polygonInfoChildren       = polygonInfoSlider.find('> div');
+      polygonInfoChildren.each(function(i,el){
+            polygonInfoSliderWidth += $(el).outerWidth(true);
+    });
+    polygonInfoSlider.css('width', polygonInfoSliderWidth + 60);
+  };
+
   $('#polygon_state_id').change(function() {
     var data = $('#polygon_state_id').val();
     $.ajax({
@@ -90,15 +100,6 @@ $(document).ready(function() {
       useCurrent: true
   });
 
-  window.resizePolygonInfoSlider = function resizePolygonInfoSlider(){
-    var polygonInfoSliderWidth    = 0;
-    var polygonInfoSlider         = $('.poligon-info .items-container');
-    var polygonInfoChildren       = polygonInfoSlider.find('> div');
-      polygonInfoChildren.each(function(i,el){
-            polygonInfoSliderWidth += $(el).outerWidth(true);
-    });
-    polygonInfoSlider.css('width', polygonInfoSliderWidth + 60);
-  }
 
   $(window).resize(resizePolygonInfoSlider);
 

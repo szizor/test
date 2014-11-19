@@ -506,13 +506,20 @@ $(document).ready(function(){
         var toggleTarget        = $('.'+infotoggle.data('toggleTarget'));
         var toggleControlHtml   = '<i class="toggle-control"></i>';
 
+        window.jumpToPoligonInfo = function jumpToPoligonInfo(){
+            var targetTop = toggleTarget.offset().top - 60;
+            $('html, body').animate({'scrollTop':targetTop}, 500);
+        };
+
         infotoggle.click(function(){
             if(toggleTarget.is(':visible')){
                 infotoggle.html('Más información del proyecto'+toggleControlHtml);
+                toggleTarget.slideToggle();
             }else{
                 infotoggle.html('Ocultar '+toggleControlHtml);
+                toggleTarget.slideToggle();
+                jumpToPoligonInfo();
             }
-            toggleTarget.slideToggle();
         });
     });
 });
