@@ -2248,7 +2248,7 @@ background-color: #fff;
         top: 30px;
     }
 }
-@media (max-width: 580px){
+/*@media (max-width: 580px){
     .poligon-info .media-links {
         right: 36px;
         top: 78px;
@@ -2259,8 +2259,9 @@ background-color: #fff;
     .poligon-info {
         height: 200px;
     }
-}
-@media (max-width: 350px){
+}*/
+@media (max-width: 580px){
+/*@media (max-width: 350px){*/
     .poligon-info .bar-label {
         display: none;
     }
