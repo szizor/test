@@ -468,7 +468,7 @@
                       <div class="form-group">
                         <div style="float:left;width: 100%;text-align: center;">
                           <p class="explicacion">EMAIL</p>
-                          <%= alternative.fin_mail %>
+                          <%= mail_to alternative.fin_mail %>
                         </div>
                       </div>
                     </div>
@@ -476,7 +476,7 @@
                       <div class="form-group">
                         <div style="float:left;width: 100%;text-align: center;">
                           <p class="explicacion">WEBPAGE</p>
-                          <%= alternative.fin_web %>
+                          <%= link_to alternative.fin_web, alternative.fin_web %>
                         </div>
                       </div>
                     </div>
@@ -758,7 +758,7 @@
         'content':'\
         <div class="itemb">\
             <div class="red">\
-              <span class="actor-name"><%= actor.name%></span>\
+              <span class="actor-name"><%= link_to actor.name, actor.website %></span>\
             </div>\
             <div class="bottom-content">\
               <p class="info-data__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">\
@@ -768,8 +768,8 @@
                   <span class="info-data-text info-data__address_phone" itemprop="streetAddress"><%= actor.phone%></span>\
                 </p>\
                 <p class="social-links">\
-                    <a href="<%= actor.facebook%>" target="_blank" class="facebook"><img src="/assets/icons/facebook.jpg"></a>\
-                    <a href="<%= actor.twitter%>" target="_blank" class="facebook"><img src="/assets/icons/twitter.jpg"></a>\
+                    <a href="<%= actor.facebook%>" target="_blank" class="facebook"><img src="/assets/icons/facebook.png"></a>\
+                    <a href="<%= actor.twitter%>" target="_blank" class="facebook"><img src="/assets/icons/twitter.png"></a>\
                 </p>\
             </div>\
           </div>',

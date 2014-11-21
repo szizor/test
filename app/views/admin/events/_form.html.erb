@@ -107,6 +107,29 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="problem_image">Tipo de Actividad</label><br/>
+              <label class="radio-inline">
+                <input type="radio" name="event[tipo]" id="inlineRadio1" value="deportiva" <%= "checked" if @event.tipo == "deportiva" %>> Deportiva
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="event[tipo]" id="inlineRadio1" value="artística" <%= "checked" if @event.tipo == "artística" %>> Artística
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="event[tipo]" id="inlineRadio1" value="religiosa" <%= "checked" if @event.tipo == "religiosa" %>> Religiosa
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="event[tipo]" id="inlineRadio1" value="ambiental" <%= "checked" if @event.tipo == "ambiental" %>> Ambiental
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="otro" id="inlineRadio1" onmouseup="document.getElementById('event_tipo').disabled = false;document.getElementById('event_tipo').focus()"> Otro
+              </label>  
+                <%= f.text_field :tipo, :class => "form-control input-lg", :placeholder => "Otro", :disabled=>"disabled" %>
+            </div>
+          </div>
         </div>  
       
       <div class="form-group">

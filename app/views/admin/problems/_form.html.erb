@@ -166,22 +166,6 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                <label for="problem_image">Status</label><br/>
-                <label class="radio-inline">
-                  <input type="radio" name="problem[status]" id="inlineRadio1" value="pendiente" <%= "checked" if @problem.status == "pendiente" || @problem.status == nil %>> Pendiente de ejecución
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="problem[status]" id="inlineRadio1" value="ejecucion" <%= "checked" if @problem.status == "ejecucion" %>> En ejecución
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="problem[status]" id="inlineRadio1" value="terminado" <%= "checked" if @problem.status == "terminado" %>> Terminado
-                </label>
-              </div>
-              </div>
-            </div>
             <div class="widget-foot text-center">
               <%= link_to 'Regresar', :back, :class => "btn btn-inverse" %>
               <%= f.submit "Guardar", :class => 'btn btn-success' %>

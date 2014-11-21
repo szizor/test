@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= f.label :file, "Archivo" %>
-    <i>El sistema solo acepta archivos tipo PDF, JPG o PNG</i>
+    <i>El sistema solo acepta archivos tipo PDF, JPG o PNG, tamaño max. 15Mgs</i>
     <%= f.file_field :file, :class => "form-control" %>
     <%= @document.file.file.filename if @document.file.present? %>
   </div>

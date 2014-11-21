@@ -224,6 +224,22 @@
                       </ol>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="problem_image">Status</label><br/>
+                        <label class="radio-inline">
+                          <input type="radio" name="alternative[status]" id="inlineRadio1" value="pendiente" <%= "checked" if @alternative.status == "pendiente" || @alternative.status == nil %>> Pendiente de ejecución
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="alternative[status]" id="inlineRadio1" value="ejecucion" <%= "checked" if @alternative.status == "ejecucion" %>> En ejecución
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="alternative[status]" id="inlineRadio1" value="terminado" <%= "checked" if @alternative.status == "terminado" %>> Terminado
+                        </label>
+                      </div>
+                    </div>
+                  </div>
 
               </div>
               <div class="widget-foot text-center">

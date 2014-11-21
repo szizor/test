@@ -982,7 +982,7 @@ html, body {
 }
 
 .poligon-info .more-info-rangos {
-    width:350px;
+    width:370px;
     left:30%;
 }
 .poligon-info .more-info-generos {
@@ -1949,7 +1949,7 @@ background-color: #fff;
 }
 
 .infobox .social-links {
-    text-align: center;
+    text-align: right;
     padding: 5px 0;
 }
 
