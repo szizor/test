@@ -29,7 +29,16 @@
           </div>
           <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
             <div class="toolbar__label">Categorias</div>
-            <%= select_tag :category, option_groups_from_collection_for_select(@parents, :categories, :name, :id, :name_with_count, nil), :prompt => "Todas", :class=>"form-control select2-control", :id=>"problem_category_id"%>
+            <select class="form-control select2-control select2-offscreen" id="problem_category_id" name="category" tabindex="-1" title="">
+            <option value="">Todas</option>
+              <% @parents.each do |parent|%>
+                <optgroup label="<%= parent.name %>">
+                  <% parent.categories.each do |category|%>
+                    <option value="<%= category.id%>"><%= category.name %> (<%= @polygon.problems.where(:category_id => category.id).size %>)</option>
+                  <% end %>
+                </optgroup>
+              <% end %>
+            </select>
           </div>
           <div class="col-md-4 col-xs-12 toolbar__form-group">
             <div class="toolbar__label">Reportes y Proyectos de</div>
