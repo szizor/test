@@ -41,10 +41,10 @@
                           <th class="text-center" colspan="2">Acciones</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <% for polygon in @polygons %>
+                      <% for polygon in @polygons %>
+                        <tbody class="polygon-wrapper p-w-<%=polygon.id%>">
                           <tr>
-                            <td><a href="javascript:void(0);" onclick="$(&quot;.problem_<%=polygon.id%>&quot;).toggle(&quot;slow&quot;);"><%= polygon.name %></a></td>
+                            <td><a href="javascript:void(0);" class="toggle-trigger" data-target-id="<%=polygon.id%>"><%= polygon.name %></a></td>
                             <td><%= polygon.state.try(:name) %></td>
                             <td><%= polygon.city_id %></td>
                             <td><%= polygon.problems.count %></td>
@@ -79,7 +79,7 @@
                               <th class="text-center">Opciones</th>
                             </tr>
                             <% for alternative in problem.alternatives %>
-                               <tr class="alternative_<%=problem.id%>" style="background-color: <%= polycolor %>;display:none">
+                              <tr class="alternative_<%=problem.id%>" style="background-color: <%= polycolor %>;display:none">
                                 <td><%= alternative.user.username if alternative.user%></td>
                                 <th colspan="5"><%= alternative.name %></td>
                                 <td><%= alternative.solution? ? "<span class='label label-success'>Proyecto</span>".html_safe : "<span class='label label-warning'>Idea</span>".html_safe %></td>
@@ -90,8 +90,8 @@
                               </tr>
                             <% end %>
                           <% end %>
-                        <% end %>
-                      </tbody>
+                        </tbody>
+                      <% end %>
                     </table>
                   </div>
                   <div class="widget-foot">

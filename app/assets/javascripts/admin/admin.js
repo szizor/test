@@ -110,6 +110,14 @@ $(document).ready(function() {
     });
     $(".slimScrollBar").hide();
 
+    $('.toggle-trigger').click(function(ev){
+        var targetId = ev.target.getAttribute('data-target-id');
+        var targetToggle = $('.problem_'+targetId);
+        var targetContainer = $('.p-w-'+targetId);
+        targetToggle.toggle('slow');
+        targetContainer.toggleClass('active');
+    });
+
 });
 
 /* Widget close */
@@ -143,7 +151,7 @@ $(document).ready(function() {
         } else {
             return allEvents;
         }
-    } 
+    }
     var tooltip = $('<div/>').qtip({
         id: 'calendar',
         prerender: true,
@@ -216,9 +224,9 @@ $(document).ready(function() {
         weekNumbers: true,
         editable: false,
         eventClick: function(data, event, view) {
-          var content = '<h3>'+data.title+'</h3>' + 
+          var content = '<h3>'+data.title+'</h3>' +
             '<p><b>Desc:</b> '+data.description+'<br />' +
-            '<p><b>Empieza:</b> '+($.fullCalendar.formatDate(data.start, 'hh:mmtt'))+'<br />' + 
+            '<p><b>Empieza:</b> '+($.fullCalendar.formatDate(data.start, 'hh:mmtt'))+'<br />' +
             (data.end && '<p><b>Acaba:</b> '+($.fullCalendar.formatDate(data.end, 'hh:mmtt'))+'</p>' || '');
 
           tooltip.set({
@@ -232,7 +240,7 @@ $(document).ready(function() {
         viewDisplay: function() { tooltip.hide() },
         events: checkEvnets()
     });
-    
+
 
 });
 

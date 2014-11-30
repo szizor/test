@@ -1980,6 +1980,9 @@ border:1px solid #eee;
     padding-left: 20px;
 }
 
+.polygon-wrapper.active{
+    box-shadow: 0px 0px 1px 1px #666666 inset;
+}
 /*.problem-row.expanded td,
 .problem-row.expanded:hover td {
     background: rgba(242, 253, 254, 1);
