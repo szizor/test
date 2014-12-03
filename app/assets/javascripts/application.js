@@ -19,6 +19,7 @@
 //= require plugins/bootstrap-datetimepicker.min
 //= require plugins/select2.js
 //= require home.js
+//= require nav-links.js
 // require_tree .
 
 $(document).ready(function() {

@@ -15,6 +15,7 @@
  *= require plugins/select2-bootstrap.css
  *= require plugins/bootstrap-switch.min.css
  *= require theme.css
+ *= require nav-links.css
  * require_tree .
  */
 

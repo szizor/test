@@ -46,12 +46,16 @@
                     <ul>
                   </div>
                 </div>
-                <a href="#" id="logo" title="ProjectName">ProjectName</a>
+                <div class="left">
+                  <a href="#" id="logo" title="Redespierta tu barrio">Redespierta tu barrio</a>
+                  <%= render 'nav_links' %>
+                </div>
               </div>
               <!-- / container -->
             </header>
             <!-- / header -->
           <% else %>
+            <%= render 'nav_links' %>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown" id="menuRegister">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navRegister">Ingresa</a>
@@ -129,6 +133,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+    <%= render 'proyecto_pageslide' %>
+    <%= render 'procesos_pageslide' %>
     <div class="popup fancybox-problem" id="reporte">
       <h3>Reporte de problema</h3>
       <%= form_for Problem.new, :url => save_problem_path(), :html => { :class => "", :role => "form" } do |f| %>
