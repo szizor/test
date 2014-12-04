@@ -1558,8 +1558,8 @@ background-color: #fff;
     left: auto;
     right: 19px;
     display: block;
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
 }
 .problem-detail .excerpt-container {
     background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.8);
@@ -1654,7 +1654,7 @@ background-color: #fff;
     background-size: 100% auto;
 }
 .problem-detail .close {
-    background: url('../images/ico_close_dark.png') no-repeat scroll 0% 0% transparent;
+    background: url('../images/x.png') no-repeat scroll 0% 0% transparent;
     opacity: 0.8;
 }
 .problem-detail .category-title {

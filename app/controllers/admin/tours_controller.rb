@@ -44,7 +44,7 @@ class Admin::ToursController < Admin::BaseController
     @tour = Tour.find(params[:id])
     @tour.destroy
     respond_to do |format|
-      polygon = Polygon.find(params[:tour][:polygon_id])
+      polygon = Polygon.find(params[:polygon_id])
       format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El recorrido fue eliminado.' }
     end
   end
