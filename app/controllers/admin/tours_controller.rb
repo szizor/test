@@ -43,6 +43,9 @@ class Admin::ToursController < Admin::BaseController
   def destroy
     @tour = Tour.find(params[:id])
     @tour.destroy
-    redirect_to admin_tours_url, :notice => "Successfully destroyed tour."
+    respond_to do |format|
+      polygon = Polygon.find(params[:polygon_id])
+      format.html { redirect_to edit_admin_polygon_path(polygon), notice: 'El recorrido fue eliminado.' }
+    end
   end
 end
