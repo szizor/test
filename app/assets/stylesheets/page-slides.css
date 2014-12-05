@@ -577,7 +577,7 @@
 }
 /*SOCIALIZACION DE RESULTADOS*/
 #socializacion-resultados{
-    background: url('/assets/backgrounds/procesos--socializacion.jpg') 50% 0% / 100% auto no-repeat;
+    background: url('/assets/backgrounds/procesos--socializacion.jpg') 50% 50% / 100% auto no-repeat;
     padding-top: 80px;
     padding-bottom: 40px;
     min-height: 600px;

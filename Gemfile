@@ -12,6 +12,7 @@ gem "rmagick", "2.13.2"
 #gem 'omniauth-twitter', '1.0.1'
 #gem 'omniauth-facebook', '1.4.1'
 gem 'capistrano', '~> 2.9.0'
+gem 'active_attr'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

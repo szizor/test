@@ -135,6 +135,7 @@
     </div>
     <%= render 'proyecto_pageslide' %>
     <%= render 'procesos_pageslide' %>
+    <%= render 'contact_modal' %>
     <div class="popup fancybox-problem" id="reporte">
       <h3>Reporte de problema</h3>
       <%= form_for Problem.new, :url => save_problem_path(), :html => { :class => "", :role => "form" } do |f| %>

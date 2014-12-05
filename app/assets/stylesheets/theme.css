@@ -2217,6 +2217,49 @@ background-color: #fff;
     content: "";
 }
 
+#contactModal .modal-dialog {
+    width: 440px;
+}
+#contactModal .modal-header {
+    border: medium none;
+    padding-bottom: 13px;
+    padding-top: 10px;
+}
+#contactModal .modal-body {
+    padding-top: 8px;
+}
+#contactModal .modal-footer {
+    border: none;
+    padding-top: 2px;
+}
+#contactModal .modal-title {
+    margin: 0px;
+    line-height: 1.42857;
+    font-size: 22px;
+}
+#contactModal label {
+    color: #666;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 26px;
+}
+#contactModal input {
+    margin-bottom: 23px;
+}
+#contactModal textarea {
+    margin-top: 4px;
+}
+#contactModal .submit-btn {
+    background: #cd0537;
+    color: #fff;
+    padding: 7px 22px;
+    margin-bottom: 0;
+}
+#contactModal .modal-content,
+#contactModal .submit-btn {
+    border-radius: 3px;
+}
+
 @media (min-width: 1140px){
     .poligon-info .items-container {
         left: 50px !important;
