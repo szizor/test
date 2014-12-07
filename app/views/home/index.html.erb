@@ -385,8 +385,8 @@
               <p class="loc"><%= problem.alternatives.count%> Alternativa(s) | <%= problem.alternatives.where(:solution => true).count%> Proyecto(s)</p>
             </div>
             <div style="float:right">
-              <div class="report">
-                <a href="#report">Participar</a>
+              <div class="solucion">
+                <a href="#solucion" class="report-trigger" data-problem="<%=problem.id%>" onclick = "$('#alternative_problem_id').val($(this).data( 'problem' ))">Participar</a>
               </div>
             </div>
           </div>

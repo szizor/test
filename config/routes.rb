@@ -22,6 +22,7 @@ Imjuve::Application.routes.draw do
       resources :documents
       resources :videos
       resources :actors
+      resources :groups
       resources :tours
     end
     resources :users
@@ -34,6 +35,7 @@ Imjuve::Application.routes.draw do
   post 'signup', to: 'users#create', as: 'signup'
   post 'messages' => 'messages#create_message'
   post 'save_problem' => "home#save_problem"
+  post 'create_alternative' => "home#create_alternative"
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post "dynamic_polygons/:id" => "home#dynamic_polygons"

@@ -175,6 +175,27 @@
         <button type="submit" class="btn-red">Publicar</button>
       <% end %>
     </div>
+    <div class="popup fancybox-alternative" id="solucion">
+      <h3>Proponer Solución</h3>
+      <%= form_for Alternative.new, :url => create_alternative_path(), :html => { :class => "", :role => "form" } do |f| %>
+        <%= f.hidden_field :polygon_id, :value => @polygon.id %>
+        <%#= f.hidden_field :coords, :id => "user_problem", :required=>"required" %>
+        <%= f.hidden_field :problem_id, :id => "alternative_problem_id" %>
+        <fieldset>
+          <label>nombre de la solución </label>
+          <%= f.text_field :name, :required=>"required" %>
+        </fieldset>
+        <fieldset>
+          <label>Describe tu solución </label>
+           <%= f.text_area :description, :required=>"required" %>
+        </fieldset>
+        <fieldset>
+          <label>Selecciona el tipo de solución</label>
+          <%= f.grouped_collection_select(:category_id, ParentCategory.all, :categories, :name, :id, :name, { :include_blank => "Selecciona..." }, {:class => "form-control", :required=>"required"} ) %>
+        </fieldset>
+        <button type="submit" class="btn-red">Publicar</button>
+      <% end %>
+    </div>
     <!-- <div class="container"> -->
       <% if flash.present? %>
 
