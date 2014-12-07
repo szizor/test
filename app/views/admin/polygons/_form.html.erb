@@ -196,6 +196,7 @@
                 <li><a href="#arboles" data-toggle="tab">Arboles</a></li>
                 <li><a href="#problemas" data-toggle="tab">Problemas</a></li>
                 <li><a href="#actores" data-toggle="tab">Actores</a></li>
+                <li><a href="#grupos" data-toggle="tab">Grupos</a></li>
                 <li><a href="#recorridos" data-toggle="tab">Recorridos</a></li>
               </ul>
               <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
@@ -420,6 +421,32 @@
                           </td>
                           <td><%= link_to "Editar", edit_admin_polygon_actor_path(@polygon, actor) %></td>
                           <td><%= link_to "Borrar", admin_polygon_actor_path(@polygon, actor), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="tab-pane" id="grupos">
+                  <%= button_to "Agregar Grupo", new_admin_polygon_group_path(@polygon), :method => "get", :class=>"btn btn-sm btn-primary pull-right" %>
+                  <h4>Grupos</h4>
+                  <hr>
+                  <table id="datatable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th class="text-center" colspan="2">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for group in @polygon.groups %>
+                        <tr>
+                          <td><%= group.name %></td>
+                          <td><%= group.phone %></td>
+                          <td><%= group.email %></td>
+                          <td><%= link_to "Editar", edit_admin_polygon_group_path(@polygon, group) %></td>
+                          <td><%= link_to "Borrar", admin_polygon_group_path(@polygon, group), confirm: 'Esta seguro?', disable_with: 'deleting...', method: :delete %></td>
                         </tr>
                       <% end %>
                     </tbody>

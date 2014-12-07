@@ -5,6 +5,7 @@ class Polygon < ActiveRecord::Base
   has_many :tours
   has_many :events
   has_many :actors
+  has_many :groups
   has_many :images
   has_many :videos
   has_many :documents

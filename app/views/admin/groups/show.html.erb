@@ -1,0 +1,60 @@
+<% title "Admin/Actor" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @actor.name %>
+</p>
+<p>
+  <strong>Phone:</strong>
+  <%= @actor.phone %>
+</p>
+<p>
+  <strong>Website:</strong>
+  <%= @actor.website %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @actor.email %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @actor.address %>
+</p>
+<p>
+  <strong>Facebook:</strong>
+  <%= @actor.facebook %>
+</p>
+<p>
+  <strong>Twitter:</strong>
+  <%= @actor.twitter %>
+</p>
+<p>
+  <strong>Contact Name:</strong>
+  <%= @actor.contact_name %>
+</p>
+<p>
+  <strong>Contact Email:</strong>
+  <%= @actor.contact_email %>
+</p>
+<p>
+  <strong>Contact Phone:</strong>
+  <%= @actor.contact_phone %>
+</p>
+<p>
+  <strong>Contact Title:</strong>
+  <%= @actor.contact_title %>
+</p>
+<p>
+  <strong>Actor Type:</strong>
+  <%= @actor.actor_type_id %>
+</p>
+<p>
+  <strong>Polygon:</strong>
+  <%= @actor.polygon_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_admin_actor_path(@actor) %> |
+  <%= link_to "Destroy", [:admin, @actor], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", admin_actors_path %>
+</p>
