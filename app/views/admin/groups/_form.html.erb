@@ -44,6 +44,16 @@
             <%= f.text_field :email, :class => "form-control", :placeholder => "Email", :required => "required"  %>
           </div>
         </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :tipo, "Tipo de Grupo" %>
+            <select name="group[tipo]">
+              <option value="Contralor">Contralor</option>
+              <option value="Promotor">Promotor</option>
+            </select>
+          </div>
+        </div>
+
       </div>
       <div class="form-group">
         <!-- Buttons -->
