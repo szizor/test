@@ -3,6 +3,7 @@ $(document).ready(function(){
     var $slides     = $('.page-slide-container');
     var $close      = $slides.find('.close');
     var $innerNav   = $('.inner-nav-item');
+    var $htmlBody   = $('html, body');
     var resetTimer = null;
 
 
@@ -38,10 +39,17 @@ $(document).ready(function(){
     });
 
     $innerNav.click(function(ev){
+        var navItem              = ev.target;
+        var targetSection        = navItem.getAttribute('data-section-target');
+        var targetSectionElement = $htmlBody.find('[id="'+targetSection+'"]');
+
+        ev.preventDefault();
+        $htmlBody.animate({
+            'scrollTop':targetSectionElement.position().top
+        }, 1000);
         $innerNav.removeClass('active');
         ev.target.classList.add('active');
     });
-
 
     $close.click(function(){
         closeAll();

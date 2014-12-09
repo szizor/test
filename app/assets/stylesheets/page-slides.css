@@ -713,7 +713,7 @@
     width: 33.3333% !important;
 }
 */
-@media all and (max-width: 769px) {
+@media all and (max-width: 990px) {
     .page-slide-container {
         bottom: auto;
         display: none;
