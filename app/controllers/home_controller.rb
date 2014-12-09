@@ -42,4 +42,17 @@ class HomeController < ApplicationController
     end
   end
 
+  def create_alternative
+    debugger
+    @alternative = Alternative.new(params[:alternative])
+    if @alternative.save
+      respond_to do |format|
+        format.html { redirect_to root_path(p: params[:alternative][:polygon_id]), notice: 'Solucion creada satisfactoriamente.' }
+        format.json { render json: @alternative, status: :created, location: @alternative }
+      end
+    else
+      render :action => 'new'
+    end
+  end
+
 end

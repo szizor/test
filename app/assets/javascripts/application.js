@@ -59,6 +59,7 @@ $(document).ready(function() {
     });
   });
   $(".reporte a").fancybox();
+  $(".solucion a").fancybox();
 // Bindings
   reportTrigger.on('click', function(){
     if (reportTrigger.hasClass('toggled')) {

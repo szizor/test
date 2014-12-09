@@ -1,0 +1,64 @@
+<div class="form profile">
+  <%= form_for [:admin, :polygon, @group] do |f| %>
+      <div class="row">
+        <% if @group.errors.any? %>
+          <div class="alert alert-danger">
+            <strong><%= pluralize(@group.errors.count, "Error") %></strong> prohibieron a este grupo guardar la información!
+            <ul>
+              <% @group.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "Nombre *" %>
+        <%= f.text_field :name, :class => "form-control input-lg", :placeholder => "Nombre de la persona", :required => "required" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :age, "Edad" %>
+        <%= f.text_field :age, :class => "form-control input-lg", :placeholder => "Edad de la persona"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :gender, "Sexo" %>
+        <%= f.text_field :gender, :class => "form-control input-lg", :placeholder => "Sexo" %>
+      </div>
+      <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :phone, "Teléfono de oficina *" %>
+            <%= f.text_field :phone, :class => "form-control", :placeholder => "Teléfono de oficina", :required => "required"  %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :cell_phone, "Teléfono de oficina *" %>
+            <%= f.text_field :cell_phone, :class => "form-control", :placeholder => "Teléfono celular" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :email, "Email *" %>
+            <%= f.text_field :email, :class => "form-control", :placeholder => "Email", :required => "required"  %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :tipo, "Tipo de Grupo" %>
+            <select name="group[tipo]">
+              <option value="Contralor">Contralor</option>
+              <option value="Promotor">Promotor</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <!-- Buttons -->
+        <%= f.submit params[:id].present? ? "Actualizar" : "Añadir", :class => 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>

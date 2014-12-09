@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "198.58.100.188", :web, :app, :db, primary: true
+server "104.237.135.80", :web, :app, :db, primary: true
 
 set :application, "imjuve"
 set :user, "deploy"
