@@ -27,8 +27,9 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     background: #fff;
+    height: 0;
     top: 56px;
     z-index: -1;
     overflow: auto;
@@ -37,6 +38,7 @@
     transition: opacity 0.5s;
 }
 .page-slide-container.active {
+    height: auto;
     z-index: 3;
     opacity: 1;
     min-width: 1220px;
@@ -703,16 +705,6 @@
     font-style: normal;
 }
 
-/*.pageslide--open{
-    min-width: 1200px !important;
-}
-.page-slide-container .container {
-    min-width: 1170px !important;
-}
-.pageslide--open .col-md-4 {
-    width: 33.3333% !important;
-}
-*/
 @media all and (max-width: 990px) {
     .page-slide-container {
         bottom: auto;

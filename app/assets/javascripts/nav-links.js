@@ -44,7 +44,8 @@ $(document).ready(function(){
         var targetSectionElement = $htmlBody.find('[id="'+targetSection+'"]');
 
         ev.preventDefault();
-        $htmlBody.animate({
+        console.log(targetSectionElement.parent());
+        $($htmlBody, targetSectionElement.parent()).animate({
             'scrollTop':targetSectionElement.position().top
         }, 1000);
         $innerNav.removeClass('active');
