@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
 
   def contact_form(message)
     @message = message
-    mail(:to => "Aaron Dev <dev.aaron.gh@gmail.com>", :subject => "Mensaje de forma de contacto")
+    mail(:to => "Info <info@global-objective.com>", :subject => "Mensaje de forma de contacto")
   end
 
 end
