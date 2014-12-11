@@ -1,67 +1,4 @@
-<div class="map-container">
-  <div class="map-toolbar">
-    <div class="container">
-      <div class="map-toolbar-responsive">
-        <a href="#" class="element-toggle" data-toggle="collapse" data-target=".filter-form"><i class="fa fa-th-large"></i> Filtros de la mapa</a>
-      </div>
-      <form action="" role="form" class="filter-form">
-        <div class="row">
-          <div class="col-md-5 col-xs-12 toolbar__form-group">
-            <div class="row">
-              <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
-                <div class="toolbar__label">Estado</div>
-                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name", @polygon.state_id), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
-                </div>
-              <div class="col-md-6 col-xs-6">
-                <div class="toolbar__label">Polígono</div>
-                <select id="polygon_select" class="form-control select2-control-exec">
-                  <% if @polygon %>
-                    <option value=''>Selecciona el Polígono</option>
-                    <% for polygon in @polygons %>
-                      <option value="<%= polygon.id %>" <%= "selected" if polygon.id == @polygon.id %>><%= polygon.name %></option>
-                    <% end %>
-                  <% else %>
-                    <option value=''>Selecciona el Polígono</option>
-                  <% end %>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
-            <div class="toolbar__label">Categorias</div>
-            <select class="form-control select2-control select2-offscreen" id="problem_category_id" name="category" tabindex="-1" title="">
-            <option value="">Todas</option>
-              <% @parents.each do |parent|%>
-                <optgroup label="<%= parent.name %>">
-                  <% parent.categories.each do |category|%>
-                    <option value="<%= category.id%>"><%= category.name %> (<%= @polygon.problems.where(:category_id => category.id).size %>)</option>
-                  <% end %>
-                </optgroup>
-              <% end %>
-            </select>
-          </div>
-          <div class="col-md-4 col-xs-12 toolbar__form-group">
-            <div class="toolbar__label">Reportes y Proyectos de</div>
-            <div class="row map-options">
-              <div class="col-md-6  toolbar__form-group-field">
-                <label class="btn btn-adopted">
-                  <input type="checkbox" checked="" name="ciudadano"> <b>Ciudadano</b>
-                </label>
-              </div>
-              <div class="col-md-6  toolbar__form-group-field">
-                <label class="btn btn-adopted">
-                  <input type="checkbox" checked="" name="admin"> <b>Administrador</b>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="poligon-info-arrow excerpt-brief">
-      <a href="#" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
-    </div>
-    <div class="poligon-info" style="display: none">
+<div class="poligon-info" style="display: none">
       <i class="slider-control left"></i>
       <i class="slider-control right"></i>
       <div class="bar-label"></div>
@@ -271,6 +208,72 @@
         </div> -->
       </div>
     </div>
+
+
+<div class="map-container">
+  <div class="map-toolbar">
+    <div class="container">
+      <div class="map-toolbar-responsive">
+        <a href="#" class="element-toggle" data-toggle="collapse" data-target=".filter-form"><i class="fa fa-th-large"></i> Filtros de la mapa</a>
+      </div>
+      <form action="" role="form" class="filter-form">
+        <div class="row">
+          <div class="col-md-5 col-xs-12 toolbar__form-group">
+            <div class="row">
+              <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
+                <div class="toolbar__label">Estado</div>
+                  <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name", @polygon.state_id), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                </div>
+              <div class="col-md-6 col-xs-6">
+                <div class="toolbar__label">Polígono</div>
+                <select id="polygon_select" class="form-control select2-control-exec">
+                  <% if @polygon %>
+                    <option value=''>Selecciona el Polígono</option>
+                    <% for polygon in @polygons %>
+                      <option value="<%= polygon.id %>" <%= "selected" if polygon.id == @polygon.id %>><%= polygon.name %></option>
+                    <% end %>
+                  <% else %>
+                    <option value=''>Selecciona el Polígono</option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-12 toolbar__form-group toolbar__form-group-field">
+            <div class="toolbar__label">Categorias</div>
+            <select class="form-control select2-control select2-offscreen" id="problem_category_id" name="category" tabindex="-1" title="">
+            <option value="">Todas</option>
+              <% @parents.each do |parent|%>
+                <optgroup label="<%= parent.name %>">
+                  <% parent.categories.each do |category|%>
+                    <option value="<%= category.id%>"><%= category.name %> (<%= @polygon.problems.where(:category_id => category.id).size %>)</option>
+                  <% end %>
+                </optgroup>
+              <% end %>
+            </select>
+          </div>
+          <div class="col-md-4 col-xs-12 toolbar__form-group">
+            <div class="toolbar__label">Reportes y Proyectos de</div>
+            <div class="row map-options">
+              <div class="col-md-6  toolbar__form-group-field">
+                <label class="btn btn-adopted">
+                  <input type="checkbox" checked="" name="ciudadano"> <b>Ciudadano</b>
+                </label>
+              </div>
+              <div class="col-md-6  toolbar__form-group-field">
+                <label class="btn btn-adopted">
+                  <input type="checkbox" checked="" name="admin"> <b>Administrador</b>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="poligon-info-arrow excerpt-brief">
+      <a href="#" class="info-toggle expand">Más información <i class="toggle-control"></i></a>
+    </div>
+
     <div class="report-problem-bar" style="display: none">
       <h3>Ubicación del Problema</h3>
       <h3 class="marker-instructional-text">Selecciona un punto en el mapa<h3>
