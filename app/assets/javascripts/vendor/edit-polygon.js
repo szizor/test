@@ -96,7 +96,8 @@ function initialize() {
     var i;
 
     for (i = 0; i < polyCoords.length; i++) {
-        drawPolygon.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A || polyCoords[i].B) );
+        debugger
+        drawPolygon.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A || polyCoords[i].B || polyCoords[i].C || polyCoords[i].D) );
     };
 
 
@@ -104,7 +105,7 @@ function initialize() {
       bounds.extend(drawPolygon[i]);
     }
     var mapOptions = {
-        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().A || bounds.getCenter().B),
+        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().A || bounds.getCenter().B || bounds.getCenter().C || bounds.getCenter().D),
         zoom: 15,
         mapTypeControl: true,
         mapTypeControlOptions: {
