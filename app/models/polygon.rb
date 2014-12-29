@@ -86,7 +86,7 @@ class Polygon < ActiveRecord::Base
     total
   end
 
-  def get_beneficiados
+  def get_beneficiarios
     total = 0
     self.problems.each do |problem|
       problem.alternatives.each do |alt|
