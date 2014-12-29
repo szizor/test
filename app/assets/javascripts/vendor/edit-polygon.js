@@ -96,7 +96,6 @@ function initialize() {
     var i;
 
     for (i = 0; i < polyCoords.length; i++) {
-        debugger
         drawPolygon.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A || polyCoords[i].B || polyCoords[i].C || polyCoords[i].D) );
     };
 

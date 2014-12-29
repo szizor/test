@@ -9,17 +9,13 @@ class HomeController < ApplicationController
     @problem = Problem.new
     @events =
       Event.order('start_date DESC').all.map do |u|
-        # if !u.user.nil? && !u.listing.name.nil?
           {
               "id"          => u.id,
               "title"       => u.name,
               "start"       => u.start_date,
               "end"         => u.end_date,
-              # "listing"     => u.listing.name,
-              # "url"         => u.listing.slug+'?event='+u.id.to_s,
               "description"  => u.description
           }
-        # end
       end
   end
 
@@ -43,9 +39,9 @@ class HomeController < ApplicationController
   end
 
   def create_alternative
-    debugger
     @alternative = Alternative.new(params[:alternative])
     if @alternative.save
+      @alternative.update_attribute(:user_id, current_user.id) if current_user
       respond_to do |format|
         format.html { redirect_to root_path(p: params[:alternative][:polygon_id]), notice: 'Solucion creada satisfactoriamente.' }
         format.json { render json: @alternative, status: :created, location: @alternative }
@@ -53,6 +49,14 @@ class HomeController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  def graphs
+    render :layout => "graphs"
+  end
+
+  def single_graphs
+    render :layout => "graphs"
   end
 
 end

@@ -1,0 +1,373 @@
+
+<div class="page-head">
+  <h2 class="pull-left">Dashboard</h2>
+  <div class="clearfix"></div>
+  <!-- Breadcrumb -->
+  <div class="bread-crumb">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Dashboard</a>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="container" id="ReportContainer">
+  <!-- Today status ends -->
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i> Eficacia en la finalización de proyectos planeados.</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="eficaciaGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i> Eficacia en la gestión de fondos</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <div class="graph_container" id="gestionGraph">
+                  <svg></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i> Población beneficiaria</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="poblacionGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i>Distribución del presupuesto asignado por polígono</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <div class="graph_container" id="distribucionGraph">
+                  <svg></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i> Actores identificados en el polígono</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="actoresGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i>Distribución de actores por tipo en el polígono</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive">
+                <div class="graph_container" id="distribucion_actoresGraph">
+                  <svg></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Problemas dados de alta por los usuarios en el polígono</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="usuariosGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i> Problemas por categoría detectados en el polígono</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="categoriasGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <div class="widget">
+          <!-- Widget head -->
+          <div class="widget-head">
+            <div class="pull-left"><i class="fa fa-bar-chart"></i>Total de problemas agrupados en subcategorias</div>
+            <div class="clearfix"></div>
+          </div>
+          <!-- Widget content -->
+          <div class="widget-content">
+            <div class="padd">
+              <div class="table_container table-responsive" style="height: 500px;">
+                <div class="graph_container" id="subcategoriasGraphData" style="height: 500px;">
+                  <svg></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Widget ends -->
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Eventos realizados en el polígono</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="table_container table-responsive">
+              <div class="graph_container" id="eventosGraph">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Tipos de eventos realizados en el polígono</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="tipoEventoGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Eficacia en la convocatoria a eventos realizados</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="table_container table-responsive">
+              <div class="graph_container" id="convocaGraph">
+                <svg></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Total de proyectos planeados para el año en curso</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="planeadosGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Total de ideas generadas (proyectos) por los usuarios</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="projectsGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Total de proyectos en ejecución</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="executionGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Total de proyectos finalizados</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="finalizedGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="widget">
+        <!-- Widget head -->
+        <div class="widget-head">
+          <div class="pull-left"><i class="fa fa-bar-chart"></i>Eficacia en la finalización de proyectos</div>
+          <div class="clearfix"></div>
+        </div>
+        <!-- Widget content -->
+        <div class="widget-content">
+          <div class="padd">
+            <div class="graph_container" id="finalizacionGraph">
+              <svg></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Widget ends -->
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+  var surveys_raw = <%= @surveys.to_json.html_safe %>;
+  var polygon_id = <%= params[:id] || 1 %>;
+</script>
+<% content_for :footer_scripts do %>
+  <%= stylesheet_link_tag "reports" %>
+  <%= javascript_include_tag "single_report_graph" %>
+  <style media="print">
+    .page-head,
+    #polygonSelector,
+    .content {
+      display: none
+    }
+    .page-head {}
+    .row > div {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+<% end %>

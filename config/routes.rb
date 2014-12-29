@@ -5,6 +5,9 @@ Imjuve::Application.routes.draw do
       #################### Reports ###########################
       namespace :reports do
         get '/:id',    to: 'api#get_survey'
+        
+        get 'get_polygon/:id', to: 'api#get_polygon'
+        get 'get_single_polygon/:id', to: 'api#get_single_polygon'
       end
     end
   end
@@ -37,6 +40,8 @@ Imjuve::Application.routes.draw do
   post 'save_problem' => "home#save_problem"
   post 'create_alternative' => "home#create_alternative"
   get 'login', to: 'sessions#new', as: 'login'
+  get 'indicadores_globales' => "home#graphs"
+  get 'indicadores' => "home#single_graphs"
   get 'logout', to: 'sessions#destroy', as: 'logout'
   post "dynamic_polygons/:id" => "home#dynamic_polygons"
   match 'users/subscribe' => redirect('/500.html')

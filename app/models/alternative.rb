@@ -9,4 +9,6 @@ class Alternative < ActiveRecord::Base
   mount_uploader :assigned_budget_pdf, GenericUploader
   mount_uploader :crono, GenericUploader
   mount_uploader :resume, GenericUploader
+
+  scope :created_in, ->(year) { where( "YEAR( created_at ) = ?", year ) }
 end

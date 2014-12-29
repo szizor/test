@@ -22,7 +22,7 @@
       </div>
       <div class="form-group">
         <%= f.label :actor_type_id, "Tipo de institución" %>
-        <%= f.text_field :actor_type_id, :class => "form-control input-lg", :placeholder => "Tipo de  institución" %>
+        <%= f.select :actor_type_id, ActorType.all.collect {|p| [ p.name, p.id ] }, :class => "form-control input-lg", :placeholder => "Tipo de institución" %>
       </div>
       <%= f.hidden_field :polygon_id, :value => params[:polygon_id] %>
       <div class="row">

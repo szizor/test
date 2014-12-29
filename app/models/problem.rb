@@ -9,6 +9,8 @@ class Problem < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   mount_uploader :arbol, ImageUploader
 
+  scope :created_in, ->(year) { where( "YEAR( created_at ) = ?", year ) }
+
   def matority
   	ary = [self.cero_doce, self.doce_catorce, self.quince_diecinueve, self.veinte_veinticuatro, self.veinticinco_veintinueve,self.treinta_cincuentainueve,self.sesenta]
   	max = ary.index(ary.compact.max)
