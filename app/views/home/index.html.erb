@@ -60,13 +60,13 @@
             <h3>Rangos de Edad</h3>
             <table class="table table-bordered rangos-ed">
               <tr>
-                <th class="nb-r"><%= ((@polygon.cero_doce * 100).to_f.to_f / @polygon.population).round %>%</th>
-                <th class="cb-l cb-t"><%= ((@polygon.doce_catorce * 100).to_f / @polygon.population).round %>%</th>
-                <th class="cb-t"><%= ((@polygon.quince_diecinueve * 100).to_f / @polygon.population).round %>%</th>
-                <th class="cb-t"><%= ((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population).round%>%</th>
-                <th class="cb-t cb-r"><%= ((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population).round %>%</th>
-                <th><%= ((@polygon.treinta_cincuentainueve * 100).to_f / @polygon.population).round %>%</th>
-                <th><%= ((@polygon.sesenta * 100).to_f / @polygon.population).round %>%</th>
+                <th class="nb-r"><%= number_with_precision(((@polygon.cero_doce * 100).to_f / @polygon.population), :precision => 2) %>%</th>
+                <th class="cb-l cb-t"><%= number_with_precision(((@polygon.doce_catorce * 100).to_f / @polygon.population), :precision => 2) %>%</th>
+                <th class="cb-t"><%= number_with_precision(((@polygon.quince_diecinueve * 100).to_f / @polygon.population), :precision => 2) %>%</th>
+                <th class="cb-t"><%= number_with_precision(((@polygon.veinte_veinticuatro * 100).to_f / @polygon.population), :precision => 2) %>%</th>
+                <th class="cb-t cb-r"><%= number_with_precision(((@polygon.veinticinco_veintinueve * 100).to_f / @polygon.population), :precision => 2) %>%</th>
+                <th><%= number_with_precision(((@polygon.treinta_cincuentainueve * 100).to_f / @polygon.population), :precision => 2) %>%</th>
+                <th><%= number_with_precision(((@polygon.sesenta * 100).to_f / @polygon.population), :precision => 2) %>%</th>
               </tr>
               <tr>
                 <td class="nb-r" nowrap>0-12</td>
