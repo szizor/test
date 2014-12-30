@@ -3,7 +3,7 @@
   <head>
     <title>Imjuve</title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "application", "events", :media => "all" %>
     <%= stylesheet_link_tag "admin" %>
     <%= javascript_include_tag "admin" %>
     <%= csrf_meta_tags %>
@@ -20,55 +20,78 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">
-            <%= image_tag "logo.jpg"%>
-          </a>
+          <%= link_to image_tag("logo.png"), root_path, :class => "navbar-brand" %>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li id="menuRegister">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navRegister">Ingresa</a>
-            </li>
-            <li class="dropdown" id="menuLogin">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Participa</a>
-              <div class="dropdown-menu">
-                <div class="social-login-title">Conéctate con</div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-                      <i class="fa fa-facebook"></i>
-                      <span class="hidden-xs">Facebook</span>
-                    </a>
-                  </div>
-                  <div class="col-md-6">
-                    <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-                      <i class="fa fa-twitter"></i>
-                      <span class="hidden-xs">Twitter</span>
-                    </a>
+          <% if current_user %>
+            <header id="header">
+              <div class="container">
+                <div class="right">
+                  
+                  <div class="user">
+                    <a href="#"><img src="images/no_photo.png" width="24px" alt=""></a>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: -30px;height:30px;">
+                      <li class="dropdown" id="menuUser">
+                        <a href="#" class="drop dropdown-toggle" data-toggle="dropdown" id="navUser"></a>
+                        <div class="dropdown-menu">
+                          <%= link_to "Tablero de Control", "/admin"  if current_user.is_admin %>
+                          <%= link_to "Salir", logout_path %>
+                        </div>
+                      </li>
+                    <ul>
                   </div>
                 </div>
-                <div class="form-title">ó Regístrate con tu Correo</div>
-                <form class="form" id="formLogin">
-                  <div class="form-group">
-                    <input type="email" name="" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                <div class="left">
+                  <a href="/" id="logo" title="Redespierta tu barrio">Redespierta tu barrio</a>
+                  <%#= render 'nav_links' %>
+                  <div class="nav-links">
+                    <%= link_to "indicadores_globales", "/indicadores_globales" if params[:action] != "graphs" %>
                   </div>
-                  <div class="form-group">
-                    <input type="password" name="" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
-                  </div>
-                  <div class="form-group">
-                    <button type="button" class="btn btn-block btn-lg btn-danger">Registrárme</button>
-                  </div>
-                </form>
-                <div class="register-trigger text-center">
-                  ¿Ya tienes cuenta? <a href="#">Ingresa aqui</a>
                 </div>
               </div>
-            </li>
-          </ul>
-          <!-- <form class="navbar-form navbar-right" role="logins">
-            <button type="button" class="btn btn-primary pull-right">Participa</button>
-            <button type="button" class="btn btn-default">Ingresa</button>
-          </form> -->
+              <!-- / container -->
+            </header>
+            <!-- / header -->
+          <% else %>
+            <%#= render 'nav_links' %>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown" id="menuRegister">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navRegister">Ingresa</a>
+                <div class="dropdown-menu">
+                  <%= form_tag sessions_path, {:id => 'formLogin'} do %>
+                    <div class="form-group">
+                      <input type="email" name="email" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                      <%= submit_tag "Log In", class: "btn btn-info btn-block login" %>
+                    </div>
+                  <% end %>
+                </div>
+              </li>
+              <li class="dropdown" id="menuLogin">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Participa</a>
+                <div class="dropdown-menu">
+                  <%= form_tag signup_path, {:id => 'formLogin'} do %>
+                    <div class="form-group">
+                      <input type="email" name="user[email]" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="user[password]" id="input" class="form-control input-lg" required="required" title="" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                      <%= submit_tag "Registrarme", class: "btn btn-block btn-lg btn-danger" %>
+                    </div>
+                  <% end %>
+                  <div class="register-trigger text-center">
+                    ¿Ya tienes cuenta? <a href="#">Ingresa aqui</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          <% end %>
         </div><!--/.nav-collapse -->
       </div>
     </div>

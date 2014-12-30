@@ -34,7 +34,7 @@
                     <a href="#reporte" class="report-trigger">Reportar un Problema</a>
                   </div>
                   <div class="user">
-                    <a href="#"><img src="images/no_photo.png" width="24px" alt=""></a>
+                    <a href="#"><img src="images/no_photo.png" width="24px" alt="" style="margin-right: -44px;"></a>
                     <ul class="nav navbar-nav navbar-right" style="margin-right: -30px;height:30px;">
                       <li class="dropdown" id="menuUser">
                         <a href="#" class="drop dropdown-toggle" data-toggle="dropdown" id="navUser"></a>
@@ -43,7 +43,8 @@
                           <%= link_to "Salir", logout_path %>
                         </div>
                       </li>
-                    <ul>
+                    </ ul>
+                    <a href="/indicadores?id=<%=params[:p] || 1 %>" target="_blank"><img src="images/graph_ico.png" width="80px" alt="" class="navbar-right" style="margin-right: -81px;" height="38px"></a>  
                   </div>
                 </div>
                 <div class="left">
