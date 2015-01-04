@@ -388,8 +388,15 @@
               <p class="loc"><%= problem.alternatives.count%> Alternativa(s) | <%= problem.alternatives.where(:solution => true).count%> Proyecto(s)</p>
             </div>
             <div style="float:right">
-              <div class="solucion">
-                <a href="#solucion" class="report-trigger" data-problem="<%=problem.id%>" onclick = "$('#alternative_problem_id').val($(this).data( 'problem' ))">Participar</a>
+              <% if current_user %>
+                <div class="solucion">
+                  <a href="#solucion" class="report-trigger" data-problem="<%=problem.id%>" onclick = "$('#alternative_problem_id').val($(this).data( 'problem' ))">Participar</a>
+                </div>  
+              <% else %>
+                <div>
+                  <a href="#solucion" class="not-logged-link"  >Participar</a>
+                </div>  
+              <% end %>
               </div>
             </div>
           </div>
@@ -400,7 +407,7 @@
                   <h1><%= alternative.name %></h1>
                   <p class="location">
                     <span class="solution-user">
-                      <%= alternative.user.username if alternative.user %>
+                      <%= alternative.user ? alternative.user.username : "Admin" %>
                     </span> &middot; <%= time_ago_in_words(alternative.created_at) %>
                   </p>
                   <p class="explicacion">ACCIONES PRINCIPALES</p>
@@ -727,6 +734,7 @@
 
 <script>
   var polyCoords;
+  var usuario   = "<%= current_user.username if current_user %>";
   var polyColor = "<%= @polygon[:colors] %>";
   var allEvents = <%= @events.to_json.html_safe %>;
   var polyinfo  = '<div class="error"><h2><%=h truncate(@polygon.name, :length => 26) %></h2><p id="verInfo" onclick="$(&quot;.poligon-info&quot;).show()">Ver Más Información</p></div>';

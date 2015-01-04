@@ -25,6 +25,7 @@
 $(document).ready(function() {
   window.reportingMode  = false;
   var reportTrigger     = $(".report-trigger");
+  var notLogged        = $(".not-logged-link");
   var poligonInfo       = $('.poligon-info');
   var poligonInfoToggle = $('.info-toggle.expand');
   var poligonToggleWrap = $('.poligon-info-arrow.excerpt-brief');
@@ -61,6 +62,10 @@ $(document).ready(function() {
   $(".reporte a").fancybox();
   $(".solucion a").fancybox();
 // Bindings
+  notLogged.on('click', function(event){
+    event.stopPropagation();
+    $("#navRegister").click();
+  });
   reportTrigger.on('click', function(){
     if (reportTrigger.hasClass('toggled')) {
       reportProblemBar.hide();

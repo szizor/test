@@ -112,6 +112,9 @@
                   <div class="form-title">ó Regístrate con tu Correo</div> -->
                   <%= form_tag signup_path, {:id => 'formLogin'} do %>
                     <div class="form-group">
+                      <input type="text" name="user[username]" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Nombre de Usuario">
+                    </div>
+                    <div class="form-group">  
                       <input type="email" name="user[email]" id="input" class="form-control input-lg" value="" required="required" title="" placeholder="Correo Electrónico">
                     </div>
                     <div class="form-group">
