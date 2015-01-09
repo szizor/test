@@ -60,6 +60,7 @@
             <h3>Rangos de Edad</h3>
             <table class="table table-bordered rangos-ed">
               <tr>
+                <th class="nb-r" nowrap>Porcentaje</th>
                 <th class="nb-r"><%= number_with_precision(((@polygon.cero_doce * 100).to_f / @polygon.population), :precision => 2) %>%</th>
                 <th class="cb-l cb-t"><%= number_with_precision(((@polygon.doce_catorce * 100).to_f / @polygon.population), :precision => 2) %>%</th>
                 <th class="cb-t"><%= number_with_precision(((@polygon.quince_diecinueve * 100).to_f / @polygon.population), :precision => 2) %>%</th>
@@ -69,6 +70,7 @@
                 <th><%= number_with_precision(((@polygon.sesenta * 100).to_f / @polygon.population), :precision => 2) %>%</th>
               </tr>
               <tr>
+                <td class="nb-r" nowrap>Rangos de Edad</td>
                 <td class="nb-r" nowrap>0-12</td>
                 <td class="cb-l cb-b" nowrap>12-24</td>
                 <td class="cb-b" nowrap>15-19</td>
@@ -78,6 +80,7 @@
                 <td nowrap>60+</td>
               </tr>
               <tr>
+                <td class="nb-r" nowrap>Población Total</td>
                 <td nowrap><%= number_with_delimiter(@polygon.cero_doce) %></td>
                 <td nowrap><%= number_with_delimiter(@polygon.doce_catorce) %></td>
                 <td nowrap><%= number_with_delimiter(@polygon.quince_diecinueve) %></td>
