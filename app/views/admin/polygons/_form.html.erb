@@ -144,14 +144,16 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <%= f.label :prod_act, "Principales actividades productivas locales" %>
-                    <%= f.text_field :prod_act, :class => "form-control input-lg", :placeholder => "Principales actividades productivas locales" %>
+                    <%= f.label :prod_act, "Principales actividades productivas locales" %></br>
+                    <i>Para enlistar las actividades, separe el texto con el uso de una "|"</i>
+                    <%= f.text_area(:prod_act, rows: 5, class: 'form-control', placeholder: "Principales actividades productivas locales") %>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <%= f.label :econ_act, "Principales actividades económicas locales" %>
-                    <%= f.text_field :econ_act, :class => "form-control input-lg", :placeholder => "Principales actividades económicas locales" %>
+                    <%= f.label :econ_act, "Principales actividades económicas locales" %></br>
+                    <i>Para enlistar las actividades, separe el texto con el uso de una "|"</i>
+                    <%= f.text_area(:econ_act, rows: 5, class: 'form-control', placeholder: "Principales actividades económicas locales") %>
                   </div>
                 </div>
               </div>
@@ -159,7 +161,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <%= f.label :rutas, "Rutas de transporte público" %>
+                    <%= f.label :rutas, "Rutas de transporte público" %></br>
+                    <i>Para enlistar las rutas, separe el texto con el uso de una ","</i>
                     <%= f.text_area(:rutas, rows: 5, class: 'form-control', placeholder: "Rutas de transporte público") %>
                   </div>
                 </div>

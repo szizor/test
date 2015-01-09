@@ -116,11 +116,15 @@
               <div class="content">
                 <h6>Productivas</h6>
                 <ul>
-                  <li><%= @polygon.prod_act %></li>
+                  <% @polygon.prod_act.split("|").each do |act|%>
+                    <li><%= act %></li>
+                  <% end %>
                 </ul>
                 <h6>económicas</h6>
                 <ul>
-                  <li><%= @polygon.econ_act %></li>
+                  <% @polygon.econ_act.split("|").each do |act|%>
+                    <li><%= act %></li>
+                  <% end %>
                 </ul>
               </div>
             </div>
