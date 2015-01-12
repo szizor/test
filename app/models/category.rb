@@ -14,10 +14,12 @@ class Category < ActiveRecord::Base
   def total_problems
   	total = 0
   	all_p = Problem.created_in(Time.now.year).count.to_f
-    sub = 0
-		number = self.problems.count.to_f
-		sub = (number / all_p) * 100 if number > 0
-		total += sub
+    if all_p > 0
+      sub = 0
+  		number = self.problems.count.to_f
+  		sub = (number / all_p) * 100 if number > 0
+  		total += sub
+    end
   	total.round
   end
 

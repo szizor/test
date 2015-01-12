@@ -10,7 +10,7 @@ class ParentCategory < ActiveRecord::Base
   		number = category.problems.count.to_f
   		sub = (number / all_p) * 100 if number > 0
   		total += sub
-  	end
+  	end if all_p > 0
   	total.round
   end
 
