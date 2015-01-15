@@ -21,11 +21,19 @@ class Polygon < ActiveRecord::Base
   end
 
   def women_perc
-    (women_pop.to_f * 100 / population).round
+    if women_pop > 0
+      (women_pop.to_f * 100 / population).round || 0
+    else
+      0
+    end
   end
 
   def men_perc
-    (men_pop.to_f * 100 / population).round
+    if men_pop > 0
+      (men_pop.to_f * 100 / population).round
+    else
+      0
+    end
   end
 
   def rangos_low

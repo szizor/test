@@ -52,10 +52,14 @@ class HomeController < ApplicationController
   end
 
   def graphs
+    @states = State.all
     render :layout => "graphs"
   end
 
   def single_graphs
+    @states = State.all
+    @polygon = params[:id] ? Polygon.find(params[:id]) : nil
+    @polygons = Polygon.find_all_by_state_id(@polygon.state_id)
     render :layout => "graphs"
   end
 

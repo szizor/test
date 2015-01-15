@@ -13,6 +13,7 @@
         <a href="#" id="trigger-fotos">FOTOS</a>
         <a href="#" id="trigger-videos">VIDEOS</a>
         <a href="#" id="trigger-docs">DOCUMENTOS</a>
+        <a href="/indicadores?id=<%= @polygon.id %>" target="_blank" id="trigger-docs">INDICADORES</a>
       </div>
       <div class="items-container">
         <div class="item first">
@@ -230,17 +231,14 @@
               <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
                 <div class="toolbar__label">Estado</div>
                   <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name", @polygon.state_id), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
-                </div>
+              </div>
               <div class="col-md-6 col-xs-6">
                 <div class="toolbar__label">Polígono</div>
                 <select id="polygon_select" class="form-control select2-control-exec">
                   <% if @polygon %>
-                    <option value=''>Selecciona el Polígono</option>
                     <% for polygon in @polygons %>
                       <option value="<%= polygon.id %>" <%= "selected" if polygon.id == @polygon.id %>><%= polygon.name %></option>
                     <% end %>
-                  <% else %>
-                    <option value=''>Selecciona el Polígono</option>
                   <% end %>
                 </select>
               </div>
@@ -423,7 +421,8 @@
                   <table>
                     <tr>
                       <td>
-                          <img src="images/social.png" alt="">
+                        <a href="https://www.facebook.com/REDESPIERTAtubarrio" target="_blank" class="facebook"><img src="/assets/icons/facebook.png"></a>
+                        <a href="https://twitter.com/_GO_to" target="_blank" class="facebook"><img src="/assets/icons/twitter.png"></a>
                       </td>
                     </tr>
                     <tr style="height: 75px;vertical-align: bottom;">

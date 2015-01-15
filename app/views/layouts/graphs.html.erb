@@ -25,10 +25,9 @@
         </div>
         <div class="navbar-collapse collapse">
           <% if current_user %>
-            <header id="header">
+            <header id="header" style="height: 68px;">
               <div class="container">
                 <div class="right">
-                  
                   <div class="user">
                     <a href="#"><img src="images/no_photo.png" width="24px" alt=""></a>
                     <ul class="nav navbar-nav navbar-right" style="margin-right: -30px;height:30px;">
@@ -45,11 +44,34 @@
                 <div class="left">
                   <a href="/" id="logo" title="Redespierta tu barrio">Redespierta tu barrio</a>
                   <%#= render 'nav_links' %>
-                  <div class="nav-links">
-                    <%= link_to "indicadores_globales", "/indicadores_globales" if params[:action] != "graphs" %>
+                  <div class="nav-links" style="margin-top: 15px;">
+                    <% if params[:action] != "graphs" %>
+                      <%= Polygon.find(params[:id]).name %>
+                    <% else %>
+                      indicadores globales
+                    <% end %>
                   </div>
                 </div>
-              </div>
+                <div class="row" >
+                    <div class="col-md-5 col-xs-12 toolbar__form-group">
+                      <div class="row" style="margin-left: 95px;">
+                        <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
+                          <div class="toolbar__label">Estado</div>
+                            <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                          <div class="toolbar__label">Polígono</div>
+                          <select id="polygon_select" class="form-control select2-control-exec">
+                            <% if @polygon %>
+                              <% for polygon in @polygons %>
+                                <option value="<%= polygon.id %>" <%= "selected" if polygon.id == @polygon.id %>><%= polygon.name %></option>
+                              <% end %>
+                            <% end %>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                </div>
               <!-- / container -->
             </header>
             <!-- / header -->
@@ -110,6 +132,20 @@
       <%= yield %>
     <!-- </div> -->
     <%= yield(:footer_scripts) %>
+    <script>
+    $('#polygon_state_id').change(function() {
+      var data = $('#polygon_state_id').val();
+      $.ajax({
+        type: "POST",
+        url: "http://"+location.host+"/dynamic_polygons/"+data,
+        data: data,
+      });
+    });
+    $('#polygon_select').change(function() {
+      var data = $('#polygon_select').val();
+      window.location = "http://"+location.host+"/indicadores?id="+data;
+    });
+    </script>
     <%#= javascript_include_tag "application" %>
   </body>
 </html>
