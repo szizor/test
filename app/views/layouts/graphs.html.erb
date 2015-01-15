@@ -114,6 +114,33 @@
                 </div>
               </li>
             </ul>
+            <div class="nav-links" style="margin-top: 15px;color:white">
+              <% if params[:action] != "graphs" %>
+                <%= Polygon.find(params[:id]).name %>
+              <% else %>
+                indicadores globales
+              <% end %>
+            </div>
+            <div class="row" >
+              <div class="col-md-5 col-xs-12 toolbar__form-group">
+                <div class="row" style="margin-left: 95px;">
+                  <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
+                    <div class="toolbar__label" style="color:white">Estado</div>
+                      <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name"), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                  </div>
+                  <div class="col-md-6 col-xs-6">
+                    <div class="toolbar__label" style="color:white">Polígono</div>
+                    <select id="polygon_select" class="form-control select2-control-exec">
+                      <% if @polygon %>
+                        <% for polygon in @polygons %>
+                          <option value="<%= polygon.id %>" <%= "selected" if polygon.id == @polygon.id %>><%= polygon.name %></option>
+                        <% end %>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
         </div><!--/.nav-collapse -->
       </div>
