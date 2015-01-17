@@ -147,7 +147,45 @@ ReportsWidget = {
         tipoActorGraphData[3].value = tipoActorCount["Instituciones de educación"]|| 0;
         tipoActorGraphData[4].value = tipoActorCount["Iglesias"]|| 0;
         tipoActorGraphData[5].value = tipoActorCount["Personas"] || 0;
+//////////////////////////// 
+        var usuariosGraphData = [{
+            key: "Cumulative Return",
+            values: [{
+                "label": "2014",
+                    "value": 0
+            }, {
+                "label": "2015",
+                    "value": 0
+            }]
+        }];
+        usuariosGraphData[0].values[0].value = array['2014'].problemas;
+        usuariosGraphData[0].values[1].value = array['2015'].problemas;
 ////////////////////////////   
+        nv.addGraph(function () {
+            var chart = nv.models.discreteBarChart()
+                .x(function (d) {
+                return d.label
+            })
+                .y(function (d) {
+                return d.value
+            })
+                .staggerLabels(true)
+                .tooltips(false)
+                .showValues(true);
+
+            chart.valueFormat(d3.format('f'))
+
+            d3.select("#usuariosGraph svg")
+                .datum(usuariosGraphData)
+                .transition().duration(500)
+                .call(chart);
+
+            nv.utils.windowResize(chart.update);
+            ageGraphChart = chart;
+
+            return chart;
+        });
+////////////////////////////        
         var polygonsGraphData = [{
             key: "Cumulative Return",
             values: [{
