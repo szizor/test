@@ -1,5 +1,8 @@
 $('#polygon_select').empty();
 $('#select2-chosen-4').text("Selecciona el Polígono");
+$('#select2-chosen-3').text("Selecciona el Polígono");
+
+$('#polygon_select').append($("<option></option>"));
 <% for polygon in @polygons %>
     $('#polygon_select').append($("<option></option>").attr("value",<%= polygon.id %>).text('<%= polygon.name %>'));
 <% end %>
