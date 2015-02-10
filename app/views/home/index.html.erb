@@ -421,8 +421,17 @@
                   <table>
                     <tr>
                       <td>
-                        <a href="https://www.facebook.com/REDESPIERTAtubarrio" target="_blank" class="facebook"><img src="/assets/icons/facebook.png"></a>
-                        <a href="https://twitter.com/_GO_to" target="_blank" class="facebook"><img src="/assets/icons/twitter.png"></a>
+                        <% if alternative.facebook_url.present? %>
+                          <a href="<%= alternative.facebook_url %>" target="_blank" class="facebook"><img src="/assets/icons/facebook.png"></a>
+                        <% else %>
+                          <a href="https://www.facebook.com/REDESPIERTAtubarrio" target="_blank" class="facebook"><img src="/assets/icons/facebook.png"></a>
+                        <% end %>
+                        <% if alternative.twitter.present? %>
+                          <a href="<%= alternative.twitter %>" target="_blank" class="facebook"><img src="/assets/icons/twitter.png"></a>
+                        <% else %>
+                          <a href="https://twitter.com/_GO_to" target="_blank" class="facebook"><img src="/assets/icons/twitter.png"></a>
+                        <% end %>  
+                        <div class="fb-like" data-href="http://redespiertatubarrio.imjuventud.gob.mx?alt=<%=alternative.id%>" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
                       </td>
                     </tr>
                     <tr style="height: 75px;vertical-align: bottom;">
