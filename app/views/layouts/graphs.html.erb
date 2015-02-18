@@ -12,7 +12,7 @@
   <body>
 
     <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: white;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -53,7 +53,8 @@
                       <div class="row" style="margin-left: 95px;">
                         <div class="col-md-6 col-xs-6 toolbar__form-group toolbar__form-group-field">
                           <div class="toolbar__label">Estado</div>
-                            <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name", @polygon.state_id), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
+                          <% stage_id = @polygon.state_id if @polygon %>
+                            <%= select_tag :estado, options_from_collection_for_select(@states, "id", "name", stage_id), :prompt => "Selecciona el Estado", :class=>"form-control select2-control", :id=>"polygon_state_id" %>
                         </div>
                         <div class="col-md-6 col-xs-6">
                           <div class="toolbar__label">Polígono</div>
@@ -112,11 +113,7 @@
               </li>
             </ul>
             <div class="nav-links" style="margin-top: 22px;color:white">
-              <% if params[:action] != "graphs" %>
-                <%= Polygon.find(params[:id]).name %>
-              <% else %>
-                indicadores globales
-              <% end %>
+              <a href="/indicadores_globales" style="padding-top:0px">Indicadores Globales</a>
             </div>
             <div class="row" >
               <div class="col-md-5 col-xs-12 toolbar__form-group">
