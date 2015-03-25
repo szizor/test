@@ -1981,7 +1981,12 @@ border:1px solid #eee;
 }
 
 .polygon-wrapper.active{
-    box-shadow: 0px 0px 1px 1px #666666 inset;
+    border: solid 2px #cdcdcd;
+}
+.polygon-wrapper.active tr:nth-child(1) {
+    background: #DBDBDB;
+    font-weight: bold;
+    transition: all 0.3s;
 }
 /*.problem-row.expanded td,
 .problem-row.expanded:hover td {
