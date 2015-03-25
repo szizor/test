@@ -5,7 +5,7 @@ test:
 
 staging:
   <<: *development
-  HOST: 'http://staging.placeit.net'
+  HOST: 'http://redespiertatubarrio.imjuventud.gob.mx'
 production:
   <<: *development
-  HOST: 'https://placeit.net'
+  HOST: 'http://redespiertatubarrio.imjuventud.gob.mx'
