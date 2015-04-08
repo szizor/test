@@ -188,7 +188,7 @@ function initialize() {
     });
 
     for (i = 0; i < coordsVal.length; i++) {
-        drawPolygon.push( new google.maps.LatLng(coordsVal[i].k, coordsVal[i].A || coordsVal[i].B) );
+        drawPolygon.push( new google.maps.LatLng(coordsVal[i].k, (coordsVal[i].A || coordsVal[i].B || coordsVal[i].D)) );
     };
     defaultLatlng = new google.maps.LatLng(20.6698554,-103.3898683);
     mapOptions = {
@@ -298,7 +298,7 @@ function initialize() {
         var currentPolyline = null;
 
         for (i; i < elTour.coords.length; i++) {
-            drawPolyline.push( new google.maps.LatLng(elTour.coords[i].k, elTour.coords[i].A || elTour.coords[i].B) );
+            drawPolyline.push( new google.maps.LatLng(elTour.coords[i].k, elTour.coords[i].A || elTour.coords[i].B || elTour.coords[i].D) );
         };
 
         currentPolyline = new google.maps.Polyline({
