@@ -104,7 +104,7 @@ function initialize() {
       bounds.extend(drawPolygon[i]);
     }
     var mapOptions = {
-        center: new google.maps.LatLng(bounds.getCenter().k, bounds.getCenter().A || bounds.getCenter().B || bounds.getCenter().C || bounds.getCenter().D),
+        center: new google.maps.LatLng(bounds.getCenter().lat(), bounds.getCenter().lng()),
         zoom: 15,
         mapTypeControl: true,
         mapTypeControlOptions: {
