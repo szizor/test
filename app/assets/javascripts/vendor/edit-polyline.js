@@ -93,7 +93,10 @@ function initialize() {
     var i;
 
     for (i = 0; i < polyCoords.length; i++) {
-        drawPolyline.push( new google.maps.LatLng(polyCoords[i].k, polyCoords[i].A || polyCoords[i].B) );
+        var lat,lng;
+        lat = polyCoords[i][Object.keys(polyCoords[i])[0]];
+        lng = polyCoords[i][Object.keys(polyCoords[i])[1]];
+        drawPolyline.push( new google.maps.LatLng(lat, lng) );
     };
 
 

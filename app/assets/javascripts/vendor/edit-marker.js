@@ -8,7 +8,10 @@ var initialPolygonCoords = [];
 var i;
 
     for (i = 0; i < coordsVal.length; i++) {
-        initialPolygonCoords.push( new google.maps.LatLng(coordsVal[i].k, coordsVal[i].A || coordsVal[i].B) );
+        var lat,lng;
+        lat = coordsVal[i][Object.keys(coordsVal[i])[0]];
+        lng = coordsVal[i][Object.keys(coordsVal[i])[1]];
+        initialPolygonCoords.push( new google.maps.LatLng(lat, lng) );
     };  
 
 var myLatlng = new google.maps.LatLng(20.689824621443048,-103.36192846298218);

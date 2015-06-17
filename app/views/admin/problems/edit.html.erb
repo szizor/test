@@ -5,7 +5,7 @@
 <script>
   var markerCoords = <%= @problem.coords.present? ? @problem.coords.html_safe : [] %>;
   var coordsA;
-  coordsA = markerCoords.A || markerCoords.B;
+  coordsA = markerCoords.A || markerCoords.B || markerCoords.C || markerCoords.D || markerCoords.E || markerCoords.F || markerCoords.G || markerCoords.H || markerCoords.I;
   var markerLatlng = new google.maps.LatLng(markerCoords.k,coordsA);
   var coordsVal = <%= raw @polygon.coords %>;
 </script>
