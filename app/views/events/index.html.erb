@@ -1,0 +1,102 @@
+<div class="events container-fluid">
+	<div class="row">
+		<div class="col-xs-9">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="title-calendar">
+						<h1>Calendario</h1> <h2>de Eventos</h2> 
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<%= render 'events/layouts/header_calendar' %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<%= render 'events/layouts/calendar' %>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-3">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="title-next-events">
+						<h1>Eventos próximos</h1>
+						<div class="sp-box nav-up"></div>
+						<div class="sp-box nav-down"></div>
+					</div>
+				</div>
+			</div>
+			<div class="user-event col-xs-12">
+					<%= image_tag("events/eventImg.png", :alt => "Imagen del evento", :data => { :'toggle' => 'modal', :'target' => '#myModal' }) %>
+					<div class="user-event-day">
+						<h1>22</h1>
+					</div>
+					<div class="user-event-date">
+						<h2>Noviembre</h2><h2>12:00 Hrs.</h2>
+					</div>
+					
+					<p data-toggle="modal" data-target="#myModal" >Taller de oficios </br></p>
+					<div class="tw"><%= image_tag("events/twitter.png") %> Tweet</div>
+					<div class="fb"><%= image_tag("events/facebook.png") %> Like</div>
+			</div>
+			<div class="user-event col-xs-12">
+					<%= image_tag("events/eventImg.png", :alt => "Imagen del evento", :data => { :'toggle' => 'modal', :'target' => '#myModal' }) %>
+					<div class="user-event-day">
+						<h1>27</h1>
+					</div>
+					<div class="user-event-date">
+						<h2>Noviembre</h2><h2>16:30 Hrs.</h2>
+					</div>
+					
+					<p data-toggle="modal" data-target="#myModal" >Conferencia Maltrato Infantil</p>
+					<div class="tw"><%= image_tag("events/twitter.png") %> Tweet</div>
+					<div class="fb"><%= image_tag("events/facebook.png") %> Like</div>
+			</div>
+			<div class="user-event col-xs-12">
+					<%= image_tag("events/eventImg.png", :alt => "Imagen del evento", :data => { :'toggle' => 'modal', :'target' => '#myModal' }) %>
+					<div class="user-event-day">
+						<h1>04</h1>
+					</div>
+					<div class="user-event-date">
+						<h2>Diciembre</h2><h2>18:30 Hrs.</h2>
+					</div>
+					
+					<p data-toggle="modal" data-target="#myModal" >Paseo Dominical Av. Colon</p>
+					<div class="tw"><%= image_tag("events/twitter.png") %> Tweet</div>
+					<div class="fb"><%= image_tag("events/facebook.png") %> Like</div>
+			</div>
+			<div class="user-event col-xs-12">
+					<%= image_tag("events/eventImg.png", :alt => "Imagen del evento", :data => { :'toggle' => 'modal', :'target' => '#myModal' }) %>
+					<div class="user-event-day">
+						<h1>09</h1>
+					</div>
+					<div class="user-event-date">
+						<h2>Diciembre</h2><h2>18:30 Hrs.</h2>
+					</div>
+					
+					<p data-toggle="modal" data-target="#myModal" >Paseo Dominical Av. Colon</p>
+					<div class="tw"><%= image_tag("events/twitter.png") %> Tweet</div>
+					<div class="fb"><%= image_tag("events/facebook.png") %> Like</div>
+			</div>
+			<div class="user-event col-xs-12">
+					<%= image_tag("events/eventImg.png", :alt => "Imagen del evento", :data => { :'toggle' => 'modal', :'target' => '#myModal' }) %>
+					<div class="user-event-day">
+						<h1>14</h1>
+					</div>
+					<div class="user-event-date">
+						<h2>Diciembre</h2><h2>18:30 Hrs.</h2>
+					</div>
+					<p data-toggle="modal" data-target="#myModal">Paseo Dominical Av. Colon</p>
+					<div class="tw"><%= image_tag("events/twitter.png") %> Tweet</div>
+					<div class="fb"><%= image_tag("events/facebook.png") %> Like</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<%= render 'events/layouts/modal' %>
+</div>
+

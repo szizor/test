@@ -1,0 +1,134 @@
+<div class="" id="gridcontainer" style="height: 673px;">
+	<div id="topcontainerwk">
+		<table cellpadding="0" cellspacing="0" class="wk-weektop">
+			<tbody>
+				<tr class="wk-daynames">
+					<td class="wk-tzlabel" rowspan="3" style="width:60px">
+					GMT-04:30</td>
+
+					<th scope="col" title="jueves 18/6">
+						<div class="wk-dayname wk-today wk-today-last">
+							<span class="ca-cdp23250 wk-daylink">viernes
+							19/6</span>
+						</div>
+					</th>
+
+					<th class="wk-dummyth" rowspan="3" style="width: 15px;">
+					&nbsp;</th>
+				</tr>
+
+				<tr>
+					<td class="wk-allday" colspan="1">
+						<div class="wk-allday-pos" id="weekViewAllDaywk">
+							<table cellpadding="0" cellspacing="0" class=
+							"st-bg-all" id="weekViewAllDayBgwk" style=
+							"height: 13px;">
+								<tbody>
+									<tr>
+										<td class="st-bg-td-last">&nbsp;</td>
+									</tr>
+								</tbody>
+							</table>
+							<table cellpadding="0" cellspacing="0" class=
+							"st-grid">
+								<tbody>
+									<tr>
+										<td class="st-c st-s" rowspan="2">
+										&nbsp;</td>
+									</tr>
+
+									<tr>
+										<td>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</td>
+				</tr>
+
+
+				<tr class="wk-webcontent">
+					<td class="wk-webcontent-td">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="wk-border" id="topcontainerBorderwk">
+	</div>
+
+
+	<div class="wbkt wk-scrolltimedevents" id="scrolltimedeventswk" style=
+	"height: 1080px;">
+		<div class="tg-mainwrapper" style="margin-top:0px;">
+			<table cellpadding="0" cellspacing="0" class="tg-timedevents" id=
+			"tgTable" style="height:1010px">
+				<tbody>
+					<tr>
+						<td style="width:60px;">
+						</td>
+
+						<td colspan="1">
+							<div class="tg-spanningwrapper">
+								<div class="tg-hourmarkers">
+
+									<% (1..24).each do |i| %>
+
+										<div class="tg-markercell">
+											<div class="tg-dualmarker">
+											</div>
+										</div>
+
+									<% end %>
+								</div>
+							</div>
+							<div class=
+							"tg-spanningwrapper tg-chipspanningwrapper" id=
+							"tgspanningwrapper">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="tg-times-pri">
+							<% (0..23).each do |i| %>
+								<div style="height:42px;">
+									<div class="tg-time-pri" style="height:41px;">
+										<% if i < 12 %>
+											<% if i == 0%>
+												12 am
+											<% else %>
+											<%= i  %> am
+											<% end %>
+										<%else%>
+											<% if i == 12%>
+												12 pm
+											<%else%>
+												<%= i - 12  %> pm
+											<%end%>
+										<% end %>
+									</div>
+								</div>
+							<% end %>
+						</td>
+						<td class="tg-col-today">
+							<div class="tg-today" style=
+							"height:1008px;margin-bottom:-1008px;">
+								&nbsp;
+							</div>
+							<div class="tg-col-eventwrapper" id="tgCol0" style=
+							"height:1008px;margin-bottom:-1008px;">
+								<div class="tg-gutter">
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="wk-border" id="bottomcontainerBorderwk">
+	</div>
+</div>

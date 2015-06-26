@@ -32,6 +32,7 @@ Imjuve::Application.routes.draw do
     resources :dashboard, :only => [:index]
     root :to => "dashboard#index"
   end
+  resources :events, :only => [:index]
 
   get "home/index"
 

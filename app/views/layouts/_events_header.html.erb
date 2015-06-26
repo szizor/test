@@ -1,0 +1,29 @@
+<header class="navbrand navbar navbar-static-top" id="top" role="banner">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= image_tag("logo.png", :alt => "red despierta") %>
+    </div>
+    <nav id="bs-navbar" class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="">El Proyecto</a>
+        </li>
+        <li >
+          <a href="">Procesos</a>
+        </li>
+        <li class="is-selected" >
+          <a href="">Contacto</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="" class="plus" ><%= image_tag("events/plus.png", :alt => "thumbnail") %>Reporta un Problema</a></li>
+        <li>
+          <a href="" >
+            <%= image_tag("events/thumbnail.png", :alt => "thumbnail") %>
+            <%= image_tag("events/arrow.png", :alt => "thumbnail") %>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

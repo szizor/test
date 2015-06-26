@@ -1,0 +1,66 @@
+
+/*@import 'base/colors';
+@import 'base/mixins';
+*/
+.navbrand {
+
+	.container-fluid {
+		@include box-shadow(0px, 2px, 5px, $accent-color, "");
+	}
+
+	li {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	
+	li > a {
+		color: $brand-color;
+		letter-spacing: 2px;
+	}
+
+	li > a:hover {
+		color: $accent-color;
+		background-color: $base-color !important;
+	}
+
+
+
+
+	.is-selected {
+		border-bottom: 3px solid;
+		border-color: $brand-color;
+
+		a {
+			color: $accent-color;;
+		}
+	}
+
+	.navbar-right li{
+		padding-left: 0px;
+		padding-right: 0px;
+		border-left: 2px solid;
+		border-color: $divider-color;
+	}
+
+	.navbar-right li a{
+		color: #2a2a2a;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.title-report {
+		padding-bottom: 9px;
+	}
+
+	.plus {
+
+		padding-bottom: 20px;
+
+		img {
+			margin-right: 10px;
+		}
+	}
+
+}
+
