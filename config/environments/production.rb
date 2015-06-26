@@ -46,7 +46,7 @@ Imjuve::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( application.js application.css encuestas.js survey.css admin.css admin.js reports.css reports.js single_report_graph.js report_graph.js plugins/polygons.css eventos.js survey.css events.css vendor/* )
+  config.assets.precompile += %w( application.js application.css encuestas.js survey.css admin.css admin.js reports.css reports.js single_report_graph.js report_graph.js plugins/polygons.css eventos.js survey.css events.css vendor/* event_page.css )
   #config.assets.precompile += %w( *.css *.js )
 
   # Disable delivery errors, bad email addresses will be ignored
