@@ -14,5 +14,5 @@
  *= require 'eventos'
  */
 
- @import 'vendor/normalize';
- @import 'partials/_header';
+ @import 'vendor/normalize.css';
+ @import 'partials/_header.css';
