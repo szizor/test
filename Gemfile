@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
+gem "rails", ">= 3.2.17"
 gem 'mysql2', '0.3.13'
 #gem "cancan", '1.6.10'
 gem "jquery-rails"
